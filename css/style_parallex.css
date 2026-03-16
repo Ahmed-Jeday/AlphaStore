@@ -1,0 +1,105 @@
+
+
+
+.parallaxs{
+  position: relative; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  width: 90%;
+  border-radius: 5px;
+  margin-left: 50px;
+  
+  
+ 
+}
+
+
+
+
+
+/* Conteneur principal qui gère l'image de fond */
+.parallax1 {
+    /* Remplace 'ton-image.jpg' par le lien de ton image (ex: un t-shirt ou mannequin) */
+    background-image: linear-gradient(rgba(47, 72, 201, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url('../img/banner-03.jpg');
+    
+    /* L'effet Parallaxe */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Hauteur de la section */
+    height: 500px; 
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+/* Conteneur pour limiter la largeur et aligner à gauche */
+.promo-special-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+/* Style du contenu textuel */
+.promo-special-content {
+    max-width: 600px; /* On limite la largeur du bloc de texte */
+}
+
+.promo-special-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.promo-special-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.promo-special-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.promo-special-offer {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Style du bouton */
+.promo-special-btn {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    padding: 15px 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.promo-special-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+
+
+.s{
+    background-color: #fbf1ed;
+    padding-top: 30px;
+}
+
+
+

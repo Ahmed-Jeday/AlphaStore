@@ -1,0 +1,71 @@
+-
+	const filters = ["Best Sellers", "New Arrivals", "Hot Sales"]
+	const generateFilterList = (_list = []) => {
+		const filter = filters[Math.floor(Math.random() * filters.length)];
+		if (!_list.includes(filter)) _list.push(filter)
+		if (_list.length >= 2) return _list.join(',');
+		return generateFilterList(_list);
+	};
+	const products = [
+		{
+			image:'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+			name: 'Some Cool Shoes',
+			rating: 5,
+			price: '$65.99'
+		},
+		{
+			image:'https://images.unsplash.com/photo-1483103068651-8ce44652c331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8',
+			name: 'Super Dope Hat',
+			rating: 3,
+			price: '$38.99'
+		},
+		{
+			image:'https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format',
+			name: 'Radical Tie-dye Shirt',
+			rating: 4,
+			price: '$65.99'
+		},
+		{
+			image:'https://images.unsplash.com/photo-1632226390535-2f02c1a93541?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+			name: 'Very Suave Vest',
+			rating: 5,
+			price: '$65.99'
+		},
+		{
+			image:'https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format',
+			name: 'Basci Denim Pants',
+			rating: 2,
+			price: '$45.99'
+		},
+		{
+			image:'https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9vZGllfGVufDB8fDB8fA%3D%3D&auto',
+			name: 'DJ Hoodie',
+			rating: 5,
+			price: '$79.99'
+		}
+	]
+
+section.filters
+	each filter in filters
+		button.filter(data-filter=filter)= filter
+
+section.products
+	- let i = 0;
+	while i++ < 6
+		each product in products
+			a.product(href="#", data-filter=generateFilterList())
+				.product__inner
+					.product__image
+						img.product__image-inner(src=product.image)
+					h4.product__name= product.name
+					data.product__rating(value=product.rating)
+						span
+						span
+						span
+						span
+						span
+					p.product__price= product.price
+
+section.other
+	h2 Some Other Content
+	p This is another section on the page. It is here to demonstrate how the hight of the products grid smoothly animates as products are filtered on and off the screen
