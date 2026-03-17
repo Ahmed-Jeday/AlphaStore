@@ -401,11 +401,16 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background: transparent; /* Pour qu'elle s'intègre sur l'image hero */
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
-    position: absolute; /* Pour flotter au-dessus de l'image de fond */
+    position: fixed;
+    top: 0;
     width: 100%;
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 /* Groupe Gauche (Logo + Liens) */
@@ -430,10 +435,28 @@ body {
 .nav-links a, .nav-link-secondary {
     color: white;
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 700;
     text-transform: uppercase;
-    transition: 0.3s;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.nav-links a::after, .nav-link-secondary::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after, .nav-link-secondary:hover::after {
+    width: 100%;
 }
 
 /* Groupe Droite (About, Contact, Icones) */
@@ -474,10 +497,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* Effet au survol */
-.nav-links a:hover, .nav-link-secondary:hover {
-    opacity: 0.7;
-}
+/* Removed old generic hover effect since we added animated underlines */
 
 #user_icon{
     color: #a7b1b7;
