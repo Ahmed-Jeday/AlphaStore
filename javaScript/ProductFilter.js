@@ -1,189 +1,190 @@
+// ── Configuration ─────────────────────────────────────────────────────────
+const MAX_VISIBLE = 7;
+
+// ── DOM References ─────────────────────────────────────────────────────────
 const filters = [...document.querySelectorAll(".filter")];
 const grid = document.querySelector(".products");
-const products = [...document.querySelectorAll(".product")];
+const allProducts = [...document.querySelectorAll(".product")];
 
-// Get the computed style of the first product
-const computedStyle = getComputedStyle(products[0]);
-// Get druation and easing from the computed style so the animation settings match the CSS transition
-const duration =
-	parseFloat(computedStyle.transitionDuration.replace("ms", "")) * 1000;
-const easing = computedStyle.transitionTimingFunction;
+// ── Build the "See More" card ──────────────────────────────────────────────
+const seeMoreCard = document.createElement("div");
+const seeLessBtn = document.getElementById("see-less-btn");
+seeMoreCard.className = "see-more-card";
+seeMoreCard.innerHTML = `
+  <div class="see-more-inner">
+  <img  src="../img/right-arrow.png" alt="">
+  
+ 
+    
+    <strong>See More</strong>
+    <span id="remaining-count"></span>
+    <div class="see-more-badge" id="see-more-badge"></div>
+  </div>
+`;
+grid.appendChild(seeMoreCard);
+
+// ── Animation settings (read from CSS transition) ──────────────────────────
+const computedStyle = getComputedStyle(allProducts[0]);
+const duration = parseFloat(computedStyle.transitionDuration) * 1000 || 350;
+const easing = computedStyle.transitionTimingFunction || "ease";
 const animationSettings = { duration, easing };
 
+// ── State ──────────────────────────────────────────────────────────────────
 let isAnimating = false;
+let showAll = false;
+let currentFilter = null;
 
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+/**
+ * Returns the list of products that match the current filter.
+ * If filter is null, all products match.
+ */
+function getMatchingProducts(filter) {
+  return allProducts.filter(p =>
+    filter == null || p.dataset.filter.split(",").includes(filter)
+  );
+}
+
+/**
+ * Applies is-hidden to products outside the current selection/pagination,
+ * and updates the "See More" card visibility + badge count.
+ */
+function applyVisibility() {
+  const matched = getMatchingProducts(currentFilter);
+  const limit = showAll ? Infinity : MAX_VISIBLE;
+  const overflow = matched.slice(limit); // products over the limit
+
+  allProducts.forEach(p => {
+    const inMatch = matched.includes(p);
+    const overLimit = overflow.includes(p);
+    if (!inMatch || overLimit) {
+      p.classList.add("is-hidden");
+    } else {
+      p.classList.remove("is-hidden");
+    }
+  });
+
+  // Show/hide the "See More" card
+  const hasMore = matched.length > MAX_VISIBLE && !showAll;
+  if (hasMore) {
+    seeMoreCard.classList.remove("is-hidden");
+    const extra = matched.length - MAX_VISIBLE;
+    document.getElementById("remaining-count").textContent = "";
+    document.getElementById("see-more-badge").textContent  = `+${extra} articles`;
+    seeLessBtn.classList.remove("is-visible");
+  } else {
+    seeMoreCard.classList.add("is-hidden");
+    if (showAll && matched.length > MAX_VISIBLE) {
+      seeLessBtn.classList.add("is-visible");
+    } else {
+      seeLessBtn.classList.remove("is-visible");
+    }
+  }
+}
+
+// ── Animated filter selection ──────────────────────────────────────────────
 const makeSelection = async (filter) => {
-	// Do not start a new animation if one is currently running
-	if (isAnimating) return;
-	// Notate that an animation is currently running
-	isAnimating = true;
+  if (isAnimating) return;
+  isAnimating = true;
+  showAll = false;
 
-	// Find the otherFilters (the ones you didn't click on)
-	const otherFilters = filters.filter((f) => f != filter);
-	// Deselect the otherFilters
-	otherFilters.forEach((f) => f.classList.remove("is-active"));
-	// Toggle the selection of current filter
-	filter.classList.toggle("is-active");
+  // Toggle active state on filters
+  filters.filter(f => f !== filter).forEach(f => f.classList.remove("is-active"));
+  filter.classList.toggle("is-active");
+  currentFilter = filter.classList.contains("is-active") ? filter.dataset.filter : null;
 
-	// Get the value of selected filter
-	const selection = filter.classList.contains("is-active")
-		? filter.dataset.filter
-		: null;
+  // Snapshot starting positions
+  grid.__start = grid.offsetHeight;
+  allProducts.forEach(p => {
+    p.__start = {
+      hidden: p.classList.contains("is-hidden"),
+      left: p.offsetLeft,
+      top: p.offsetTop
+    };
+  });
 
-	// Mark non-matched products to be hidden
-	const hiddenProducts = products.filter(
-		// Products can belong to more than one category. The data-filter attribute can be a list of filter valuse separated by a comma (,)
-		// Make sure that there was a selection made, and if so make sure the product's list of filter categories does not include the selection
-		(p) => selection != null && !p.dataset.filter.split(",").includes(selection)
-	);
-	// Mark matched products to be visible
-	const activeProducts = products.filter(
-		// Products can belong to more than one category. The data-filter attribute can be a list of filter valuse separated by a comma (,)
-		// Make sure that there either wasn't a selection made, or if there was make sure the product's list of filter categories includes the selection
-		(p) => selection == null || p.dataset.filter.split(",").includes(selection)
-	);
+  // Apply new visibility
+  applyVisibility();
 
-	// Get the initial height of the grid to smoothly animate the size
-	grid.__start = grid.offsetHeight;
+  // Snapshot ending positions
+  allProducts.forEach(p => {
+    p.__end = {
+      hidden: p.classList.contains("is-hidden"),
+      left: p.offsetLeft,
+      top: p.offsetTop
+    };
+  });
+  grid.__end = grid.offsetHeight;
 
-	// Get the initial position data for each product
-	products.forEach((p) => {
-		p.__start = {
-			hidden: p.classList.contains("is-hidden"),
-			left: p.offsetLeft,
-			top: p.offsetTop
-		};
-	});
+  // Animate grid height
+  const gridAnimation = grid.animate(
+    [{ height: `${grid.__start}px` }, { height: `${grid.__end}px` }],
+    animationSettings
+  );
 
-	// Apply the visibility changes to each product
-	hiddenProducts.forEach((p) => p.classList.add("is-hidden"));
-	activeProducts.forEach((p) => p.classList.remove("is-hidden"));
+  // Animate each product card
+  const productAnimations = allProducts.map(p => {
+    const prev = p.__start.hidden;
+    const curr = p.__end.hidden;
+    const newlyHidden = !prev && curr;
+    const newlyVisible = prev && !curr;
+    const persistent = !prev && !curr;
 
-	// Get the final position data for each product
-	products.forEach((p) => {
-		p.__end = {
-			hidden: p.classList.contains("is-hidden"),
-			left: p.offsetLeft,
-			top: p.offsetTop
-		};
-	});
+    const x = p.__start.left - p.__end.left;
+    const y = p.__start.top - p.__end.top;
 
-	// Get the final height of the grid to smoothly animate the size
-	grid.__end = grid.offsetHeight;
+    // Pin newly-hidden cards so they don't jump when absolutely positioned
+    if (newlyHidden) {
+      p.style.left = `${p.__start.left}px`;
+      p.style.top = `${p.__start.top}px`;
+    }
 
-	// Animate the height of the grid from the initial height to the new hight after the products have been filtered
-	const gridAnimation = grid.animate(
-		[
-			{
-				height: `${grid.__start}px`
-			},
-			{
-				height: `${grid.__end}px`
-			}
-		],
-		animationSettings
-	);
+    // Outer animation: translate (persistent) or scale in/out
+    const outer = p.animate([
+      { transform: persistent ? `translate(${x}px, ${y}px)` : `scale(${prev ? 0 : 1})` },
+      { transform: persistent ? `translate(0, 0)` : `scale(${curr ? 0 : 1})` }
+    ], { ...animationSettings });
 
-	// Do the product animations, and return an array that contains promises for each of the products collection of animations
-	const productAnimations = products.map((p, i) => {
-		// Was this product previously hidden?
-		const previouslyHidden = p.__start.hidden;
-		// Is this product currently hidden?
-		const currentlyHidden = p.__end.hidden;
+    // Inner counter-scale so content doesn't squish with the card
+    const inner = p.querySelector(".product__inner");
+    const innerAnim = inner.animate([
+      { transform: `scale(${newlyVisible ? "2, 2" : "1, 1"})` },
+      { transform: `scale(${newlyHidden ? "2, 2" : "1, 1"})` }
+    ], animationSettings);
 
-		// Was the product previously hidden and becoming visible?
-		const newlyHidden = !previouslyHidden && currentlyHidden;
-		// Was the product previously visible and becoming hidden?
-		const newlyVisible = previouslyHidden && !currentlyHidden;
-		// Was the product perviously visible and staying visible?
-		const persistentlyVisible = !previouslyHidden && !currentlyHidden;
+    return Promise.all([outer.finished, innerAnim.finished]).then(() => {
+      if (newlyHidden) { p.style.left = ""; p.style.top = ""; }
+    });
+  });
 
-		// Get the difference from the starting and ending positions of the product card so we can animate it from where it was to where it's going (only happens if the product is persistentlyVisible)
-		const x = p.__start.left - p.__end.left;
-		const y = p.__start.top - p.__end.top;
-
-		// If the product is newlyHidden apply left and top style values from the starting offset. This way the element will remain in the same position after it becomes absolutely positioned and is animating out of the grid
-		if (newlyHidden) {
-			p.style.left = `${p.__start.left}px`;
-			p.style.top = `${p.__start.top}px`;
-		}
-
-		// Animate the product's position if it's persistentlyVisible, or animate its scale if it's hidden
-		const outerAnimation = p.animate(
-			[
-				{
-					...(persistentlyVisible
-						? { transform: `translate(${x}px, ${y}px)` }
-						: {
-								transform: `scale(${previouslyHidden ? 0 : 1}, ${
-									previouslyHidden ? 0 : 1
-								})`
-						  })
-				},
-				{
-					...(persistentlyVisible
-						? { transform: `translate(0, 0)` }
-						: {
-								transform: `scale(${currentlyHidden ? 0 : 1}, ${
-									currentlyHidden ? 0 : 1
-								})`
-						  })
-				}
-			],
-			{ ...animationSettings }
-		);
-
-		// Get the inner container
-		const inner = p.querySelector(".product__inner");
-		// Animate the scale of the inner element to the opposite scale of the outer element. This will make it look like the container is shrinking around the contents of the product card, rather than the contents of the card scaling down with it
-		const innerAnimation = inner.animate(
-			[
-				{
-					transform: `scale(${newlyVisible ? "2, 2" : "1, 1"})`
-				},
-				{
-					transform: `scale(${newlyHidden ? "2, 2" : "1, 1"})`
-				}
-			],
-			animationSettings
-		);
-
-		// Return a new Promise that resolves once the outer and inner animations have completed, and then cleans up the temp position styles
-		return Promise.all([outerAnimation.finished, innerAnimation.finished]).then(
-			() => {
-				// Clean up the top and left styles we added to newlyHidden products
-				if (newlyHidden) {
-					p.style.left = "";
-					p.style.top = "";
-				}
-			}
-		);
-	});
-
-	// Wait for every animation to finish
-	await Promise.all([...productAnimations, gridAnimation]);
-	// Notate that all current animations have completed
-	isAnimating = false;
+  await Promise.all([...productAnimations, gridAnimation]);
+  isAnimating = false;
 };
 
-// Set an explicit height/width to the product cards so they dont grow or shrink when they become absolutely positioned and are removed from the page. The Height/Width value is grabbed from the first product on the page that isn't hidden. This way we set everything to the same explicit size. This is recalculated as the screen size changes
+// ── "See More" click ───────────────────────────────────────────────────────
+seeMoreCard.addEventListener("click", () => {
+  showAll = true;
+  applyVisibility();
+  seeMoreCard.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
+seeLessBtn.addEventListener("click", () => {
+  showAll = false;
+  applyVisibility();
+  grid.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+// ── Resize handler (keep explicit card dimensions consistent) ──────────────
 const resize = () => {
-	products.forEach((p) => {
-		p.style.height = "";
-		p.style.width = "";
-	});
-	const { height, width } = getComputedStyle(
-		products.find((p) => !p.classList.contains("is-hidden"))
-	);
-	products.forEach((p) => {
-		p.style.height = `${height}px`;
-		p.style.width = `${width}px`;
-	});
+  allProducts.forEach(p => { p.style.height = ""; p.style.width = ""; });
+  const ref = allProducts.find(p => !p.classList.contains("is-hidden"));
+  if (!ref) return;
+  const { height, width } = getComputedStyle(ref);
+  allProducts.forEach(p => { p.style.height = height; p.style.width = width; });
 };
 
-// Apply the initial explicit height/width of the product cards
+// ── Init ───────────────────────────────────────────────────────────────────
+applyVisibility();
 resize();
-// Add resize event listener to recalculate explicit height/width
 window.addEventListener("resize", resize);
-// Add event listener to do the filtering/animation on click
-filters.forEach((f) => f.addEventListener("click", () => makeSelection(f)));
+filters.forEach(f => f.addEventListener("click", () => makeSelection(f)));

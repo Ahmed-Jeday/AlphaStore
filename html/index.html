@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elite Fashion - Premium Summer Collection</title>
 
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!--Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
@@ -46,13 +48,16 @@
 
     <div class="nav-right">
         <a href="#" class="nav-link-secondary">About Us</a>
-        <a href="#" class="nav-link-secondary">Contact Us</a>
+        <a href="contactUs.html" class="nav-link-secondary">Contact Us</a>
         <span class="price">$0.00</span>
         <div class="cart-container">
             <i class="fas fa-shopping-bag"></i>
             <span class="cart-count">0</span>
         </div>
-        <i class="fas fa-user user-icon"></i>
+        
+        <a href="signUp.html" id="user_icon" class="user-icon" aria-label="Sign up / log in">
+            <i class="fas fa-user"></i>
+        </a>
     </div>
 </nav>
 
@@ -163,6 +168,7 @@
         </div>
     </header>
 
+    
 
     <div class="Image-wrapper">
         <div class="Image-container">
@@ -226,7 +232,7 @@
 
 
     <section class="product-categories">
-        <h3>Featured Collections</h3>
+        
         <div class="container">
             <div class="category-grid">
                 <!-- Category 1 -->
@@ -294,338 +300,56 @@
 
 
 
-    <div class="filter">
-        <section class="filters"><button class="filter" data-filter="Best Sellers">Best Sellers</button><button
-                class="filter" data-filter="New Arrivals">New Arrivals</button><button class="filter"
-                data-filter="Hot Sales">Hot
-                Sales</button></section>
-        <section class="products"><a class="product" href="#" data-filter="Best Sellers,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Basci Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9vZGllfGVufDB8fDB8fA%3D%3D&amp;auto" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Basci Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9vZGllfGVufDB8fDB8fA%3D%3D&amp;auto" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Basci Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9vZGllfGVufDB8fDB8fA%3D%3D&amp;auto" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Basci Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9vZGllfGVufDB8fDB8fA%3D%3D&amp;auto" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Basci Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9vZGllfGVufDB8fDB8fA%3D%3D&amp;auto" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=764&amp;q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format" />
-                    </div>
-                    <h4 class="product__name">Basci Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a><a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG9vZGllfGVufDB8fDB8fA%3D%3D&amp;auto" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a></section>
+   <div class="wrapper">
+  <section class="filters">
+    <button class="filter" data-filter="Best Sellers">For You</button>
+    <button class="filter" data-filter="New Arrivals">New Arrivals</button>
+    <button class="filter" data-filter="Hot Sales">Best Sellers</button>
+  </section>
 
-    </div>
+  <section class="products">
+    <a class="product" href="#" data-filter="Best Sellers,Hot Sales"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Some Cool Shoes</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Hot Sales"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Super Dope Hat</h4><data class="product__rating" value="3"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$38.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating" value="4"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Very Suave Vest</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,Hot Sales"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Basic Denim Pants</h4><data class="product__rating" value="2"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$45.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">DJ Hoodie</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$79.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Some Cool Shoes</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Super Dope Hat</h4><data class="product__rating" value="3"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$38.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating" value="4"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Hot Sales"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Very Suave Vest</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Basic Denim Pants</h4><data class="product__rating" value="2"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$45.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">DJ Hoodie</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$79.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Some Cool Shoes</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Super Dope Hat</h4><data class="product__rating" value="3"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$38.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating" value="4"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Very Suave Vest</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Basic Denim Pants</h4><data class="product__rating" value="2"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$45.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">DJ Hoodie</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$79.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Some Cool Shoes</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Super Dope Hat</h4><data class="product__rating" value="3"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$38.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating" value="4"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Very Suave Vest</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Basic Denim Pants</h4><data class="product__rating" value="2"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$45.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">DJ Hoodie</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$79.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Some Cool Shoes</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,Hot Sales"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Super Dope Hat</h4><data class="product__rating" value="3"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$38.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating" value="4"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Best Sellers,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Very Suave Vest</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Hot Sales"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Basic Denim Pants</h4><data class="product__rating" value="2"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$45.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">DJ Hoodie</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$79.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Hot Sales"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Some Cool Shoes</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Super Dope Hat</h4><data class="product__rating" value="3"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$38.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating" value="4"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="New Arrivals,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Very Suave Vest</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$65.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,New Arrivals"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">Basic Denim Pants</h4><data class="product__rating" value="2"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$45.99</p></div></a>
+    <a class="product" href="#" data-filter="Hot Sales,Best Sellers"><div class="product__inner"><div class="product__image"><img class="product__image-inner" src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80"/></div><h4 class="product__name">DJ Hoodie</h4><data class="product__rating" value="5"><span></span><span></span><span></span><span></span><span></span></data><p class="product__price">$79.99</p></div></a>
+
+    <!-- See More Card — injecté par JS -->
+  </section>
+
+  <button class="see-less-btn" id="see-less-btn">&#8593; See Less</button>
+</div>
 
     <section class="s">
         <div class="parallex">
@@ -768,6 +492,7 @@
 
         <!-- Initialize prodect filter -->
         <script src="../javaScript/productFilter.js"></script>
+        <script src="../javaScript/main.js"> </script>
 </body>
 
 </html>

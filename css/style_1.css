@@ -299,6 +299,17 @@ body {
 
 
 
+.see-more-inner img{
+    max-width: 50%;
+    height: auto;
+    display: block;
+    padding-left:60px ;
+    color:#666;
+
+}
+
+
+
 
 
 
@@ -466,4 +477,9 @@ body {
 /* Effet au survol */
 .nav-links a:hover, .nav-link-secondary:hover {
     opacity: 0.7;
+}
+
+#user_icon{
+    color: #a7b1b7;
+    font-size: 30px;
 }
