@@ -1,0 +1,244 @@
+body{
+    background-color: #3333;
+}
+
+/* Hero Section & Parallax */
+.hero-section {
+    height: 70vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(26, 66, 208, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url('../img/aboutus0.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column; 
+    color: white;
+    justify-content: space-between; /* Keeps nav at top and content centered */
+}
+
+/* Navbar Layout */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.2); /* Slight background for readability */
+}
+
+.nav-left, .nav-right, .nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Hero Text Centering */
+.hero-content {
+    flex-grow: 1; /* Takes up remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+/* "Who We Are" Section */
+.div_2 {
+    margin: 50px;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.container { 
+    display: flex;
+    align-items: center; /* Vertically centers text and image */
+    
+}
+
+.info {
+    flex: 1;
+}
+
+.info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.info p {
+    line-height: 1.6;
+    color: #555;
+
+}
+
+.image {
+    flex: 1;
+}
+
+.image img {
+    width: 100%; /* Ensures image doesn't overflow */
+    height: auto;
+    border-radius: 8px; /* Optional: adds a nice touch */
+    object-fit: cover;
+}
+.team{
+    background-color: #fff;
+    padding: 30px;
+    text-align: center;
+    margin:20px ;
+    border-radius: 15px;
+    
+}
+
+.team_info{
+    display: flex;
+    justify-content: center;
+
+    gap: 80px;
+    padding: 50px;
+
+}
+
+.card{
+    background-color: #afa9a9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    height: 300px;
+    width: 300px;
+}
+
+.card img{
+    padding-bottom: 25px;
+}
+.card h3{
+    padding-bottom: 20px;
+}
+
+
+
+/* Section Follow Us */
+.follow-us {
+    width: 100%;
+    margin-top: 50px;
+    background-color: #f8f9fa; /* Couleur de fond légère */
+ 
+    
+
+}
+
+
+.follow-us {
+     height: 70vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(245, 241, 241, 0.729), rgba(0, 0, 0, 0.5)), 
+                      url('../img/banner-05.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column; 
+    color: white;
+    justify-content: space-between
+} 
+
+.follow-container {
+    display: flex;
+    height: 600px; /* Ajuste la hauteur selon tes besoins */
+    align-items: center;
+    overflow: hidden;
+}
+
+.side-img {
+    flex: 1; /* Prend l'espace disponible sur les côtés */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7); /* Effet sombre comme sur ton image */
+}
+
+
+
+
+.follow-content {
+    flex: 0 0 30%; /* Largeur fixe pour le carré blanc au milieu */
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.blue-line {
+    width: 50px;
+    height: 3px;
+    background-color: #007bff; /* La petite ligne bleue au-dessus */
+    margin-bottom: 20px;
+}
+
+.follow-content h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px;
+}
+
+.social-icons a {
+    color: #333;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff; /* Couleur au survol */
+}
+
+/* Version Mobile */
+@media (max-width: 768px) {
+    .follow-container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .side-img {
+        display: none; /* On cache les images sur mobile pour gagner de la place */
+    }
+    
+    .follow-content {
+        flex: 1;
+        padding: 50px 20px;
+        width: 100%;
+    }
+}
+
+.info + .blue-line{
+    margin-left: 700px;
+    height: 4px;
+    width: 60px;
+}
+
+
