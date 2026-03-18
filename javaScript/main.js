@@ -36,4 +36,21 @@ loadComponent('navbar-placeholder', 'Component/navbar.html');
 loadComponent('footer-placeholder', 'Component/footer.html');
 
 
+//Search bar 
+document.addEventListener('click', (e) => {
+  const searchBtn = e.target.closest('#search-btn');
+  if (searchBtn) {
+    const searchBar = document.querySelector('.search-form');
+    if (searchBar) {
+      searchBtn.classList.toggle('fa-times');
+      searchBar.classList.toggle('active');
+    }
+  }
+});
 
+window.addEventListener('scroll', () => {
+  const searchBtn = document.querySelector('#search-btn');
+  const searchBar = document.querySelector('.search-form');
+  if (searchBtn) searchBtn.classList.remove('fa-times');
+  if (searchBar) searchBar.classList.remove('active');
+});
