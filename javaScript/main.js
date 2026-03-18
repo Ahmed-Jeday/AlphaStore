@@ -32,8 +32,8 @@ function loadComponent(id, file) {
 }
 
 // Fetch the navbar and footer relative to the current HTML file
-loadComponent('navbar-placeholder', 'Component/navbar.html');
-loadComponent('footer-placeholder', 'Component/footer.html');
+loadComponent('navbar-placeholder', '../Component/navbar.html');
+loadComponent('footer-placeholder', '../Component/footer.html');
 
 
 //Search bar 

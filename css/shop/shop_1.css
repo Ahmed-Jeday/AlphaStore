@@ -1,0 +1,168 @@
+/* Réinitialisation de base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Utilisez une police similaire comme Poppins ou Montserrat */
+    color: #333;
+    padding: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Conteneur principal */
+.product-filter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Barre supérieure */
+.filter-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Onglets Catégories */
+.category-tabs {
+    display: flex;
+    gap: 30px;
+}
+
+.category-tabs li a {
+    font-size: 15px;
+    color: #888;
+    position: relative;
+}
+
+.category-tabs li a:hover,
+.category-tabs li a.active-tab {
+    color: #333;
+}
+
+.category-tabs li a.active-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+}
+
+/* Boutons d'action */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    border-color: #717fe0;
+    color: #717fe0;
+}
+
+.action-btn.active-btn {
+    border-color: #e6e6e6;
+    background-color: #f2f2f2;
+}
+
+/* Panneau de Filtrage */
+.filter-panel {
+    background-color: #f2f2f2;
+    padding: 30px 40px;
+    display: none; /* Masqué par défaut */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.filter-panel.show-panel {
+    display: grid; /* Affiché via JS */
+}
+
+/* Colonnes et Listes */
+.filter-title {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.filter-list li {
+    margin-bottom: 12px;
+}
+
+.filter-list a {
+    font-size: 14px;
+    color: #888;
+    display: flex;
+    align-items: center;
+}
+
+.filter-list a:hover,
+.filter-list a.active-filter {
+    color: #717fe0; /* Couleur bleue typique du thème CozaStore */
+}
+
+/* Indicateurs de couleur */
+.color-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+
+.bg-black { background-color: #222; border-color: #222;}
+.bg-blue { background-color: #4272d7; border-color: #4272d7;}
+.bg-grey { background-color: #b3b3b3; border-color: #b3b3b3;}
+.bg-green { background-color: #00ad5f; border-color: #00ad5f;}
+.bg-red { background-color: #fa4251; border-color: #fa4251;}
+.bg-white { background-color: #fff; }
+
+/* Tags */
+.tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-item {
+    font-size: 13px;
+    color: #888;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.tag-item:hover {
+    border-color: #717fe0;
+    color: #717fe0;
+}
