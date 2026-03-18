@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/style_1.css">
+    <link rel="stylesheet" href="/css/component/navbar.css">
     
 </head>
 
@@ -13,24 +13,83 @@
     <nav class="navbar">
         <div class="nav-left">
             <div class="logo">Alpha Store</div>
+        </div>
+        <div class="nav_container">
             <ul class="nav-links">
-                <li><a href="#">Men</a></li>
-                <li><a href="#">Women</a></li>
-                <li><a href="#">Kids</a></li>
-                <li><a href="#">Tech</a></li>
+                <li><a href="/html/index.html">HOME</a></li>
+
+                
+                <li class="NavItem">
+                    <a href="#" class="NavLink nav-link-shop">
+                        <span class="NavLinkTitle">SHOP</span>
+                    </a>
+
+                    <div class="ItemContent mega-content">
+                        <div class="mega-inner">
+
+                            <div class="mega-col">
+                                <div class="ItemTitle">Kids</div>
+                                <ul>
+                                    <li><a href="#">Accessoires</a></li>
+                                    <li><a href="#">Denim</a></li>
+                                    <li><a href="#">Costumes</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="mega-col">
+                                <div class="ItemTitle">Homme</div>
+                                <ul>
+                                    <li><a href="#">Accessoires</a></li>
+                                    <li><a href="#">Denim</a></li>
+                                    <li><a href="#">Costumes</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="mega-col">
+                                <div class="ItemTitle">Femme</div>
+                                <ul>
+                                    <li><a href="#">Robes</a></li>
+                                    <li><a href="#">Bags</a></li>
+                                    <li><a href="#">Shoes</a></li>
+                                </ul>
+                            </div>
+
+                             <div class="mega-col">
+                                <div class="ItemTitle">Tech</div>
+                                <ul>
+                                    <li><a href="#">Smartphone</a></li>
+                                    <li><a href="#">Laptop</a></li>
+                                    <li><a href="#">Tablet</a></li>
+                                </ul>
+                            </div>
+
+
+                            <div class="mega-col">
+                                <div class="ItemTitle">Our Ai assistant</div>
+                                <div class="shop-card">
+                                    <span class="badge">New</span>
+                                    <p>Collection 2026</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <!-- ✅ FIN NavItem Shop -->
+
+                <li><a href="#">NEWS&ACT</a></li>
                 <li><a href="#">New Arrivals</a></li>
             </ul>
         </div>
 
         <div class="nav-right">
-            <a href="#" class="nav-link-secondary">About Us</a>
+            <a href="/html/AboutUs.html" class="nav-link-secondary">About Us</a>
             <a href="contactUs.html" class="nav-link-secondary">Contact Us</a>
             <span class="price">$0.00</span>
             <div class="cart-container">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-count">0</span>
             </div>
-
             <a href="signUp.html" id="user_icon" class="user-icon" aria-label="Sign up / log in">
                 <i class="fas fa-user"></i>
             </a>

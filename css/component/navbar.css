@@ -1,0 +1,326 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(15, 15, 15, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Groupe Gauche (Logo + Liens) */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    
+}
+
+.nav-links a, .nav-link-secondary {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+    
+}
+.nav_container {
+    flex: 2; /* Ye5ou space akber bech dima yabqa fil center */
+    display: flex;
+    justify-content: center;
+}   
+
+.nav-links a::after, .nav-link-secondary::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after, .nav-link-secondary:hover::after {
+    width: 100%;
+}
+
+/* Groupe Droite (About, Contact, Icones) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.cart-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: white;
+    color: black;
+    font-size: 0.7rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.user-icon {
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+/* Removed old generic hover effect since we added animated underlines */
+
+#user_icon{
+    color: #a7b1b7;
+    font-size: 30px;
+}
+
+
+/* El menu yabda m5obbi */
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Yji ta7t el navbar toul */
+    left: 0;
+    width: 100vw; /* Ya5ou el 3ordh kemel mte3 el écran  */
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    padding: 40px;
+    z-index: 999;
+}
+
+/* Ki t7ot el souris */
+.dropdown:active .mega-menu {
+    display: block;
+}
+.dropdown:active{
+    display: block;
+}
+
+/* T'organisi el colonnes b-Flexbox */
+.mega-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mega-col h4 {
+    color: #000;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+
+/* ============================================================
+   AJOUT NAVBAR.CSS — Shop Mega Menu (depuis s.css / index.html)
+   Coller ce bloc à la FIN de ton navbar.css existant
+   ============================================================ */
+
+/* --- Variables locales (extraites de s.css / open-props) --- */
+:root {
+    --brand: oklch(66.228% 0.17989 251.677);   /* rouge-orangé Alpha Store */
+    --nav-block-size: 74px;        /* hauteur de la navbar */
+    --radius-3: 8px;
+    --shadow-4: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* --- NavItem : conteneur li positionné --- */
+.NavItem {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Lien Shop dans la navbar (hérite du style nav-links a) --- */
+.nav-link-shop {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-link-shop::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.nav-link-shop:hover::after {
+    width: 100%;
+}
+
+/* --- Mega Menu : caché par défaut, visible au hover --- */
+.ItemContent {
+    background-color: white;
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-4);
+    position: absolute;
+    top: var(--nav-block-size);   /* se pose juste sous la navbar */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 999;
+    padding: 32px;
+    min-width: 470px;
+}
+
+/* Mega : plus large, centré sous le lien */
+.mega-content {
+    min-width:1000px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Affichage au hover sur le NavItem */
+.NavItem:hover .ItemContent,
+.NavItem:focus-within .ItemContent {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- Grille des colonnes internes --- */
+.mega-inner {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.mega-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* --- Titre de section (Homme / Femme / Featured) --- */
+.ItemTitle {
+    color: var(--brand);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+}
+
+/* --- Liens dans le menu --- */
+.ItemContent ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ItemContent a {
+    color: #111;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: color 0.2s ease;
+}
+
+
+
+
+.ItemContent a:hover {
+    color: var(--brand);
+}
+
+.ItemContent a:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Shop Card (colonne Featured) --- */
+.shop-card {
+    border: 1px dashed var(--brand);
+    border-radius: 6px;
+    padding: 20px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #fafafa;
+    gap: 8px;
+}
+
+.shop-card .badge {
+    background: var(--brand);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.shop-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+}
