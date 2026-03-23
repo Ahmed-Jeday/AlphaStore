@@ -1,7 +1,7 @@
 let isLoggedIn = false;
 
 // Using event delegation because user_icon is loaded asynchronously
-document.addEventListener("click", function(e) {
+document.addEventListener("click", function (e) {
   const userIcon = e.target.closest("#user_icon");
   if (userIcon) {
     e.preventDefault();
@@ -32,8 +32,8 @@ function loadComponent(id, file) {
 }
 
 // Fetch the navbar and footer relative to the current HTML file
-loadComponent('navbar-placeholder', '../Component/navbar.html');
-loadComponent('footer-placeholder', '../Component/footer.html');
+loadComponent('navbar-placeholder', 'Component/navbar.html');
+loadComponent('footer-placeholder', 'Component/footer.html');
 
 
 //Search bar 
@@ -54,3 +54,22 @@ window.addEventListener('scroll', () => {
   if (searchBtn) searchBtn.classList.remove('fa-times');
   if (searchBar) searchBar.classList.remove('active');
 });
+
+
+//heart-icon
+const items = document.querySelectorAll('.heart-icon');
+const msg = document.querySelector(".mesage")
+
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active');
+    message.textContent = "Ajouté !";
+
+    setTimeout(() => {
+      message.textContent = "";
+    }, 2000);
+
+
+  });
+});
+
