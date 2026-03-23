@@ -1,374 +1,511 @@
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: rgba(15, 15, 15, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-/* Groupe Gauche (Logo + Liens) */
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: 900;
-    letter-spacing: -1px;
-}
-
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    
-}
-
-.nav-links a, .nav-link-secondary {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    padding-bottom: 5px;
-    transition: color 0.3s;
-    
-}
-.nav_container {
-    flex: 2; /* Ye5ou space akber bech dima yabqa fil center */
-    display: flex;
-    justify-content: center;
-}   
-
-.nav-links a::after, .nav-link-secondary::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after, .nav-link-secondary:hover::after {
-    width: 100%;
-}
-
-/* Groupe Droite (About, Contact, Icones) */
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.price {
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.cart-container {
-    position: relative;
-    cursor: pointer;
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background-color: white;
-    color: black;
-    font-size: 0.7rem;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-}
-
-.user-icon {
-    cursor: pointer;
-    font-size: 1.1rem;
-}
-
-/* Removed old generic hover effect since we added animated underlines */
-
-#user_icon{
-    color: #a7b1b7;
-    font-size: 30px;
-}
-
-
-/* El menu yabda m5obbi */
-.mega-menu {
-    display: none;
-    position: absolute;
-    top: 100%; /* Yji ta7t el navbar toul */
-    left: 0;
-    width: 100vw; /* Ya5ou el 3ordh kemel mte3 el écran  */
-    background: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    padding: 40px;
-    z-index: 999;
-}
-
-/* Ki t7ot el souris */
-.dropdown:active .mega-menu {
-    display: block;
-}
-.dropdown:active{
-    display: block;
-}
-
-/* T'organisi el colonnes b-Flexbox */
-.mega-container {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.mega-col h4 {
-    color: #000;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;600;700;800;900&display=swap');
 
 /* ============================================================
-   AJOUT NAVBAR.CSS — Shop Mega Menu (depuis s.css / index.html)
-   Coller ce bloc à la FIN de ton navbar.css existant
+   VARIABLES
    ============================================================ */
-
-/* --- Variables locales (extraites de s.css / open-props) --- */
 :root {
-    --brand: oklch(66.228% 0.17989 251.677);   /* rouge-orangé Alpha Store */
-    --nav-block-size: 74px;        /* hauteur de la navbar */
-    --radius-3: 8px;
-    --shadow-4: 0 8px 30px rgba(0, 0, 0, 0.15);
+  --nav-height: 70px;
+  --brand: #d4af37;
+  --nav-bg: rgba(10, 10, 10, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --white: #ffffff;
+  --dark: #0a0a0a;
+  --gray: #a0a0a0;
+  --mega-bg: #111111;
+  --mega-border: rgba(255, 255, 255, 0.06);
+  --radius: 6px;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --- NavItem : conteneur li positionné --- */
-.NavItem {
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* --- Lien Shop dans la navbar (hérite du style nav-links a) --- */
+/* ============================================================
+   NAVBAR BASE
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--nav-border);
+  z-index: 1000;
+  transition: background var(--transition);
+  font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+.nav-left .logo {
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-left .logo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--brand);
+}
+
+/* ============================================================
+   NAV CENTER
+   ============================================================ */
+.nav_container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+/* ============================================================
+   NAV LINKS — underline animation
+   ============================================================ */
+.nav-links a,
 .nav-link-shop {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding-bottom: 5px;
-    position: relative;
-    transition: color 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 12px;
+  position: relative;
+  transition: color var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
 }
 
+.nav-links a::after,
 .nav-link-shop::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
 }
 
-.nav-link-shop:hover::after {
-    width: 100%;
+.nav-links a:hover,
+.nav-link-shop:hover {
+  color: var(--brand);
 }
 
-/* --- Mega Menu : caché par défaut, visible au hover --- */
+.nav-links a:hover::after,
+.nav-link-shop:hover::after,
+.NavItem:hover .nav-link-shop::after {
+  transform: scaleX(1);
+}
+
+/* Flèche chevron sur Shop */
+.nav-link-shop .NavLinkTitle::after {
+  content: ' ↓';
+  font-size: 0.7rem;
+  opacity: 0.6;
+  transition: transform var(--transition);
+  display: inline-block;
+}
+
+.NavItem:hover .nav-link-shop .NavLinkTitle::after {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   NAVITEM — conteneur dropdown
+   ============================================================ */
+.NavItem {
+  position: static; /* mega menu se positionne par rapport à navbar */
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+}
+
+/* ============================================================
+   MEGA MENU
+   ============================================================ */
 .ItemContent {
-    background-color: white;
-    border-radius: var(--radius-3);
-    box-shadow: var(--shadow-4);
-    position: absolute;
-    top: var(--nav-block-size);   /* se pose juste sous la navbar */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    z-index: 999;
-    padding: 32px;
-    min-width: 470px;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 100vw;
+  background: var(--mega-bg);
+  border-top: 1px solid var(--mega-border);
+  border-bottom: 1px solid var(--mega-border);
+  box-shadow: var(--shadow);
+  padding: 40px;
+  z-index: 999;
+
+  /* Animation */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--transition),
+              visibility var(--transition),
+              transform var(--transition);
 }
 
-/* Mega : plus large, centré sous le lien */
-.mega-content {
-    min-width:1000px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Affichage au hover sur le NavItem */
 .NavItem:hover .ItemContent,
 .NavItem:focus-within .ItemContent {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-/* --- Grille des colonnes internes --- */
+/* Contenu centré */
 .mega-inner {
-    display: flex;
-    gap: 40px;
-    justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
+/* ============================================================
+   MEGA COLUMNS
+   ============================================================ */
 .mega-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  flex: 1;
+  padding: 0 24px;
+  border-right: 1px solid var(--mega-border);
 }
 
-/* --- Titre de section (Homme / Femme / Featured) --- */
+.mega-col:first-child { padding-left: 0; }
+.mega-col:last-child  { padding-right: 0; border-right: none; }
+
 .ItemTitle {
-    color: var(--brand);
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 8px;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  color: var(--brand);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--mega-border);
 }
 
-/* --- Liens dans le menu --- */
 .ItemContent ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .ItemContent a {
-    color: #111;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    transition: color 0.2s ease;
+  color: var(--gray);
+  text-decoration: none;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color var(--transition), gap var(--transition);
 }
 
-
-
+.ItemContent a::before {
+  content: '—';
+  font-size: 0.7rem;
+  color: var(--brand);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
 
 .ItemContent a:hover {
-    color: var(--brand);
+  color: var(--white);
+  gap: 12px;
 }
 
-.ItemContent a:hover::after {
-    opacity: 1;
-    transform: translateY(0);
+.ItemContent a:hover::before {
+  opacity: 1;
 }
 
-/* --- Shop Card (colonne Featured) --- */
+/* Override: ne pas appliquer le underline générique */
+.ItemContent a::after {
+  display: none !important;
+}
+
+/* ============================================================
+   SHOP CARD (colonne AI assistant)
+   ============================================================ */
 .shop-card {
-    border: 1px dashed var(--brand);
-    border-radius: 6px;
-    padding: 20px;
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background: #fafafa;
-    gap: 8px;
+  border: 1px dashed rgba(212, 175, 55, 0.4);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(212, 175, 55, 0.04);
+  gap: 10px;
+  transition: background var(--transition), border-color var(--transition);
+  min-height: 120px;
+  text-align: center;
+}
+
+.shop-card:hover {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: var(--brand);
 }
 
 .shop-card .badge {
-    background: var(--brand);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    text-transform: uppercase;
+  background: var(--brand);
+  color: var(--dark);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .shop-card p {
-    margin: 0;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #333;
+  margin: 0;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-
-
-
-
-.navbar .search-form{
-  position: absolute;
-  top :100% ;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 2rem;
-  background:#333 ;
+/* ============================================================
+   NAV RIGHT
+   ============================================================ */
+.nav-right {
   display: flex;
   align-items: center;
-  border-top: 0.1rem solid rgba(255, 255,255,0.2);
-  z-index: 1001;
-  clip-path: polygon(0 0 ,100% 0 ,100% 0 , 0 0 );
-
-
-}
-.navbar .search-form input:focus{
-    color: aqua;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-.navbar .search-form.active{
-  clip-path: polygon(0 0 ,100% 0 ,100% 100% , 0 100% );
+  gap: 20px;
 }
 
-.navbar .search-form #search-bar{
+.nav-link-secondary {
+  color: var(--gray);
+  text-decoration: none;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+
+.nav-link-secondary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--brand);
+  transition: width var(--transition);
+}
+
+.nav-link-secondary:hover {
+  color: var(--white);
+}
+
+.nav-link-secondary:hover::after {
   width: 100%;
-  padding: 1rem;
-  font-size: 1.6rem;
-  color: #333;
-  text-transform: none;
-  border-radius: .5rem;
-
 }
 
+/* Prix */
+.price {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--white);
+  letter-spacing: 1px;
+}
 
-.navbar .search-form label{
-  font-size: 2.5rem;
-  color: #fff;
-  margin-left: 1rem;
+/* Icônes */
+.icon {
   cursor: pointer;
+  color: var(--gray);
+  font-size: 1rem;
+  transition: color var(--transition);
 }
-.navbar .search-form label:hover{
-  color: #3d4bcb;
+
+.icon:hover {
+  color: var(--white);
+}
+
+/* Panier */
+.cart-container {
+  position: relative;
+  cursor: pointer;
+  color: var(--gray);
+  font-size: 1.1rem;
+  transition: color var(--transition);
+}
+
+.cart-container:hover {
+  color: var(--white);
+}
+
+.cart-count {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  background: var(--brand);
+  color: var(--dark);
+  font-size: 0.6rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+}
+
+/* User icon */
+#user_icon {
+  color: var(--gray);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+#user_icon:hover {
+  color: var(--white);
+}
+
+/* ============================================================
+   SEARCH FORM
+   ============================================================ */
+.search-form {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  padding: 16px 40px;
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--mega-border);
+  z-index: 1001;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-form.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.search-form #search-bar {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--mega-border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.search-form #search-bar::placeholder {
+  color: var(--gray);
+  font-weight: 400;
+  text-transform: none;
+}
+
+.search-form #search-bar:focus {
+  border-color: var(--brand);
+}
+
+.search-form label {
+  font-size: 1.2rem;
+  color: var(--gray);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.search-form label:hover {
+  color: var(--brand);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .nav_container {
+    position: static;
+    transform: none;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 20px;
+    gap: 10px;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-link-secondary {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav_container {
+    display: none;
+  }
+
+  .navbar {
+    padding: 14px 20px;
+  }
 }

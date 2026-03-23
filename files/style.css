@@ -13,15 +13,13 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
+
 
 body {
   font-family: 'Saira Extra Condensed', sans-serif;
   color: var(--white-color);
 }
+
 
 h1 {
   font-size: max(11.299vw, 108px);
@@ -312,13 +310,23 @@ header {
 }
 
 /*content css*/
+
+.h {
+  position: relative;
+  width: 100%;
+  height: 100vh;      /* occupe exactement 1 viewport, sans créer d'espace */
+  overflow: hidden;
+}
 .content-slider {
+
   position: fixed;
   top: 0;
   left: 0;
+  margin: 0;
   width: 100%;
   height: 100%;
 }
+
 
 .content-slider ul {
   min-height: 100vh;
@@ -366,12 +374,17 @@ header {
 }
 
 .title-main {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  transform: translateY(-50%);
   width: 100%;
   display: flex;
-  display: -webkit-flex;
   white-space: nowrap;
   animation: 10s linear infinite alternate;
   animation-name: marquee;
+  z-index: 0;
+  pointer-events: none; /* le texte ne bloque pas les clics */
 }
 
 .title-wrapper {

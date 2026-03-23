@@ -273,6 +273,7 @@ setTimeout(() => {
   animateText(details[0]);
 }, 3000);
 
+// Mouse Cursor Animation — limité à la zone du slider (.h)
 // Mouse Cursor Animation
 gsap.set(".arrow", { xPercent: -50, yPercent: -50 });
 const arrow = document.querySelector(".arrow");
@@ -283,19 +284,36 @@ const speed = 0.15;
 const xSet = gsap.quickSetter(arrow, "x", "px");
 const ySet = gsap.quickSetter(arrow, "y", "px");
 
+// Zone limitée = le ul de img-slider
+const sliderZone = document.querySelector('.img-slider ul');
+
 window.addEventListener("mousemove", (e) => {
-  arrow.style.opacity = 1;
-  mouse.x = e.x;
-  mouse.y = e.y;
+  const rect = sliderZone.getBoundingClientRect();
 
-  const img = document.querySelector('.arrow-img-wrapper');
-  if (e.clientX > window.innerWidth / 2) {
-    img.style.transform = 'scaleX(-1)';
+  // Vérifie si la souris est dans la zone de l'image
+  const inZone = (
+    e.clientX >= rect.left &&
+    e.clientX <= rect.right &&
+    e.clientY >= rect.top &&
+    e.clientY <= rect.bottom
+  );
+
+  if (inZone) {
+    arrow.style.opacity = 1;
+    mouse.x = e.x;
+    mouse.y = e.y;
+
+    const img = document.querySelector('.arrow-img-wrapper');
+    if (e.clientX > rect.left + rect.width / 2) {
+      img.style.transform = 'scaleX(-1)';
+    } else {
+      img.style.transform = 'scaleX(1)';
+    }
   } else {
-    img.style.transform = 'scaleX(1)';
+    arrow.style.opacity = 0;
   }
-
 });
+
 gsap.ticker.add(() => {
   const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
   pos.x += (mouse.x - pos.x) * dt;

@@ -25,91 +25,330 @@
         integrity="sha384-IRw5p4+v5Z2+rztm8llwI+lvDGvtsrPVD8K+isp3hHgRTIzE3d6Ecu8d7eFJ9z5T" crossorigin="anonymous">
 
     <!-- Custom CSS -->
+   
     <link rel="stylesheet" href="../css/style_1.css">
     <link rel="stylesheet" href="../css/style_filter.css">
     <link rel="stylesheet" href="../css/style_parallex.css">
+    <link rel="stylesheet" href="/files/style.css">
+
+
 </head>
 
 <body>
     <header class="hero-section">
         <div id="navbar-placeholder"></div>
 
-        <!-- Swiper -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <!-- Slide 1 - Blue Gradient -->
-                <div class="swiper-slide">
-                    <div class="hero-container hero-container-1">
-                        <div class="hero-content">
-                            <h1>Welcome to Alpha Store</h1>
-                            <p>Discover the Best in Men's, Women's, Kids' Fashion, and the Latest Tech</p>
-                            <div class="hero-buttons">
-                                <a href="#" class="btn-white">SHOP NOW</a>
-                                <a href="#" class="btn-outline">EXPLORE</a>
-                            </div>
-                        </div>
+
+        <div class="h">
+
+            <div class="loader">
+                <div class="revealer"></div>
+                <div class="loader-text-wrapper">
+                    <div class="loader-text">
+                        <h3>Alpha Store</h3>
                     </div>
                 </div>
-
-                <!-- Slide 2 - Yellow/Orange Gradient -->
-                <div class="swiper-slide">
-                    <div class="hero-container hero-container-2">
-                        <div class="hero-content">
-                            <h1>Latest Tech Gadgets</h1>
-                            <p>Upgrade Your Life with New Tech</p>
-                            <div class="hero-buttons">
-                                <a href="#" class="btn-white">DISCOVER</a>
-                                <a href="#" class="btn-outline">LEARN MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3 - Purple Gradient -->
-                <div class="swiper-slide">
-                    <div class="hero-container hero-container-3">
-                        <div class="hero-content">
-                            <h1>Kids' Fashion Reimagined</h1>
-                            <p>Comfort and Style for the Little Ones</p>
-                            <div class="hero-buttons">
-                                <a href="#" class="btn-white">GET STARTED</a>
-                                <a href="#" class="btn-outline">VIEW ALL</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4 - Purple Gradient -->
-                <div class="swiper-slide">
-                    <div class="hero-container hero-container-4">
-                        <div class="hero-content">
-                            <h1>Exclusive Deals <br> Limited Time!</h1>
-                            <p>Free Shipping On Orders Over $100</p>
-                            <div class="hero-buttons">
-                                <a href="#" class="btn-white">GET STARTED</a>
-                                <a href="#" class="btn-outline">VIEW ALL</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <!-- Slide 5 - Purple Gradient -->
-                <div class="swiper-slide">
-                    <div class="hero-container hero-container-5">
-                        <div class="hero-content">
-                            <h1>Exclusive Deals <br> Limited Time!</h1>
-                            <p>Free Shipping On Orders Over $100</p>
-                            <div class="hero-buttons">
-                                <a href="#" class="btn-white">GET STARTED</a>
-                                <a href="#" class="btn-outline">VIEW ALL</a>
-                            </div>
-                        </div>
+                <div class="progress-wrapper">
+                    <div class="progress-line-wrapper">
+                        <span class="progress-line" id="progress-bar"></span>
                     </div>
                 </div>
             </div>
+            <div class="arrow">
+                <div class="arrow-img-wrapper">
+                    <img src="https://www.yudiz.com/codepen/gsap-slider/left-arrow.png" alt="arrow"
+                        class="img-fluid dark-arrow">
+                </div>
+            </div>
+
+
+            <div class="slider">
+                <div class="content-slider">
+                    <ul>
+                        <li class="active">
+                            <div class="title-main">
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">T-Shirt Classic</h1>
+                                    <h1>T-Shirt Classic</h1>
+                                    <h1 class="t-stroke italic">T-Shirt Classic</h1>
+                                    <h1>T-Shirt Classic</h1>
+                                </div>
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">T-Shirt Classic</h1>
+                                    <h1>T-Shirt Classic</h1>
+                                    <h1 class="t-stroke italic">T-Shirt Classic</h1>
+                                    <h1>T-Shirt Classic</h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title-main">
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Sneakers Pro</h1>
+                                    <h1>Sneakers Pro</h1>
+                                    <h1 class="t-stroke italic">Sneakers Pro</h1>
+                                    <h1>Sneakers Pro</h1>
+                                </div>
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Sneakers Pro</h1>
+                                    <h1>Sneakers Pro</h1>
+                                    <h1 class="t-stroke italic">Sneakers Pro</h1>
+                                    <h1>Sneakers Pro</h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title-main">
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Smart Watch</h1>
+                                    <h1>Smart Watch</h1>
+                                    <h1 class="t-stroke italic">Smart Watch</h1>
+                                    <h1>Smart Watch</h1>
+                                </div>
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Smart Watch</h1>
+                                    <h1>Smart Watch</h1>
+                                    <h1 class="t-stroke italic">Smart Watch</h1>
+                                    <h1>Smart Watch</h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title-main">
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Leather Jacket</h1>
+                                    <h1>Leather Jacket</h1>
+                                    <h1 class="t-stroke italic">Leather Jacket</h1>
+                                    <h1>Leather Jacket</h1>
+                                </div>
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Leather Jacket</h1>
+                                    <h1>Leather Jacket</h1>
+                                    <h1 class="t-stroke italic">Leather Jacket</h1>
+                                    <h1>Leather Jacket</h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title-main">
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Kids Backpack</h1>
+                                    <h1>Kids Backpack</h1>
+                                    <h1 class="t-stroke italic">Kids Backpack</h1>
+                                    <h1>Kids Backpack</h1>
+                                </div>
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Kids Backpack</h1>
+                                    <h1>Kids Backpack</h1>
+                                    <h1 class="t-stroke italic">Kids Backpack</h1>
+                                    <h1>Kids Backpack</h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title-main">
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Earbuds</h1>
+                                    <h1>Earbuds</h1>
+                                    <h1 class="t-stroke italic">Earbuds</h1>
+                                    <h1>Earbuds</h1>
+                                </div>
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Earbuds</h1>
+                                    <h1>Earbuds</h1>
+                                    <h1 class="t-stroke italic">Earbuds</h1>
+                                    <h1>Earbuds</h1>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title-main">
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Sunglasses</h1>
+                                    <h1>Sunglasses</h1>
+                                    <h1 class="t-stroke italic">Sunglasses</h1>
+                                    <h1>Sunglasses</h1>
+                                </div>
+                                <div class="title-wrapper">
+                                    <h1 class="t-stroke italic">Sunglasses</h1>
+                                    <h1>Sunglasses</h1>
+                                    <h1 class="t-stroke italic">Sunglasses</h1>
+                                    <h1>Sunglasses</h1>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="third-img-slider">
+                    <ul>
+                        <li class="active">
+                            <img src="/img/img1.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>T-Shirt Classic</h6>
+                                <span>Collection:- Men</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img2.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Sneakers Pro</h6>
+                                <span>Collection:- Footwear</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img3jpg.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Smart Watch</h6>
+                                <span>Category:- New Tech</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img4.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Leather Jacket</h6>
+                                <span>Collection:- Women</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img5.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Kids Backpack</h6>
+                                <span>Collection:- Kids</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img6jpg.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Earbuds</h6>
+                                <span>Category:- New Tech</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img7.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Sunglasses</h6>
+                                <span>Category:- Accessories</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="img-slider">
+                    <ul>
+                        <li class="active show_class">
+                            <img src="/img/img1.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>T-Shirt Classic</h6>
+                                <span>Collection:- Men</span>
+                                <a href="#" class="btn-get-now">Get Now</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img2.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Sneakers Pro</h6>
+                                <span>Collection:- Footwear</span>
+                                <a href="#" class="btn-get-now">Get Now</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img3jpg.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Smart Watch</h6>
+                                <span>Category:- New Tech</span>
+                                <a href="#" class="btn-get-now">Get Now</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img4.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Leather Jacket</h6>
+                                <span>Collection:- Women</span>
+                                <a href="#" class="btn-get-now">Get Now</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img5.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Kids Backpack</h6>
+                                <span>Collection:- Kids</span>
+                                <a href="#" class="btn-get-now">Get Now</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img6jpg.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Earbuds</h6>
+                                <span>Category:- New Tech</span>
+                                <a href="#" class="btn-get-now">Get Now</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img7.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Sunglasses</h6>
+                                <span>Category:- Accessories</span>
+                                <a href="#" class="btn-get-now">Get Now</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="second-img-slider">
+                    <ul>
+                        <li>
+                            <img src="/img/img1.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>T-Shirt Classic</h6>
+                                <span>Collection:- Men</span>
+                            </div>
+                        </li>
+                        <li class="active">
+                            <img src="/img/img2.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Sneakers Pro</h6>
+                                <span>Collection:- Footwear</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img3jpg.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Smart Watch</h6>
+                                <span>Category:- New Tech</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img4.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Leather Jacket</h6>
+                                <span>Collection:- Women</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img5.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Kids Backpack</h6>
+                                <span>Collection:- Kids</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img6jpg.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Earbuds</h6>
+                                <span>Category:- New Tech</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="/img/img7.webp" alt="images" class="img-fluid">
+                            <div class="img-details">
+                                <h6>Sunglasses</h6>
+                                <span>Category:- Accessories</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
         </div>
 
 
@@ -124,20 +363,12 @@
 
 
 
-        </div>
 
 
 
 
 
 
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
-
-        <!-- Navigation buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        </div>
     </header>
 
 
@@ -730,7 +961,7 @@
 
     <!-- Initialize Swiper -->
     <script src="../javaScript/swiper.js">
-        
+
 
 
 
@@ -745,7 +976,10 @@
     <!-- Initialize prodect filter -->
     <script src="../javaScript/productFilter.js"></script>
     <script src="../javaScript/main.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="/files/index.js"></script>
+
 </body>
 
 </html>
