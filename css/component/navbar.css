@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;600;700;800;900&display=swap');
+
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+:root {
+  --nav-height: 70px;
+  --brand: #d4af37;
+  --nav-bg: rgba(10, 10, 10, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --white: #ffffff;
+  --dark: #0a0a0a;
+  --gray: #a0a0a0;
+  --mega-bg: #111111;
+  --mega-border: rgba(255, 255, 255, 0.06);
+  --radius: 6px;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   NAVBAR BASE
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--nav-border);
+  z-index: 1000;
+  transition: background var(--transition);
+  font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+.nav-left .logo {
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-left .logo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--brand);
+}
+
+/* ============================================================
+   NAV CENTER
+   ============================================================ */
+.nav_container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+/* ============================================================
+   NAV LINKS — underline animation
+   ============================================================ */
+.nav-links a,
+.nav-link-shop {
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 12px;
+  position: relative;
+  transition: color var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.nav-links a::after,
+.nav-link-shop::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.nav-links a:hover,
+.nav-link-shop:hover {
+  color: var(--brand);
+}
+
+.nav-links a:hover::after,
+.nav-link-shop:hover::after,
+.NavItem:hover .nav-link-shop::after {
+  transform: scaleX(1);
+}
+
+/* Flèche chevron sur Shop */
+.nav-link-shop .NavLinkTitle::after {
+  content: ' ↓';
+  font-size: 0.7rem;
+  opacity: 0.6;
+  transition: transform var(--transition);
+  display: inline-block;
+}
+
+.NavItem:hover .nav-link-shop .NavLinkTitle::after {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   NAVITEM — conteneur dropdown
+   ============================================================ */
+.NavItem {
+  position: static; /* mega menu se positionne par rapport à navbar */
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+}
+
+/* ============================================================
+   MEGA MENU
+   ============================================================ */
+.ItemContent {
+  position: fixed;
+  top: var(--nav-height);
+  
+  width: 60vw;
+  left: 0;
+  background: var(--mega-bg);
+  border-top: 1px solid var(--mega-border);
+  border-bottom: 1px solid var(--mega-border);
+  box-shadow: var(--shadow);
+  padding: 40px;
+  z-index: 999;
+
+  /* Animation */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--transition),
+              visibility var(--transition),
+              transform var(--transition);
+}
+
+.NavItem:hover .ItemContent,
+.NavItem:focus-within .ItemContent {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Contenu centré */
+.mega-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* ============================================================
+   MEGA COLUMNS
+   ============================================================ */
+.mega-col {
+  flex: 1;
+  padding: 0 24px;
+  border-right: 1px solid var(--mega-border);
+}
+
+.mega-col:first-child { padding-left: 0; }
+.mega-col:last-child  { padding-right: 0; border-right: none; }
+
+.ItemTitle {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  color: var(--brand);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--mega-border);
+}
+
+.ItemContent ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ItemContent a {
+  color: var(--gray);
+  text-decoration: none;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color var(--transition), gap var(--transition);
+}
+
+.ItemContent a::before {
+  content: '—';
+  font-size: 0.7rem;
+  color: var(--brand);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.ItemContent a:hover {
+  color: var(--white);
+  gap: 12px;
+}
+
+.ItemContent a:hover::before {
+  opacity: 1;
+}
+
+/* Override: ne pas appliquer le underline générique */
+.ItemContent a::after {
+  display: none !important;
+}
+
+/* ============================================================
+   SHOP CARD (colonne AI assistant)
+   ============================================================ */
+.shop-card {
+  border: 1px dashed rgba(212, 175, 55, 0.4);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(212, 175, 55, 0.04);
+  gap: 10px;
+  transition: background var(--transition), border-color var(--transition);
+  min-height: 120px;
+  text-align: center;
+}
+
+.shop-card:hover {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: var(--brand);
+}
+
+.shop-card .badge {
+  background: var(--brand);
+  color: var(--dark);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.shop-card p {
+  margin: 0;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   NAV RIGHT
+   ============================================================ */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link-secondary {
+  color: var(--gray);
+  text-decoration: none;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+
+.nav-link-secondary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--brand);
+  transition: width var(--transition);
+}
+
+.nav-link-secondary:hover {
+  color: var(--white);
+}
+
+.nav-link-secondary:hover::after {
+  width: 100%;
+}
+
+/* Prix */
+.price {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+/* Icônes */
+.icon {
+  cursor: pointer;
+  color: var(--gray);
+  font-size: 1rem;
+  transition: color var(--transition);
+}
+
+.icon:hover {
+  color: var(--white);
+}
+
+/* Panier */
+.cart-container {
+  position: relative;
+  cursor: pointer;
+  color: var(--gray);
+  font-size: 1.1rem;
+  transition: color var(--transition);
+}
+
+.cart-container:hover {
+  color: var(--white);
+}
+
+.cart-count {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  background: var(--brand);
+  color: var(--dark);
+  font-size: 0.6rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+}
+
+/* User icon */
+#user_icon {
+  color: var(--gray);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+#user_icon:hover {
+  color: var(--white);
+}
+
+/* ============================================================
+   SEARCH FORM
+   ============================================================ */
+.search-form {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  padding: 16px 40px;
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--mega-border);
+  z-index: 1001;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-form.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.search-form #search-bar {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--mega-border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.search-form #search-bar::placeholder {
+  color: var(--gray);
+  font-weight: 400;
+  text-transform: none;
+}
+
+.search-form #search-bar:focus {
+  border-color: var(--brand);
+}
+
+.search-form label {
+  font-size: 1.2rem;
+  color: var(--gray);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.search-form label:hover {
+  color: var(--brand);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .nav_container {
+    position: static;
+    transform: none;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 20px;
+    gap: 10px;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-link-secondary {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav_container {
+    display: none;
+  }
+
+  .navbar {
+    padding: 14px 20px;
+  }
+}

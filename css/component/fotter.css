@@ -1,0 +1,50 @@
+
+/* FOOTER - Utilisation de CSS Grid */
+.site-footer {
+    padding: 80px 10%;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+.footer-grid {
+    display: grid;
+    /* On crée 4 colonnes égales */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px;
+}
+
+.footer-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #0084d0;
+}
+
+.store-badge img {
+    width: 160px;
+    cursor: pointer;
+}
+
+
+
+
+
+

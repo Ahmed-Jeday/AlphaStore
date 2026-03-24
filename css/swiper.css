@@ -1,0 +1,115 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Hero Container Base */
+.hero-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+
+/* Hero Content */
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 35px;
+    font-weight: 600;
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    padding: 15px 35px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-white {
+    background-color: white;
+    color: black;
+}
+
+.btn-white:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Slide 1 - Blue Gradient */
+.hero-container-1 {
+    background-image: 
+        linear-gradient(to right, rgba(0, 75, 145, 0.85), rgba(0, 75, 145, 0.3)),
+        url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1600');
+}
+
+/* Slide 2 - Yellow/Orange Gradient */
+.hero-container-2 {
+    background-image: 
+        linear-gradient(to right, rgba(255, 165, 0, 0.85), rgba(255, 193, 7, 0.3)),
+        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600');
+}
+
+/* Slide 3 - Purple Gradient */
+.hero-container-3 {
+    background-image: 
+        linear-gradient(to right, rgba(106, 27, 154, 0.85), rgba(142, 36, 170, 0.3)),
+        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600');
+}
+
+.hero-container-4 {
+    background-image: 
+        linear-gradient(to right, rgba(0, 150, 136, 0.85), rgba(0, 188, 212, 0.3)),
+        url('../img/home_img.jpg');
+}
+.hero-container-5 {
+    background-image: 
+        linear-gradient(to right, rgba(255, 87, 34, 0.85), rgba(255, 152, 0, 0.3)),
+        url('../img/laptop.jpg');
+}

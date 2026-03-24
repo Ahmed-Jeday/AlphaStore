@@ -15,23 +15,7 @@
   --transition: 350ms ease;
 }
 
-/* ── Base ───────────────────────────────────────────────────────────────── */
 
-
-/* ── Header ─────────────────────────────────────────────────────────────── */
-
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin: 0 0 0.25rem;
-  letter-spacing: -0.02em;
-}
-
-header p {
-  color: var(--muted);
-  font-weight: 300;
-  margin: 0;
-}
 
 /* ── Wrapper ─────────────────────────────────────────────────────────────── */
 .wrapper {
