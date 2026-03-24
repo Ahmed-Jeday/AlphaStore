@@ -214,13 +214,14 @@
 .ItemTitle {
   font-family: 'Saira Extra Condensed', sans-serif;
   color: var(--brand);
-  font-size: 0.7rem;
+  font-size:1rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 3px;
   padding-bottom: 12px;
   margin-bottom: 16px;
   border-bottom: 1px solid var(--mega-border);
+  
 }
 
 .ItemContent ul {
