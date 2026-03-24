@@ -103,7 +103,8 @@ gsap.to('.img-slider li, .second-img-slider li, .third-img-slider li', {
 });
 
 
-window.addEventListener('click', (event) => {
+const hSection = document.querySelector('.h');
+hSection.addEventListener('click', (event) => {
   setTimeout(() => {
     if (img_slider_first_child.classList.contains('show_class') && third_img_slider_first_child.classList.contains('active')) {
       third_img_slider_first_child.style.opacity = '0';
@@ -201,7 +202,7 @@ window.addEventListener('mousemove', function (e) {
 const contentItems = document.querySelectorAll('.content-slider li');
 let content_activeIndex = 0;
 
-window.addEventListener('click', function (e) {
+hSection.addEventListener('click', function (e) {
   setTimeout(() => {
     if (e.clientX > window.innerWidth / 2) {
       if (content_activeIndex < contentItems.length - 1) {
@@ -224,7 +225,7 @@ window.addEventListener('click', function (e) {
 const details = document.querySelectorAll('.img-slider li');
 let details_activeIndex = 0;
 
-window.addEventListener('click', function (e) {
+hSection.addEventListener('click', function (e) {
   setTimeout(() => {
     if (e.clientX > window.innerWidth / 2) {
       if (details_activeIndex < details.length - 1) {

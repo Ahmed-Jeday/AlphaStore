@@ -163,8 +163,9 @@
 .ItemContent {
   position: fixed;
   top: var(--nav-height);
+  
+  width: 60vw;
   left: 0;
-  width: 100vw;
   background: var(--mega-bg);
   border-top: 1px solid var(--mega-border);
   border-bottom: 1px solid var(--mega-border);

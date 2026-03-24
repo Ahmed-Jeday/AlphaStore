@@ -69,37 +69,7 @@ body {
     position: relative;
 }
 
-/* Slide 1 - Blue Gradient */
-.hero-container-1 {
-    background-image: 
-        linear-gradient(to right, rgba(0, 75, 145, 0.85), rgba(0, 75, 145, 0.3)),
-        url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1600');
-}
 
-/* Slide 2 - Yellow/Orange Gradient */
-.hero-container-2 {
-    background-image: 
-        linear-gradient(to right, rgba(255, 165, 0, 0.85), rgba(255, 193, 7, 0.3)),
-        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600');
-}
-
-/* Slide 3 - Purple Gradient */
-.hero-container-3 {
-    background-image: 
-        linear-gradient(to right, rgba(106, 27, 154, 0.85), rgba(142, 36, 170, 0.3)),
-        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600');
-}
-
-.hero-container-4 {
-    background-image: 
-        linear-gradient(to right, rgba(0, 150, 136, 0.85), rgba(0, 188, 212, 0.3)),
-        url('../img/home_img.jpg');
-}
-.hero-container-5 {
-    background-image: 
-        linear-gradient(to right, rgba(255, 87, 34, 0.85), rgba(255, 152, 0, 0.3)),
-        url('../img/laptop.jpg');
-}
 /* Hero Content */
 .hero-content {
     max-width: 600px;
