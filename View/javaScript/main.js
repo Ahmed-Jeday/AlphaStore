@@ -1,16 +1,13 @@
-let isLoggedIn = false;
 
 // Using event delegation because user_icon is loaded asynchronously
 document.addEventListener("click", function (e) {
   const userIcon = e.target.closest("#user_icon");
   if (userIcon) {
     e.preventDefault();
-    if (isLoggedIn) {
-      window.location.href = "profile.html";
-    } else {
-      window.location.href = "signUp.html";
-      isLoggedIn = true;
-    }
+    
+      window.location.href = "../html/signUp.php";
+      
+    
   }
 });
 
@@ -31,9 +28,17 @@ function loadComponent(id, file) {
   }
 }
 
-// Fetch the navbar and footer relative to the current HTML file
-loadComponent('navbar-placeholder', 'Component/navbar.html');
-loadComponent('footer-placeholder', 'Component/footer.html');
+
+// Remplacer les lignes 34-36 par ceci :
+let componentPath = 'Component/';
+// Si nous sommes dans le dossier my-account, on remonte d'un cran
+if (window.location.pathname.includes('/my-account/')) {
+    componentPath = '../html/Component/';
+}
+
+loadComponent('navbar-placeholder', componentPath + 'navbar.html');
+loadComponent('footer-placeholder', componentPath + 'footer.html');
+
 
 
 //Search bar 
