@@ -1,29 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-:root {
-  --white-color: #ffffff;
-  --black-color: #111111; /* Couleur de base sombre au lieu du rouge */
-  --accent-color: #d4af37; /* Or pour les détails premium */
-}
-
-
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
 .h{
   width: 100%;
   height: 100%;
-  
 }
 
 body {
-  font-family: 'Saira Extra Condensed', sans-serif;
+  font-family: var(--heading-font);
   color: var(--white-color);
 }
-
 
 h1 {
   font-size: max(11.299vw, 108px);
@@ -36,22 +19,6 @@ h1 {
 h6 {
   font-size: max(1.2vw, 16px);
   line-height: 1.3;
-}
-
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-ul,
-ol {
-  list-style: none;
-  display: block;
-}
-
-li {
-  display: block;
 }
 
 .scroll-hide {
@@ -199,6 +166,7 @@ header {
   height: auto;
   opacity: 0;
   mix-blend-mode: difference;
+  pointer-events: none;
 }
 
 .img-slider,
@@ -472,6 +440,8 @@ header {
               transform 0.35s ease, opacity 0.35s ease,
               border-color 0.3s ease;
   cursor: pointer;
+  z-index: 100;
+ 
 }
 
 .img-slider li.show_class .btn-get-now {
@@ -483,6 +453,8 @@ header {
   background: transparent;
   border-color: var(--btn-bg, #ffffff);
   color: var(--btn-bg, #ffffff);
+  
+  transform: translateY(-3px);
 }
 
 /* Couleur du bouton assortie à chaque slide */

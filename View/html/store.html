@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy Now – Shop</title>
+  <link rel="stylesheet" href="../css/component/footer.css">
+  <link rel="stylesheet" href="../css/style_1.css"/>
+  <link rel="stylesheet" href="../css/shop/store.css">
+  <link rel="stylesheet" href="../css/store.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <div id="navbar-placeholder"></div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <h1>Our Shop</h1>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a> <span>/</span> <span>Shop</span>
+    </nav>
+  </div>
+</div>
+
+<!-- SHOP LAYOUT -->
+<section class="shop-section">
+  <div class="container">
+    <div class="shop-layout">
+
+      <!-- SIDEBAR FILTERS -->
+      <aside class="sidebar">
+        <div class="filter-block">
+          <h4>Categories</h4>
+          <ul class="filter-list">
+            <li class="active"><span>All</span><em>24</em></li>
+            <li><span>Watches</span><em>6</em></li>
+            <li><span>Shoes</span><em>8</em></li>
+            <li><span>T-Shirts</span><em>5</em></li>
+            <li><span>Joggers</span><em>3</em></li>
+            <li><span>Socks</span><em>2</em></li>
+          </ul>
+        </div>
+        <div class="filter-block">
+          <h4>Price Range</h4>
+          <input type="range" min="0" max="300" value="300" class="price-slider" id="priceRange"/>
+          <div class="price-labels">
+            <span>$0</span><span id="priceVal">$300</span>
+          </div>
+        </div>
+        <div class="filter-block">
+          <h4>Rating</h4>
+          <ul class="rating-filter">
+            <li><label><input type="radio" name="rating" checked/> <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span> & up</label></li>
+            <li><label><input type="radio" name="rating"/> <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span> & up</label></li>
+            <li><label><input type="radio" name="rating"/> <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span> & up</label></li>
+          </ul>
+        </div>
+        <div class="filter-block">
+          <h4>Availability</h4>
+          <label class="check-label"><input type="checkbox" checked/> In Stock</label>
+          <label class="check-label"><input type="checkbox"/> On Sale</label>
+        </div>
+        <button class="btn btn-primary" style="width:100%;margin-top:8px;">Apply Filters</button>
+      </aside>
+
+      <!-- PRODUCTS AREA -->
+      <div class="products-area">
+        <div class="shop-toolbar">
+          <p class="results-count">Showing <strong>24</strong> products</p>
+          <div class="toolbar-right">
+            <select class="sort-select">
+              <option>Sort: Featured</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Best Rating</option>
+              <option>Newest</option>
+            </select>
+            <div class="view-toggle">
+              <button class="active" title="Grid"><i class="fa-solid fa-grip"></i></button>
+              <button title="List"><i class="fa-solid fa-list"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-grid">
+          <!-- Product cards -->
+          <div class="product-card"><div class="product-img-wrap"><img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_550,h_550/global/636471/04/fnd/EEA/fmt/png/CLOUDSPUN-Mono-Check-Golf-Polo-Men" alt=""/><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Red Printed T-Shirt</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><div class="product-price"><span>$50.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-2.jpg" alt=""/><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>HX Sports Shoes</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><span>$125.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-3.jpg" alt=""/><span class="product-badge bestseller">Best Seller</span><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Comfortable Joggers</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><span>$65.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-4.jpg" alt=""/><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Puma Plain Blue T-Shirt</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><span>$105.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-5.jpg" alt=""/><span class="product-badge sale">16% Off</span><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Zen's Men Casual Shoes</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><div class="product-price"><del>$125.00</del><span>$105.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-6.jpg" alt=""/><span class="product-badge sale">19% Off</span><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Puma Casual T-Shirt</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><del>$80.00</del><span>$65.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-7.jpg" alt=""/><span class="product-badge sale">29% Off</span><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>HX Socks (Set of 3)</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><del>$35.00</del><span>$25.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-8.jpg" alt=""/><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Fossil TX23 Watch</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><del>$215.00</del><span>$210.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-9.jpg" alt=""/><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>RD Watch NC05</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><del>$135.00</del><span>$128.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-10.jpg" alt=""/><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Sparks Premium Sports Shoes</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><del>$150.00</del><span>$132.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-11.jpg" alt=""/><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Boyex Grey Casuals</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><div class="product-price"><del>$110.00</del><span>$100.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+
+          <div class="product-card"><div class="product-img-wrap"><img src="images/product-12.jpg" alt=""/><div class="product-actions"><button><i class="fa-regular fa-heart"></i></button><button><i class="fa-regular fa-eye"></i></button></div></div><div class="product-info"><h4>Nike Gym Pants</h4><div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><div class="product-price"><del>$105.00</del><span>$90.00</span></div><button class="btn btn-primary add-cart">Add to Cart</button></div></div>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+          <button class="pg-btn active">1</button>
+          <button class="pg-btn">2</button>
+          <button class="pg-btn">3</button>
+          <span>...</span>
+          <button class="pg-btn">8</button>
+          <button class="pg-btn pg-next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<script src="../javaScript/store.js"></script>
+<script src="../javaScript/main.js"></script>
+<script>
+  // Price range
+  const slider = document.getElementById('priceRange');
+  const priceVal = document.getElementById('priceVal');
+  slider?.addEventListener('input', () => priceVal.textContent = '$' + slider.value);
+
+  // Category filter
+  document.querySelectorAll('.filter-list li').forEach(li => {
+    li.addEventListener('click', () => {
+      document.querySelectorAll('.filter-list li').forEach(l => l.classList.remove('active'));
+      li.classList.add('active');
+    });
+  });
+
+  // View toggle
+  document.querySelectorAll('.view-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-toggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

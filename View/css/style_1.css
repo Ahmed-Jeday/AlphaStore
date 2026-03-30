@@ -1,24 +1,49 @@
-* {
+:root {
+    --primary-font: 'Lato', sans-serif;
+    --heading-font: 'Saira Extra Condensed', sans-serif;
+    --accent-color: #d4af37;
+    --bg-dark: #111111;
+    --text-light: #ffffff;
+    --white-color: #ffffff;
+    --black-color: #111111;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
 }
 
 html {
     height: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
-    position: relative;
-
-    font-family: 'Lato', Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
+    background-color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+ul, ol {
+    list-style: none;
 }
 
 /* Swiper Styles */

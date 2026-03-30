@@ -7,7 +7,8 @@ if (document.querySelector('.mySwiper')) {
       clickable: true
     },
     autoplay: {
-      delay: 5000
+      delay: 5000,
+      disableOnInteraction: false
     },
     loop: true
   });
@@ -21,6 +22,7 @@ if (document.querySelector('.slide_product')) {
     spaceBetween: 20,
     autoplay: {
       delay: 2500,
+      disableOnInteraction: false
     },
     navigation: {
       nextEl: '.swiper-button-next',

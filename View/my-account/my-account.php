@@ -37,8 +37,9 @@ if (isset($_SESSION["user_id"])) {
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- CSS -->
+    <link rel="stylesheet" href="../css/style_1.css">
     <link rel="stylesheet" href="my-account.css">
-    <link rel="stylesheet" href="../css/component/fotter.css">
+    <link rel="stylesheet" href="../css/component/footer.css">
 </head>
 
 <body>

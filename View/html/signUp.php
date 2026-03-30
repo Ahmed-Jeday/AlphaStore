@@ -61,11 +61,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Store - Login/Signup</title>
+    <link rel="stylesheet" href="../css/style_1.css">
     <link rel="stylesheet" href="../css/signUp.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .password-box {
+    position: relative;
+}
+
+.password-box .toggle-password {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #555;
+}
+    </style>
 </head>
 
 <body>
+    
+    
     <div class="container">
         <div class="form-box login">
             <form action="signUp.php" method="post">
@@ -78,15 +96,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
 
                 <div class="input-box">
                     <input type="email" name="login_user" placeholder="Email" 
-                    required value="<?= htmlspecialchars($_POST["email"]?? "") ?>">
+                    value="<?= htmlspecialchars($_POST["login_user"] ?? "") ?>">
                     <i class='bx bxs-user'></i>
                 </div>
-                <div class="input-box">
-                    <input type="password" name="login_password" placeholder="Password" minlength="8" required>
-                    <i class='bx bxs-lock-alt'></i>
-                </div>
+                <div class="input-box password-box">
+    <input type="password" name="login_password" placeholder="Password" minlength="8" required>
+    <i class='bx bxs-lock-alt'></i>
+    <i class='bx bx-hide toggle-password'></i>
+</div>
                 <div class="forgot-link">
-                    <a href="#">Forgot Password?</a>
+                    <a href="forget-password.php">Forgot Password?</a>
                 </div>
                 <button type="submit" name="action" value="login" class="btn">Login</button>
                 <p>or login with social platforms</p>
@@ -115,10 +134,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
                     <input type="email" name="email" placeholder="Email" required>
                     <i class='bx bxs-envelope'></i>
                 </div>
-                <div class="input-box">
-                    <input type="password" name="password" placeholder="Password" required>
-                    <i class='bx bxs-lock-alt'></i>
-                </div>
+                <div class="input-box password-box">
+    <input type="password" name="password" placeholder="Password" required>
+    <i class='bx bxs-lock-alt'></i>
+    <i class='bx bx-hide toggle-password'></i>
+</div>
                 <button type="submit" value="register" name="action" class="btn">Register</button>
                 <p>or register with social platforms</p>
                 <div class="social-icons">
@@ -146,6 +166,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
     </div>
 
     <script src="../javaScript/signUp.js"></script>
+
+
+    <script>
+        document.querySelectorAll(".toggle-password").forEach(icon => {
+    icon.addEventListener("click", () => {
+        const input = icon.parentElement.querySelector("input");
+
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove("bx-hide");
+            icon.classList.add("bx-show");
+        } else {
+            input.type = "password";
+            icon.classList.remove("bx-show");
+            icon.classList.add("bx-hide");
+        }
+    });
+});
+    </script>
 </body>
+
+
 
 </html>

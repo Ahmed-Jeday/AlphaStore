@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/style_1.css">
     <link rel="stylesheet" href="../css/shop/shop_1.css">
     <link rel="stylesheet" href="../css/component/shop_animation.css">
-     <link rel="stylesheet" href="../css/component/fotter.css">
+     <link rel="stylesheet" href="../css/component/footer.css">
 </head>
 <body>
 
@@ -40,50 +40,53 @@
   <div class="slider">
     <div class="track" id="track">
 
-      <article class="project-card" active>
-        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/designers.webp" alt="">
+     
+        <article class="project-card" active>
+        <img class="project-card__bg" src="../img/young-handsome-man-isolated-dark-background.jpg" alt="Men's premium jacket background" loading="lazy">
         <div class="project-card__content">
-          <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-designer.webp?w=480" alt="">
+          <img class="project-card__thumb" src="../img/still-life-rendering-jackets-display.jpg">
           <div>
-            <h3 class="project-card__title">Designers</h3>
-            <p class="project-card__desc">Tools that work like you do.</p>
-            <button class="project-card__btn">Details</button>
+            <h3 class="project-card__title">Men’s Jackets</h3>
+            <p class="project-card__desc">Bold, rugged & refined — urban outerwear for the modern man.</p>
+            <button class="project-card__btn">Shop now →</button>
           </div>
         </div>
       </article>
 
       <article class="project-card">
-        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/marketers.webp" alt="">
+        <img class="project-card__bg" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80" alt="Elegant women's dress background" loading="lazy">
         <div class="project-card__content">
-          <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-marketer.webp?w=480" alt="">
+          <img class="project-card__thumb" src="../img/young-woman-beautiful-red-dress.jpg" alt="Women's dress thumb">
           <div>
-            <h3 class="project-card__title">Marketers</h3>
-            <p class="project-card__desc">Create faster, explore new possibilities.</p>
-            <button class="project-card__btn">Details</button>
+            <h3 class="project-card__title">Silhouette Dresses</h3>
+            <p class="project-card__desc">Effortless elegance, timeless cuts for every occasion.</p>
+            <button class="project-card__btn">Discover →</button>
           </div>
         </div>
       </article>
 
+        <!-- SLIDE 4 - LUXURY WATCHES (MEN & WOMEN) -->
       <article class="project-card">
-        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/filmmakers.webp" alt="">
+        <img class="project-card__bg" src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800&q=80" alt="Luxury watch background" loading="lazy">
         <div class="project-card__content">
-          <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-film.webp?w=480" alt="">
+          <img class="project-card__thumb" src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=200&h=200&fit=crop" alt="watch thumb">
           <div>
-            <h3 class="project-card__title">VFX filmmakers</h3>
-            <p class="project-card__desc">From concept to cut, faster.</p>
-            <button class="project-card__btn">Details</button>
+            <h3 class="project-card__title">Timepieces</h3>
+            <p class="project-card__desc">Sophisticated watches for him & her — modern legacy.</p>
+            <button class="project-card__btn">View collection →</button>
           </div>
         </div>
       </article>
 
+      <!-- SLIDE 5 - ACTIVEWEAR / PERFORMANCE GEAR -->
       <article class="project-card">
-        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/content-creators.webp" alt="">
+        <img class="project-card__bg" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Activewear performance background" loading="lazy">
         <div class="project-card__content">
-          <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-content.webp?w=480" alt="">
+          <img class="project-card__thumb" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop" alt="sportswear thumb">
           <div>
-            <h3 class="project-card__title">Content creators</h3>
-            <p class="project-card__desc">Make scroll-stopping content, easily.</p>
-            <button class="project-card__btn">Details</button>
+            <h3 class="project-card__title">Active DNA</h3>
+            <p class="project-card__desc">Breathable, adaptive gear — train without limits.</p>
+            <button class="project-card__btn">Shop active →</button>
           </div>
         </div>
       </article>
@@ -108,293 +111,63 @@
 
 
 
- <div class="product-filter-container">
-
-        <!-- FILTER TOP BAR -->
-        <div class="filter-top-bar">
-            <ul class="category-tabs">
-                <li><a href="#" class="active-tab">All Products</a></li>
-                <li><a href="#">Women</a></li>
-                <li><a href="#">Men</a></li>
-                <li><a href="#">Bag</a></li>
-                <li><a href="#">Shoes</a></li>
-                <li><a href="#">Watches</a></li>
-            </ul>
-            
-            <div class="action-buttons">
-                <button id="toggle-filter-btn" class="action-btn">
-                    <i class="fas fa-filter"></i> Filter
-                </button>
-                <button class="action-btn">
-                    <i class="fas fa-search"></i> Search
-                </button>
-            </div>
+<div class="product-filter-container">
+    <!-- FILTER TOP BAR -->
+    <div class="filter-top-bar">
+        <ul class="category-tabs" id="categoryTabs">
+            <li><a href="#" data-cat="all" class="active-tab">All Products</a></li>
+            <li><a href="#" data-cat="women">Women</a></li>
+            <li><a href="#" data-cat="men">Men</a></li>
+            <li><a href="#" data-cat="bag">Bag</a></li>
+            <li><a href="#" data-cat="shoes">Shoes</a></li>
+            <li><a href="#" data-cat="watches">Watches</a></li>
+        </ul>
+        <div class="action-buttons">
+            <button id="toggle-filter-btn" class="action-btn">
+                <i class="fas fa-filter"></i> Filter
+            </button>
+            <button class="action-btn" id="searchTriggerBtn">
+                <i class="fas fa-search"></i> Search
+            </button>
         </div>
-
-        <!-- FILTER SLIDE-OUT PANEL -->
-        <div id="filter-dropdown-panel" class="filter-panel">
-            <div class="filter-column">
-                <h4 class="filter-title">Sort By</h4>
-                <ul class="filter-list">
-                    <li><a href="#">Default</a></li>
-                    <li><a href="#">Popularity</a></li>
-                    <li><a href="#">Average rating</a></li>
-                    <li><a href="#" class="active-filter">Newness</a></li>
-                    <li><a href="#">Price: Low to High</a></li>
-                    <li><a href="#">Price: High to Low</a></li>
-                </ul>
-            </div>
-
-            <div class="filter-column">
-                <h4 class="filter-title">Price</h4>
-                <ul class="filter-list">
-                    <li><a href="#" class="active-filter">All</a></li>
-                    <li><a href="#">$0.00 - $50.00</a></li>
-                    <li><a href="#">$50.00 - $100.00</a></li>
-                    <li><a href="#">$100.00 - $150.00</a></li>
-                    <li><a href="#">$150.00 - $200.00</a></li>
-                    <li><a href="#">$200.00+</a></li>
-                </ul>
-            </div>
-
-            <div class="filter-column">
-                <h4 class="filter-title">Color</h4>
-                <ul class="filter-list">
-                    <li><a href="#"><span class="color-indicator bg-black"></span> Black</a></li>
-                    <li><a href="#" class="active-filter"><span class="color-indicator bg-blue"></span> Blue</a></li>
-                    <li><a href="#"><span class="color-indicator bg-grey"></span> Grey</a></li>
-                    <li><a href="#"><span class="color-indicator bg-green"></span> Green</a></li>
-                    <li><a href="#"><span class="color-indicator bg-red"></span> Red</a></li>
-                    <li><a href="#"><span class="color-indicator bg-white"></span> White</a></li>
-                </ul>
-            </div>
-
-            <div class="filter-column">
-                <h4 class="filter-title">Tags</h4>
-                <div class="tags-wrapper">
-                    <a href="#" class="tag-item">Fashion</a>
-                    <a href="#" class="tag-item">Lifestyle</a>
-                    <a href="#" class="tag-item">Denim</a>
-                    <a href="#" class="tag-item">Streetstyle</a>
-                    <a href="#" class="tag-item">Crafts</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- PRODUCT GRID -->
-       <p class="mesage"></p>
-        <div class="product-grid">
-            
-            <!-- PRODUCT 1 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=400&auto=format&fit=crop" alt="Esprit Ruffle Shirt">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Esprit Ruffle Shirt</a>
-                        <span class="product-price">$16.64</span>
-                    </div>
-                    <div class="product-actions">
-                        <i class="far fa-heart heart-icon"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 2 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=400&auto=format&fit=crop" alt="Herschel supply">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Herschel supply</a>
-                        <span class="product-price">$35.31</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 3 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=400&auto=format&fit=crop" alt="Only Check Trouser">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Only Check Trouser</a>
-                        <span class="product-price">$25.50</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 4 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1584382296087-9ff2714c1143?q=80&w=400&auto=format&fit=crop" alt="Classic Trench Coat">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Classic Trench Coat</a>
-                        <span class="product-price">$75.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 5 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=400&auto=format&fit=crop" alt="Front Pocket Jumper">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Front Pocket Jumper</a>
-                        <span class="product-price">$34.75</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 6 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=400&auto=format&fit=crop" alt="Vintage Inspired Classic">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Vintage Inspired Classic</a>
-                        <span class="product-price">$93.20</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 7 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1503341504253-d2d08aa8f4ef?q=80&w=400&auto=format&fit=crop" alt="Shirt in Stretch Cotton">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Shirt in Stretch Cotton</a>
-                        <span class="product-price">$52.66</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 8 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1510832842233-436cd988290f?q=80&w=400&auto=format&fit=crop" alt="Pieces Metallic Printed">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Pieces Metallic Printed</a>
-                        <span class="product-price">$18.96</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 9 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=400&auto=format&fit=crop" alt="Converse All Star">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Converse All Star</a>
-                        <span class="product-price">$75.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 10 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=400&auto=format&fit=crop" alt="Femme T-Shirt">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Femme T-Shirt</a>
-                        <span class="product-price">$25.85</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 11 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=400&auto=format&fit=crop" alt="Herschel supply">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Herschel supply</a>
-                        <span class="product-price">$63.16</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 12 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1510832842233-436cd988290f?q=80&w=400&auto=format&fit=crop" alt="Belt">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Herschel supply</a>
-                        <span class="product-price">$63.15</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="load-more-container">
-            <button class="load-more-btn">LOAD MORE</button>
-        </div>
-
     </div>
+
+    <!-- FILTER PANEL (slide-out) -->
+    <div id="filter-dropdown-panel" class="filter-panel">
+        <div class="filter-column">
+            <h4 class="filter-title">Sort By</h4>
+            <ul class="filter-list" id="sortList">
+                <li><a href="#" data-sort="default">Default</a></li>
+                <li><a href="#" data-sort="price_low">Price: Low to High</a></li>
+                <li><a href="#" data-sort="price_high">Price: High to Low</a></li>
+            </ul>
+        </div>
+        <div class="filter-column">
+            <h4 class="filter-title">Price</h4>
+            <ul class="filter-list" id="priceFilterList">
+                <li><a href="#" data-price="all" class="active-filter">All</a></li>
+                <li><a href="#" data-price="0-50">$0.00 - $50.00</a></li>
+                <li><a href="#" data-price="50-100">$50.00 - $100.00</a></li>
+                <li><a href="#" data-price="100-200">$100.00 - $200.00</a></li>
+            </ul>
+        </div>
+        <div class="filter-column">
+            <h4 class="filter-title">Color</h4>
+            <ul class="filter-list">
+                <li><a href="#"><span class="color-indicator bg-black"></span> Black</a></li>
+                <li><a href="#"><span class="color-indicator bg-blue"></span> Blue</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <p class="message" id="noProductMsg"></p>
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="load-more-container">
+        <button class="load-more-btn" id="loadMoreBtn">LOAD MORE</button>
+    </div>
+</div>
 
 
  <!-- QUICK VIEW MODAL OVERLAY -->
@@ -464,7 +237,7 @@
                     </div>
 
                     <div class="social-actions">
-                        <a href="#" class="wishlist-btn"><i class="far fa-heart"></i></a>
+                        <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
                         <div class="social-links">
                             <a href="#" ><i class="fab fa-facebook-f"></i></a>
                             <a href="#" ><i class="fab fa-twitter"></i></a>
