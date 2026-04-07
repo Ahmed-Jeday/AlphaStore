@@ -3,178 +3,175 @@
 
     // ----- GET ALL VIDEO ELEMENTS INSIDE SLIDES -----
     const allVideos = document.querySelectorAll('.bg-video');
+    const muteBtn = document.getElementById('toggle-video-mute');
+    const playBtn = document.getElementById('toggle-video-play');
     
+    let isGlobalMuted = true;
+    let isGlobalPaused = false;
+
     // Helper: safely play a video with promise catch (avoid "play() interrupted" errors)
     function playVideoSafely(videoElement) {
-      if (!videoElement) return;
-      // Reset to beginning for a fresh start (optional, but keeps sync)
-      videoElement.currentTime = 0;
+      if (!videoElement || isGlobalPaused) return;
+      
+      // Ensure global mute state is applied
+      videoElement.muted = isGlobalMuted;
+      
       const playPromise = videoElement.play();
       if (playPromise !== undefined) {
         playPromise.catch(error => {
           // Autoplay prevented or any other error: log but don't break UX
           console.warn("Video autoplay blocked or error:", error);
-          // Some browsers may need user interaction, but since videos are muted & we start after user click or swiper interaction, 
-          // fallback: we keep muted and retry on next slide change.
-          // Actually muted videos with playsinline are allowed to autoplay, but this is just safety.
         });
       }
     }
 
-    // Pause all videos and reset them (to stop background audio/video resources)
+    // Pause all videos
     function pauseAllVideos() {
       allVideos.forEach(video => {
         if (!video.paused) {
           video.pause();
         }
-        // Do NOT reset currentTime here to avoid flicker; we'll reset when playing the active one
       });
     }
 
-    // Play video of the currently active slide (only the one inside active .swiper-slide)
+    // Play video of the currently active slide
     function playActiveSlideVideo(swiperInstance) {
       // get active slide element
       const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
       if (!activeSlide) return;
 
-      // Find video inside active slide's .hero-container or directly inside slide
+      // Find video inside active slide
       const activeVideo = activeSlide.querySelector('.bg-video');
       if (!activeVideo) return;
 
-      // Pause all other videos to save resources and avoid overlapping audio
+      // Pause all other videos
       pauseAllVideos();
 
-      // Reset currentTime for clean start (optional: gives a consistent experience)
+      // Reset currentTime for clean start when switching slides
       activeVideo.currentTime = 0;
       
       // Play the active video
       playVideoSafely(activeVideo);
     }
 
-    // Initialize Swiper with all required features: Autoplay, Navigation, Pagination
-    // This fixes the main issues:
-    // - NEXT/PREV buttons now work because we explicitly bind navigation elements.
-    // - AUTOPLAY works because we enable autoplay module with delay.
-    // - Video transition on slide change is managed with 'slideChangeTransitionEnd' (smoother than 'slideChange').
+    // Initialize Swiper
     const swiper = new Swiper('.swiper', {
-      // Enable looping (infinite scroll)
       loop: true,
-      
-      // --- AUTOPLAY FIX: automatic slideshow with 5 seconds delay ---
       autoplay: {
-        delay: 10000,          // 5 seconds between slides
-        disableOnInteraction: false,  // keeps autoplay running after user clicks next/prev
-        pauseOnMouseEnter: false,     // optional: won't pause on hover
+        delay: 100000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false,
       },
-      
-      // --- NAVIGATION FIX: binds next/prev buttons to swiper actions ---
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      
-      // --- PAGINATION FIX: clickable bullets allow direct navigation ---
       pagination: {
         el: '.swiper-pagination',
-        clickable: true,      // users can click bullets to navigate
-        dynamicBullets: false,
+        clickable: true,
       },
-      
-      // Optional: smooth transition speed
       speed: 800,
-      
-      // Keyboard control for accessibility
       keyboard: {
         enabled: true,
         onlyInViewport: true,
       },
-      
-      // --- VIDEO HANDLING: event listeners for reliable autoplay on each slide ---
       on: {
-        // When swiper initialization is complete, play the first slide video
         init: function () {
-          // small delay to ensure DOM & videos are ready
           setTimeout(() => {
             playActiveSlideVideo(this);
           }, 100);
         },
-        
-        // Fires after slide change transition ends (best moment to swap videos)
         slideChangeTransitionEnd: function () {
-          // After transition, play the video of the new active slide
           playActiveSlideVideo(this);
         },
-        
-        // Optional: when autoplay starts or resumes, ensure video is playing
         autoplayStart: function () {
-          playActiveSlideVideo(this);
-        },
-        
-        // If user interacts with navigation buttons, autoplay remains active due to disableOnInteraction: false
-        // But we still ensure video stays in sync
-        transitionStart: function () {
-          // (Optional) we don't pause video early to avoid flicker, but we could.
-          // For seamless experience we don't pause until transition end.
+          if (!isGlobalPaused) playActiveSlideVideo(this);
         }
       }
     });
+
+    // --- VIDEO CONTROLS LOGIC ---
+    if (muteBtn) {
+      muteBtn.addEventListener('click', function() {
+        isGlobalMuted = !isGlobalMuted;
+        // Apply to all videos immediately
+        allVideos.forEach(v => v.muted = isGlobalMuted);
+        
+        // Update icon
+        const icon = muteBtn.querySelector('i');
+        if (isGlobalMuted) {
+          icon.className = 'fas fa-volume-mute';
+          muteBtn.setAttribute('title', 'Unmute');
+        } else {
+          icon.className = 'fas fa-volume-up';
+          muteBtn.setAttribute('title', 'Mute');
+        }
+      });
+    }
+
+    if (playBtn) {
+      playBtn.addEventListener('click', function() {
+        isGlobalPaused = !isGlobalPaused;
+        const activeVid = document.querySelector('.swiper-slide-active .bg-video');
+        
+        const icon = playBtn.querySelector('i');
+        if (isGlobalPaused) {
+          // Pause all videos and stop swiper autoplay
+          allVideos.forEach(v => v.pause());
+          swiper.autoplay.stop();
+          icon.className = 'fas fa-play';
+          playBtn.setAttribute('title', 'Play');
+        } else {
+          // Resume active video and swiper autoplay
+          if (activeVid) playVideoSafely(activeVid);
+          swiper.autoplay.start();
+          icon.className = 'fas fa-pause';
+          playBtn.setAttribute('title', 'Pause');
+        }
+      });
+    }
     
-    // --- ADDITIONAL FIX: Ensure videos start playing if the page loads with hidden/swiper ready but before 'init' 
-    // Also, handle any video loading errors: retry mechanism for background videos
+    // --- ADDITIONAL FIX: Ensure videos start playing correctly ---
     function preloadAndPrimeVideos() {
       allVideos.forEach(video => {
-        // Load metadata and ensure video is ready but not playing yet
         video.load();
-        // Force mute and playsinline again for safety
-        video.muted = true;
+        video.muted = isGlobalMuted;
         video.setAttribute('playsinline', 'true');
-        // if video data is already loaded, we are good
       });
     }
     preloadAndPrimeVideos();
     
-    // Edge case: In case browser blocks first video autoplay even when muted,
-    // we add a one-time user interaction (touch/click) on window to start playback.
-    // This is a robust fallback that respects modern browser policies.
     let firstInteractionDone = false;
     function enableAutoplayOnFirstInteraction() {
       if (firstInteractionDone) return;
       firstInteractionDone = true;
-      // When user interacts anywhere, ensure active video plays
       const activeVideoEl = document.querySelector('.swiper-slide-active .bg-video');
-      if (activeVideoEl && activeVideoEl.paused) {
+      if (activeVideoEl && activeVideoEl.paused && !isGlobalPaused) {
         playVideoSafely(activeVideoEl);
       }
-      // Also resume swiper autoplay if it was paused (though it normally runs)
-      if (swiper && swiper.autoplay && swiper.autoplay.paused) {
+      if (swiper && swiper.autoplay && swiper.autoplay.paused && !isGlobalPaused) {
         swiper.autoplay.resume();
       }
     }
     
-    // Listen to first user interaction (touch, click) to unblock any pending autoplay
     window.addEventListener('click', enableAutoplayOnFirstInteraction, { once: true });
     window.addEventListener('touchstart', enableAutoplayOnFirstInteraction, { once: true });
     
-    // Also when swiper is dynamically changed and some video fails, we re-trigger
-    // after a small delay for each slide transition retry (extra reliability)
+    // Resume retry on transition end
     swiper.on('slideChangeTransitionEnd', function () {
-      // small double-check: some mobile browsers might need a second attempt
       setTimeout(() => {
         const activeVid = document.querySelector('.swiper-slide-active .bg-video');
-        if (activeVid && activeVid.paused) {
+        if (activeVid && activeVid.paused && !isGlobalPaused) {
           playVideoSafely(activeVid);
         }
       }, 50);
     });
     
-    // Handle visibility change (when user switches tab, stop videos to save resources)
     document.addEventListener('visibilitychange', function() {
       if (document.hidden) {
-        // Tab hidden: pause all videos (optional but good performance)
         allVideos.forEach(v => { if (!v.paused) v.pause(); });
       } else {
-        // Tab visible again: resume active slide video
-        if (swiper) {
+        if (swiper && !isGlobalPaused) {
           const activeVid = document.querySelector('.swiper-slide-active .bg-video');
           if (activeVid && activeVid.paused) {
             playVideoSafely(activeVid);
@@ -183,8 +180,43 @@
       }
     });
     
-    // Log that swiper is ready and navigation is fully functional
-    console.log('✅ Swiper initialized: navigation, autoplay, and video autoplay fixed');
+    // --- TODAY'S DEALS COUNTDOWN ---
+    function updateCountdown() {
+        const hoursEl = document.getElementById('cd-h');
+        const minsEl = document.getElementById('cd-m');
+        const secsEl = document.getElementById('cd-s');
+
+        if (!hoursEl || !minsEl || !secsEl) return;
+
+        let h = parseInt(hoursEl.innerText);
+        let m = parseInt(minsEl.innerText);
+        let s = parseInt(secsEl.innerText);
+
+        if (s > 0) {
+            s--;
+        } else if (m > 0 || h > 0) {
+            if (s === 0) {
+                if (m > 0) {
+                    m--;
+                    s = 59;
+                } else if (h > 0) {
+                    h--;
+                    m = 59;
+                    s = 59;
+                }
+            }
+        }
+
+        hoursEl.innerText = h.toString().padStart(2, '0');
+        minsEl.innerText = m.toString().padStart(2, '0');
+        secsEl.innerText = s.toString().padStart(2, '0');
+    }
+
+    if (document.getElementById('countdown')) {
+        setInterval(updateCountdown, 1000);
+    }
+
+    console.log('✅ Swiper initialized with video controls and countdown');
   })();
 
 

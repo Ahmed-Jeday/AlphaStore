@@ -16,10 +16,16 @@ class User {
         $this->pdo = require __DIR__ . "/../config/Database.php";
     }
 
+    public function updatePassword($userId, $newPassword) {
+        $sql = "UPDATE users SET password = ? WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$newPassword, $userId]);
+    }
+
    
 
 
-    
+
 
     public function getUserById($id) {
         
@@ -44,22 +50,63 @@ class User {
         return $stmt->execute([$tokenHash, $expiry, $email]);
     }
 
- public function addUser($name, $email, $password)
+
+
+
+public function addUser($name, $email, $password)
 {
     $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([$name, $email, $password]);
 
-    try {
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$name, $email, $password]);
-    } catch (PDOException $e) {
-        if ($e->getCode() == 23000) {
-            return ["Cet email est déjà utilisé."];
-        } else {
-            return ["Erreur base de données : " . $e->getMessage()];
-        }
-    }
+    return $this->pdo->lastInsertId(); // important
 }
     
+public function addProfile($userId,$firstname)
+{
+    $sql = "INSERT INTO profiles (user_id,firstname) VALUES (?, ?)";
+    $stmt = $this->pdo->prepare($sql);
+
+    return $stmt->execute([$userId,$firstname]);
+}
+
+
+
+
+
+public function registerUser($name, $email, $password)
+{
+    try {
+        $this->pdo->beginTransaction();
+
+        // 1. user
+        $userId = $this->addUser($name, $email, $password);
+
+        // 2. profile
+        $this->addProfile(
+            $userId,$name
+          
+        );
+
+        $this->pdo->commit();
+        return true;
+
+    } catch (PDOException $e) {
+        $this->pdo->rollBack();
+
+        if ($e->getCode() == 23000) {
+            return ["Email déjà utilisé"];
+        }
+
+        return ["Erreur : " . $e->getMessage()];
+    }
+}
+
+
+
+
+
+
 
     public function getUserByToken($tokenHash) {
         $sql = "SELECT * FROM users WHERE reset_token_hash = ? AND reset_token_expires_at > NOW()";
@@ -75,13 +122,5 @@ class User {
         $stmt->execute([$hash]);
         return $stmt->fetch();
     }
-    public function updatePassword($userid,$newPassword)
-    {
-        $hasshPassword=password_hash($newPassword,PASSWORD_DEFAULT);
-        $stmt=$this->pdo->prepare("UPDATE users SET password = ? WHERE id = ?");
-        return $stmt->execute([$hasshPassword,$userid]);
-
-    }
-
+   
 }
-?>

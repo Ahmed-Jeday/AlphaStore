@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Alpha Store | Fullscreen Video Swiper</title>
-  
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <!-- Swiper CSS (bundle includes core + modules) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-      <!-- Google Fonts -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Alpha Store | Fullscreen Video Swiper</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Swiper CSS (bundle includes core + modules) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome (icônes) -->
@@ -25,610 +26,726 @@
     <link rel="stylesheet" href="../css/tech.css">
     <link rel="stylesheet" href="../css/shop/shop_1.css">
     <link rel="stylesheet" href="../css/component/footer.css">
- 
 
-  
+
+
+
 </head>
+
 <body>
     <header>
         <div id="navbar-placeholder"></div>
-<div class="swiper">
-  <div class="swiper-wrapper">
+        <div class="swiper">
+            <div class="swiper-wrapper">
 
-    <!-- SLIDE 1 - INTRO -->
-    <div class="swiper-slide">
-      <div class="hero-container">
-        <!-- 
+                <!-- SLIDE 1 - INTRO -->
+                <div class="swiper-slide">
+                    <div class="hero-container">
+                        <!-- 
           VIDEO ELEMENT: 
           - "muted" & "playsinline" are essential for autoplay policies
           - "loop" makes video repeat seamlessly
           - "preload" helps buffer for smoother transitions
           - Removed "autoplay" attribute to let JS manage playback precisely (avoid conflicts)
         -->
-        <video class="bg-video" muted loop playsinline preload="auto">
-          <source src="../media/HONOR X7c _ Drop Resistance.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+                        <video class="bg-video" muted loop playsinline preload="auto">
+                            <source src="../media/HONOR X7c _ Drop Resistance.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
 
-        <div class="hero-content">
-          <h1>Welcome to Alpha Store</h1>
-          <p>Discover the best products with style</p>
-          <div class="hero-buttons">
-            <a href="#" class="btn-white">SHOP NOW</a>
-            <a href="#" class="btn-outline">EXPLORE</a>
-          </div>
+                        <div class="hero-content">
+                            <h1>Welcome to Alpha Store</h1>
+                            <p>Discover the best products with style</p>
+                            <div class="hero-buttons">
+                                <a href="#" class="btn-white">SHOP NOW</a>
+                                <a href="#" class="btn-outline">EXPLORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- SLIDE 3 - EXTRA SLIDE TO DEMO LOOP & AUTOPLAY (you can add more) -->
+                <div class="swiper-slide">
+                    <div class="hero-container">
+                        <video class="bg-video" muted loop playsinline preload="auto">
+                            <source src="../media/Infinix _ NOTE 60 Ultra _ Product Video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="hero-content">
+                            <h1>Exclusive Deals</h1>
+                            <p>Limited time offers, don't miss out</p>
+                            <div class="hero-buttons">
+                                <a href="#" class="btn-white">SHOP NOW</a>
+                                <a href="#" class="btn-outline">EXPLORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="swiper-slide">
+                    <div class="hero-container">
+
+                        <video class="bg-video" muted loop playsinline preload="auto">
+                            <source src="../media/PlayStation 5 - Same Immersive Power. New Slimmer Size..mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <div class="hero-content">
+                            <h1>Welcome to Alpha Store</h1>
+                            <p>Discover the best products with style</p>
+                            <div class="hero-buttons">
+                                <a href="#" class="btn-white">SHOP NOW</a>
+                                <a href="#" class="btn-outline">EXPLORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 5 -->
+
+                <div class="swiper-slide">
+                    <div class="hero-container">
+
+                        <video class="bg-video" muted loop playsinline preload="auto">
+                            <source src="../media/HUAWEI WATCH FIT 4 Pro - Aviation-Grade.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <div class="hero-content">
+                            <h1>Welcome to Alpha Store</h1>
+                            <p>Discover the best products with style</p>
+                            <div class="hero-buttons">
+                                <a href="#" class="btn-white">SHOP NOW</a>
+                                <a href="#" class="btn-outline">EXPLORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation arrows (PREV / NEXT) -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+            <!-- Pagination bullets (clickable) -->
+            <div class="swiper-pagination"></div>
+
+            <!-- VIDEO CONTROLS -->
+            <div class="video-controls">
+                <button id="toggle-video-mute" class="video-btn" title="Mute/Unmute">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
+                <button id="toggle-video-play" class="video-btn" title="Play/Pause">
+                    <i class="fas fa-pause"></i>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-
- 
-
-    <!-- SLIDE 3 - EXTRA SLIDE TO DEMO LOOP & AUTOPLAY (you can add more) -->
-    <div class="swiper-slide">
-      <div class="hero-container">
-        <video class="bg-video" muted loop playsinline preload="auto">
-          <source src="../media/Infinix _ NOTE 60 Ultra _ Product Video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <div class="hero-content">
-          <h1>Exclusive Deals</h1>
-          <p>Limited time offers, don't miss out</p>
-          <div class="hero-buttons">
-            <a href="#" class="btn-white">SHOP NOW</a>
-            <a href="#" class="btn-outline">EXPLORE</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-  
-    <div class="swiper-slide">
-      <div class="hero-container">
-       
-        <video class="bg-video" muted loop playsinline preload="auto">
-          <source src="../media/PlayStation 5 - Same Immersive Power. New Slimmer Size..mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-
-        <div class="hero-content">
-          <h1>Welcome to Alpha Store</h1>
-          <p>Discover the best products with style</p>
-          <div class="hero-buttons">
-            <a href="#" class="btn-white">SHOP NOW</a>
-            <a href="#" class="btn-outline">EXPLORE</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-      <!-- SLIDE 5 -->
-
-    <div class="swiper-slide">
-      <div class="hero-container">
-       
-        <video class="bg-video" muted loop playsinline preload="auto">
-          <source src="../media/HUAWEI WATCH FIT 4 Pro - Aviation-Grade.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-
-        <div class="hero-content">
-          <h1>Welcome to Alpha Store</h1>
-          <p>Discover the best products with style</p>
-          <div class="hero-buttons">
-            <a href="#" class="btn-white">SHOP NOW</a>
-            <a href="#" class="btn-outline">EXPLORE</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigation arrows (PREV / NEXT) -->
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-
-  <!-- Pagination bullets (clickable) -->
-  <div class="swiper-pagination"></div>
-</div>
 
     </header>
 
 
 
-<section class="second">
-    <h1>Trending Tech Right Now</h1>
-    <p>Stay ahead with the latest gadgets and best-selling products loved by our customers.</p>
-    <div class="section-content">
-
-    
-    <div class="card">
-  <div class="overflow">
-    <div class="model">
-      <model-viewer src="../media/topo_keyboard (1).glb" shadow-intensity="0.4"></model-viewer>
-    </div>
-  </div>
-  <div class="glass">
-    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="content">
-    <h2>LeafKey</h2>
-    <p>A keyboard that brings the tranquility of the forest to your fingertips.</p>
-    <div class="options">
-      <div onclick="changeModelStyle(this, 0);" style="background: #f2c173;"></div>
-      <div onclick="changeModelStyle(this, 60);" style="background: #96dd78;"></div>
-      <div onclick="changeModelStyle(this, 110);" style="background: #6ee5bc;"></div>
-    </div>
-  </div>
-</div>
-<div class="card">
-  <div class="overflow">
-    <div class="model ">
-      <model-viewer class="samsung" src="../media/samsung_galaxy_a12.glb" camera-orbit="0deg 75deg 2m" autoplay></model-viewer>
-    </div>
-  </div>
-  <div class="glass">
-    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="content">
-    <h2>TopoKey</h2>
-    <p>Custom illuminated keyboard with neon topology mapped out in every key.</p>
-    <div class="options">
-      <div onclick="changeModelStyle(this, 0);" style="background: #2cb4f0;"></div>
-      <div onclick="changeModelStyle(this, 110);" style="background: #ff69e4;"></div>
-      <div onclick="changeModelStyle(this, 290);" style="background: #16b83f;"></div>
-    </div>
-  </div>
-</div>
-<div class="card">
-  <div class="overflow">
-    <div class="model">
-      <model-viewer src="https://assets.codepen.io/3421562/panda_keyboard.glb" shadow-intensity="0.4"></model-viewer>
-    </div>
-  </div>
-  <div class="glass">
-    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="content">
-    <h2>PandaKey</h2>
-    <p>Panda, panda, panda, panda, panda, panda... panda</p>
-    <div class="options">
-     <div onclick="changeModelStyle(this, 0);" style="background: #1e1e1e;"></div>
-      <div onclick="changeModelStyle(this, 0, 1);" style="background: #eee;"></div>
-    </div>
-  </div>
-</div>
-</div>
-</section>
+    <section class="second">
+        <h1>Trending Tech Right Now</h1>
+        <p>Stay ahead with the latest gadgets and best-selling products loved by our customers.</p>
+        <div class="section-content">
 
 
-
-
-
-<section class="tird">
-     <div class="product-filter-container">
-
-        <!-- FILTER TOP BAR -->
-        <div class="filter-top-bar">
-            <ul class="category-tabs">
-                <li><a href="#" class="active-tab">All Products</a></li>
-                <li><a href="#">Women</a></li>
-                <li><a href="#">Men</a></li>
-                <li><a href="#">Bag</a></li>
-                <li><a href="#">Shoes</a></li>
-                <li><a href="#">Watches</a></li>
-            </ul>
-            
-            <div class="action-buttons">
-                <button id="toggle-filter-btn" class="action-btn">
-                    <i class="fas fa-filter"></i> Filter
-                </button>
-                <button class="action-btn">
-                    <i class="fas fa-search"></i> Search
-                </button>
-            </div>
-        </div>
-
-        <!-- FILTER SLIDE-OUT PANEL -->
-        <div id="filter-dropdown-panel" class="filter-panel">
-            <div class="filter-column">
-                <h4 class="filter-title">Sort By</h4>
-                <ul class="filter-list">
-                    <li><a href="#">Default</a></li>
-                    <li><a href="#">Popularity</a></li>
-                    <li><a href="#">Average rating</a></li>
-                    <li><a href="#" class="active-filter">Newness</a></li>
-                    <li><a href="#">Price: Low to High</a></li>
-                    <li><a href="#">Price: High to Low</a></li>
-                </ul>
-            </div>
-
-            <div class="filter-column">
-                <h4 class="filter-title">Price</h4>
-                <ul class="filter-list">
-                    <li><a href="#" class="active-filter">All</a></li>
-                    <li><a href="#">$0.00 - $50.00</a></li>
-                    <li><a href="#">$50.00 - $100.00</a></li>
-                    <li><a href="#">$100.00 - $150.00</a></li>
-                    <li><a href="#">$150.00 - $200.00</a></li>
-                    <li><a href="#">$200.00+</a></li>
-                </ul>
-            </div>
-
-            <div class="filter-column">
-                <h4 class="filter-title">Color</h4>
-                <ul class="filter-list">
-                    <li><a href="#"><span class="color-indicator bg-black"></span> Black</a></li>
-                    <li><a href="#" class="active-filter"><span class="color-indicator bg-blue"></span> Blue</a></li>
-                    <li><a href="#"><span class="color-indicator bg-grey"></span> Grey</a></li>
-                    <li><a href="#"><span class="color-indicator bg-green"></span> Green</a></li>
-                    <li><a href="#"><span class="color-indicator bg-red"></span> Red</a></li>
-                    <li><a href="#"><span class="color-indicator bg-white"></span> White</a></li>
-                </ul>
-            </div>
-
-            <div class="filter-column">
-                <h4 class="filter-title">Tags</h4>
-                <div class="tags-wrapper">
-                    <a href="#" class="tag-item">Fashion</a>
-                    <a href="#" class="tag-item">Lifestyle</a>
-                    <a href="#" class="tag-item">Denim</a>
-                    <a href="#" class="tag-item">Streetstyle</a>
-                    <a href="#" class="tag-item">Crafts</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- PRODUCT GRID -->
-       <p class="mesage"></p>
-        <div class="product-grid">
-            
-            <!-- PRODUCT 1 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=400&auto=format&fit=crop" alt="Esprit Ruffle Shirt">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Esprit Ruffle Shirt</a>
-                        <span class="product-price">$16.64</span>
+            <div class="card">
+                <div class="overflow">
+                    <div class="model">
+                        <model-viewer src="../media/topo_keyboard (1).glb" shadow-intensity="0.4"></model-viewer>
                     </div>
-                    <div class="product-actions">
-                        <i class="far fa-heart heart-icon"></i>
+                </div>
+                <div class="glass">
+                    <div class="gradient-blur">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>LeafKey</h2>
+                    <p>A keyboard that brings the tranquility of the forest to your fingertips.</p>
+                    <div class="options">
+                        <div onclick="changeModelStyle(this, 0);" style="background: #f2c173;"></div>
+                        <div onclick="changeModelStyle(this, 60);" style="background: #96dd78;"></div>
+                        <div onclick="changeModelStyle(this, 110);" style="background: #6ee5bc;"></div>
                     </div>
                 </div>
             </div>
-
-            <!-- PRODUCT 2 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=400&auto=format&fit=crop" alt="Herschel supply">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Herschel supply</a>
-                        <span class="product-price">$35.31</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+            <div class="card">
+                <div class="overflow">
+                    <div class="model ">
+                        <model-viewer class="samsung" src="../media/samsung_galaxy_a12.glb" camera-orbit="0deg 75deg 2m"
+                            autoplay></model-viewer>
                     </div>
                 </div>
-            </div>
-
-            <!-- PRODUCT 3 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=400&auto=format&fit=crop" alt="Only Check Trouser">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Only Check Trouser</a>
-                        <span class="product-price">$25.50</span>
+                <div class="glass">
+                    <div class="gradient-blur">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                </div>
+                <div class="content">
+                    <h2>TopoKey</h2>
+                    <p>Custom illuminated keyboard with neon topology mapped out in every key.</p>
+                    <div class="options">
+                        <div onclick="changeModelStyle(this, 0);" style="background: #2cb4f0;"></div>
+                        <div onclick="changeModelStyle(this, 110);" style="background: #ff69e4;"></div>
+                        <div onclick="changeModelStyle(this, 290);" style="background: #16b83f;"></div>
                     </div>
                 </div>
             </div>
-
-            <!-- PRODUCT 4 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1584382296087-9ff2714c1143?q=80&w=400&auto=format&fit=crop" alt="Classic Trench Coat">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Classic Trench Coat</a>
-                        <span class="product-price">$75.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+            <div class="card">
+                <div class="overflow">
+                    <div class="model">
+                        <model-viewer src="https://assets.codepen.io/3421562/panda_keyboard.glb"
+                            shadow-intensity="0.4"></model-viewer>
                     </div>
                 </div>
-            </div>
-
-            <!-- PRODUCT 5 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=400&auto=format&fit=crop" alt="Front Pocket Jumper">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Front Pocket Jumper</a>
-                        <span class="product-price">$34.75</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                <div class="glass">
+                    <div class="gradient-blur">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
                 </div>
-            </div>
-
-            <!-- PRODUCT 6 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=400&auto=format&fit=crop" alt="Vintage Inspired Classic">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Vintage Inspired Classic</a>
-                        <span class="product-price">$93.20</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 7 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1503341504253-d2d08aa8f4ef?q=80&w=400&auto=format&fit=crop" alt="Shirt in Stretch Cotton">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Shirt in Stretch Cotton</a>
-                        <span class="product-price">$52.66</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT 8 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1510832842233-436cd988290f?q=80&w=400&auto=format&fit=crop" alt="Pieces Metallic Printed">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Pieces Metallic Printed</a>
-                        <span class="product-price">$18.96</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 9 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=400&auto=format&fit=crop" alt="Converse All Star">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Converse All Star</a>
-                        <span class="product-price">$75.00</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 10 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=400&auto=format&fit=crop" alt="Femme T-Shirt">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Femme T-Shirt</a>
-                        <span class="product-price">$25.85</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 11 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=400&auto=format&fit=crop" alt="Herschel supply">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Herschel supply</a>
-                        <span class="product-price">$63.16</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- PRODUCT 12 -->
-            <div class="product-item">
-                <div class="product-img-block">
-                    <img src="https://images.unsplash.com/photo-1510832842233-436cd988290f?q=80&w=400&auto=format&fit=crop" alt="Belt">
-                    <button class="quick-view-btn">Quick View</button>
-                </div>
-                <div class="product-info-block">
-                    <div class="product-text">
-                        <a href="#" class="product-title">Herschel supply</a>
-                        <span class="product-price">$63.15</span>
-                    </div>
-                    <div class="product-actions">
-                        <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                <div class="content">
+                    <h2>PandaKey</h2>
+                    <p>Panda, panda, panda, panda, panda, panda... panda</p>
+                    <div class="options">
+                        <div onclick="changeModelStyle(this, 0);" style="background: #1e1e1e;"></div>
+                        <div onclick="changeModelStyle(this, 0, 1);" style="background: #eee;"></div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="load-more-container">
-            <button class="load-more-btn">LOAD MORE</button>
+
+
+
+    <section class="section deals-section">
+        <div class="container">
+            <div class="deals-header">
+                <h2 class="section-title">New Release</h2>
+                <div class="countdown" id="countdown">
+                    <div class="cd-block"><span id="cd-h">08</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-block"><span id="cd-m">45</span>
+                        <p>Mins</p>
+                    </div>
+                    <div class="cd-sep">:</div>
+                    <div class="cd-block"><span id="cd-s">00</span>
+                        <p>Secs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-banner">
+                <div class="image-container">
+                    <img src="https://www.apple.com/v/iphone-17/e/images/overview/highlights/ios/ios__dh3mxqibj1g2_large_2x.png"
+                        alt="iPhone 17 Colors">
+                </div>
+
+                <div class="bottom-bar">
+                    <div class="text-content">
+                        <h2 class="product-name">iPhone 17 Pro</h2>
+                        <h1 class="headline">Magichromatic.</h1>
+                    </div>
+
+                    <div class="pricing-box">
+                        <div class="price-details">
+                            From <strong>799dt</strong><br>
+                            or <span>$25/mo.</span> for 24 mo.*
+                        </div>
+                        <a href="#" class="buy-button">Buy Now</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+          
+              
+              
 
-    </div>
 
-
- <!-- QUICK VIEW MODAL OVERLAY -->
-    <div class="modal-overlay" id="quickViewModal">
-        <div class="modal-container">
-            <button class="modal-close-btn" id="closeModalBtn">&times;</button>
-
-            <div class="modal-content">
                 
-                <div class="modal-gallery">
-                    <div class="gallery-thumbnails">
-                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=150&auto=format&fit=crop" alt="Thumb 1" class="active-thumb">
-                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=150&auto=format&fit=crop" alt="Thumb 2">
-                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=150&auto=format&fit=crop" alt="Thumb 3">
-                    </div>
-                    
-                    <div class="gallery-main">
-                        <button class="nav-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
-                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=500&auto=format&fit=crop" alt="Main Product Image" class="main-image">
-                        <button class="nav-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
-                        <button class="expand-btn"><i class="fas fa-expand"></i></button>
-                    </div>
-                </div>
-
-                <div class="modal-details">
-                    <h2 class="product-title">Lightweight Jacket</h2>
-                    <p class="product-price">$58.79</p>
-                    
-                    <p class="product-description">
-                        Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
-                    </p>
-
-                    <div class="product-options">
-                        <div class="option-row">
-                            <label>Size</label>
-                            <div class="select-wrapper">
-                                <select>
-                                    <option>Choose an option</option>
-                                    <option>Size S</option>
-                                    <option>Size M</option>
-                                    <option>Size L</option>
-                                    <option>Size XL</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="option-row">
-                            <label>Color</label>
-                            <div class="select-wrapper">
-                                <select>
-                                    <option>Choose an option</option>
-                                    <option>Red</option>
-                                    <option>Blue</option>
-                                    <option>White</option>
-                                    <option>Grey</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="add-to-cart-wrapper">
-                        <div class="quantity-selector">
-                            <button class="qty-btn minus-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn plus-btn">+</button>
-                        </div>
-                        <button class="add-cart-btn">ADD TO CART</button>
-                    </div>
-
-                    <div class="social-actions">
-                        <a href="#" class="wishlist-btn"><i class="far fa-heart"></i></a>
-                        <div class="social-links">
-                            <a href="#" ><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" ><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
+    </section>
 
-  
 
-    
-</section>
-<section class="slider-main">
-    <div class="container">
-        <div class="logo">
-            <a href="#"><img src="../Images/logo.svg" alt="logo"></a>
+
+
+
+    <section class="tird">
+        <div class="product-filter-container">
+
+            <!-- FILTER TOP BAR -->
+            <div class="filter-top-bar">
+                <ul class="category-tabs">
+                    <li><a href="#" class="active-tab">All Products</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Bag</a></li>
+                    <li><a href="#">Shoes</a></li>
+                    <li><a href="#">Watches</a></li>
+                </ul>
+
+                <div class="action-buttons">
+                    <button id="toggle-filter-btn" class="action-btn">
+                        <i class="fas fa-filter"></i> Filter
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+
+            <!-- FILTER SLIDE-OUT PANEL -->
+            <div id="filter-dropdown-panel" class="filter-panel">
+                <div class="filter-column">
+                    <h4 class="filter-title">Sort By</h4>
+                    <ul class="filter-list">
+                        <li><a href="#">Default</a></li>
+                        <li><a href="#">Popularity</a></li>
+                        <li><a href="#">Average rating</a></li>
+                        <li><a href="#" class="active-filter">Newness</a></li>
+                        <li><a href="#">Price: Low to High</a></li>
+                        <li><a href="#">Price: High to Low</a></li>
+                    </ul>
+                </div>
+
+                <div class="filter-column">
+                    <h4 class="filter-title">Price</h4>
+                    <ul class="filter-list">
+                        <li><a href="#" class="active-filter">All</a></li>
+                        <li><a href="#">$0.00 - $50.00</a></li>
+                        <li><a href="#">$50.00 - $100.00</a></li>
+                        <li><a href="#">$100.00 - $150.00</a></li>
+                        <li><a href="#">$150.00 - $200.00</a></li>
+                        <li><a href="#">$200.00+</a></li>
+                    </ul>
+                </div>
+
+                <div class="filter-column">
+                    <h4 class="filter-title">Color</h4>
+                    <ul class="filter-list">
+                        <li><a href="#"><span class="color-indicator bg-black"></span> Black</a></li>
+                        <li><a href="#" class="active-filter"><span class="color-indicator bg-blue"></span> Blue</a>
+                        </li>
+                        <li><a href="#"><span class="color-indicator bg-grey"></span> Grey</a></li>
+                        <li><a href="#"><span class="color-indicator bg-green"></span> Green</a></li>
+                        <li><a href="#"><span class="color-indicator bg-red"></span> Red</a></li>
+                        <li><a href="#"><span class="color-indicator bg-white"></span> White</a></li>
+                    </ul>
+                </div>
+
+                <div class="filter-column">
+                    <h4 class="filter-title">Tags</h4>
+                    <div class="tags-wrapper">
+                        <a href="#" class="tag-item">Fashion</a>
+                        <a href="#" class="tag-item">Lifestyle</a>
+                        <a href="#" class="tag-item">Denim</a>
+                        <a href="#" class="tag-item">Streetstyle</a>
+                        <a href="#" class="tag-item">Crafts</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT GRID -->
+            <p class="mesage"></p>
+            <div class="product-grid">
+
+                <!-- PRODUCT 1 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=400&auto=format&fit=crop"
+                            alt="Esprit Ruffle Shirt">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Esprit Ruffle Shirt</a>
+                            <span class="product-price">$16.64</span>
+                        </div>
+                        <div class="product-actions">
+                            <i class="far fa-heart heart-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 2 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=400&auto=format&fit=crop"
+                            alt="Herschel supply">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Herschel supply</a>
+                            <span class="product-price">$35.31</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 3 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=400&auto=format&fit=crop"
+                            alt="Only Check Trouser">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Only Check Trouser</a>
+                            <span class="product-price">$25.50</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 4 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1584382296087-9ff2714c1143?q=80&w=400&auto=format&fit=crop"
+                            alt="Classic Trench Coat">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Classic Trench Coat</a>
+                            <span class="product-price">$75.00</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 5 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=400&auto=format&fit=crop"
+                            alt="Front Pocket Jumper">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Front Pocket Jumper</a>
+                            <span class="product-price">$34.75</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 6 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=400&auto=format&fit=crop"
+                            alt="Vintage Inspired Classic">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Vintage Inspired Classic</a>
+                            <span class="product-price">$93.20</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 7 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1503341504253-d2d08aa8f4ef?q=80&w=400&auto=format&fit=crop"
+                            alt="Shirt in Stretch Cotton">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Shirt in Stretch Cotton</a>
+                            <span class="product-price">$52.66</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 8 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1510832842233-436cd988290f?q=80&w=400&auto=format&fit=crop"
+                            alt="Pieces Metallic Printed">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Pieces Metallic Printed</a>
+                            <span class="product-price">$18.96</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 9 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=400&auto=format&fit=crop"
+                            alt="Converse All Star">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Converse All Star</a>
+                            <span class="product-price">$75.00</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 10 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=400&auto=format&fit=crop"
+                            alt="Femme T-Shirt">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Femme T-Shirt</a>
+                            <span class="product-price">$25.85</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 11 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=400&auto=format&fit=crop"
+                            alt="Herschel supply">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Herschel supply</a>
+                            <span class="product-price">$63.16</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 12 -->
+                <div class="product-item">
+                    <div class="product-img-block">
+                        <img src="https://images.unsplash.com/photo-1510832842233-436cd988290f?q=80&w=400&auto=format&fit=crop"
+                            alt="Belt">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                    <div class="product-info-block">
+                        <div class="product-text">
+                            <a href="#" class="product-title">Herschel supply</a>
+                            <span class="product-price">$63.15</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more-container">
+                <button class="load-more-btn">LOAD MORE</button>
+            </div>
+
         </div>
-        <div class="slider-content-wrap">
-            <div class="slider-content">
-                <h2 class="heading-style-2">Apple AirPods Max Wireless Over-Ear Headphones.</h2>
-                <p>Active Noise Cancelling, Transparency Mode, Spatial Audio, Digital Crown for Volume Control. Bluetooth Headphones for iPhone</p>
-                <h3 class="heading-style-2">$699.99</h3>
-                <div class="social-icons">
-                    <a href="#"><img src="../Images/instagram.svg" alt="instagram"></a>
-                    <a href="#"><img src="../Images/facebook.svg" alt="facebook"></a>
-                    <a href="#"><img src="../Images/twitter.svg" alt="twitter"></a>
+
+
+        <!-- QUICK VIEW MODAL OVERLAY -->
+        <div class="modal-overlay" id="quickViewModal">
+            <div class="modal-container">
+                <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+
+                <div class="modal-content">
+
+                    <div class="modal-gallery">
+                        <div class="gallery-thumbnails">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=150&auto=format&fit=crop"
+                                alt="Thumb 1" class="active-thumb">
+                            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=150&auto=format&fit=crop"
+                                alt="Thumb 2">
+                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=150&auto=format&fit=crop"
+                                alt="Thumb 3">
+                        </div>
+
+                        <div class="gallery-main">
+                            <button class="nav-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=500&auto=format&fit=crop"
+                                alt="Main Product Image" class="main-image">
+                            <button class="nav-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
+                            <button class="expand-btn"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="modal-details">
+                        <h2 class="product-title">Lightweight Jacket</h2>
+                        <p class="product-price">$58.79</p>
+
+                        <p class="product-description">
+                            Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare
+                            feugiat.
+                        </p>
+
+                        <div class="product-options">
+                            <div class="option-row">
+                                <label>Size</label>
+                                <div class="select-wrapper">
+                                    <select>
+                                        <option>Choose an option</option>
+                                        <option>Size S</option>
+                                        <option>Size M</option>
+                                        <option>Size L</option>
+                                        <option>Size XL</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="option-row">
+                                <label>Color</label>
+                                <div class="select-wrapper">
+                                    <select>
+                                        <option>Choose an option</option>
+                                        <option>Red</option>
+                                        <option>Blue</option>
+                                        <option>White</option>
+                                        <option>Grey</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="add-to-cart-wrapper">
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus-btn">-</button>
+                                <input type="number" class="qty-input" value="1" min="1">
+                                <button class="qty-btn plus-btn">+</button>
+                            </div>
+                            <button class="add-cart-btn">ADD TO CART</button>
+                        </div>
+
+                        <div class="social-actions">
+                            <a href="#" class="wishlist-btn"><i class="far fa-heart"></i></a>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="slider-images">
-        <img class="slider-image" src="../Images/green.png" alt="headphone image">
-        <img class="slider-image" src="../Images/blue.png" alt="headphone image">
-        <img class="slider-image" src="../Images/red.png" alt="headphone image">
-        <img class="slider-image" src="../Images/white.png" alt="headphone image">
-        <img class="slider-image" src="../Images/black.png" alt="headphone image">
-    </div>
-
-    <div id="backgrounds">
-        <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #C7F6D0 0%, #7CB686 92.19%);"></div>
-        <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #D1E4F6 0%, #5F9CCF 100%);"></div>
-        <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #FFB7B2 0%, #ED746E 100%);"></div>
-        <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #D7D7D7 0%, #979797 100%);"></div>
-        <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #6B6B6B 0%, #292929 100%);"></div>
-    </div>
-</section>
-<div id="footer-placeholder"></div>
 
 
 
 
+    </section>
+    <section class="slider-main">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="../Images/logo.svg" alt="logo"></a>
+            </div>
+            <div class="slider-content-wrap">
+                <div class="slider-content">
+                    <h2 class="heading-style-2">Apple AirPods Max Wireless Over-Ear Headphones.</h2>
+                    <p>Active Noise Cancelling, Transparency Mode, Spatial Audio, Digital Crown for Volume Control.
+                        Bluetooth Headphones for iPhone</p>
+                    <h3 class="heading-style-2">$699.99</h3>
+                    <div class="social-icons">
+                        <a href="#"><img src="../Images/instagram.svg" alt="instagram"></a>
+                        <a href="#"><img src="../Images/facebook.svg" alt="facebook"></a>
+                        <a href="#"><img src="../Images/twitter.svg" alt="twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- Swiper JS (bundle includes Navigation, Pagination, Autoplay modules) -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="../javaScript/main.js"></script>
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+        <div class="slider-images">
+            <img class="slider-image" src="../Images/green.png" alt="headphone image">
+            <img class="slider-image" src="../Images/blue.png" alt="headphone image">
+            <img class="slider-image" src="../Images/red.png" alt="headphone image">
+            <img class="slider-image" src="../Images/white.png" alt="headphone image">
+            <img class="slider-image" src="../Images/black.png" alt="headphone image">
+        </div>
 
-<script src="../javaScript/tech.js"> </script>
-<script src="../javaScript/shop.js"></script>
+        <div id="backgrounds">
+            <div class="background"
+                style="background: radial-gradient(50% 50% at 50% 50%, #C7F6D0 0%, #7CB686 92.19%);"></div>
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #D1E4F6 0%, #5F9CCF 100%);">
+            </div>
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #FFB7B2 0%, #ED746E 100%);">
+            </div>
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #D7D7D7 0%, #979797 100%);">
+            </div>
+            <div class="background" style="background: radial-gradient(50% 50% at 50% 50%, #6B6B6B 0%, #292929 100%);">
+            </div>
+        </div>
+    </section>
+    <div id="footer-placeholder"></div>
+
+
+
+
+
+    <!-- Swiper JS (bundle includes Navigation, Pagination, Autoplay modules) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../javaScript/main.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <script src="../javaScript/tech.js"> </script>
+    <script src="../javaScript/shop.js"></script>
 
 </body>
+
 </html>

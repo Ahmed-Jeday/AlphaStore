@@ -56,23 +56,6 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
     }
 });
 
-// ========== PERSONAL INFORMATION ==========
-document.getElementById('updateProfileBtn').addEventListener('click', () => {
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const gender = document.getElementById('gender').value;
-
-    if (!firstName || !lastName || !email || !phone) {
-        alert('Please fill all required fields');
-        return;
-    }
-
-    // Simulate API call
-    console.log('Profile update:', { firstName, lastName, email, phone, gender });
-    alert('Profile updated successfully!');
-});
 
 // ========== ADDRESS MANAGEMENT ==========
 function refreshAddressEvents() {
@@ -300,6 +283,35 @@ document.querySelector('.offer-link')?.addEventListener('click', () => {
 document.getElementById('orderFilter')?.addEventListener('change', (e) => {
     alert(`Filter orders by: ${e.target.value} (demo)`);
 });
+
+// ========== AVATAR PICKER ==========
+const avatarContainer = document.getElementById('avatarContainer');
+const avatarPicker = document.getElementById('avatarPicker');
+const profileAvatar = document.getElementById('profileAvatar');
+const toastMsg = document.getElementById('toastMsg');
+
+if (avatarContainer && avatarPicker) {
+    // Click on avatar to show picker
+    avatarContainer.addEventListener('click', () => {
+        avatarPicker.classList.toggle('hidden');
+    });
+
+    // Click on avatar options
+    document.querySelectorAll('.option-img').forEach(option => {
+        option.addEventListener('click', () => {
+            const newAvatar = option.getAttribute('data-avatar');
+            profileAvatar.src = newAvatar;
+            avatarPicker.classList.add('hidden');
+            // Show toast
+            if (toastMsg) {
+                toastMsg.style.display = 'block';
+                setTimeout(() => {
+                    toastMsg.style.display = 'none';
+                }, 2000);
+            }
+        });
+    });
+}
 
 // ========== INITIAL ACTIVE SECTION ==========
 // Ensure personal section is active on load

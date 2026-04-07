@@ -37,7 +37,7 @@ function AddUser($cnx, $data)
 
     $user = new User($cnx);
 
-    $res = $user->addUser(
+    $res = $user->registerUser(
         $data['user_name'],
         $data['email'],
         $hashedPassword
@@ -68,7 +68,9 @@ function loginUser($cnx, $data) {
             session_regenerate_id(true); // Sécurité contre la fixation de session
             
             $_SESSION["user_id"] = $user["id"];
-            $_SESSION["user_nom"] = $user["name"];
+            $_SESSION["user_name"] = $user["name"];
+            $_SESSION["user_email"] = $user["email"];
+           
             
             // 5. Redirection
             header("Location: ../my-account/my-account.php");
@@ -133,6 +135,60 @@ function completeReset()
         return "Mot de passe reinitialise avec succes.";
     } else {
         return "Token invalide ou expire.";
+    }
+}
+
+function updatePasswordAction($cnx) {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $userId = $_SESSION['user_id'] ?? null;
+    if (!$userId) {
+        header("Location: ../html/index.html");
+        exit;
+    }
+
+    $currentPwd = $_POST['currentPwd'] ?? '';
+    $newPwd = $_POST['newPwd'] ?? '';
+    $confirmPwd = $_POST['confirmPwd'] ?? '';
+
+    // Verify confirmation
+    if ($newPwd !== $confirmPwd) {
+        $_SESSION["message"] = "error_mismatch";
+        header("Location: ../View/my-account/my-account.php");
+        exit;
+    }
+
+    $userModel = new User($cnx);
+    $user = $userModel->getUserById($userId);
+
+    // Verify current password
+    if (!$user || !password_verify($currentPwd, $user['password'])) {
+        $_SESSION["message"] = "error_current";
+        header("Location: ../View/my-account/my-account.php");
+        exit;
+    }
+
+    // Hash and update
+    $hashedPassword = password_hash($newPwd, PASSWORD_BCRYPT);
+    $res = $userModel->updatePassword($userId, $hashedPassword);
+
+    if ($res) {
+        $_SESSION["message"] = "success";
+    } else {
+        $_SESSION["message"] = "error_database";
+    }
+
+    header("Location: ../View/my-account/my-account.php");
+    exit;
+}
+
+// Request Routing
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    $database = require __DIR__ . "/../config/Database.php";
+    if ($_POST['action'] === 'update_password') {
+        updatePasswordAction($database);
     }
 }
 
