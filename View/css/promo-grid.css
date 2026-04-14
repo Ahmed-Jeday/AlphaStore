@@ -1,0 +1,111 @@
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 120px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+.grid-item {
+    position: relative;
+    height: 850px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    color: white;
+    
+}
+
+.grid-item.wide {
+    grid-column: span 2;
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+#grid_video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+#grid_video .content {
+    position: relative;
+    z-index: 2;
+}
+
+#grid_video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Subtle dark overlay */
+    z-index: 1;
+}
+
+.content h2 {
+    font-size: 2rem;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.content p {
+    margin: 0 0 20px 0;
+    font-size: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    background: white;
+    color: black;
+    padding: 10px 24px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Version Mobile */
+@media (max-width: 768px) {
+    .promo-grid {
+        grid-template-columns: 1fr;
+    }
+    .grid-item.wide, .grid-item {
+        grid-column: span 1;
+        height: 450px;
+        padding: 25px;
+    }
+}
+
+
+

@@ -48,7 +48,7 @@
     gap: 12px;
 }
 
-.action-btn {
+.action-buttons  .action-btn {
     background: none;
     border: 1px solid #ddd;
     padding: 8px 18px;
@@ -371,9 +371,12 @@
     overflow: hidden;
 }
 
+
 .gallery-main img {
     width: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease;
+    cursor: zoom-in;
 }
 
 .nav-arrow {
@@ -603,4 +606,21 @@
 .mesage{
    color: #717fe0;
    font-size:50px ;
+}
+.more_info{
+   
+    
+    margin-top: 20px;
+}
+.more_info button{
+    background-color: #41e20c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.more_info button:hover{
+    background-color: #222;
 }

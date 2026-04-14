@@ -89,7 +89,7 @@ public function registerUser($name, $email, $password)
         );
 
         $this->pdo->commit();
-        return true;
+        return $userId;
 
     } catch (PDOException $e) {
         $this->pdo->rollBack();

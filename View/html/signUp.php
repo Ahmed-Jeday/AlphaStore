@@ -1,8 +1,10 @@
 <?php
+session_start();
 
 
 require_once("../../config/Database.php");
 include("../../Controller/AuthController.php");
+include("../../Controller/ProfileController.php");
 
 $errors_login = []; 
 $errors_signup = [];
@@ -13,14 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
     // CAS 1 : INSCRIPTION
     if ($_POST['action'] === 'register') {
         if (isset($_POST['user_name'], $_POST['email'], $_POST['password'])) {
-            $result = AddUser($dbConnection, $_POST);
+            $result = AddUser($_POST);
 
-            if ($result === true) {
+            if (is_numeric($result)) {
+                $_SESSION["user_id"] = $result;
+                $_SESSION["user_name"] = $_POST['user_name'];
+                $_SESSION["user_email"] = $_POST['email'];
                 header("Location:../my-account/my-account.php");
                 exit;
             } else {
-            $errors_signup  = $result; // Récupère le tableau d'erreurs
-                
+                $errors_signup = $result; // Récupère le tableau d'erreurs
             }
         }
     }

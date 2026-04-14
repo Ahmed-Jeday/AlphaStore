@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Store - Men, Women, Kids & Tech</title>
-
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!--Swiper CSS -->
+    <link rel="icon" href="../../public/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
@@ -29,10 +27,13 @@
     <link rel="stylesheet" href="../css/shop/store.css">
 
     <link rel="stylesheet" href="../css/style_1.css">
-    <link rel="stylesheet" href="../css/style_filter.css">
+   
     <link rel="stylesheet" href="../css/style_parallex.css">
     <link rel="stylesheet" href="../css/homeindex.css">
     <link rel="stylesheet" href="../css/component/footer.css">
+    <link rel="stylesheet" href="../css/new_arrival.css">
+    <link rel="stylesheet" href="../css/promo-grid.css">
+    <link rel="stylesheet" href="../css/run.css">
 
 
 
@@ -377,6 +378,10 @@
 
 
 
+    <div id="scrollTop"></div>
+
+
+
     <div class="Image-wrapper">
         <div class="Image-container">
             <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg"
@@ -411,64 +416,109 @@
 
 
 
-    <section class="product-categories">
 
+    <section class="new-arrivals section">
         <div class="container">
-            <div class="category-grid">
-                <!-- Category 1 -->
-                <div class="category-card">
-                    <div class="category-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&q=80');">
-                        <div class="category-overlay"></div>
-                        <div class="category-content">
-                            <h2>Men's Collection</h2>
-                            <p>Discover the latest trends in men's fashion and style.</p>
-                            <a href="#" class="btn-shop">SHOP MEN</a>
-                        </div>
+            <h2 class="section-title">More new arrivals.</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide product">
+                        <img src="../img/img1.webp" alt="Mid Rise Easy Baggy Jeans">
+                        <p>Mid Rise UltraSoft Easy Baggy Jeans</p>
+                    </div>
+                    <div class="swiper-slide product">
+                        <img src="../img/img2.webp" alt="Classic T-Shirt">
+                        <p>Classic T-Shirt</p>
+                    </div>
+                    <div class="swiper-slide product">
+                        <img src="../img/img3jpg.webp" alt="Horseshoe Overalls">
+                        <p>UltraSoft Denim Horseshoe Overalls</p>
+                    </div>
+                    <div class="swiper-slide product">
+                        <img src="../img/img4.webp" alt="Mix & Match Joggers">
+                        <p>Baby & Toddler Mix & Match Pull-On Joggers</p>
+                    </div>
+                    <div class="swiper-slide product">
+                        <img src="../img/img5.webp" alt="New Arrival 5">
+                        <p>Kids Collection Hoodie</p>
+                    </div>
+                    <div class="swiper-slide product">
+                        <img src="../img/img6jpg.webp" alt="New Arrival 6">
+                        <p>Tech Collection Earbuds</p>
+                    </div>
+                    <div class="swiper-slide product">
+                        <img src="../img/img7.webp" alt="New Arrival 7">
+                        <p>Classic Summer Sunglasses</p>
                     </div>
                 </div>
+                <!-- Pagination -->
+                 <div class="navigation">
+                     <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
 
-                <!-- Category 2 -->
-                <div class="category-card">
-                    <div class="category-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80');">
-                        <div class="category-overlay"></div>
-                        <div class="category-content">
-                            <h2>Women's Collection</h2>
-                            <p>Elegant and modern styles tailored just for you.</p>
-                            <a href="#" class="btn-shop">SHOP WOMEN</a>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Category 3 -->
-                <div class="category-card">
-                    <div class="category-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?auto=format&fit=crop&q=80');">
-                        <div class="category-overlay"></div>
-                        <div class="category-content">
-                            <h2>Kids' Fashion</h2>
-                            <p>Fun, comfortable, and stylish clothing for children.</p>
-                            <a href="#" class="btn-shop">SHOP KIDS</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category 4 -->
-                <div class="category-card">
-                    <div class="category-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&q=80');">
-                        <div class="category-overlay"></div>
-                        <div class="category-content">
-                            <h2>New Tech</h2>
-                            <p>Explore the latest gadgets and technological innovations.</p>
-                            <a href="#" class="btn-shop">CHECK TECH</a>
-                        </div>
-                    </div>
-                </div>
+                 </div>
+               
             </div>
         </div>
     </section>
+
+
+<section class="promo-grid">
+  <div class="grid-item tall" style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('../img/section3_1.jpg');">
+    
+    <div class="content">
+      <h2>Show some shoulder</h2>
+      <p>Hold Me Halter $24.99</p>
+      <a href="#" class="btn">Shop now</a>
+    </div>
+  </div>
+
+  <div class="grid-item tall" style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('../img/habit\ traditionnel\ tunisien.jpg');">
+    <div class="content">
+      <h2>Every fit, ever</h2>
+      <p>Shorts from $29.99</p>
+      <a href="#" class="btn">Shop shorts</a>
+    </div>
+  </div>
+
+  <div class="grid-item wide" id="grid_video">
+    <video autoplay muted loop playsinline>
+        <source src="../img/vaction.webm" type="video/webm">
+    </video>
+    <div class="content center">
+        <h2>TAKE OFF</h2>
+        <p>Pack simple. Travel light. See everything. 
+This is vacation, simplified.</p>
+        <a href="#" class="btn">Vacation shop</a>
+    </div>
+  </div>
+
+  <div class="grid-item tall" style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('https://images.unsplash.com/photo-1506634572416-48cdfe530110?q=80&w=1000&auto=format&fit=crop');">
+    <div class="content">
+      <h2>Destination swim</h2>
+      <p>Stretch swim short $39.99</p>
+      <a href="#" class="btn">Shop shorts</a>
+    </div>
+  </div>
+
+  <div class="grid-item tall" style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop');">
+    <div class="content">
+      <h2>Have to Haven</h2>
+      <p>New fold over waist</p>
+      <a href="#" class="btn">Shop pants</a>
+    </div>
+  </div>
+</section>
+
+
+  
+
+
+
+
+
+
 
 
 
@@ -556,382 +606,98 @@
     </section>
 
 
+    <section class="run">
 
-    <div class="wrapper">
-        <section class="filters">
-            <button class="filter" data-filter="Best Sellers">For You</button>
-            <button class="filter" data-filter="New Arrivals">New Arrivals</button>
-            <button class="filter" data-filter="Hot Sales">Best Sellers</button>
-        </section>
+     
+    
 
-        <section class="products">
-            <a class="product" href="#" data-filter="Best Sellers,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Basic Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Basic Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Basic Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Basic Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Best Sellers,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Basic Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Hot Sales">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Some Cool Shoes</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1483103068651-8ce44652c331?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Super Dope Hat</h4><data class="product__rating"
-                        value="3"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$38.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1585751092218-cea84c1ecf01?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Radical Tie-dye Shirt</h4><data class="product__rating"
-                        value="4"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="New Arrivals,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1632226390535-2f02c1a93541?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Very Suave Vest</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$65.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,New Arrivals">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">Basic Denim Pants</h4><data class="product__rating"
-                        value="2"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$45.99</p>
-                </div>
-            </a>
-            <a class="product" href="#" data-filter="Hot Sales,Best Sellers">
-                <div class="product__inner">
-                    <div class="product__image"><img class="product__image-inner"
-                            src="https://images.unsplash.com/photo-1590316519564-ebeeca222a95?auto=format&fit=crop&w=400&q=80" />
-                    </div>
-                    <h4 class="product__name">DJ Hoodie</h4><data class="product__rating"
-                        value="5"><span></span><span></span><span></span><span></span><span></span></data>
-                    <p class="product__price">$79.99</p>
-                </div>
-            </a>
+<div class="co-carousel-wrap">
+       <div class="run_header">
+            <h2 class="run_title">IT'S TIME TO RUN</h2>
+            <a href="#" class="run_view">VIEW ALL</a>
+        </div>
+  <!-- Background gradient layers (matched to slides) -->
+  <div class="co-background co-background--style-0"></div>
+  <div class="co-background co-background--style-1"></div>
+  <div class="co-background co-background--style-2"></div>
+  <div class="co-background co-background--style-3"></div>
 
-            <!-- See More Card — injecté par JS -->
-        </section>
-
-        <button class="see-less-btn" id="see-less-btn">&#8593; See Less</button>
+  <!-- Swiper Container -->
+  <div class="swiper co-carousel">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide co-carousel__slide">
+        <div class="co-card">
+          <div class="co-card__shoe">
+            <img class="co-card__shoe-img" src="https://codocular.com/lab/swiper-carousel/nike1.85b9a747.png" alt="Nike Air Force" />
+            <span class="co-card__shoe-shadow"></span>
+          </div>
+          <div class="co-card__info">
+            <div class="co-card__collection text-mask"><span>Men's Original</span></div>
+            <div class="co-card__title text-mask"><span>Nike Air Force</span></div>
+            <div class="co-card__price text-mask"><span>$150.00</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="swiper-slide co-carousel__slide">
+        <div class="co-card co-card--style-1">
+          <div class="co-card__shoe">
+            <img class="co-card__shoe-img" src="https://codocular.com/lab/swiper-carousel/nike2.3412fa36.png" alt="Nike Air Jordan" />
+            <span class="co-card__shoe-shadow"></span>
+          </div>
+          <div class="co-card__info">
+            <div class="co-card__collection text-mask"><span>Jordans</span></div>
+            <div class="co-card__title text-mask"><span>Nike Air Jordan</span></div>
+            <div class="co-card__price text-mask"><span>$249.99</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="swiper-slide co-carousel__slide">
+        <div class="co-card co-card--style-2">
+          <div class="co-card__shoe">
+            <img class="co-card__shoe-img" src="https://codocular.com/lab/swiper-carousel/nike3.14907490.png" alt="Nike Air Max" />
+            <span class="co-card__shoe-shadow"></span>
+          </div>
+          <div class="co-card__info">
+            <div class="co-card__collection text-mask"><span>Purple Rain</span></div>
+            <div class="co-card__title text-mask"><span>Nike Air Max</span></div>
+            <div class="co-card__price text-mask"><span>$150.00</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="swiper-slide co-carousel__slide">
+        <div class="co-card co-card--style-3">
+          <div class="co-card__shoe">
+            <img class="co-card__shoe-img" src="https://codocular.com/lab/swiper-carousel/nike4.62fca82d.png" alt="Nike Air Force Limited" />
+            <span class="co-card__shoe-shadow"></span>
+          </div>
+          <div class="co-card__info">
+            <div class="co-card__collection text-mask"><span>Men's Original</span></div>
+            <div class="co-card__title text-mask"><span>Nike Air Force</span></div>
+            <div class="co-card__price text-mask"><span>$150.00</span></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
+  <!-- Custom Navigation -->
+  <div class="co-carousel__nav-buttons">
+    <div class="co-carousel__nav-button prev"><span>Prev</span></div>
+    <div class="co-carousel__nav-button next"><span>Next</span></div>
+  </div>
+</div>
+
+
+
+    
+</section>
+
+
+  
 
 
     <section class="s">
@@ -997,42 +763,77 @@
 
     <section class="banner">
         <div class="content_banner">
-             <h1 class="title">Wear the Future</h1>
-            <p class="subtitle">Smartwatch – Style & Technology in One</p>  
+            <h1 class="title">Wear the Future</h1>
+            <p class="subtitle">Smartwatch – Style & Technology in One</p>
 
         </div>
 
-       
-           <div class="p_slider">
-        <div class="p_slider__item">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch1.png" />
-        </div>
-        <div class="p_slider__item">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch2.png" />
-        </div>
-        <div class="p_slider__item">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch3.png" />
+
+        <div class="p_slider">
+            <div class="p_slider__item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch1.png" />
+            </div>
+            <div class="p_slider__item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch2.png" />
+            </div>
+            <div class="p_slider__item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch3.png" />
+            </div>
+
+            <div class="controls">
+                <div class="left">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrow.png" />
+                </div>
+                <div class="right">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrow.png" />
+                </div>
+            </div>
         </div>
 
-        <div class="controls">
-        <div class="left">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrow.png" />
-        </div>
-        <div class="right">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrow.png" />
-        </div>
-    </div>
-    </div>
+        <button id="banner-btn">
+            View Now
+        </button>
 
-    <button id="banner-btn">
-        View Now
-    </button>
 
-    
 
     </section>
 
- 
+
+    <section class="genration">
+        <h2>For every generation.</h2>
+
+        <div class="genration-container">
+            <div class="genration-item"> 
+                
+                <div class="image-wrapper"> <img src="../img/men.jpg"
+                    alt="HX Socks" /></div>
+                
+                <a href="Adult.html">Men</a>
+                    
+            </div>
+            <div class="genration-item">
+                <div class="image-wrapper"> <img src="../img/najla.jpg"
+                    alt="HX Socks" /></div>
+                <a href="Adult.html">Women</a>
+                
+            </div>
+            <div class="genration-item">
+                <div class="image-wrapper"> <img src="../img/kid.jpg"
+                    alt="HX Socks" /></div>
+                <a href="Kids.html">Kids</a>
+               
+            </div>
+            <div class="genration-item">
+                <div class="image-wrapper"> <img src="../img/baby.png"
+                    alt="HX Socks" /></div>
+                <a href="Baby.html">Baby & Toddler</a>
+                
+            </div>
+        </div>
+
+    </section>
+
+
 
 
 
@@ -1058,12 +859,15 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    
+
+
+    <script src="../javaScript/new_arrival.js"></script>
+
     <!-- jQuery (load before banner script) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Initialize Swiper -->
-    <script src="../javaScript/swiper.js"> </script>
+    
 
     <!-- Initialize product filter -->
     <script src="../javaScript/productFilter.js"></script>
@@ -1071,14 +875,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/split-type"></script>
     <script src="../files/index.js"></script>
+    <script type="module" src="../javaScript/run.js"></script>
     <script>
-        let getNowBtn=document.getElementById("btn-get-now");
-        if (getNowBtn)
-        {
+        let getNowBtn = document.getElementById("btn-get-now");
+        if (getNowBtn) {
             getNowBtn.addEventListener("click", function () {
                 window.location.href = "store.html";
             });
-        
+
         }
     </script>
 
@@ -1102,112 +906,111 @@
     <script>
         $(document).ready(function () {
 
-    let on = 0;
-    let time = 500;
-    let pos = 1, pos2 = 2, pos3 = 3;
-    let play;
+            let on = 0;
+            let time = 500;
+            let pos = 1, pos2 = 2, pos3 = 3;
+            let play;
 
-    $('.right').click(function () {
-        rotateRight();
-        on = 1;
-    });
-
-    $('.left').click(function () {
-        rotateLeft();
-        on = 1;
-    });
-
-    play = setInterval(function () {
-        rotateLeft();
-    }, 3000);
-
-    function rotateLeft() {
-        if (on == 0) {
-            $('.p_slider__item:nth-of-type(' + pos + ')').animate({ left: '200px' }, 200).css('z-index', '0');
-            $('.p_slider__item:nth-of-type(' + pos2 + ')').animate({ left: '-200px' }, 200);
-
-            setTimeout(function () {
-                $('.p_slider__item:nth-of-type(' + pos2 + ')').css({
-                    transform: 'scale(0.6)',
-                    opacity: '0.8',
-                    filter: 'blur(2px)',
-                    'z-index': '1'
-                });
-
-                pos++; pos2++; pos3++;
-                if (pos > 3) pos = 1;
-                if (pos2 > 3) pos2 = 1;
-                if (pos3 > 3) pos3 = 1;
-
-            }, 400);
-
-            $('.p_slider__item:nth-of-type(' + pos3 + ')').animate({ left: '0px' }, 200).css({
-                transform: 'scale(1)',
-                opacity: '1',
-                filter: 'blur(0px)',
-                'z-index': '2'
+            $('.right').click(function () {
+                rotateRight();
+                on = 1;
             });
 
-            setTimeout(() => on = 0, time);
-        }
-    }
-
-    function rotateRight() {
-        if (on == 0) {
-            $('.p_slider__item:nth-of-type(' + pos3 + ')').animate({ left: '-200px' }, 200).css('z-index', '0');
-            $('.p_slider__item:nth-of-type(' + pos2 + ')').animate({ left: '200px' }, 200);
-
-            setTimeout(function () {
-                $('.p_slider__item:nth-of-type(' + pos2 + ')').css({
-                    transform: 'scale(0.6)',
-                    opacity: '0.8',
-                    filter: 'blur(2px)'
-                });
-
-                pos--; pos2--; pos3--;
-                if (pos < 1) pos = 3;
-                if (pos2 < 1) pos2 = 3;
-                if (pos3 < 1) pos3 = 3;
-
-            }, 400);
-
-            $('.p_slider__item:nth-of-type(' + pos + ')').animate({ left: '0px' }, 200).css({
-                transform: 'scale(1)',
-                opacity: '1',
-                filter: 'blur(0px)'
+            $('.left').click(function () {
+                rotateLeft();
+                on = 1;
             });
 
-            setTimeout(() => on = 0, time);
-        }
-    }
+            play = setInterval(function () {
+                rotateLeft();
+            }, 3000);
 
-    $('.p_slider__item img').hover(function () {
-        clearInterval(play);
-    });
+            function rotateLeft() {
+                if (on == 0) {
+                    $('.p_slider__item:nth-of-type(' + pos + ')').animate({ left: '200px' }, 200).css('z-index', '0');
+                    $('.p_slider__item:nth-of-type(' + pos2 + ')').animate({ left: '-200px' }, 200);
 
-    $('.p_slider__item img').mouseenter(function () {
-        $(this).animate({ top: '-14px' }, 300);
-    });
+                    setTimeout(function () {
+                        $('.p_slider__item:nth-of-type(' + pos2 + ')').css({
+                            transform: 'scale(0.6)',
+                            opacity: '0.8',
+                            filter: 'blur(2px)',
+                            'z-index': '1'
+                        });
 
-    $('.p_slider__item img').mouseout(function () {
-        $(this).stop(true).animate({ top: '0px' }, 300);
-        play = setInterval(() => rotateLeft(), 3000);
-    });
+                        pos++; pos2++; pos3++;
+                        if (pos > 3) pos = 1;
+                        if (pos2 > 3) pos2 = 1;
+                        if (pos3 > 3) pos3 = 1;
 
-});
+                    }, 400);
 
-    let btn=document.getElementById("banner-btn");
-    if (btn)
-    {
-         btn.addEventListener("click", function () {
-            window.location.href = "tech.html";
+                    $('.p_slider__item:nth-of-type(' + pos3 + ')').animate({ left: '0px' }, 200).css({
+                        transform: 'scale(1)',
+                        opacity: '1',
+                        filter: 'blur(0px)',
+                        'z-index': '2'
+                    });
+
+                    setTimeout(() => on = 0, time);
+                }
+            }
+
+            function rotateRight() {
+                if (on == 0) {
+                    $('.p_slider__item:nth-of-type(' + pos3 + ')').animate({ left: '-200px' }, 200).css('z-index', '0');
+                    $('.p_slider__item:nth-of-type(' + pos2 + ')').animate({ left: '200px' }, 200);
+
+                    setTimeout(function () {
+                        $('.p_slider__item:nth-of-type(' + pos2 + ')').css({
+                            transform: 'scale(0.6)',
+                            opacity: '0.8',
+                            filter: 'blur(2px)'
+                        });
+
+                        pos--; pos2--; pos3--;
+                        if (pos < 1) pos = 3;
+                        if (pos2 < 1) pos2 = 3;
+                        if (pos3 < 1) pos3 = 3;
+
+                    }, 400);
+
+                    $('.p_slider__item:nth-of-type(' + pos + ')').animate({ left: '0px' }, 200).css({
+                        transform: 'scale(1)',
+                        opacity: '1',
+                        filter: 'blur(0px)'
+                    });
+
+                    setTimeout(() => on = 0, time);
+                }
+            }
+
+            $('.p_slider__item img').hover(function () {
+                clearInterval(play);
+            });
+
+            $('.p_slider__item img').mouseenter(function () {
+                $(this).animate({ top: '-14px' }, 300);
+            });
+
+            $('.p_slider__item img').mouseout(function () {
+                $(this).stop(true).animate({ top: '0px' }, 300);
+                play = setInterval(() => rotateLeft(), 3000);
+            });
+
         });
-    
-    }
 
-    
+        let btn = document.getElementById("banner-btn");
+        if (btn) {
+            btn.addEventListener("click", function () {
+                window.location.href = "tech.html";
+            });
+
+        }
+
+
     </script>
-
+    <script src="../javaScript/carts.js"></script>
 </body>
 
 </html>

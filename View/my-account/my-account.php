@@ -1,26 +1,21 @@
 <?php
+
+
+include("../../Controller/AuthController.php");
+include("../../Controller/ProfileController.php");
 session_start();
 
 // 1. On vérifie si l'utilisateur est bien connecté (via user_id comme dans AuthController)
 if (isset($_SESSION["user_id"])) {
+    getUserInfo(); // Récupère les infos de l'utilisateur et les stocke dans la session
+    getProfileInfo(); // Récupère les infos du profil et les stocke dans la session
 
-    // 2. On charge la connexion PDO existante
-    $pdo = require __DIR__ . "/../../config/Database.php";
 
-    // 3. On récupère les infos de l'utilisateur
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
-    $stmt->execute([$_SESSION["user_id"]]);
 
-    $user = $stmt->fetch();
-} else {
-    // Redirection vers la page de login si non connecté
-    header("Location: ../html/signUp.php");
-    exit;
+   
 }
 
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
+
 
 if (isset($_SESSION["message"])) {
     $msg = $_SESSION['message'];

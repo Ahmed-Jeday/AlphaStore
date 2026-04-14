@@ -25,15 +25,14 @@ class Profile {
         $this->pdo = require __DIR__ . "/../config/Database.php";
     }
 
-    // --- GETTERS (Pour récupérer les données) ---
+    
 
-    public function getId() { return $this->id; }
-    public function getUserId() { return $this->user_id; }
-    public function getFirstname() { return $this->firstname; }
-    public function getLastname() { return $this->lastname; }
-    public function getAge() { return $this->age; }
-
-    // --- SETTERS (Pour modifier les données avec validation) ---
+    public function getAllInfo($userId) {
+        $sql = "SELECT * FROM profiles WHERE user_id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$userId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
   public function updateProfile($userId, $data) {
     $sql = "UPDATE profiles SET firstname = ?, lastname = ?, age = ?, phone = ?, gender = ?, avatar = ? WHERE user_id = ?";

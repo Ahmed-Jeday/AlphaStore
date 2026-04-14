@@ -15,6 +15,8 @@ if (document.querySelector('.mySwiper')) {
 }
 
 
+
+
 // Optional product slider (only initializes if markup exists)
 if (document.querySelector('.slide_product')) {
   new Swiper('.slide_product', {

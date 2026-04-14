@@ -1,0 +1,334 @@
+/* ---------- CSS VARIABLES & RESET ---------- */
+:root {
+  --codocular-color-hex: #e34c26;
+  --codocular-color: 227, 76, 38;
+  --background-color: #000;
+  --main-font-color: #000;
+}
+
+
+
+html {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+
+
+
+
+.run {
+  height: 100%;
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: "Montserrat", arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #000;
+  overflow-x: hidden;
+  margin: 15px;
+}
+
+
+
+/* ---------- BUTTONS ---------- */
+.co-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 7px 10px;
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  border: 1px solid var(--main-font-color);
+  border-radius: 5px;
+  background: transparent;
+  text-decoration: none;
+  color: var(--main-font-color);
+  transition: 0.3s;
+  box-shadow: 0 0 0px 0px rgba(var(--codocular-color), 0.8);
+}
+.co-btn:hover {
+  box-shadow: 0 0 15px 0px rgba(var(--codocular-color), 0.8);
+  border-color: rgb(var(--codocular-color));
+}
+.co-btn:active {
+  transition: 0.1s;
+  box-shadow: 0 0 15px 3px rgba(var(--codocular-color), 0.8);
+}
+.co-btn--link {
+  border: 0;
+  text-decoration: underline;
+}
+.co-btn--link:hover {
+  border: 0;
+  box-shadow: none;
+  color: rgb(var(--codocular-color));
+}
+.co-btn--link:after {
+  text-decoration: none;
+  font-weight: 500;
+  content: " ↗";
+}
+
+/* ---------- CAROUSEL LAYOUT ---------- */
+.co-carousel-wrap {
+  flex-grow: 1;
+  position: relative;
+  z-index: 9;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  
+  padding: 2rem 0;
+}
+
+.co-carousel {
+  margin: 0 auto;
+  width: 50%;
+  height: 400px;
+  overflow: visible;
+}
+
+.co-carousel__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* navigation buttons */
+
+.co-carousel__nav-buttons {
+  margin: 40px auto 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  max-width: 500px;
+  padding: 0 20px;
+}
+.co-carousel__nav-button {
+  padding: 10px 0;
+  width: 150px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.co-carousel__nav-button.prev {
+  align-items: flex-end;
+}
+.co-carousel__nav-button.next {
+  align-items: flex-start;
+}
+.co-carousel__nav-button.swiper-button-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.co-carousel__nav-button:hover:not(.swiper-button-disabled).prev span {
+  transform: translate3d(-10px, 0, 0);
+}
+.co-carousel__nav-button:hover:not(.swiper-button-disabled).next span {
+  transform: translate3d(10px, 0, 0);
+}
+.co-carousel__nav-button:before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}
+.co-carousel__nav-button span {
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px 0;
+  transition: cubic-bezier(0.22, 0.74, 0.46, 0.97) 0.3s;
+}
+
+/* ---------- CARD STYLES (SHOE CARDS) ---------- */
+.co-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  background: rgb(253, 243, 234);
+  background: linear-gradient(163deg, rgba(253, 243, 234, 1) 0%, rgba(251, 229, 204, 1) 100%);
+  will-change: transform;
+}
+.co-card--style-1 {
+  background: rgb(247, 253, 252);
+  background: linear-gradient(163deg, rgba(247, 253, 252, 1) 0%, rgba(195, 227, 221, 1) 100%);
+}
+.co-card--style-2 {
+  background: rgb(252, 244, 244);
+  background: linear-gradient(163deg, rgba(252, 244, 244, 1) 0%, rgba(246, 200, 203, 1) 100%);
+}
+.co-card--style-3 {
+  background: rgb(249, 242, 251);
+  background: linear-gradient(163deg, rgba(249, 242, 251, 1) 0%, rgba(234, 199, 245, 1) 100%);
+}
+.co-card__shoe {
+  position: relative;
+  width: 130%;
+  flex-shrink: 0;
+  top: -20px;
+}
+.co-card__shoe-img {
+  user-select: none;
+  position: relative;
+  width: 100%;
+  display: block;
+  z-index: 9;
+  pointer-events: none;
+}
+.co-card__shoe-shadow {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 0 0 30px 40px rgba(0, 0, 0, 1);
+}
+.co-card__info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem;
+  display: block;
+  z-index: 10;
+}
+.co-card__title {
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.co-card__collection {
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+.co-card__price {
+  margin-top: 1rem;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #000;
+}
+
+/* text mask animation */
+.text-mask {
+  display: block;
+  overflow: hidden;
+  line-height: 1.2;
+}
+.text-mask span {
+  display: block;
+  will-change: transform;
+}
+
+/* ---------- BACKGROUND OVERLAY (GRADIENTS) ---------- */
+.co-background {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0ms linear;
+}
+.co-background--style-0 {
+  background: rgb(253, 243, 234);
+  background: linear-gradient(163deg, rgba(253, 243, 234, 1) 0%, rgba(251, 229, 204, 1) 100%);
+}
+.co-background--style-1 {
+  background: rgb(247, 253, 252);
+  background: linear-gradient(163deg, rgba(247, 253, 252, 1) 0%, rgba(195, 227, 221, 1) 100%);
+}
+.co-background--style-2 {
+  background: rgb(252, 244, 244);
+  background: linear-gradient(163deg, rgba(252, 244, 244, 1) 0%, rgba(246, 200, 203, 1) 100%);
+}
+.co-background--style-3 {
+  background: rgb(249, 242, 251);
+  background: linear-gradient(163deg, rgba(249, 242, 251, 1) 0%, rgba(234, 199, 245, 1) 100%);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .co-carousel {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  .co-carousel {
+    width: 85%;
+    height: 360px;
+  }
+  .co-card {
+    width: 220px;
+    height: 360px;
+  }
+  .co-carousel__nav-buttons {
+    max-width: 90%;
+  }
+}
+.run_title{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+
+.run_header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 55px;
+  
+  
+}
+
+
+.run_view {
+  
+  margin-left: auto;
+  
+  
+
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.run_view:hover {
+  color: rgb(var(--codocular-color));
+}

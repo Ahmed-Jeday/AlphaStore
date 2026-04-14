@@ -36,7 +36,7 @@ function updateProfile() {
         $_SESSION['user_age']       = $input['age'];
         $_SESSION['user_phone']     = $input['phone'];
         $_SESSION["user_gender"]   = $input['gender'];
-        $_SESSION["user_avatar"]    = $input['avatar'];
+       
         $_SESSION["user_avatar"]   = $input['avatar'];
        
 
@@ -44,6 +44,28 @@ function updateProfile() {
     } else {
         echo json_encode(['success' => false, 'message' => 'Erreur SQL lors de la mise à jour']);
     }
+}
+
+function getProfileInfo() {
+    if (!isset($_SESSION['user_id'])) {
+        header("HTTP/1.1 401 Unauthorized");
+        
+      
+    }
+
+    $profileModel = new Profile();
+    $profileInfo = $profileModel->getAllInfo($_SESSION['user_id']);
+    if ($profileInfo){
+        $_SESSION['user_name']      = $profileInfo['firstname'];
+        $_SESSION['user_last_name'] = $profileInfo['lastname'];
+        $_SESSION["user_phone"]     = $profileInfo['phone'];
+        $_SESSION["user_age"]       = $profileInfo['age'];
+        
+    }
+
+
+
+   
 }
 
 

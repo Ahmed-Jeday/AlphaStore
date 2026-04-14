@@ -25,7 +25,7 @@ function validateData($data)
     return $errors;
 }
 
-function AddUser($cnx, $data)
+function AddUser( $data)
 {
     $errors = validateData($data);
 
@@ -35,7 +35,7 @@ function AddUser($cnx, $data)
 
     $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
 
-    $user = new User($cnx);
+    $user = new User();
 
     $res = $user->registerUser(
         $data['user_name'],
@@ -189,6 +189,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     $database = require __DIR__ . "/../config/Database.php";
     if ($_POST['action'] === 'update_password') {
         updatePasswordAction($database);
+    }
+}
+
+
+function getUserInfo() {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['user_id'])) {
+        header("HTTP/1.1 401 Unauthorized");
+        
+        exit;
+    }
+
+    $userModel = new User();
+    $userInfo = $userModel->getUserById($_SESSION['user_id']);
+
+    if ($userInfo) {
+        $_SESSION['user_name'] = $userInfo['name'];
+        $_SESSION['user_email'] = $userInfo['email'];
+        
+    } else {
+        header("HTTP/1.1 404 Not Found");
+        exit;
     }
 }
 
