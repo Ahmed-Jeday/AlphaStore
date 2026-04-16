@@ -1,0 +1,4 @@
+flask>=3.0
+gradio_client>=0.9
+werkzeug>=3.0
+flask-cors

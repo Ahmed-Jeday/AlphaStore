@@ -68,6 +68,8 @@ if (window.location.pathname.includes('/my-account/')) {
 loadComponent('navbar-placeholder', componentPath + 'navbar.php');
 loadComponent('footer-placeholder', componentPath + 'footer.html');
 loadComponent('scrollTop', componentPath + 'top.html');
+loadComponent('chatbot', componentPath + 'chatbot.html');
+
 
 
 //scroll top

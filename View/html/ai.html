@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/ai.css">
+    <link rel="stylesheet" href="../css/component/footer.css">
+    <link rel="stylesheet" href="../css/tryOn.css">
+    <title>AlphaStore - Modern E-Commerce</title>
+</head>
+
+<body>
+    <div class="noise"></div>
+    <div id="cursor"></div>
+
+    <nav class="brutal-nav">
+        <a href="index.html" class="nav-logo magnetic" style="text-decoration: none;">AlphaStore</a>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link magnetic" data-text="SHOP">SHOP</a></li>
+            <li><a href="#" class="nav-link magnetic" data-text="COMPARE">COMPARE</a></li>
+            <li><a href="#" class="nav-link magnetic" data-text="Virtual Try-On">Virtual Try-On</a></li>
+        </ul>
+        <button class="cta-btn magnetic"><span>Let's talk</span></button>
+    </nav>
+
+    <div id="scroll-content">
+        <section class="hero">
+            <div class="hero-title-container">
+                <h1>
+                    <div class="word">Discover</div><br>
+                    <div class="word">AlphaStore</div>
+                </h1>
+            </div>
+
+            <div class="tape-wrapper">
+                <div class="tape-text">
+                    TRENDING PRODUCTS ✦ EXCLUSIVE DEALS ✦ FAST DELIVERY ✦ NEW COLLECTIONS ✦ TRENDING PRODUCTS ✦
+                    EXCLUSIVE DEALS ✦ FAST DELIVERY ✦ Ai ASSISTANT
+                </div>
+            </div>  
+        </section>
+
+        <section class="section-dark">
+            <p class="big-text">
+                SHOP THE <span>LATEST TRENDS</span> WITH PREMIUM QUALITY PRODUCTS. 
+                NO COMPROMISE. JUST <span>STYLE</span>, <span>PERFORMANCE</span>, AND <span>BEST PRICES</span>.
+            </p>
+        </section>
+
+        <section class="section-dark" style="justify-content: flex-end; text-align: right;">
+            <p class="big-text">
+                YOUR STYLE<br>
+                <span>STARTS HERE</span>
+            </p>
+        </section>
+
+        
+    </div>
+
+   <div id="virtual-tryon" class="virtual-tryon-section">
+        <!-- En-tête de la section -->
+  <div class="text-center mb-12">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-6">
+      <span class="w-2 h-2 rounded-full bg-green-500" style="animation: pulse 1.5s infinite;"></span>
+      <span class="text-xs tracking-widest uppercase text-zinc-400">AI Powered</span>
+    </div>
+    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter leading-[0.9] mb-4">
+      Virtual <em class="opacity-80 font-normal">Try-On</em>
+    </h1>
+    <p class="text-zinc-400 text-sm max-w-lg mx-auto leading-relaxed">
+      Upload your photo, pick an outfit, and see how it looks on you — instantly. No fitting room needed.
+    </p>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="vt-steps-wrapper">
+    <!-- Étape 1 : Photo utilisateur -->
+    <div class="vt-step-section">
+      <div class="vt-step-header">
+        <span class="vt-step-number">1</span>
+        <span>UPLOAD YOUR PHOTO</span>
+      </div>
+      <div class="vt-photo-container">
+        <span class="vt-photo-label">YOUR PHOTO</span>
+        <img id="vt-user-preview" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop" alt="User Photo" class="vt-photo-preview">
+        <input type="file" id="vt-user-input" accept="image/*" style="display: none;">
+      </div>
+      <div class="vt-upload-actions">
+        <button type="button" id="vt-user-upload-btn" class="vt-btn vt-btn-primary">
+          <i class="fas fa-upload"></i> Upload New Photo
+        </button>
+      </div>
+    </div>
+
+    <!-- Étape 2 : Photo produit -->
+    <div class="vt-step-section">
+      <div class="vt-step-header">
+        <span class="vt-step-number">2</span>
+        <span>UPLOAD YOUR PRODUCT</span>
+      </div>
+      <div class="vt-photo-container">
+        <span class="vt-photo-label">YOUR PRODUCT</span>
+        <img id="vt-product-preview" src="https://images.unsplash.com/photo-1618354691551-44de113f0164?w=400&h=600&fit=crop" alt="Product Photo" class="vt-photo-preview">
+        <input type="file" id="vt-product-input" accept="image/*" style="display: none;">
+      </div>
+      <div class="vt-upload-actions">
+        <button type="button" id="vt-product-upload-btn" class="vt-btn vt-btn-primary">
+          <i class="fas fa-upload"></i> Upload New Product
+        </button>
+      </div>
+    </div>
+
+    <!-- Étape 3 : Résultat try-on -->
+    <div class="vt-step-section">
+      <div class="vt-section-title-row">
+        <div class="vt-step-header" style="margin: 0;">
+          <span class="vt-step-number">3</span>
+          <span>TRY ON</span>
+        </div>
+        <span class="vt-ai-badge">ALPHA-STYLER | POWERED BY AI</span>
+      </div>
+      <div class="vt-result-container">
+        <img id="vt-result-image" src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=600&fit=crop" alt="Try-On Result" class="vt-result-image">
+      </div>
+      <div class="vt-action-buttons">
+        <button type="button" class="vt-btn" style="flex: 1;">SAVE MIX</button>
+        <button type="button" class="vt-btn vt-btn-dark" style="flex: 1;">ADD TO CART</button>
+      </div>
+      <div class="vt-product-info">
+        <div class="vt-product-name">Floral V-Neck Midi Dress</div>
+        <div class="vt-product-price">£59.99</div>
+        <div class="vt-product-meta">
+          <strong>Fabric:</strong> 100% nocturnal closen, wildtress, Summer, Summer Fabriel, Gettena, Svvkl V-littmeny Nect, Ironses
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="vt-btn-run" id="vt-btn-run">✦ Générer le try-on</button>
+
+  <!-- Loader -->
+  <div class="vt-spinner-wrap" id="vt-spinner">
+    <div class="vt-spinner"></div>
+    <span class="vt-spinner-text">Génération en cours — cela peut prendre ~30s…</span>
+  </div>
+  <div id="vt-status-msg" class="vt-status-msg"></div>
+
+  <!-- Section résultat supplémentaire -->
+  <div id="vt-result-section" class="vt-result-section">
+    <div class="vt-card">
+      <label>Résultat</label>
+      <img id="vt-result-img" src="" alt="Résultat try-on" class="vt-result-img">
+      <a id="vt-download-link" class="vt-btn-download" download="tryon_output.jpg">⬇ Télécharger</a>
+    </div>
+  </div>
+
+  <!-- Font Awesome (optionnel, mais nécessaire pour les icônes) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  
+</div>
+
+    </section>
+    <div id="footer-placeholder"></div>
+
+    <script src="../javaScript/ai.js"></script>
+    <script src="../javaScript/main.js"></script>
+    <script src="../javaScript/tryOn.js"></script>
+</body>
+</html>
