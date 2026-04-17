@@ -542,10 +542,362 @@
 
 
 
-  <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
     <script src="../javaScript/main.js"></script>
-
     <script src="../javaScript/men.js"></script>
+    <script src="../javaScript/carts.js"></script>
+    <script src="../javaScript/chatbot.js"></script>
+
+    <script>
+    let currentCategory = 'Homme'; // Default for Men's page
+    let currentSort = 'default';
+    let currentPriceRange = 'all';
+
+    async function chargerProduits() {
+        console.log('Chargement des produits...', {currentCategory, currentSort, currentPriceRange});
+        const productGrid = document.getElementById('productGrid');
+        
+        let url = `../../index.php?action=getProduitByCategory&category=${currentCategory}&sortBy=${currentSort}`;
+        
+        if (currentPriceRange !== 'all') {
+            const [min, max] = currentPriceRange.split('-');
+            url += `&minPrice=${min}&maxPrice=${max}`;
+        }
+    
+        try {
+            const response = await fetch(url);
+            const produits = await response.json();
+            console.log('Produits chargés:', produits);
+
+            productGrid.innerHTML = '';
+
+            if (produits.length === 0) {
+                productGrid.innerHTML = '<p class="message" style="grid-column: 1/-1; text-align: center;">No products found matching your criteria.</p>';
+                return;
+            }
+
+            produits.forEach(product => {
+                const card = createProductCard(product);
+                productGrid.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error('Erreur:', error);
+            productGrid.innerHTML = '<p class="error" style="grid-column: 1/-1; text-align: center; color: red;">Erreur lors du chargement des produits.</p>';
+        }
+    }
+
+    async function toggleFavorite(productId, heartElement) {
+        try {
+            const response = await fetch("../../index.php?action=toggleFavorite", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: "product_id=" + productId,
+            });
+            const data = await response.json();
+
+            if (data.status == 'not_logged_in') {
+                alert("You need to be logged in to add a product to your favorites");
+                heartElement.classList.remove("fas");
+                heartElement.classList.add("far");
+                return;
+            }
+
+            // Mise a jour
+            if (data.status === "added") {
+                heartElement.classList.remove("far");
+                heartElement.classList.add("fas");
+                heartElement.classList.add("liked");
+            } else {
+                heartElement.classList.remove("fas");
+                heartElement.classList.add("far");
+                heartElement.classList.remove("liked");
+            }
+        } catch (error) {
+            console.error("Error toggling favorite:", error);
+            alert("An error occurred while toggling the favorite");
+        }
+    }
+
+    document.querySelectorAll('.category-tabs a').forEach(tab => {
+        tab.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelectorAll('.category-tabs a').forEach(t =>
+                t.classList.remove('active-tab')
+            );
+
+            this.classList.add('active-tab');
+
+            const cat = this.getAttribute('data-cat');
+        
+            if (cat === 'all') {
+                currentCategory = 'Homme,Femme';
+            } else if (cat === 'men') {
+                currentCategory = 'Homme';
+            } else if (cat === 'women') {
+                currentCategory = 'Femme';
+            }
+
+            chargerProduits();
+        });
+    });
+
+    chargerProduits();
+
+    function getNextImages(path) {
+        if (!path) return [];
+        const match = path.match(/^(.*_)(\d+)(\.[^.]+)$/);
+
+        if (!match) {
+            console.log("Format de chemin invalide", path);
+            return [];
+        }
+
+        const prefix = match[1];   
+        const number = parseInt(match[2]); 
+        const extension = match[3]; 
+
+        return [
+            `${prefix}${number + 1}${extension}`,
+            `${prefix}${number + 2}${extension}`
+        ];
+    }
+
+    function createProductCard(p) {
+        const card = document.createElement('div');
+        card.classList.add('product-item');
+        card.dataset.id = p.id;
+        card.dataset.category = p.category;
+        
+        const fullImagePath = `../../public/${p.image_path}`;
+        const pathNextimages = getNextImages(p.image_path);
+        const fullImagePath1 = `../../public/${p.image_path}`;
+        const fullImagePath2 = pathNextimages.length > 0 ? `../../public/${pathNextimages[0]}` : '';
+        const fullImagePath3 = pathNextimages.length > 0 ? `../../public/${pathNextimages[1]}` : '';
+
+        card.innerHTML = `
+            <div class="product-img-block">
+                <img src="${fullImagePath}" alt="${p.name}" onerror="this.src='../img/placeholder.jpg'" class="w-full h-full object-cover">
+                <div hidden value="${p.id}" class="product-id"></div>
+                <button class="quick-view-btn">Quick View</button>
+            </div>
+            <div class="product-info-block flex justify-between items-center p-4">
+                <div class="product-text flex flex-col gap-1">
+                    <a href="product_details.php?id=${p.id}" class="product-title font-serif text-lg text-charcoal-900 truncate hover:text-cognac-700 transition-colors">${p.name}</a>
+                    <span class="product-price text-cognac-700 font-semibold">$${p.price}</span>
+                </div> 
+                <div class="product-actions-icons flex gap-3 items-center">
+                    <i class="far fa-heart heart-icon cursor-pointer text-gray-400 hover:text-red-500 transition-colors text-xl" data-id="${p.id}"></i>
+                    <i class="fas fa-shopping-bag add-cart cursor-pointer text-gray-400 hover:text-charcoal-900 transition-colors text-xl" title="Add to Cart"></i>
+                </div>
+            </div>
+        `;
+
+        const heart = card.querySelector('.heart-icon');
+        if (heart) {
+            if (p.is_favorite) {
+                heart.classList.remove('far');
+                heart.classList.add('fas', 'liked', 'text-red-500');
+            }
+
+            heart.addEventListener('click', async function(e) {
+                e.stopPropagation();
+                await toggleFavorite(p.id, this);
+                p.is_favorite = !p.is_favorite;
+                if(p.is_favorite) {
+                    this.classList.add('text-red-500');
+                } else {
+                    this.classList.remove('text-red-500');
+                }
+            });
+        }
+
+        const quickViewBtn = card.querySelector('.quick-view-btn');
+        if (quickViewBtn) {
+            quickViewBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modal = document.getElementById('quickViewModal');
+                if (modal) {
+                    const titleElem = modal.querySelector('.product-title');
+                    const priceElem = modal.querySelector('.product-price');
+                    const descElem = modal.querySelector('.product-description');
+                    const mainImg = modal.querySelector('.main-image');
+
+                    const img1 = modal.querySelector('.img1');
+                    const img2 = modal.querySelector('.img2');
+                    const img3 = modal.querySelector('.img3');
+                    const idElem = modal.querySelector('.id');
+
+                    if (titleElem) titleElem.textContent = p.name;
+                    if (priceElem) priceElem.textContent = `$${p.price}`;
+                    if (descElem) descElem.textContent = p.description || "Aucune description disponible.";
+                    if (mainImg) mainImg.src = fullImagePath;
+                    if (img1) img1.src = fullImagePath1;
+                    if (img2) { img2.src = fullImagePath2; if(!fullImagePath2) img2.style.display="none"; else img2.style.display="block"; }
+                    if (img3) { img3.src = fullImagePath3; if(!fullImagePath3) img3.style.display="none"; else img3.style.display="block"; }
+                    
+                    if (idElem) idElem.setAttribute('value', p.id);
+
+                    const modalHeart = modal.querySelector('.heart-icon');
+                    if (modalHeart) {
+                        if (p.is_favorite) {
+                            modalHeart.classList.replace('far', 'fas');
+                            modalHeart.classList.add('liked');
+                        } else {
+                            modalHeart.classList.replace('fas', 'far');
+                            modalHeart.classList.remove('liked');
+                        }
+                    }
+
+                    const viewMoreLink = modal.querySelector('.view-more-link');
+                    if (viewMoreLink) {
+                        viewMoreLink.href = `product_details.php?id=${p.id}`;
+                    }
+
+                    currentImageIndex = 0;
+                    const thumbnails = modal.querySelectorAll('.gallery-thumbnails img');
+                    thumbnails.forEach(t => t.classList.remove('active-thumb'));
+                    if (img1) img1.classList.add('active-thumb');
+                    
+                    modal.classList.add('active');
+                }
+            });
+        }
+
+        return card;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('quickViewModal');
+        
+        if (closeModalBtn && modal) {
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+        
+        const modalHeart = document.querySelector('#quickViewModal .heart-icon');
+        if (modalHeart) {
+            modalHeart.addEventListener('click', function() {
+                const productId = document.querySelector('#quickViewModal .id').getAttribute('value');
+                
+                toggleFavorite(productId, this).then(() => {
+                    const gridHeart = document.querySelector(`.product-item[data-id="${productId}"] .heart-icon`);
+                    if (gridHeart) {
+                        if (this.classList.contains('fas')) {
+                            gridHeart.classList.replace('far', 'fas');
+                            gridHeart.classList.add('liked', 'text-red-500');
+                        } else {
+                            gridHeart.classList.replace('fas', 'far');
+                            gridHeart.classList.remove('liked', 'text-red-500');
+                        }
+                    }
+                });
+            });
+        }
+    });
+
+    let currentImageIndex = 0;
+    function updateModalGallery(index) {
+        const modal = document.getElementById('quickViewModal');
+        const mainImg = modal.querySelector('.main-image');
+        const thumbnails = Array.from(modal.querySelectorAll('.gallery-thumbnails img')).filter(img => img.style.display !== 'none');
+        
+        if (thumbnails.length > 0 && thumbnails[index]) {
+            thumbnails.forEach(thumb => thumb.classList.remove('active-thumb'));
+            thumbnails[index].classList.add('active-thumb');
+            mainImg.src = thumbnails[index].src;
+            currentImageIndex = index;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        const modal = document.getElementById('quickViewModal');
+        
+        if (leftArrow && rightArrow) {
+            leftArrow.addEventListener('click', () => {
+                const thumbnails = Array.from(modal.querySelectorAll('.gallery-thumbnails img')).filter(img => img.style.display !== 'none');
+                let newIndex = currentImageIndex - 1;
+                if (newIndex < 0) newIndex = thumbnails.length - 1;
+                updateModalGallery(newIndex);
+            });
+
+            rightArrow.addEventListener('click', () => {
+                const thumbnails = Array.from(modal.querySelectorAll('.gallery-thumbnails img')).filter(img => img.style.display !== 'none');
+                let newIndex = (currentImageIndex + 1) % thumbnails.length;
+                updateModalGallery(newIndex);
+            });
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target.tagName === 'IMG' && e.target.parentElement.classList.contains('gallery-thumbnails')) {
+                const thumbnails = Array.from(modal.querySelectorAll('.gallery-thumbnails img')).filter(img => img.style.display !== 'none');
+                const index = thumbnails.indexOf(e.target);
+                if (index !== -1) {
+                    updateModalGallery(index);
+                }
+            }
+        });
+    });
+
+    function toggleExpand() {
+        const modal = document.getElementById('quickViewModal');
+        const mainImg = modal.querySelector('.main-image');
+        
+        if (!mainImg) return;
+
+        if (mainImg.style.transform === "scale(2.5)") {
+            mainImg.style.transform = "scale(1)";
+            mainImg.style.cursor = "zoom-in";
+        } else {
+            mainImg.style.transform = "scale(2.5)";
+            mainImg.style.cursor = "zoom-out";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterBtn = document.getElementById('toggle-filter-btn');
+        const filterPanel = document.getElementById('filter-dropdown-panel');
+
+        if (filterBtn && filterPanel) {
+            filterBtn.addEventListener('click', () => {
+                filterPanel.classList.toggle('show-panel');
+            });
+        }
+
+        document.querySelectorAll('#sortList a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('#sortList a').forEach(l => l.classList.remove('active-filter'));
+                this.classList.add('active-filter');
+                currentSort = this.getAttribute('data-sort');
+                chargerProduits();
+            });
+        });
+
+        document.querySelectorAll('#priceFilterList a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('#priceFilterList a').forEach(l => l.classList.remove('active-filter'));
+                this.classList.add('active-filter');
+                currentPriceRange = this.getAttribute('data-price');
+                chargerProduits();
+            });
+        });
+    });
+    </script>
 </body>
 </html>

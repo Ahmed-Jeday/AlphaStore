@@ -424,7 +424,7 @@ header("Expires: 0"); // Proxies.
             
             <nav class="main-links">
                 <a href="Adult.php">Women</a>
-                <a href="Adult.php">Men</a>
+                <a href="men.html">Men</a>
                 <a href="#">Kids</a>
                 <a href="#">Technologie</a>
                 <a href="#">AboutUS</a>
