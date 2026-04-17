@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Store - Homme | Nouvelle Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/men.css">
+    <link rel="stylesheet" href="../css/shop/shop_1.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cognac: {
+                            50: '#fdf8f3',
+                            100: '#f9ece0',
+                            200: '#f0d4b8',
+                            300: '#e3b58a',
+                            400: '#d4925e',
+                            500: '#c77840',
+                            600: '#b55f35',
+                            700: '#964a2d',
+                            800: '#7d3e2a',
+                            900: '#683526',
+                            950: '#381a12'
+                        },
+                        charcoal: {
+                            50: '#f6f6f6',
+                            900: '#1a1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'slide-in': 'slideIn 0.6s ease-out forwards',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { opacity: '0', transform: 'translateX(-20px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cognac-50 font-sans text-charcoal-900 antialiased overflow-x-hidden">
+
+  
+<div id="navbar-placeholder"></div>
+<div id="chatbot"></div>
+
+    <!-- Hero Banner / Bannière Principale -->
+    <header class="relative h-screen min-h-[700px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=2400&auto=format&fit=crop" 
+                 alt="Collection Homme" 
+                 class="w-full h-full object-cover scale-105 animate-scale-in">
+        </div>
+        <div class="absolute inset-0 hero-gradient"></div>
+        
+        <div class="relative h-full flex items-center">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+                <div class="max-w-2xl">
+                    <p class="text-cognac-300 font-medium tracking-[0.3em] uppercase text-sm mb-4 animate-fade-up" style="animation-delay: 0.2s">
+                        Automne / Hiver 2026
+                    </p>
+                    <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl text-white font-bold leading-[0.9] mb-6 text-shadow animate-fade-up" style="animation-delay: 0.4s">
+                        Nouvelle<br>
+                        <span class="italic text-cognac-300 font-normal">Collection</span>
+                    </h1>
+                    <p class="text-white/80 text-lg md:text-xl max-w-md mb-10 leading-relaxed animate-fade-up" style="animation-delay: 0.6s">
+                        L'élégance intemporelle rencontre l'audace contemporaine. Découvrez notre sélection premium pour l'homme moderne.
+                    </p>
+                    <div class="flex flex-wrap gap-4 animate-fade-up" style="animation-delay: 0.8s">
+                        <a href="#collection" class="bg-cognac-600 hover:bg-cognac-700 text-white px-10 py-4 text-sm font-semibold tracking-widest uppercase transition-all hover:shadow-lg hover:shadow-cognac-900/30 transform hover:-translate-y-0.5">
+                            Découvrir
+                        </a>
+                        <a href="#" class="border border-white/30 hover:border-white text-white px-10 py-4 text-sm font-semibold tracking-widest uppercase transition-all hover:bg-white/10 backdrop-blur-sm">
+                            Lookbook
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
+    </header>
+
+    <!-- Marquee Banner -->
+    <div class="bg-cognac-900 text-cognac-100 py-4 overflow-hidden relative">
+        <div class="flex whitespace-nowrap marquee-track">
+            <span class="mx-8 text-sm font-medium tracking-[0.2em] uppercase">Livraison Gratuite dès 150€</span>
+            <span class="mx-4 text-cognac-600">◆</span>
+            <span class="mx-8 text-sm font-medium tracking-[0.2em] uppercase">Retours sous 30 jours</span>
+            <span class="mx-4 text-cognac-600">◆</span>
+            <span class="mx-8 text-sm font-medium tracking-[0.2em] uppercase">Service Client Premium</span>
+            <span class="mx-4 text-cognac-600">◆</span>
+            <span class="mx-8 text-sm font-medium tracking-[0.2em] uppercase">Nouveautés Chaque Semaine</span>
+            <span class="mx-4 text-cognac-600">◆</span>
+            <span class="mx-8 text-sm font-medium tracking-[0.2em] uppercase">Livraison Gratuite dès 150€</span>
+            <span class="mx-4 text-cognac-600">◆</span>
+            <span class="mx-8 text-sm font-medium tracking-[0.2em] uppercase">Retours sous 30 jours</span>
+            <span class="mx-4 text-cognac-600">◆</span>
+            <span class="mx-8 text-sm font-medium tracking-[0.2em] uppercase">Service Client Premium</span>
+            <span class="mx-4 text-cognac-600">◆</span>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <section class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+            <div class="group relative h-[500px] overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop" 
+                     alt="Costumes" 
+                     class="w-full h-full object-cover image-zoom">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-8 left-8">
+                    <h3 class="font-serif text-3xl text-white mb-2">Costumes</h3>
+                    <p class="text-white/70 text-sm tracking-wider uppercase mb-4">L'élégance absolue</p>
+                    <span class="inline-flex items-center text-cognac-300 text-sm font-semibold tracking-wider uppercase group-hover:translate-x-2 transition-transform">
+                        Explorer <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="group relative h-[500px] overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=800&auto=format&fit=crop" 
+                     alt="Casual Wear" 
+                     class="w-full h-full object-cover image-zoom">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-8 left-8">
+                    <h3 class="font-serif text-3xl text-white mb-2">Casual</h3>
+                    <p class="text-white/70 text-sm tracking-wider uppercase mb-4">Confort & Style</p>
+                    <span class="inline-flex items-center text-cognac-300 text-sm font-semibold tracking-wider uppercase group-hover:translate-x-2 transition-transform">
+                        Explorer <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="group relative h-[500px] overflow-hidden cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop" 
+                     alt="Accessoires" 
+                     class="w-full h-full object-cover image-zoom">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-8 left-8">
+                    <h3 class="font-serif text-3xl text-white mb-2">Accessoires</h3>
+                    <p class="text-white/70 text-sm tracking-wider uppercase mb-4">Les détails comptent</p>
+                    <span class="inline-flex items-center text-cognac-300 text-sm font-semibold tracking-wider uppercase group-hover:translate-x-2 transition-transform">
+                        Explorer <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Collection Section -->
+    <section id="collection" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-cognac-50/50 -skew-x-12 transform origin-top-right"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div>
+                    <p class="text-cognac-600 font-medium tracking-[0.2em] uppercase text-sm mb-3">Nouveautés</p>
+                    <h2 class="font-serif text-5xl md:text-6xl text-charcoal-900 font-bold">
+                        Collection <span class="italic text-cognac-700 font-normal">2026</span>
+                    </h2>
+                </div>
+                <a href="#" class="mt-6 md:mt-0 inline-flex items-center text-charcoal-900 font-semibold tracking-wider uppercase text-sm hover:text-cognac-700 transition-colors group">
+                    Voir tout <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="group hover-lift reveal">
+                    <div class="relative overflow-hidden bg-cognac-50 mb-4 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?q=80&w=600&auto=format&fit=crop" 
+                             alt="Blazer Premium" 
+                             class="w-full h-full object-cover image-zoom">
+                        <div class="absolute top-4 left-4 bg-cognac-700 text-white text-xs font-bold px-3 py-1 tracking-wider uppercase">Nouveau</div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <button class="w-full bg-white/95 backdrop-blur text-charcoal-900 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-cognac-700 hover:text-white transition-colors shadow-lg">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="font-serif text-lg text-charcoal-900">Blazer Camel Premium</h3>
+                        <p class="text-sm text-gray-500">Laine italienne</p>
+                        <p class="text-cognac-700 font-semibold">349,00 €</p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group hover-lift reveal" style="transition-delay: 0.1s">
+                    <div class="relative overflow-hidden bg-cognac-50 mb-4 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1620012253295-c15cc3a5d3ba?q=80&w=600&auto=format&fit=crop" 
+                             alt="Chemise Lin" 
+                             class="w-full h-full object-cover image-zoom">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <button class="w-full bg-white/95 backdrop-blur text-charcoal-900 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-cognac-700 hover:text-white transition-colors shadow-lg">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="font-serif text-lg text-charcoal-900">Chemise Lin Écru</h3>
+                        <p class="text-sm text-gray-500">100% lin français</p>
+                        <p class="text-cognac-700 font-semibold">129,00 €</p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group hover-lift reveal" style="transition-delay: 0.2s">
+                    <div class="relative overflow-hidden bg-cognac-50 mb-4 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?q=80&w=600&auto=format&fit=crop" 
+                             alt="Pantalon Chino" 
+                             class="w-full h-full object-cover image-zoom">
+                        <div class="absolute top-4 left-4 bg-charcoal-900 text-white text-xs font-bold px-3 py-1 tracking-wider uppercase">Best-seller</div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <button class="w-full bg-white/95 backdrop-blur text-charcoal-900 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-cognac-700 hover:text-white transition-colors shadow-lg">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="font-serif text-lg text-charcoal-900">Chino Cognac</h3>
+                        <p class="text-sm text-gray-500">Coton bio</p>
+                        <p class="text-cognac-700 font-semibold">159,00 €</p>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="group hover-lift reveal" style="transition-delay: 0.3s">
+                    <div class="relative overflow-hidden bg-cognac-50 mb-4 aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600&auto=format&fit=crop" 
+                             alt="Veste Cuir" 
+                             class="w-full h-full object-cover image-zoom">
+                        <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <button class="w-full bg-white/95 backdrop-blur text-charcoal-900 py-3 text-sm font-semibold tracking-wider uppercase hover:bg-cognac-700 hover:text-white transition-colors shadow-lg">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="font-serif text-lg text-charcoal-900">Veste Cuir Vintage</h3>
+                        <p class="text-sm text-gray-500">Cuir pleine fleur</p>
+                        <p class="text-cognac-700 font-semibold">599,00 €</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial / Story Section -->
+    <section class="py-32 bg-cognac-950 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2400&auto=format&fit=crop" 
+                 class="w-full h-full object-cover">
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <p class="text-cognac-400 font-medium tracking-[0.3em] uppercase text-sm mb-6">L'Art du Vêtement</p>
+                    <h2 class="font-serif text-5xl md:text-6xl text-white font-bold leading-tight mb-8">
+                        Fabriqué pour durer,<br>
+                        <span class="italic text-cognac-300 font-normal">conçu pour séduire</span>
+                    </h2>
+                    <p class="text-cognac-100/80 text-lg leading-relaxed mb-8">
+                        Chaque pièce de notre collection est pensée comme un investissement. Nous sélectionnons les meilleures matières — laine mérinos, coton égyptien, cuir italien — pour créer des vêtements qui traversent les saisons et les tendances.
+                    </p>
+                    <div class="flex gap-8">
+                        <div>
+                            <p class="text-4xl font-serif text-cognac-300 font-bold">12</p>
+                            <p class="text-cognac-100/60 text-sm uppercase tracking-wider mt-1">Années d'excellence</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-serif text-cognac-300 font-bold">48h</p>
+                            <p class="text-cognac-100/60 text-sm uppercase tracking-wider mt-1">Expédition</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-serif text-cognac-300 font-bold">100%</p>
+                            <p class="text-cognac-100/60 text-sm uppercase tracking-wider mt-1">Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative reveal">
+                    <div class="absolute -inset-4 border border-cognac-700/30 transform translate-x-4 translate-y-4"></div>
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop" 
+                         alt="Craftsmanship" 
+                         class="relative z-10 w-full h-[600px] object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Now -->
+    <section class="py-24 bg-cognac-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl text-charcoal-900 font-bold mb-4">
+                    Tendances du <span class="italic text-cognac-700">Moment</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Les pièces les plus appréciées cette saison, sélectionnées pour vous.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-4 hover-lift reveal cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden mb-4 bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=400&auto=format&fit=crop" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <h4 class="font-serif text-charcoal-900">Pull Cachemire</h4>
+                    <p class="text-cognac-700 font-medium">289,00 €</p>
+                </div>
+                <div class="bg-white p-4 hover-lift reveal cursor-pointer" style="transition-delay: 0.1s">
+                    <div class="aspect-[3/4] overflow-hidden mb-4 bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=400&auto=format&fit=crop" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <h4 class="font-serif text-charcoal-900">Manteau Laine</h4>
+                    <p class="text-cognac-700 font-medium">459,00 €</p>
+                </div>
+                <div class="bg-white p-4 hover-lift reveal cursor-pointer" style="transition-delay: 0.2s">
+                    <div class="aspect-[3/4] overflow-hidden mb-4 bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=400&auto=format&fit=crop" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <h4 class="font-serif text-charcoal-900">Polo Premium</h4>
+                    <p class="text-cognac-700 font-medium">99,00 €</p>
+                </div>
+                <div class="bg-white p-4 hover-lift reveal cursor-pointer" style="transition-delay: 0.3s">
+                    <div class="aspect-[3/4] overflow-hidden mb-4 bg-gray-100">
+                        <img src="https://images.unsplash.com/photo-1549321495-3058e48145cc?q=80&w=400&auto=format&fit=crop" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <h4 class="font-serif text-charcoal-900">Bottines Cuir</h4>
+                    <p class="text-cognac-700 font-medium">329,00 €</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <div class="product-filter-container">
+    <!-- FILTER TOP BAR -->
+    <div class="filter-top-bar">
+        <ul class="category-tabs" id="categoryTabs">
+            <li><a href="#" data-cat="all" class="active-tab">All Products</a></li>
+            <li><a href="#" data-cat="women">Women</a></li>
+            <li><a href="#" data-cat="men">Men</a></li>
+            <li><a href="#" data-cat="bag">Bag</a></li>
+            <li><a href="#" data-cat="shoes">Shoes</a></li>
+            <li><a href="#" data-cat="watches">Watches</a></li>
+        </ul>
+        <div class="action-buttons">
+            <button id="toggle-filter-btn" class="action-btn">
+                <i class="fas fa-filter"></i> Filter
+            </button>
+            <button class="action-btn" id="searchTriggerBtn">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+    </div>
+
+    <!-- FILTER PANEL (slide-out) -->
+    <div id="filter-dropdown-panel" class="filter-panel">
+        <div class="filter-column">
+            <h4 class="filter-title">Sort By</h4>
+            <ul class="filter-list" id="sortList">
+                <li><a href="#" data-sort="default">Default</a></li>
+                <li><a href="#" data-sort="price_low">Price: Low to High</a></li>
+                <li><a href="#" data-sort="price_high">Price: High to Low</a></li>
+            </ul>
+        </div>
+        <div class="filter-column">
+            <h4 class="filter-title">Price</h4>
+            <ul class="filter-list" id="priceFilterList">
+                <li><a href="#" data-price="all" class="active-filter">All</a></li>
+                <li><a href="#" data-price="0-50">$0.00 - $50.00</a></li>
+                <li><a href="#" data-price="50-100">$50.00 - $100.00</a></li>
+                <li><a href="#" data-price="100-200">$100.00 - $200.00</a></li>
+            </ul>
+        </div>
+        <div class="filter-column">
+            <h4 class="filter-title">Color</h4>
+            <ul class="filter-list">
+                <li><a href="#"><span class="color-indicator bg-black"></span> Black</a></li>
+                <li><a href="#"><span class="color-indicator bg-blue"></span> Blue</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <p class="message" id="noProductMsg"></p>
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="load-more-container">
+        <button class="load-more-btn" id="loadMoreBtn">LOAD MORE</button>
+    </div>
+</div>
+
+
+ <!-- QUICK VIEW MODAL OVERLAY -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+
+            <div class="modal-content">
+                
+                <div class="modal-gallery">
+                    <div class="gallery-thumbnails">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=150&auto=format&fit=crop" alt="Thumb 1" class="active-thumb img1 " >
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=150&auto=format&fit=crop" alt="Thumb 2" class="img2">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=150&auto=format&fit=crop" alt="Thumb 3" class="img3">
+                    </div>
+                    
+                    <div class="gallery-main">
+                        <button class="nav-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=500&auto=format&fit=crop" alt="Main Product Image" class="main-image">
+                        <button class="nav-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
+                        <button class="expand-btn" onclick="toggleExpand()"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+
+                <div class="modal-details">
+                    <h2 class="product-title">Lightweight Jacket</h2>
+                    <p class="product-price">$58.79</p>
+                    
+                    <p class="product-description">
+                        Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+                    </p>
+
+                    <div class="product-options">
+                        <div class="option-row">
+                            <label>Size</label>
+                            <div class="select-wrapper">
+                                <select>
+                                    <option>Choose an option</option>
+                                    <option>Size S</option>
+                                    <option>Size M</option>
+                                    <option>Size L</option>
+                                    <option>Size XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option-row">
+                            <label>Color</label>
+                            <div class="select-wrapper">
+                                <select>
+                                    <option>Choose an option</option>
+                                    <option>Red</option>
+                                    <option>Blue</option>
+                                    <option>White</option>
+                                    <option>Grey</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="add-to-cart-wrapper">
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus-btn">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus-btn">+</button>
+                        </div>
+                        <button class="add-cart-btn">ADD TO CART</button>
+                    </div>
+
+                    <div class="social-actions">
+                        <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
+                        <div class="social-links">
+                            <a href="#" ><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" ><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        </div>
+                    </div>
+
+
+                    <div class="more_info">
+                        <div class="id" hidden value="" ></div>
+
+                
+                       
+                          <a href="#" class="view-more-link">VIEW MORE</a>
+                
+                       
+
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="py-24 bg-charcoal-900 text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+                Rejoignez l'<span class="italic text-cognac-400">Excellence</span>
+            </h2>
+            <p class="text-gray-400 mb-10 text-lg">Inscrivez-vous pour recevoir en avant-première nos nouvelles collections et offres exclusives.</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Merci pour votre inscription !');">
+                <input type="email" 
+                       placeholder="Votre adresse email" 
+                       class="flex-1 px-6 py-4 bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cognac-500 transition-colors"
+                       required>
+                <button type="submit" 
+                        class="px-8 py-4 bg-cognac-600 hover:bg-cognac-700 text-white font-semibold tracking-wider uppercase text-sm transition-all hover:shadow-lg hover:shadow-cognac-900/50">
+                    S'inscrire
+                </button>
+            </form>
+            
+            <p class="text-gray-600 text-sm mt-6">En vous inscrivant, vous acceptez notre politique de confidentialité.</p>
+        </div>
+    </section>
+
+
+
+
+  <div id="footer-placeholder"></div>
+
+    <script src="../javaScript/main.js"></script>
+
+    <script src="../javaScript/men.js"></script>
+</body>
+</html>

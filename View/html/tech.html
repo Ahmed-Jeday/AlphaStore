@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Alpha Store | Fullscreen Video Swiper</title>
+    <title>Alpha Store | Tech & Gadgets</title>
+    <meta name="description" content="Explore the latest tech gadgets, keyboards, smartphones and audio — all at Alpha Store.">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -25,7 +26,6 @@
     <link rel="stylesheet" href="../css/style_1.css">
     <link rel="stylesheet" href="../css/tech.css">
     <link rel="stylesheet" href="../css/shop/shop_1.css">
-    <link rel="stylesheet" href="../css/component/footer.css">
 
 
 
@@ -33,8 +33,9 @@
 </head>
 
 <body>
+     <div id="navbar-placeholder"></div>
     <header>
-        <div id="navbar-placeholder"></div>
+       
         <div class="swiper">
             <div class="swiper-wrapper">
 
@@ -153,169 +154,188 @@
 
 
     <section class="second">
-        <h1>Trending Tech Right Now</h1>
-        <p>Stay ahead with the latest gadgets and best-selling products loved by our customers.</p>
+        <div class="info">
+            <span class="section-badge">3D Interactive</span>
+            <h1 class="title">Trending Tech Right Now</h1>
+            <p class="subtitle">Stay ahead with the latest gadgets and best-selling products loved by our customers.</p>
+        </div>
         <div class="section-content">
 
 
             <div class="card">
-                <div class="overflow">
-                    <div class="model">
-                        <model-viewer src="../media/topo_keyboard (1).glb" shadow-intensity="0.4"></model-viewer>
-                    </div>
-                </div>
-                <div class="glass">
-                    <div class="gradient-blur">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-                <div class="content">
-                    <h2>LeafKey</h2>
-                    <p>A keyboard that brings the tranquility of the forest to your fingertips.</p>
-                    <div class="options">
-                        <div onclick="changeModelStyle(this, 0);" style="background: #f2c173;"></div>
-                        <div onclick="changeModelStyle(this, 60);" style="background: #96dd78;"></div>
-                        <div onclick="changeModelStyle(this, 110);" style="background: #6ee5bc;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="overflow">
-                    <div class="model ">
-                        <model-viewer class="samsung" src="../media/samsung_galaxy_a12.glb" camera-orbit="0deg 75deg 2m"
-                            autoplay></model-viewer>
-                    </div>
-                </div>
-                <div class="glass">
-                    <div class="gradient-blur">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-                <div class="content">
-                    <h2>TopoKey</h2>
-                    <p>Custom illuminated keyboard with neon topology mapped out in every key.</p>
-                    <div class="options">
-                        <div onclick="changeModelStyle(this, 0);" style="background: #2cb4f0;"></div>
-                        <div onclick="changeModelStyle(this, 110);" style="background: #ff69e4;"></div>
-                        <div onclick="changeModelStyle(this, 290);" style="background: #16b83f;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="overflow">
-                    <div class="model">
-                        <model-viewer src="https://assets.codepen.io/3421562/panda_keyboard.glb"
-                            shadow-intensity="0.4"></model-viewer>
-                    </div>
-                </div>
-                <div class="glass">
-                    <div class="gradient-blur">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-                <div class="content">
-                    <h2>PandaKey</h2>
-                    <p>Panda, panda, panda, panda, panda, panda... panda</p>
-                    <div class="options">
-                        <div onclick="changeModelStyle(this, 0);" style="background: #1e1e1e;"></div>
-                        <div onclick="changeModelStyle(this, 0, 1);" style="background: #eee;"></div>
-                    </div>
-                </div>
-            </div>
+  <div class="overflow">
+    <div class="model">
+      <model-viewer src="https://assets.codepen.io/3421562/leaves_keyboard.glb" shadow-intensity="0.4"></model-viewer>
+    </div>
+  </div>
+  <div class="glass">
+    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+  <div class="content">
+    <h2>LeafKey</h2>
+    <p>A keyboard that brings the tranquility of the forest to your fingertips.</p>
+    <div class="options">
+      <div onclick="changeModelStyle(this, 0);" style="background: #f2c173;"></div>
+      <div onclick="changeModelStyle(this, 60);" style="background: #96dd78;"></div>
+      <div onclick="changeModelStyle(this, 110);" style="background: #6ee5bc;"></div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="overflow">
+    <div class="model">
+      <model-viewer src="https://assets.codepen.io/3421562/topo_keyboard.glb" shadow-intensity="0.4"></model-viewer>
+    </div>
+  </div>
+  <div class="glass">
+    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+  <div class="content">
+    <h2>TopoKey</h2>
+    <p>Custom illuminated keyboard with neon topology mapped out in every key.</p>
+    <div class="options">
+      <div onclick="changeModelStyle(this, 0);" style="background: #2cb4f0;"></div>
+      <div onclick="changeModelStyle(this, 110);" style="background: #ff69e4;"></div>
+      <div onclick="changeModelStyle(this, 290);" style="background: #16b83f;"></div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="overflow">
+    <div class="model">
+      <model-viewer src="https://assets.codepen.io/3421562/panda_keyboard.glb" shadow-intensity="0.4"></model-viewer>
+    </div>
+  </div>
+  <div class="glass">
+    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+  <div class="content">
+    <h2>PandaKey</h2>
+    <p>Panda, panda, panda, panda, panda, panda... panda</p>
+    <div class="options">
+     <div onclick="changeModelStyle(this, 0);" style="background: #1e1e1e;"></div>
+      <div onclick="changeModelStyle(this, 0, 1);" style="background: #eee;"></div>
+    </div>
+  </div>
+</div>
         </div>
     </section>
 
 
 
 
-    <section class="section deals-section">
-        <div class="container">
-            <div class="deals-header">
-                <h2 class="section-title">New Release</h2>
-                <div class="countdown" id="countdown">
-                    <div class="cd-block"><span id="cd-h">08</span>
-                        <p>Hours</p>
-                    </div>
-                    <div class="cd-sep">:</div>
-                    <div class="cd-block"><span id="cd-m">45</span>
-                        <p>Mins</p>
-                    </div>
-                    <div class="cd-sep">:</div>
-                    <div class="cd-block"><span id="cd-s">00</span>
-                        <p>Secs</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="hero-banner">
-                <div class="image-container">
-                    <img src="https://www.apple.com/v/iphone-17/e/images/overview/highlights/ios/ios__dh3mxqibj1g2_large_2x.png"
-                        alt="iPhone 17 Colors">
-                </div>
-
-                <div class="bottom-bar">
-                    <div class="text-content">
-                        <h2 class="product-name">iPhone 17 Pro</h2>
-                        <h1 class="headline">Magichromatic.</h1>
-                    </div>
-
-                    <div class="pricing-box">
-                        <div class="price-details">
-                            From <strong>799dt</strong><br>
-                            or <span>$25/mo.</span> for 24 mo.*
-                        </div>
-                        <a href="#" class="buy-button">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
           
+
+
+
+    <section class="four">
+        <div class="four-header">
+            <span class="section-badge-dark">Privacy Display Demo</span>
+            <h2 class="four-title">Galaxy S26 Ultra</h2>
+            <p class="four-subtitle">Experience next-level privacy technology — tilt the phone to see the privacy layer react in real time.</p>
+        </div>
+
+        <div class="privacy-phone-module">
+        <div class="module-container">
+            <div class="scene">
+                <div class="phone" id="phoneDevice">
+                    <div class="back"></div>
+                    <div class="edge edge-r"></div>
+                    <div class="edge edge-l"></div>
+                    <div class="edge edge-t"></div>
+                    <div class="edge edge-b"></div>
+                    <div class="bezel">
+                        <div class="inner">
+                            <div class="screen" id="screenDisplay">
+                                <div class="wallpaper"></div>
+                                <div class="status-bar">
+                                    <span class="time">12:45</span>
+                                    <div class="status-icons">
+                                        <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                            <rect x="0" y="7" width="2.5" height="3" rx="0.5" fill="rgba(255,255,255,0.9)"/>
+                                            <rect x="3.8" y="5" width="2.5" height="5" rx="0.5" fill="rgba(255,255,255,0.9)"/>
+                                            <rect x="7.6" y="2.5" width="2.5" height="7.5" rx="0.5" fill="rgba(255,255,255,0.9)"/>
+                                            <rect x="11.4" y="0" width="2.5" height="10" rx="0.5" fill="rgba(255,255,255,0.9)"/>
+                                        </svg>
+                                        <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                            <circle cx="6" cy="9" r="1" fill="rgba(255,255,255,0.9)"/>
+                                            <path d="M3.5 6.8a4.2 4.2 0 015 0" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                                            <path d="M1.5 4.5a7 7 0 019 0" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                        <svg width="20" height="10" viewBox="0 0 20 10" fill="none">
+                                            <rect x="0.5" y="0.5" width="16" height="9" rx="2" stroke="rgba(255,255,255,0.85)" stroke-width="1"/>
+                                            <rect x="2" y="2" width="13" height="6" rx="1" fill="rgba(255,255,255,0.85)"/>
+                                            <rect x="17" y="3" width="2" height="4" rx="0.8" fill="rgba(255,255,255,0.85)"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="notification" id="notifCard">
+                                    <div class="notif-header">
+                                        <div class="notif-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+                                        <span class="notif-app">Messages</span><span class="notif-when">now</span>
+                                    </div>
+                                    <a class="notif-title" href="https://calculatequick.com" target="_blank" rel="noopener">Mom</a>
+                                    <div class="notif-body">Did you remember to change your underwear today?!?!</div>
+                                </div>
+                                <div class="dock">
+                                    <a class="dock-icon di-phone" href="https://calculatequick.com" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.92)"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg></a>
+                                    <a class="dock-icon di-msg" href="https://calculatequick.com" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.92)"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a>
+                                    <a class="dock-icon di-chrome" href="https://calculatequick.com" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.92)" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="4" fill="rgba(255,255,255,0.92)"/></svg></a>
+                                    <a class="dock-icon di-cam" href="https://calculatequick.com" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.92)"><path d="M12 15.2a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4z"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9z" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5"/></svg></a>
+                                </div>
+                                <div class="home-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div><div class="panel-title">Privacy Display</div><div class="panel-sub">Galaxy S26 Ultra</div></div>
+                <div class="mode-toggle"><button class="mode-btn active" data-mode="full">Full Screen</button><button class="mode-btn" data-mode="notif">Notification</button></div>
+                <div class="angle-readout">Viewing angle <span class="angle-val" id="angleValue">0°</span></div>
+                <div class="hint">Move your cursor inside this card → tilt the phone<br>Privacy layer reacts to angle</div>
+                <div class="refs"><a class="ref" href="https://calculatequick.com" target="_blank">calculatequick.com</a><span class="ref">privacy 3D demo</span></div>
+            </div>
+        </div>
+        <div id="phone-snooper">👀</div>
+    </div>
+
+    </section>
               
               
 
 
                 
-            </div>
-        </div>
-    </section>
+       
 
 
 
 
 
     <section class="tird">
+        <div class="tird-header">
+            <span class="section-badge-light">Our Collection</span>
+            <h2 class="tird-title">Shop Premium Tech</h2>
+            <p class="tird-subtitle">Handpicked gadgets, accessories, and wearables curated for the modern lifestyle.</p>
+        </div>
         <div class="product-filter-container">
 
             <!-- FILTER TOP BAR -->
             <div class="filter-top-bar">
                 <ul class="category-tabs">
-                    <li><a href="#" class="active-tab">All Products</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Bag</a></li>
-                    <li><a href="#">Shoes</a></li>
-                    <li><a href="#">Watches</a></li>
+                    <li><a href="#" class="active-tab">All</a></li>
+                    <li><a href="#">Phones</a></li>
+                    <li><a href="#">Audio</a></li>
+                    <li><a href="#">Wearables</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Gaming</a></li>
                 </ul>
 
                 <div class="action-buttons">
                     <button id="toggle-filter-btn" class="action-btn">
-                        <i class="fas fa-filter"></i> Filter
+                        <i class="fas fa-sliders-h"></i> Filter
                     </button>
                     <button class="action-btn">
                         <i class="fas fa-search"></i> Search
@@ -365,11 +385,11 @@
                 <div class="filter-column">
                     <h4 class="filter-title">Tags</h4>
                     <div class="tags-wrapper">
-                        <a href="#" class="tag-item">Fashion</a>
-                        <a href="#" class="tag-item">Lifestyle</a>
-                        <a href="#" class="tag-item">Denim</a>
-                        <a href="#" class="tag-item">Streetstyle</a>
-                        <a href="#" class="tag-item">Crafts</a>
+                        <a href="#" class="tag-item">Wireless</a>
+                        <a href="#" class="tag-item">Flagship</a>
+                        <a href="#" class="tag-item">Gaming</a>
+                        <a href="#" class="tag-item">5G Ready</a>
+                        <a href="#" class="tag-item">New Arrivals</a>
                     </div>
                 </div>
             </div>
@@ -381,14 +401,14 @@
                 <!-- PRODUCT 1 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=400&auto=format&fit=crop"
-                            alt="Esprit Ruffle Shirt">
-                        <button class="quick-view-btn">Quick View</button>
+                        <span class="product-badge-label">NEW</span>
+                        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?q=80&w=400&auto=format&fit=crop" alt="Wireless Earbuds Pro">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Esprit Ruffle Shirt</a>
-                            <span class="product-price">$16.64</span>
+                            <a href="#" class="product-title">Wireless Earbuds Pro</a>
+                            <span class="product-price">$89.99</span>
                         </div>
                         <div class="product-actions">
                             <i class="far fa-heart heart-icon"></i>
@@ -399,14 +419,14 @@
                 <!-- PRODUCT 2 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=400&auto=format&fit=crop"
-                            alt="Herschel supply">
-                        <button class="quick-view-btn">Quick View</button>
+                        <span class="product-badge-label sale">SALE</span>
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop" alt="Smart Watch Elite">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Herschel supply</a>
-                            <span class="product-price">$35.31</span>
+                            <a href="#" class="product-title">Smart Watch Elite</a>
+                            <span class="product-price">$199.99</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -417,14 +437,13 @@
                 <!-- PRODUCT 3 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=400&auto=format&fit=crop"
-                            alt="Only Check Trouser">
-                        <button class="quick-view-btn">Quick View</button>
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=400&auto=format&fit=crop" alt="Gaming Controller X">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Only Check Trouser</a>
-                            <span class="product-price">$25.50</span>
+                            <a href="#" class="product-title">Gaming Controller X</a>
+                            <span class="product-price">$69.99</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -435,14 +454,14 @@
                 <!-- PRODUCT 4 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1584382296087-9ff2714c1143?q=80&w=400&auto=format&fit=crop"
-                            alt="Classic Trench Coat">
-                        <button class="quick-view-btn">Quick View</button>
+                        <span class="product-badge-label">HOT</span>
+                        <img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?q=80&w=400&auto=format&fit=crop" alt="Portable Speaker 360">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Classic Trench Coat</a>
-                            <span class="product-price">$75.00</span>
+                            <a href="#" class="product-title">Portable Speaker 360</a>
+                            <span class="product-price">$129.99</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -453,14 +472,13 @@
                 <!-- PRODUCT 5 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=400&auto=format&fit=crop"
-                            alt="Front Pocket Jumper">
-                        <button class="quick-view-btn">Quick View</button>
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c228b7aa44?q=80&w=400&auto=format&fit=crop" alt="Mechanical Keyboard RGB">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Front Pocket Jumper</a>
-                            <span class="product-price">$34.75</span>
+                            <a href="#" class="product-title">Mechanical Keyboard RGB</a>
+                            <span class="product-price">$149.00</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -471,14 +489,14 @@
                 <!-- PRODUCT 6 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=400&auto=format&fit=crop"
-                            alt="Vintage Inspired Classic">
-                        <button class="quick-view-btn">Quick View</button>
+                        <span class="product-badge-label sale">DEAL</span>
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=400&auto=format&fit=crop" alt="Ultra Slim Laptop">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Vintage Inspired Classic</a>
-                            <span class="product-price">$93.20</span>
+                            <a href="#" class="product-title">Ultra Slim Laptop</a>
+                            <span class="product-price">$999.00</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -489,14 +507,13 @@
                 <!-- PRODUCT 7 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1503341504253-d2d08aa8f4ef?q=80&w=400&auto=format&fit=crop"
-                            alt="Shirt in Stretch Cotton">
-                        <button class="quick-view-btn">Quick View</button>
+                        <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?q=80&w=400&auto=format&fit=crop" alt="Drone Mini 4K">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Shirt in Stretch Cotton</a>
-                            <span class="product-price">$52.66</span>
+                            <a href="#" class="product-title">Drone Mini 4K</a>
+                            <span class="product-price">$349.00</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -507,14 +524,14 @@
                 <!-- PRODUCT 8 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1510832842233-436cd988290f?q=80&w=400&auto=format&fit=crop"
-                            alt="Pieces Metallic Printed">
-                        <button class="quick-view-btn">Quick View</button>
+                        <span class="product-badge-label">NEW</span>
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop" alt="VR Headset Pro">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Pieces Metallic Printed</a>
-                            <span class="product-price">$18.96</span>
+                            <a href="#" class="product-title">VR Headset Pro</a>
+                            <span class="product-price">$499.00</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -525,14 +542,13 @@
                 <!-- PRODUCT 9 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=400&auto=format&fit=crop"
-                            alt="Converse All Star">
-                        <button class="quick-view-btn">Quick View</button>
+                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=400&auto=format&fit=crop" alt="Premium Headphones">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Converse All Star</a>
-                            <span class="product-price">$75.00</span>
+                            <a href="#" class="product-title">Premium Headphones</a>
+                            <span class="product-price">$279.00</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -543,14 +559,14 @@
                 <!-- PRODUCT 10 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=400&auto=format&fit=crop"
-                            alt="Femme T-Shirt">
-                        <button class="quick-view-btn">Quick View</button>
+                        <span class="product-badge-label">HOT</span>
+                        <img src="https://images.unsplash.com/photo-1587302213438-4f4ef1f7c96e?q=80&w=400&auto=format&fit=crop" alt="Tablet Pro 12">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Femme T-Shirt</a>
-                            <span class="product-price">$25.85</span>
+                            <a href="#" class="product-title">Tablet Pro 12</a>
+                            <span class="product-price">$749.00</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -561,14 +577,13 @@
                 <!-- PRODUCT 11 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=400&auto=format&fit=crop"
-                            alt="Herschel supply">
-                        <button class="quick-view-btn">Quick View</button>
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=400&auto=format&fit=crop" alt="True Wireless Buds">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Herschel supply</a>
-                            <span class="product-price">$63.16</span>
+                            <a href="#" class="product-title">True Wireless Buds</a>
+                            <span class="product-price">$119.00</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -579,14 +594,14 @@
                 <!-- PRODUCT 12 -->
                 <div class="product-item">
                     <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1510832842233-436cd988290f?q=80&w=400&auto=format&fit=crop"
-                            alt="Belt">
-                        <button class="quick-view-btn">Quick View</button>
+                        <span class="product-badge-label sale">SALE</span>
+                        <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?q=80&w=400&auto=format&fit=crop" alt="Smart Band Fitness">
+                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
                     </div>
                     <div class="product-info-block">
                         <div class="product-text">
-                            <a href="#" class="product-title">Herschel supply</a>
-                            <span class="product-price">$63.15</span>
+                            <a href="#" class="product-title">Smart Band Fitness</a>
+                            <span class="product-price">$59.99</span>
                         </div>
                         <div class="product-actions">
                             <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
@@ -745,6 +760,7 @@
 
     <script src="../javaScript/tech.js"> </script>
     <script src="../javaScript/shop.js"></script>
+    <script src="../javaScript/phone.js"></script>
 
 </body>
 

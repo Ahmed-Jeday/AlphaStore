@@ -97,7 +97,7 @@ header("Expires: 0"); // Proxies.
             transition: all 0.4s ease;
         }
 
-        .logo {
+        .main-nav-bar .logo {
             font-size: 26px;
             font-weight: 800;
             color: #222;
@@ -397,8 +397,8 @@ header("Expires: 0"); // Proxies.
                 <a href="index.html" class="tab">HOME</a>
                 <a href="Adult.php" class="tab">ADULT</a>
                 <a href="#" class="tab">KIDS</a>
-                <a href="#" class="tab">TECH</a>
-                <a href="#" class="tab">Ai</a>
+                <a href="tech.html" class="tab">TECH</a>
+                <a href="ai.html" class="tab">Ai</a>
             </div>
             
             <div class="user-actions">

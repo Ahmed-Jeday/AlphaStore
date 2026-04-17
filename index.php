@@ -48,6 +48,18 @@ if ($action === "getAllimage") {
     exit;
 }
 
+if ($action === "addReview") {
+    require_once(__DIR__ . "/Controller/ReviewController.php");
+    AddReview();
+    exit;
+}
+
+if ($action === "getAllReview") {
+    require_once(__DIR__ . "/Controller/ReviewController.php");
+    getAllReview();
+    exit;
+}
+
 
 
 // Routes par défaut ou inconnues : redirection

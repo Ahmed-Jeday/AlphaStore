@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adult Heavyweight Relaxed T-Shirt</title>
 <link rel="stylesheet" href="../css/component/footer.css">
+<link rel="stylesheet" href="../css/review.css">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -616,15 +626,9 @@
     </div>
     <p class="promo-code">Extra 10% off with code <strong>ADD10</strong></p>
 
-    <div class="ratings">
-      <div class="stars">
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8"/></svg>
-        <svg class="star" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8"/></svg>
-        <svg class="star star-empty" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8"/></svg>
-      </div>
-      <span class="ratings-count">241 Ratings</span>
+    <div class="ratings" id="productRatings">
+      <div class="stars" id="avgStarsContainer"></div>
+      <span class="ratings-count" id="totalRatingsCount">241 Ratings</span>
     </div>
 
     <hr class="divider">
@@ -804,95 +808,63 @@
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews-section">
+<section class="reviews-section" id="reviewsSection">
   <div class="reviews-header">
     <div class="reviews-meta">
-      <span class="reviews-avg">4.4</span>
+      <span class="reviews-avg" id="avgRatingDisplay">4.4</span>
       <div>
-        <div class="stars" style="margin-bottom:4px">
-          <svg class="star" width="18" height="18" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="18" height="18" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="18" height="18" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="18" height="18" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star star-empty" width="18" height="18" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8"/></svg>
-        </div>
-        <div style="font-size:12px;color:var(--mid-gray)">248 Star Ratings</div>
-        <div class="bar-grid">
-          <div class="bar-row">5 <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><span class="bar-count">154</span></div>
-          <div class="bar-row">4 <div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="bar-count">45</span></div>
-          <div class="bar-row">3 <div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><span class="bar-count">22</span></div>
-          <div class="bar-row">2 <div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span class="bar-count">12</span></div>
-          <div class="bar-row">1 <div class="bar-track"><div class="bar-fill" style="width:6%"></div></div><span class="bar-count">15</span></div>
-        </div>
+        <div class="stars" id="avgStarsLarge" style="margin-bottom:4px"></div>
+        <div style="font-size:12px;color:var(--mid-gray)" id="totalReviewsText">248 Star Ratings</div>
+        <div class="bar-grid" id="ratingBars"></div>
       </div>
     </div>
-    <button class="write-review-btn">Write a Review</button>
+    <button class="write-review-btn" id="writeReviewBtn">Write a Review</button>
   </div>
 
-  <div class="reviews-list">
-    <div class="review-card">
-      <div class="rv-header">
-        <div class="stars">
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-        </div>
-      </div>
-      <p class="rv-title">More color options</p>
-      <p class="rv-meta">anonymous · 1 day ago</p>
-      <p class="rv-body">Replaced my old heavyweight tee and have not looked back. The fit is great length as well. Quality thick. Prewashable.</p>
-    </div>
-    <div class="review-card">
-      <div class="rv-header">
-        <div class="stars">
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star star-empty" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8"/></svg>
-        </div>
-      </div>
-      <p class="rv-title">Nice Quality, Slightly Larger Than Expected</p>
-      <p class="rv-meta">anonymous · 1 day ago</p>
-      <p class="rv-body">Nice heavyweight quality. Soft and comfortable. A bit larger and looser than expected but not too much. Prewashable.</p>
-    </div>
-    <div class="review-card">
-      <div class="rv-header">
-        <div class="stars">
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-        </div>
-      </div>
-      <p class="rv-title">Great fit</p>
-      <p class="rv-meta">Marc David · 12 days ago</p>
-      <p class="rv-body">Great material super soft and cozy great fit.</p>
-    </div>
-    <div class="review-card">
-      <div class="rv-header">
-        <div class="stars">
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-          <svg class="star" width="13" height="13" viewBox="0 0 16 16"><polygon points="8,1 10.2,5.8 15.5,6.3 11.6,9.9 12.8,15.1 8,12.4 3.2,15.1 4.4,9.9 0.5,6.3 5.8,5.8" fill="var(--black)"/></svg>
-        </div>
-      </div>
-      <p class="rv-title">Amazing</p>
-      <p class="rv-meta">Michael · 35 days ago</p>
-      <p class="rv-body">I ordered this for summer. The cloth is great. Hangs well and feels wonderful.</p>
-    </div>
-  </div>
+  <div class="reviews-list" id="dynamicReviewsList"></div>
 </section>
+<div id="reviewModal" class="modal-overlay">
+  <div class="review-modal">
+    <button class="modal-close" id="closeModalBtn">&times;</button>
+    <h3>Share your thoughts</h3>
+    <form id="reviewForm">
+      <div class="form-group">
+        <label>Your rating *</label>
+        <div class="star-rating-input" id="starRatingInput">
+          <svg class="star-select" data-value="1" viewBox="0 0 24 24"><polygon points="12,2 15.1,8.3 22,9.2 16.9,14 18.6,20.8 12,17.3 5.4,20.8 7.1,14 2,9.2 8.9,8.3"/></svg>
+          <svg class="star-select" data-value="2" viewBox="0 0 24 24"><polygon points="12,2 15.1,8.3 22,9.2 16.9,14 18.6,20.8 12,17.3 5.4,20.8 7.1,14 2,9.2 8.9,8.3"/></svg>
+          <svg class="star-select" data-value="3" viewBox="0 0 24 24"><polygon points="12,2 15.1,8.3 22,9.2 16.9,14 18.6,20.8 12,17.3 5.4,20.8 7.1,14 2,9.2 8.9,8.3"/></svg>
+          <svg class="star-select" data-value="4" viewBox="0 0 24 24"><polygon points="12,2 15.1,8.3 22,9.2 16.9,14 18.6,20.8 12,17.3 5.4,20.8 7.1,14 2,9.2 8.9,8.3"/></svg>
+          <svg class="star-select" data-value="5" viewBox="0 0 24 24"><polygon points="12,2 15.1,8.3 22,9.2 16.9,14 18.6,20.8 12,17.3 5.4,20.8 7.1,14 2,9.2 8.9,8.3"/></svg>
+        </div>
+        <input type="hidden" id="selectedRating" value="0">
+        <span class="error-msg" id="ratingError"></span>
+      </div>
+      <div class="form-group">
+        <label>Review title *</label>
+        <input type="text" id="reviewTitle" placeholder="e.g., Great quality">
+        <span class="error-msg" id="titleError"></span>
+      </div>
+      <div class="form-group">
+        <label>Your review *</label>
+        <textarea id="reviewBody" placeholder="Tell others about this product..."></textarea>
+        <span class="error-msg" id="bodyError"></span>
+      </div>
+      <input type="hidden" id="reviewProductId" value="">
+      <div class="form-group">
+        <label>Name (optional)</label>
+        <input type="text" id="reviewerName" placeholder="Anonymous">
+      </div>
+      <button type="submit" class="modal-submit">Submit Review</button>
+    </form>
+  </div>
+</div>
 
 
   <div id="footer-placeholder"></div>
 
   <script src="../javaScript/main.js"></script>
+
 
 <script>
   // Accordion
@@ -919,6 +891,12 @@
     });
   });
 </script>
+
+
+<script src="../javaScript/review.js"></script>
+
+
+
 
 
 
