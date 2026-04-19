@@ -1,0 +1,266 @@
+/* Elegant UI Additions */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --elegant-primary: #111111;
+  --elegant-accent: #6C63FF;
+  --elegant-bg: #FAFAFA;
+  --elegant-surface: #FFFFFF;
+  --elegant-text: #222222;
+  --elegant-text-light: #777777;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-pill: 50px;
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+  --shadow-hover: 0 20px 40px rgba(0,0,0,0.08);
+  --elegant-font: 'Outfit', sans-serif;
+  --elegant-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--elegant-body) !important;
+  background-color: var(--elegant-bg);
+  color: var(--elegant-text);
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+  font-family: var(--elegant-font) !important;
+}
+
+/* Headings */
+.section-title, h2 {
+  font-family: var(--elegant-font);
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--elegant-text);
+}
+
+/* Elegant Virtual Try On Button */
+.elegant-try-on-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  color: white;
+  padding: 16px 32px;
+  border-radius: var(--radius-pill);
+  font-family: var(--elegant-font);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+.elegant-try-on-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.elegant-try-on-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  color: #fff;
+}
+
+.elegant-try-on-btn:hover::before {
+  left: 100%;
+}
+
+/* Generation Section Upgrade */
+.genration {
+  padding: 80px 5%;
+  background: white;
+}
+
+.genration h2 {
+  margin-bottom: 50px;
+}
+
+.genration-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.genration-item {
+  flex: 1;
+  min-width: 250px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--elegant-surface);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.genration-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.genration-item .image-wrapper {
+  aspect-ratio: 4/5;
+  margin-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.genration-item a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.2rem;
+  font-family: var(--elegant-font);
+  font-weight: 600;
+  color: var(--elegant-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: none;
+  background: var(--elegant-surface);
+}
+
+.genration-item:hover a {
+  color: var(--elegant-accent);
+  transform: none;
+}
+
+/* Features Container Refinement */
+.features-container {
+  padding: 80px 5%;
+  background: white;
+  margin: 50px 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.feature-item {
+  padding: 30px;
+  transition: transform 0.3s ease;
+  border-radius: var(--radius-md);
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  background: #f8f9fa;
+}
+
+.feature-item .icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  display: inline-block;
+  background: linear-gradient(135deg, #f0f0f0, #ffffff);
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* Deal Section Upgrade */
+.deals-section {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%) !important;
+  padding: 100px 5%;
+}
+
+.deals-section .section-title {
+  color: var(--elegant-text);
+}
+
+.countdown {
+  background: white !important;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.countdown .cd-block span, .countdown .cd-sep {
+  color: var(--elegant-text) !important;
+}
+
+/* Promo special */
+.promo-special-container {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+}
+
+.promo-special-content {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+}
+
+.promo-special-btn {
+  background: white !important;
+  color: black !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 15px 40px !important;
+  font-family: var(--elegant-font);
+  letter-spacing: 1px;
+}
+
+.promo-special-btn:hover {
+  background: black !important;
+  color: white !important;
+}
+
+/* New Arrivals Upgrade */
+.new-arrivals {
+  padding: 80px 0;
+}
+
+.new-arrivals .product {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 15px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.new-arrivals .product:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-5px);
+}
+
+.new-arrivals .product img {
+  border-radius: var(--radius-md);
+  margin-bottom: 15px;
+}
+
+.new-arrivals .product p {
+  font-family: var(--elegant-body);
+  font-weight: 500;
+  color: var(--elegant-text);
+}
+
+/* Brands Scroll */
+.Image-wrapper {
+  background: white;
+  padding: 40px 0;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.brand-icon {
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.brand-icon:hover {
+  opacity: 1;
+}

@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__ . "/../config/Database.php");
 require_once(__DIR__ . "/../model/User.php"); // Changé de Controller à Model
+require_once(__DIR__ . "/../model/LoginLog.php");
 
 function validateData($data)
 {
@@ -45,7 +46,10 @@ function AddUser( $data)
 
     return $res;
 }
+
 function loginUser($cnx, $data) {
+    $loginLog = new LoginLog();
+    
     // 1. On récupère l'utilisateur par son email
     // On utilise une requête préparée (plus sûr que sprintf)
     $sql = "SELECT * FROM users WHERE email = :email LIMIT 1";
@@ -60,6 +64,9 @@ function loginUser($cnx, $data) {
 
         if (password_verify($data['password'], $user['password'])) {
             
+            // Log successful attempt
+            $loginLog->logLoginAttempt($user['id'], $user['email'], 'success');
+
             // 4. Gestion de la session
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
@@ -75,7 +82,13 @@ function loginUser($cnx, $data) {
             // 5. Redirection
             header("Location: ../my-account/my-account.php");
             exit;
+        } else {
+            // Log failed attempt (wrong password)
+            $loginLog->logLoginAttempt($user['id'], $user['email'], 'failed');
         }
+    } else {
+        // Log failed attempt (user not found)
+        $loginLog->logLoginAttempt(null, $data['email'], 'failed');
     }
 
     // 6. Si on arrive ici, c'est que la connexion a échoué
