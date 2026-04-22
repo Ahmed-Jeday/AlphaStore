@@ -2,6 +2,8 @@
 require_once(__DIR__ . "/../config/Database.php");
 require_once(__DIR__ . "/../model/User.php"); // Changé de Controller à Model
 require_once(__DIR__ . "/../model/LoginLog.php");
+require_once(__DIR__ . "/../services/mailer.php");
+use App\Services\MailerService;
 
 function validateData($data)
 {
@@ -35,16 +37,46 @@ function AddUser( $data)
     }
 
     $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
+      // Générer code
+    $code = rand(100000, 999999);
+    $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
 
     $user = new User();
 
     $res = $user->registerUser(
         $data['user_name'],
         $data['email'],
-        $hashedPassword
+        $hashedPassword,
+        $code,
+        $expiry
     );
-
+    $mailer = new MailerService();
+    $mailSent = $mailer->sendValidationEmail($data["email"], $code) ;
     return $res;
+}
+
+function verifOTP($email, $code)
+{
+    $userModel = new User();
+    $userData = $userModel->getUserByEmail($email);
+    
+    if (!$userData) {
+        return "Utilisateur non trouvé.";
+    }
+    
+    if ($userData['verification_code'] != $code) {
+        return "Code de verification incorrect.";
+    }
+    
+    if (strtotime($userData['code_expiry']) < time()) {
+        return "Code de verification expire.";
+    }
+    
+    // Marquer l'utilisateur comme vérifié et nettoyer le code
+    $userModel->validateUser($email);
+    $userModel->updateVerificationCode($email, null, null);
+    
+    return true; // Retourne true si tout est OK
 }
 
 function loginUser($cnx, $data) {
@@ -59,7 +91,7 @@ function loginUser($cnx, $data) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // 2. Si l'utilisateur existe
-    if ($user) {
+    if ($user && $user["is_verified"] == 1) {
         // 3. Vérification du mot de passe haché
 
         if (password_verify($data['password'], $user['password'])) {
@@ -96,8 +128,7 @@ function loginUser($cnx, $data) {
 }
 
 
-require_once(__DIR__ . "/../services/mailer.php");
-use App\Services\MailerService;
+
 
 function requestReset()
 {

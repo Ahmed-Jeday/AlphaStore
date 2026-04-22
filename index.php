@@ -1,4 +1,12 @@
 <?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+
+
+
 session_start();
 
 $action = $_GET['action'] ?? null;
@@ -9,13 +17,14 @@ if ($action === 'updateProfile') {
     exit;
 }
 
-if ($action ==='getProduits') {
+
+if ($action === 'getProduits') {
     require_once(__DIR__ . "/Controller/ProduitController.php");
     getAllProduits();
     exit;
 }
 
-if ($action ==='getProduitByCategory') {
+if ($action === 'getProduitByCategory') {
     require_once(__DIR__ . "/Controller/ProduitController.php");
     getProduitByCategory($_GET["category"]);
     exit;
@@ -62,7 +71,40 @@ if ($action === "getAllReview") {
 
 
 
-// Routes par défaut ou inconnues : redirection
+if ($action === "addToCart") {
+    require_once(__DIR__ . "/Controller/CartController.php");
+    addToCart($_POST["productID"], $_POST["quantity"]);
+    exit;
+}
+
+if ($action === "getCart") {
+    require_once(__DIR__ . "/Controller/CartController.php");
+    getCart();
+    exit;
+}
+if ($action === "removeFromCart") {
+    require_once(__DIR__ . "/Controller/CartController.php");
+    removeFromCart($_POST["productID"]);
+    exit;
+}
+
+if ($action === "updateQuantity") {
+    require_once(__DIR__ . "/Controller/CartController.php");
+    updateQuantity($_POST["productID"], $_POST["quantity"]);
+    exit;
+}
+if ($action === "verif_code") {
+    require_once(__DIR__ . "/Controller/AuthController.php");
+    $result = verifOTP($_POST["email"], $_POST["code"]);
+
+    if ($result === true) {
+        header("Location: View/html/signUp.php?verified=1"); // Rediriger vers login après succès
+    } else {
+        header("Location: View/html/verifie.php?email=" . urlencode($_POST["email"]) . "&error=" . urlencode($result));
+    }
+    exit;
+}
+
 header("Location: View/html/index.html");
 exit;
 ?>

@@ -347,6 +347,12 @@ function renderComparisonTable() {
     }))
   ];
 
+  // Update headers
+  const headerA = document.querySelector('.product-col-a');
+  const headerB = document.querySelector('.product-col-b');
+  if (headerA) headerA.textContent = currentProductA.name;
+  if (headerB) headerB.textContent = currentProductB.name;
+
   let tbodyHtml = '';
   for (let row of allRows) {
     const valA = row.getValue(currentProductA);
@@ -357,8 +363,11 @@ function renderComparisonTable() {
     tbodyHtml += `
       <tr class="${rowClass}">
         <th>${row.key}</th>
-        <td class="spec-value">${valA}</td>
-        <td class="spec-value">${valB}</td>
+        
+
+        <td class="spec-value spec-col-a">${valA}</td>
+        
+        <td class="spec-value spec-col-b">${valB}</td>
       </tr>
     `;
   }

@@ -204,9 +204,11 @@
   left: 0;
   right: 0;
   bottom: 0;
+
   padding: 2.5rem;
   display: block;
   z-index: 10;
+  
 }
 .co-card__title {
   font-weight: 700;
@@ -218,6 +220,7 @@
   font-size: 1rem;
   text-transform: uppercase;
   opacity: 0.3;
+  
 }
 .co-card__price {
   margin-top: 1rem;

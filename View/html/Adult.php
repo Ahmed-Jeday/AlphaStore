@@ -10,6 +10,7 @@
 
 <?php 
 session_start();
+require_once("../../Controller/CartController.php");
 
 ?>
 
@@ -29,6 +30,7 @@ session_start();
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
     
     <link rel="stylesheet" href="../css/style_1.css">
     <link rel="stylesheet" href="../css/shop/shop_1.css">
@@ -253,7 +255,7 @@ session_start();
                             <input type="number" class="qty-input" value="1" min="1">
                             <button class="qty-btn plus-btn">+</button>
                         </div>
-                        <button class="add-cart-btn">ADD TO CART</button>
+                        <button class="add-cart-btn" >ADD TO CART</button>
                     </div>
 
                     <div class="social-actions">
@@ -297,7 +299,9 @@ session_start();
 
 
 
-  <script>
+  <script> 
+
+  //filter
 let currentCategory = 'Homme,Femme';
 let currentSort = 'default';
 let currentPriceRange = 'all';

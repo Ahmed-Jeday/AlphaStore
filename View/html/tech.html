@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Alpha Store | Tech & Gadgets</title>
-    <meta name="description" content="Explore the latest tech gadgets, keyboards, smartphones and audio — all at Alpha Store.">
+    <meta name="description"
+        content="Explore the latest tech gadgets, keyboards, smartphones and audio — all at Alpha Store.">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -33,9 +34,9 @@
 </head>
 
 <body>
-     <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder"></div>
     <header>
-       
+
         <div class="swiper">
             <div class="swiper-wrapper">
 
@@ -43,11 +44,7 @@
                 <div class="swiper-slide">
                     <div class="hero-container">
                         <!-- 
-          VIDEO ELEMENT: 
-          - "muted" & "playsinline" are essential for autoplay policies
-          - "loop" makes video repeat seamlessly
-          - "preload" helps buffer for smoother transitions
-          - Removed "autoplay" attribute to let JS manage playback precisely (avoid conflicts)
+       
         -->
                         <video class="bg-video" muted loop playsinline preload="auto">
                             <source src="../media/HONOR X7c _ Drop Resistance.mp4" type="video/mp4">
@@ -163,61 +160,85 @@
 
 
             <div class="card">
-  <div class="overflow">
-    <div class="model">
-      <model-viewer src="https://assets.codepen.io/3421562/leaves_keyboard.glb" shadow-intensity="0.4"></model-viewer>
-    </div>
-  </div>
-  <div class="glass">
-    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="content">
-    <h2>LeafKey</h2>
-    <p>A keyboard that brings the tranquility of the forest to your fingertips.</p>
-    <div class="options">
-      <div onclick="changeModelStyle(this, 0);" style="background: #f2c173;"></div>
-      <div onclick="changeModelStyle(this, 60);" style="background: #96dd78;"></div>
-      <div onclick="changeModelStyle(this, 110);" style="background: #6ee5bc;"></div>
-    </div>
-  </div>
-</div>
-<div class="card">
-  <div class="overflow">
-    <div class="model">
-      <model-viewer src="https://assets.codepen.io/3421562/topo_keyboard.glb" shadow-intensity="0.4"></model-viewer>
-    </div>
-  </div>
-  <div class="glass">
-    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="content">
-    <h2>TopoKey</h2>
-    <p>Custom illuminated keyboard with neon topology mapped out in every key.</p>
-    <div class="options">
-      <div onclick="changeModelStyle(this, 0);" style="background: #2cb4f0;"></div>
-      <div onclick="changeModelStyle(this, 110);" style="background: #ff69e4;"></div>
-      <div onclick="changeModelStyle(this, 290);" style="background: #16b83f;"></div>
-    </div>
-  </div>
-</div>
-<div class="card">
-  <div class="overflow">
-    <div class="model">
-      <model-viewer src="https://assets.codepen.io/3421562/panda_keyboard.glb" shadow-intensity="0.4"></model-viewer>
-    </div>
-  </div>
-  <div class="glass">
-    <div class="gradient-blur"><div></div><div></div><div></div><div></div><div></div><div></div></div>
-  </div>
-  <div class="content">
-    <h2>PandaKey</h2>
-    <p>Panda, panda, panda, panda, panda, panda... panda</p>
-    <div class="options">
-     <div onclick="changeModelStyle(this, 0);" style="background: #1e1e1e;"></div>
-      <div onclick="changeModelStyle(this, 0, 1);" style="background: #eee;"></div>
-    </div>
-  </div>
-</div>
+                <div class="overflow">
+                    <div class="model">
+                        <model-viewer src="https://assets.codepen.io/3421562/leaves_keyboard.glb"
+                            shadow-intensity="0.4"></model-viewer>
+                    </div>
+                </div>
+                <div class="glass">
+                    <div class="gradient-blur">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>LeafKey</h2>
+                    <p>A keyboard that brings the tranquility of the forest to your fingertips.</p>
+                    <div class="options">
+                        <div onclick="changeModelStyle(this, 0);" style="background: #f2c173;"></div>
+                        <div onclick="changeModelStyle(this, 60);" style="background: #96dd78;"></div>
+                        <div onclick="changeModelStyle(this, 110);" style="background: #6ee5bc;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="overflow">
+                    <div class="model">
+                        <model-viewer src="https://assets.codepen.io/3421562/topo_keyboard.glb"
+                            shadow-intensity="0.4"></model-viewer>
+                    </div>
+                </div>
+                <div class="glass">
+                    <div class="gradient-blur">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>TopoKey</h2>
+                    <p>Custom illuminated keyboard with neon topology mapped out in every key.</p>
+                    <div class="options">
+                        <div onclick="changeModelStyle(this, 0);" style="background: #2cb4f0;"></div>
+                        <div onclick="changeModelStyle(this, 110);" style="background: #ff69e4;"></div>
+                        <div onclick="changeModelStyle(this, 290);" style="background: #16b83f;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="overflow">
+                    <div class="model">
+                        <model-viewer src="https://assets.codepen.io/3421562/panda_keyboard.glb"
+                            shadow-intensity="0.4"></model-viewer>
+                    </div>
+                </div>
+                <div class="glass">
+                    <div class="gradient-blur">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>PandaKey</h2>
+                    <p>Panda, panda, panda, panda, panda, panda... panda</p>
+                    <div class="options">
+                        <div onclick="changeModelStyle(this, 0);" style="background: #1e1e1e;"></div>
+                        <div onclick="changeModelStyle(this, 0, 1);" style="background: #eee;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -225,7 +246,7 @@
 
 
 
-          
+
 
 
 
@@ -233,82 +254,126 @@
         <div class="four-header">
             <span class="section-badge-dark">Privacy Display Demo</span>
             <h2 class="four-title">Galaxy S26 Ultra</h2>
-            <p class="four-subtitle">Experience next-level privacy technology — tilt the phone to see the privacy layer react in real time.</p>
+            <p class="four-subtitle">Experience next-level privacy technology — tilt the phone to see the privacy layer
+                react in real time.</p>
         </div>
 
         <div class="privacy-phone-module">
-        <div class="module-container">
-            <div class="scene">
-                <div class="phone" id="phoneDevice">
-                    <div class="back"></div>
-                    <div class="edge edge-r"></div>
-                    <div class="edge edge-l"></div>
-                    <div class="edge edge-t"></div>
-                    <div class="edge edge-b"></div>
-                    <div class="bezel">
-                        <div class="inner">
-                            <div class="screen" id="screenDisplay">
-                                <div class="wallpaper"></div>
-                                <div class="status-bar">
-                                    <span class="time">12:45</span>
-                                    <div class="status-icons">
-                                        <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-                                            <rect x="0" y="7" width="2.5" height="3" rx="0.5" fill="rgba(255,255,255,0.9)"/>
-                                            <rect x="3.8" y="5" width="2.5" height="5" rx="0.5" fill="rgba(255,255,255,0.9)"/>
-                                            <rect x="7.6" y="2.5" width="2.5" height="7.5" rx="0.5" fill="rgba(255,255,255,0.9)"/>
-                                            <rect x="11.4" y="0" width="2.5" height="10" rx="0.5" fill="rgba(255,255,255,0.9)"/>
-                                        </svg>
-                                        <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
-                                            <circle cx="6" cy="9" r="1" fill="rgba(255,255,255,0.9)"/>
-                                            <path d="M3.5 6.8a4.2 4.2 0 015 0" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
-                                            <path d="M1.5 4.5a7 7 0 019 0" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
-                                        </svg>
-                                        <svg width="20" height="10" viewBox="0 0 20 10" fill="none">
-                                            <rect x="0.5" y="0.5" width="16" height="9" rx="2" stroke="rgba(255,255,255,0.85)" stroke-width="1"/>
-                                            <rect x="2" y="2" width="13" height="6" rx="1" fill="rgba(255,255,255,0.85)"/>
-                                            <rect x="17" y="3" width="2" height="4" rx="0.8" fill="rgba(255,255,255,0.85)"/>
-                                        </svg>
+            <div class="module-container">
+                <div class="scene">
+                    <div class="phone" id="phoneDevice">
+                        <div class="back"></div>
+                        <div class="edge edge-r"></div>
+                        <div class="edge edge-l"></div>
+                        <div class="edge edge-t"></div>
+                        <div class="edge edge-b"></div>
+                        <div class="bezel">
+                            <div class="inner">
+                                <div class="screen" id="screenDisplay">
+                                    <div class="wallpaper"></div>
+                                    <div class="status-bar">
+                                        <span class="time">12:45</span>
+                                        <div class="status-icons">
+                                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                                <rect x="0" y="7" width="2.5" height="3" rx="0.5"
+                                                    fill="rgba(255,255,255,0.9)" />
+                                                <rect x="3.8" y="5" width="2.5" height="5" rx="0.5"
+                                                    fill="rgba(255,255,255,0.9)" />
+                                                <rect x="7.6" y="2.5" width="2.5" height="7.5" rx="0.5"
+                                                    fill="rgba(255,255,255,0.9)" />
+                                                <rect x="11.4" y="0" width="2.5" height="10" rx="0.5"
+                                                    fill="rgba(255,255,255,0.9)" />
+                                            </svg>
+                                            <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                                                <circle cx="6" cy="9" r="1" fill="rgba(255,255,255,0.9)" />
+                                                <path d="M3.5 6.8a4.2 4.2 0 015 0" stroke="rgba(255,255,255,0.9)"
+                                                    stroke-width="1.2" stroke-linecap="round" fill="none" />
+                                                <path d="M1.5 4.5a7 7 0 019 0" stroke="rgba(255,255,255,0.9)"
+                                                    stroke-width="1.2" stroke-linecap="round" fill="none" />
+                                            </svg>
+                                            <svg width="20" height="10" viewBox="0 0 20 10" fill="none">
+                                                <rect x="0.5" y="0.5" width="16" height="9" rx="2"
+                                                    stroke="rgba(255,255,255,0.85)" stroke-width="1" />
+                                                <rect x="2" y="2" width="13" height="6" rx="1"
+                                                    fill="rgba(255,255,255,0.85)" />
+                                                <rect x="17" y="3" width="2" height="4" rx="0.8"
+                                                    fill="rgba(255,255,255,0.85)" />
+                                            </svg>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="notification" id="notifCard">
-                                    <div class="notif-header">
-                                        <div class="notif-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
-                                        <span class="notif-app">Messages</span><span class="notif-when">now</span>
+                                    <div class="notification" id="notifCard">
+                                        <div class="notif-header">
+                                            <div class="notif-icon"><svg width="11" height="11" viewBox="0 0 24 24"
+                                                    fill="rgba(255,255,255,0.9)">
+                                                    <path
+                                                        d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                                                </svg></div>
+                                            <span class="notif-app">Messages</span><span class="notif-when">now</span>
+                                        </div>
+                                        <a class="notif-title" href="https://calculatequick.com" target="_blank"
+                                            rel="noopener">Mom</a>
+                                        <div class="notif-body">Did you remember to change your underwear today?!?!
+                                        </div>
                                     </div>
-                                    <a class="notif-title" href="https://calculatequick.com" target="_blank" rel="noopener">Mom</a>
-                                    <div class="notif-body">Did you remember to change your underwear today?!?!</div>
+                                    <div class="dock">
+                                        <a class="dock-icon di-phone" href="https://calculatequick.com"
+                                            target="_blank"><svg width="20" height="20" viewBox="0 0 24 24"
+                                                fill="rgba(255,255,255,0.92)">
+                                                <path
+                                                    d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z" />
+                                            </svg></a>
+                                        <a class="dock-icon di-msg" href="https://calculatequick.com"
+                                            target="_blank"><svg width="20" height="20" viewBox="0 0 24 24"
+                                                fill="rgba(255,255,255,0.92)">
+                                                <path
+                                                    d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                                            </svg></a>
+                                        <a class="dock-icon di-chrome" href="https://calculatequick.com"
+                                            target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.92)"
+                                                    stroke-width="1.8" fill="none" />
+                                                <circle cx="12" cy="12" r="4" fill="rgba(255,255,255,0.92)" />
+                                            </svg></a>
+                                        <a class="dock-icon di-cam" href="https://calculatequick.com"
+                                            target="_blank"><svg width="20" height="20" viewBox="0 0 24 24"
+                                                fill="rgba(255,255,255,0.92)">
+                                                <path d="M12 15.2a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4z" />
+                                                <path
+                                                    d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9z"
+                                                    fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5" />
+                                            </svg></a>
+                                    </div>
+                                    <div class="home-bar"></div>
                                 </div>
-                                <div class="dock">
-                                    <a class="dock-icon di-phone" href="https://calculatequick.com" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.92)"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg></a>
-                                    <a class="dock-icon di-msg" href="https://calculatequick.com" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.92)"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a>
-                                    <a class="dock-icon di-chrome" href="https://calculatequick.com" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.92)" stroke-width="1.8" fill="none"/><circle cx="12" cy="12" r="4" fill="rgba(255,255,255,0.92)"/></svg></a>
-                                    <a class="dock-icon di-cam" href="https://calculatequick.com" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.92)"><path d="M12 15.2a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4z"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9z" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.5"/></svg></a>
-                                </div>
-                                <div class="home-bar"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="panel">
-                <div><div class="panel-title">Privacy Display</div><div class="panel-sub">Galaxy S26 Ultra</div></div>
-                <div class="mode-toggle"><button class="mode-btn active" data-mode="full">Full Screen</button><button class="mode-btn" data-mode="notif">Notification</button></div>
-                <div class="angle-readout">Viewing angle <span class="angle-val" id="angleValue">0°</span></div>
-                <div class="hint">Move your cursor inside this card → tilt the phone<br>Privacy layer reacts to angle</div>
-                <div class="refs"><a class="ref" href="https://calculatequick.com" target="_blank">calculatequick.com</a><span class="ref">privacy 3D demo</span></div>
+                <div class="panel">
+                    <div>
+                        <div class="panel-title">Privacy Display</div>
+                        <div class="panel-sub">Galaxy S26 Ultra</div>
+                    </div>
+                    <div class="mode-toggle"><button class="mode-btn active" data-mode="full">Full
+                            Screen</button><button class="mode-btn" data-mode="notif">Notification</button></div>
+                    <div class="angle-readout">Viewing angle <span class="angle-val" id="angleValue">0°</span></div>
+                    <div class="hint">Move your cursor inside this card → tilt the phone<br>Privacy layer reacts to
+                        angle</div>
+                    <div class="refs"><a class="ref" href="https://calculatequick.com"
+                            target="_blank">calculatequick.com</a><span class="ref">privacy 3D demo</span></div>
+                </div>
             </div>
+            <div id="phone-snooper">👀</div>
         </div>
-        <div id="phone-snooper">👀</div>
-    </div>
 
     </section>
-              
-              
 
 
-                
-       
+
+
+
+
 
 
 
@@ -318,19 +383,20 @@
         <div class="tird-header">
             <span class="section-badge-light">Our Collection</span>
             <h2 class="tird-title">Shop Premium Tech</h2>
-            <p class="tird-subtitle">Handpicked gadgets, accessories, and wearables curated for the modern lifestyle.</p>
+            <p class="tird-subtitle">Handpicked gadgets, accessories, and wearables curated for the modern lifestyle.
+            </p>
         </div>
         <div class="product-filter-container">
 
             <!-- FILTER TOP BAR -->
             <div class="filter-top-bar">
-                <ul class="category-tabs">
-                    <li><a href="#" class="active-tab">All</a></li>
-                    <li><a href="#">Phones</a></li>
-                    <li><a href="#">Audio</a></li>
-                    <li><a href="#">Wearables</a></li>
-                    <li><a href="#">Accessories</a></li>
-                    <li><a href="#">Gaming</a></li>
+                <ul class="category-tabs" id="categoryTabs">
+                    <li><a href="#" data-cat="Informatique,Accessoire" class="active-tab">All</a></li>
+                    <li><a href="#" data-cat="Phones">Phones</a></li>
+                    <li><a href="#" data-cat="Audio">Audio</a></li>
+                    <li><a href="#" data-cat="Wearables">Wearables</a></li>
+                    <li><a href="#" data-cat="Accessories">Accessories</a></li>
+                    <li><a href="#" data-cat="Gaming">Gaming</a></li>
                 </ul>
 
                 <div class="action-buttons">
@@ -396,218 +462,8 @@
 
             <!-- PRODUCT GRID -->
             <p class="mesage"></p>
-            <div class="product-grid">
-
-                <!-- PRODUCT 1 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <span class="product-badge-label">NEW</span>
-                        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?q=80&w=400&auto=format&fit=crop" alt="Wireless Earbuds Pro">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Wireless Earbuds Pro</a>
-                            <span class="product-price">$89.99</span>
-                        </div>
-                        <div class="product-actions">
-                            <i class="far fa-heart heart-icon"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 2 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <span class="product-badge-label sale">SALE</span>
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop" alt="Smart Watch Elite">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Smart Watch Elite</a>
-                            <span class="product-price">$199.99</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 3 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=400&auto=format&fit=crop" alt="Gaming Controller X">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Gaming Controller X</a>
-                            <span class="product-price">$69.99</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 4 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <span class="product-badge-label">HOT</span>
-                        <img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?q=80&w=400&auto=format&fit=crop" alt="Portable Speaker 360">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Portable Speaker 360</a>
-                            <span class="product-price">$129.99</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 5 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1593640408182-31c228b7aa44?q=80&w=400&auto=format&fit=crop" alt="Mechanical Keyboard RGB">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Mechanical Keyboard RGB</a>
-                            <span class="product-price">$149.00</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 6 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <span class="product-badge-label sale">DEAL</span>
-                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=400&auto=format&fit=crop" alt="Ultra Slim Laptop">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Ultra Slim Laptop</a>
-                            <span class="product-price">$999.00</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 7 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?q=80&w=400&auto=format&fit=crop" alt="Drone Mini 4K">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Drone Mini 4K</a>
-                            <span class="product-price">$349.00</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 8 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <span class="product-badge-label">NEW</span>
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=400&auto=format&fit=crop" alt="VR Headset Pro">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">VR Headset Pro</a>
-                            <span class="product-price">$499.00</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 9 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=400&auto=format&fit=crop" alt="Premium Headphones">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Premium Headphones</a>
-                            <span class="product-price">$279.00</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 10 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <span class="product-badge-label">HOT</span>
-                        <img src="https://images.unsplash.com/photo-1587302213438-4f4ef1f7c96e?q=80&w=400&auto=format&fit=crop" alt="Tablet Pro 12">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Tablet Pro 12</a>
-                            <span class="product-price">$749.00</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 11 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=400&auto=format&fit=crop" alt="True Wireless Buds">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">True Wireless Buds</a>
-                            <span class="product-price">$119.00</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PRODUCT 12 -->
-                <div class="product-item">
-                    <div class="product-img-block">
-                        <span class="product-badge-label sale">SALE</span>
-                        <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?q=80&w=400&auto=format&fit=crop" alt="Smart Band Fitness">
-                        <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
-                    </div>
-                    <div class="product-info-block">
-                        <div class="product-text">
-                            <a href="#" class="product-title">Smart Band Fitness</a>
-                            <span class="product-price">$59.99</span>
-                        </div>
-                        <div class="product-actions">
-                            <a href="#" class="heart-icon"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be loaded here dynamically -->
             </div>
 
             <div class="load-more-container">
@@ -761,7 +617,282 @@
     <script src="../javaScript/tech.js"> </script>
     <script src="../javaScript/shop.js"></script>
     <script src="../javaScript/phone.js"></script>
+    <script src="../javaScript/carts.js"></script>
 
+    <script>
+    // Configuration
+    let currentCategory = 'Informatique,Accessoire'; // Matches Tech categories
+    let currentSort = 'default';
+    let currentPriceRange = 'all';
+
+    async function chargerProduits() {
+        console.log('Chargement des produits...', {currentCategory, currentSort, currentPriceRange});
+        const productGrid = document.getElementById('productGrid');
+        const noProductMsg = document.querySelector('.mesage');
+        
+        let url = `../../index.php?action=getProduitByCategory&category=${currentCategory}&sortBy=${currentSort}`;
+        
+        if (currentPriceRange !== 'all') {
+            const [min, max] = currentPriceRange.split('-');
+            url += `&minPrice=${min}&maxPrice=${max}`;
+        }
+    
+        try {
+            const response = await fetch(url);
+            const produits = await response.json();
+            console.log('Produits chargés:', produits);
+
+            productGrid.innerHTML = '';
+
+            if (produits.length === 0) {
+                if (noProductMsg) noProductMsg.textContent = 'No products found matching your criteria.';
+                return;
+            } else {
+                if (noProductMsg) noProductMsg.textContent = '';
+            }
+
+            produits.forEach(product => {
+                const card = createProductCard(product);
+                productGrid.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error('Erreur:', error);
+            productGrid.innerHTML = '<p class="error" style="grid-column: 1/-1; text-align: center; color: var(--coral);">Erreur lors du chargement des produits.</p>';
+        }
+    }
+
+    async function toggleFavorite(productId, heartElement) {
+        try {
+            const response = await fetch("../../index.php?action=toggleFavorite", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: "product_id=" + productId,
+            });
+            const data = await response.json();
+
+            if (data.status == 'not_logged_in') {
+                alert("You need to be logged in to add a product to your favorites");
+                heartElement.classList.remove("fas");
+                heartElement.classList.add("far");
+                return;
+            }
+
+            if (data.status === "added") {
+                heartElement.classList.remove("far");
+                heartElement.classList.add("fas", "liked");
+                heartElement.style.color = '#ff4d6d';
+            } else {
+                heartElement.classList.remove("fas", "liked");
+                heartElement.classList.add("far");
+                heartElement.style.color = '';
+            }
+        } catch (error) {
+            console.error("Error toggling favorite:", error);
+        }
+    }
+
+    // Category Filter
+    document.querySelectorAll('.category-tabs a').forEach(tab => {
+        tab.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelectorAll('.category-tabs a').forEach(t => t.classList.remove('active-tab'));
+            this.classList.add('active-tab');
+            currentCategory = this.getAttribute('data-cat');
+            chargerProduits();
+        });
+    });
+
+    // Helper for dummy secondary images
+    function getNextImages(path) {
+        if (!path) return [];
+        const match = path.match(/^(.*_)(\d+)(\.[^.]+)$/);
+        if (!match) return [];
+        const prefix = match[1];   
+        const number = parseInt(match[2]); 
+        const extension = match[3]; 
+        return [
+            `${prefix}${number + 1}${extension}`,
+            `${prefix}${number + 2}${extension}`
+        ];
+    }
+
+    function createProductCard(p) {
+        const card = document.createElement('div');
+        card.classList.add('product-item');
+        card.dataset.id = p.id;
+        
+        const fullImagePath = `../../public/${p.image_path}`;
+        const pathNextimages = getNextImages(p.image_path);
+        const fullImagePath1 = `../../public/${p.image_path}`;
+        const fullImagePath2 = pathNextimages.length > 0 ? `../../public/${pathNextimages[0]}` : '';
+        const fullImagePath3 = pathNextimages.length > 0 ? `../../public/${pathNextimages[1]}` : '';
+
+        card.innerHTML = `
+            <div class="product-img-block">
+                <img src="${fullImagePath}" alt="${p.name}" onerror="this.src='../img/placeholder.jpg'">
+                <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
+            </div>
+            <div class="product-info-block">
+                <div class="product-text">
+                    <a href="product_details.php?id=${p.id}" class="product-title">${p.name}</a>
+                    <span class="product-price">$${p.price}</span>
+                </div> 
+                <div class="product-actions">
+                    <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
+                </div>
+            </div>
+        `;
+
+        const heart = card.querySelector('.heart-icon');
+        if (heart) {
+            if (p.is_favorite) {
+                heart.classList.remove('far');
+                heart.classList.add('fas', 'liked');
+                heart.style.color = '#ff4d6d';
+            }
+
+            heart.addEventListener('click', async function(e) {
+                e.stopPropagation();
+                await toggleFavorite(p.id, this);
+            });
+        }
+
+        const quickViewBtn = card.querySelector('.quick-view-btn');
+        if (quickViewBtn) {
+            quickViewBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modal = document.getElementById('quickViewModal');
+                if (modal) {
+                    modal.querySelector('.product-title').textContent = p.name;
+                    modal.querySelector('.product-price').textContent = `$${p.price}`;
+                    modal.querySelector('.product-description').textContent = p.description || "No description available.";
+                    modal.querySelector('.main-image').src = fullImagePath;
+
+                    const img1 = modal.querySelector('.active-thumb') || modal.querySelector('.gallery-thumbnails img:first-child');
+                    if (img1) img1.src = fullImagePath1;
+                    
+                    const thumbs = modal.querySelectorAll('.gallery-thumbnails img');
+                    if (thumbs[1]) thumbs[1].src = fullImagePath2 || fullImagePath1;
+                    if (thumbs[2]) thumbs[2].src = fullImagePath3 || fullImagePath1;
+                    
+                    const idElem = document.createElement('div');
+                    idElem.className = 'id-hidden';
+                    idElem.setAttribute('data-id', p.id);
+                    modal.appendChild(idElem);
+
+                    const modalHeart = modal.querySelector('.heart-icon');
+                    if (modalHeart) {
+                        if (p.is_favorite) {
+                            modalHeart.classList.replace('far', 'fas');
+                            modalHeart.classList.add('liked');
+                        } else {
+                            modalHeart.classList.replace('fas', 'far');
+                            modalHeart.classList.remove('liked');
+                        }
+                    }
+
+                    const viewMoreLink = modal.querySelector('.view-more-link') || modal.querySelector('a[href="#"]');
+                    if (viewMoreLink && !viewMoreLink.classList.contains('wishlist-btn')) {
+                        viewMoreLink.href = `product_details.php?id=${p.id}`;
+                    }
+                    
+                    modal.classList.add('active');
+                }
+            });
+        }
+
+        return card;
+    }
+
+    // Modal Close Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('quickViewModal');
+        if (closeModalBtn && modal) {
+            closeModalBtn.addEventListener('click', () => modal.classList.remove('active'));
+            window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+        }
+        
+        chargerProduits();
+    });
+
+    // Zoom and Navigation
+    let currentImageIndex = 0;
+    function updateModalGallery(index) {
+        const modal = document.getElementById('quickViewModal');
+        const mainImg = modal.querySelector('.main-image');
+        const thumbnails = modal.querySelectorAll('.gallery-thumbnails img');
+        if (thumbnails.length > index) {
+            thumbnails.forEach(t => t.classList.remove('active-thumb'));
+            thumbnails[index].classList.add('active-thumb');
+            mainImg.src = thumbnails[index].src;
+            currentImageIndex = index;
+        }
+    }
+
+    document.querySelector('.left-arrow')?.addEventListener('click', () => {
+        const thumbs = document.querySelectorAll('#quickViewModal .gallery-thumbnails img');
+        let idx = (currentImageIndex - 1 + thumbs.length) % thumbs.length;
+        updateModalGallery(idx);
+    });
+
+    document.querySelector('.right-arrow')?.addEventListener('click', () => {
+        const thumbs = document.querySelectorAll('#quickViewModal .gallery-thumbnails img');
+        let idx = (currentImageIndex + 1) % thumbs.length;
+        updateModalGallery(idx);
+    });
+
+    document.querySelector('.expand-btn')?.addEventListener('click', function() {
+        const img = document.querySelector('#quickViewModal .main-image');
+        if (img) img.style.transform = img.style.transform === 'scale(1.5)' ? 'scale(1)' : 'scale(1.5)';
+    });
+
+    // Filter Logic
+    document.getElementById('toggle-filter-btn')?.addEventListener('click', () => {
+        document.getElementById('filter-dropdown-panel')?.classList.toggle('open');
+    });
+
+    // Handle Sort & Price Filters
+    document.querySelectorAll('.filter-column').forEach(col => {
+        const title = col.querySelector('.filter-title')?.textContent.toLowerCase();
+        
+        col.querySelectorAll('.filter-list li a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Toggle active class in this column
+                col.querySelectorAll('.filter-list li a').forEach(l => l.classList.remove('active-filter'));
+                this.classList.add('active-filter');
+                
+                const val = this.textContent.trim();
+                
+                if (title.includes('sort')) {
+                    if (val.includes('Low to High')) currentSort = 'price_asc';
+                    else if (val.includes('High to Low')) currentSort = 'price_desc';
+                    else if (val.includes('Newness')) currentSort = 'newest';
+                    else currentSort = 'default';
+                } 
+                else if (title.includes('price')) {
+                    if (val === 'All') currentPriceRange = 'all';
+                    else {
+                        // Extract min-max from "$50.00 - $100.00" or "$200.00+"
+                        const matches = val.match(/\$(\d+)/g);
+                        if (matches) {
+                            const min = matches[0].replace('$', '');
+                            const max = matches[1] ? matches[1].replace('$', '') : '999999';
+                            currentPriceRange = `${min}-${max}`;
+                        }
+                    }
+                }
+                
+                chargerProduits();
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>

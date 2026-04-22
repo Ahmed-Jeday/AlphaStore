@@ -30,18 +30,81 @@ header("Expires: 0"); // Proxies.
 
         /* --- Bandeau Promo (Noir) --- */
         .promo-bar {
-            background-color: #333;
-            color: white;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 50%, #1a1a1a 100%);
+            color: #fff;
             text-align: center;
-            padding: 8px 0;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            padding: 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+        }
+
+        /* Glimmer effect */
+        .promo-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: none;
+            animation: glimmer 4s infinite;
+        }
+
+        @keyframes glimmer {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
         }
 
         .promo-bar a {
-            color: white;
-            text-decoration: underline;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+
+        .promo-bar a:hover {
+            transform: scale(1.2) rotate(15deg);
+            background: rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .promo-bar img {
+            width: 28px;
+            height: 28px;
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+            animation: spin-slow 10s linear infinite, pulse-icon 2s infinite ease-in-out;
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         /* --- Barre Supérieure (Gris clair) --- */
@@ -230,7 +293,7 @@ header("Expires: 0"); // Proxies.
     position: fixed;
     top: 100px;
     right: 20px; /* Change to -100% and use a 'active' class to toggle visibility with JS */
-    width: 360px;
+    width: 400px;
     height: 70vh;
     background-color: #fff;
     box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
@@ -241,6 +304,13 @@ header("Expires: 0"); // Proxies.
     border-radius:28px;
     transition: 0.3s ease;
     visibility: hidden;
+}
+
+.cart-img{
+    object-fit:contain;
+    width: 120px;
+    height: auto;
+    border-radius: 25%;
 }
 
 .cart-title {
@@ -316,6 +386,12 @@ header("Expires: 0"); // Proxies.
     font-weight: 500;
 }
 
+.btn_cart{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* --- Remove Icon --- */
 .cart-remove {
     font-size: 1.3rem;
@@ -327,6 +403,21 @@ header("Expires: 0"); // Proxies.
 .cart-remove:hover {
     color: #c0392b;
 }
+
+/* --- select icon */
+.is_checked {
+    color: #ccc;
+    font-size: 1.3rem;
+    cursor: pointer;
+    
+    transition: color 0.2s;
+}
+
+.is_checked.active {
+    color: #2ecc71;
+}
+
+
 
 /* --- Footer & Total Section --- */
 .totale {
@@ -389,13 +480,16 @@ header("Expires: 0"); // Proxies.
 
     <header class="site-header" id="site-header">
         <div class="promo-bar">
-            Sale up to 50% off! <a href="#">Shop All</a>
+           <span>Spin the wheel and try your luck!</span> 
+           <a href="../spin/spin.html">
+               <img src="../icon/fortune-wheel.png" alt="Luck Wheel">
+           </a>
         </div>
 
         <div class="top-nav-bar">
             <div class="brand-tabs">
                 <a href="index.html" class="tab">HOME</a>
-                <a href="Adult.php" class="tab">ADULT</a>
+                <a href="../improve_desgin/homepage1.html" class="tab">ADULT</a>
                 <a href="#" class="tab">KIDS</a>
                 <a href="tech.html" class="tab">TECH</a>
                 <a href="ai.html" class="tab">Ai</a>
@@ -459,7 +553,7 @@ header("Expires: 0"); // Proxies.
                 <h3>Total:</h3>
                 <span class="total-price">$11.00</span>
             </div>
-            <button class="checkout-btn">Checkout</button>
+            <button class="checkout-btn">ORDER NOW</button>
             <i class="ri-close-large-fill " id="close-cart"></i>
         </div>
     </div>

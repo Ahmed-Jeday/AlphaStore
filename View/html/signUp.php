@@ -18,10 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
             $result = AddUser($_POST);
 
             if (is_numeric($result)) {
-                $_SESSION["user_id"] = $result;
-                $_SESSION["user_name"] = $_POST['user_name'];
-                $_SESSION["user_email"] = $_POST['email'];
-                header("Location:../my-account/my-account.php");
+                // On ne connecte pas encore l'utilisateur, il doit d'abord vérifier son email
+                header("Location:verifie.php?email=" . urlencode($_POST['email']));
                 exit;
             } else {
                 $errors_signup = $result; // Récupère le tableau d'erreurs
@@ -92,8 +90,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
         <div class="form-box login">
             <form action="signUp.php" method="post">
                 <h1>Login</h1>
+                <?php if (isset($_GET['verified'])): ?>
+                    <div class="input_success" style="background: #dcfce7; color: #166534; padding: 15px; border-radius: 5px; margin-bottom: 20px; font-size: 0.85rem; border: 1px solid #bbf7d0;">
+                         <i class='bx bx-check-circle'></i> Email vérifié ! Vous pouvez maintenant vous connecter.
+                    </div>
+                <?php endif; ?>
                 <?php if (!empty($errors_login)): ?>
-                    <div class="input_error" style="background: #fee2e2; color: #dc2626; padding: 15x; border-radius: 5px; margin-bottom: 10px; font-size: 0.8rem;">
+                    <div class="input_error" style="background: #fee2e2; color: #dc2626; padding: 15px; border-radius: 5px; margin-bottom: 10px; font-size: 0.8rem;">
                         <?php foreach ($errors_login as $error) echo "• $error<br>"; ?>
                     </div>
                 <?php endif; ?>
