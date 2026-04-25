@@ -29,7 +29,11 @@ class Product {
     /**
      * Récupère un produit par son ID
      */
+<<<<<<< HEAD
     public function getById($id): array|false {
+=======
+    public function getById(int $id): array|false {
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
         $stmt = $this->db->prepare("
             SELECT p.*, c.name AS category_name
             FROM produits p
@@ -53,7 +57,11 @@ class Product {
             ':description' => $data['description'],
             ':price'       => $data['price'],
             ':stock'       => $data['stock'],
+<<<<<<< HEAD
             ':image_path'  => $data['image'] ?? null,
+=======
+            ':image_path'  => $data['image_path'] ?? null,
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
             ':category_id' => $data['category_id'] ?: null,
         ]);
     }
@@ -61,7 +69,11 @@ class Product {
     /**
      * Met à jour un produit existant
      */
+<<<<<<< HEAD
     public function update($id, array $data): bool {
+=======
+    public function update(int $id, array $data): bool {
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
         $stmt = $this->db->prepare("
             UPDATE produits
             SET name = :name, description = :description, price = :price,
@@ -73,7 +85,11 @@ class Product {
             ':description' => $data['description'],
             ':price'       => $data['price'],
             ':stock'       => $data['stock'],
+<<<<<<< HEAD
             ':image_path'  => $data['image'] ?? null,
+=======
+            ':image_path'  => $data['image_path'] ?? null,
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
             ':category_id' => $data['category_id'] ?: null,
             ':id'          => $id,
         ]);

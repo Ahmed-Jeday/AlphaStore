@@ -1,4 +1,5 @@
 -- ============================================
+<<<<<<< HEAD
 -- SCHÉMA BASE DE DONNÉES - AlphaStore Admin
 -- Basé sur la structure réelle de alphaStoreDb.sql
 -- ============================================
@@ -142,6 +143,78 @@ CREATE TABLE IF NOT EXISTS cart (
     CONSTRAINT cart_ibfk_1 FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     CONSTRAINT cart_ibfk_2 FOREIGN KEY (produit_id) REFERENCES produits(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+-- SCHÉMA BASE DE DONNÉES - E-Commerce Admin
+-- ============================================
+
+CREATE DATABASE IF NOT EXISTS ecommerce_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE ecommerce_db;
+
+-- Table des catégories
+CREATE TABLE IF NOT EXISTS categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table des produits
+CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    stock INT DEFAULT 0,
+    image VARCHAR(255),
+    category_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
+);
+
+-- Table des utilisateurs
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    is_active TINYINT(1) DEFAULT 1,
+    role ENUM('user','admin') DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table des commandes
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    status ENUM('pending','processing','shipped','delivered','cancelled') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Table des articles de commande
+CREATE TABLE IF NOT EXISTS order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    unit_price DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Table des favoris
+CREATE TABLE IF NOT EXISTS favorites (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_fav (user_id, product_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
 
 -- ============================================
 -- DONNÉES DE TEST (DEMO)
@@ -179,6 +252,18 @@ INSERT INTO orders (user_id, total, status, created_at) VALUES
 (4, 1299.99, 'shipped', NOW() - INTERVAL 1 DAY),
 (5, 89.99, 'pending', NOW());
 
+<<<<<<< HEAD
+=======
+INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES
+(1, 1, 1, 1299.99), (1, 6, 1, 39.99), (1, 8, 1, 49.99),
+(2, 3, 1, 899.99),
+(3, 5, 1, 89.99), (3, 8, 1, 49.99), (3, 6, 1, 39.99), (3, 6, 1, 39.99),
+(4, 2, 1, 1599.99),
+(5, 10, 1, 379.99),
+(6, 8, 1, 49.99),
+(7, 1, 1, 1299.99),
+(8, 5, 1, 89.99);
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
 
 INSERT INTO favorites (user_id, product_id) VALUES
 (2,1),(2,2),(2,10),(3,1),(3,3),(3,5),(4,1),(4,6),(4,9),(5,1),(5,2),(5,4),(5,10);

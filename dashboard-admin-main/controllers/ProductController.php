@@ -42,10 +42,17 @@ class ProductController {
                 if ($imageName === false) {
                     $errors[] = "Format d'image invalide. Utilisez JPG, PNG ou WebP.";
                 } else {
+<<<<<<< HEAD
                     $data['image'] = $this->uploadUrl . $imageName;
                 }
             } else {
                 $data['image'] = null;
+=======
+                    $data['image_path'] = $this->uploadUrl . $imageName;
+                }
+            } else {
+                $data['image_path'] = null;
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
             }
 
             if (empty($errors)) {
@@ -88,10 +95,17 @@ class ProductController {
                 } else {
                     // Supprimer ancienne image
                     $this->deleteImage($product['image_path']);
+<<<<<<< HEAD
                     $data['image'] = $this->uploadUrl . $imageName;
                 }
             } else {
                 $data['image'] = $product['image_path']; // garder l'ancienne
+=======
+                    $data['image_path'] = $this->uploadUrl . $imageName;
+                }
+            } else {
+                $data['image_path'] = $product['image_path']; // garder l'ancienne
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
             }
 
             if (empty($errors)) {

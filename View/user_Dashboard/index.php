@@ -657,5 +657,11 @@ if (isset($_SESSION["message"])) {
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <script src="index.js"></script>
+<<<<<<< HEAD
 </body>
 </html>
+=======
+  <script src="updateProfile.js"></script>
+</body>
+</html>
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68

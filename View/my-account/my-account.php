@@ -74,7 +74,11 @@ if (isset($_SESSION["message"])) {
 
 <body>
 
+<<<<<<< HEAD
 <a href="../html/vérifie.html">verifie</a>
+=======
+
+>>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
 
     <!-- top bar with call & promo -->
     <div class="top-bar">
