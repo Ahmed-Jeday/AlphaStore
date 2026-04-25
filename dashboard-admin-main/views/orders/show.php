@@ -74,9 +74,9 @@ $statusLabels = [
                                     <td class="text-center">
                                         <span class="badge bg-light text-dark fw-600">× <?= $item['quantity'] ?></span>
                                     </td>
-                                    <td class="text-end text-muted"><?= number_format($item['unit_price'], 2, ',', ' ') ?> €</td>
+                                    <td class="text-end text-muted"><?= number_format($item['unit_price'], 2, ',', ' ') ?> DT</td>
                                     <td class="text-end fw-700">
-                                        <?= number_format($item['quantity'] * $item['unit_price'], 2, ',', ' ') ?> €
+                                        <?= number_format($item['quantity'] * $item['unit_price'], 2, ',', ' ') ?> DT
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -85,7 +85,7 @@ $statusLabels = [
                                 <tr>
                                     <td colspan="3" class="text-end fw-700 py-3">TOTAL</td>
                                     <td class="text-end fw-800 text-primary py-3" style="font-size:18px;">
-                                        <?= number_format($order['total'], 2, ',', ' ') ?> €
+                                        <?= number_format($order['total'], 2, ',', ' ') ?> DT
                                     </td>
                                 </tr>
                             </tfoot>

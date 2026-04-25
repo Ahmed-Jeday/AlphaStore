@@ -112,7 +112,7 @@ function loginUser($cnx, $data) {
            
             
             // 5. Redirection
-            header("Location: ../my-account/my-account.php");
+            header("Location: ../user_Dashboard/index.php");
             exit;
         } else {
             // Log failed attempt (wrong password)

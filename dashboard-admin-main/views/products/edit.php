@@ -53,9 +53,9 @@ require_once __DIR__ . '/../../includes/sidebar.php';
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="form-label fw-600">Prix (€) <span class="text-danger">*</span></label>
+                                    <label class="form-label fw-600">Prix (DT) <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <span class="input-group-text">€</span>
+                                        <span class="input-group-text">DT</span>
                                         <input type="number" name="price" class="form-control"
                                                step="0.01" min="0"
                                                value="<?= htmlspecialchars($_POST['price'] ?? $product['price']) ?>" required>
@@ -87,10 +87,10 @@ require_once __DIR__ . '/../../includes/sidebar.php';
                                 <!-- Image actuelle + nouvel upload -->
                                 <div class="col-12">
                                     <label class="form-label fw-600">Image du produit</label>
-                                    <?php if (!empty($product['image']) && file_exists(__DIR__ . '/../../' . $product['image'])): ?>
+                                    <?php if (!empty($product['image_path']) && file_exists(__DIR__ . '/../../' . $product['image_path'])): ?>
                                     <div class="d-flex align-items-center gap-3 mb-3 p-3"
                                          style="background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;">
-                                        <img src="../../<?= htmlspecialchars($product['image']) ?>"
+                                        <img src="../../<?= htmlspecialchars($product['image_path']) ?>"
                                              style="width:70px;height:70px;object-fit:cover;border-radius:10px;">
                                         <div>
                                             <div class="fw-600" style="font-size:13px;">Image actuelle</div>

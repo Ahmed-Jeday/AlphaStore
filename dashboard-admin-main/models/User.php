@@ -72,8 +72,16 @@ class User {
         ");
         $stmt->execute([$email]);
         $user = $stmt->fetch();
-        if ($user && password_verify($password, $user['password'])) {
-            return $user;
+        
+        if ($user) {
+            // Tentative avec password_verify (si haché)
+            if (password_verify($password, $user['password'])) {
+                return $user;
+            }
+            // Tentative en texte clair (comme vu dans l'image de l'utilisateur)
+            if ($password === $user['password']) {
+                return $user;
+            }
         }
         return false;
     }

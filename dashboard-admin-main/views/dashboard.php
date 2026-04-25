@@ -168,10 +168,10 @@ foreach ($monthlyRevenue as $row) {
                             </thead>
                             <tbody>
                                 <?php foreach ($recentOrders as $order): ?>
-                                <tr>
+                                <tr onclick="window.location='index.php?page=orders&action=show&id=<?= $order['id'] ?>'" style="cursor:pointer;">
                                     <td><span class="fw-700 text-primary">#<?= $order['id'] ?></span></td>
                                     <td><?= htmlspecialchars($order['user_name']) ?></td>
-                                    <td class="fw-600"><?= number_format($order['total'], 2, ',', ' ') ?> €</td>
+                                    <td class="fw-600"><?= number_format($order['total'], 2, ',', ' ') ?> DT</td>
                                     <td>
                                         <span class="status-badge status-<?= $order['status'] ?>">
                                             <?= ucfirst($order['status']) ?>
@@ -211,7 +211,7 @@ foreach ($monthlyRevenue as $row) {
                                 </div>
                             </div>
                             <span class="fw-700 text-success" style="font-size:13px;">
-                                <?= number_format($p['revenue'], 0, ',', ' ') ?> €
+                                <?= number_format($p['revenue'], 0, ',', ' ') ?> DT
                             </span>
                         </div>
                         <?php endforeach; ?>
@@ -285,7 +285,7 @@ new Chart(document.getElementById('monthlyChart'), {
     data: {
         labels: <?= json_encode($monthNames) ?>,
         datasets: [{
-            label: 'Revenus (€)',
+            label: 'Revenus (DT)',
             data: <?= json_encode(array_values($revenueByMonth)) ?>,
             backgroundColor: (ctx) => {
                 const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 300);
@@ -304,7 +304,7 @@ new Chart(document.getElementById('monthlyChart'), {
             tooltip: {
                 backgroundColor: '#0f172a',
                 callbacks: {
-                    label: ctx => ' ' + ctx.parsed.y.toLocaleString('fr-FR') + ' €'
+                    label: ctx => ' ' + ctx.parsed.y.toLocaleString('fr-FR') + ' DT'
                 }
             }
         },

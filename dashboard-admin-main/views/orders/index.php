@@ -82,7 +82,7 @@ foreach ($orders as $o) {
                             <td>
                                 <span class="badge bg-secondary"><?= $order['items_count'] ?> article(s)</span>
                             </td>
-                            <td class="fw-700"><?= number_format($order['total'], 2, ',', ' ') ?> €</td>
+                            <td class="fw-700"><?= number_format($order['total'], 2, ',', ' ') ?> DT</td>
                             <td>
                                 <span class="status-badge status-<?= $order['status'] ?>">
                                     <?= $statusLabels[$order['status']]['label'] ?? $order['status'] ?>

@@ -68,9 +68,9 @@ require_once __DIR__ . '/../../includes/sidebar.php';
                         <tr>
                             <td class="text-muted" style="font-size:12px;"><?= $p['id'] ?></td>
                             <td>
-                                <?php if (!empty($p['image']) && file_exists(__DIR__ . '/../../' . $p['image'])): ?>
-                                    <img src="../../<?= htmlspecialchars($p['image']) ?>"
-                                         class="product-img-thumb" alt="">
+                                <?php if (!empty($p['image_path']) && file_exists(__DIR__ . '/../../' . $p['image_path'])): ?>
+                                    <img src="../../<?= htmlspecialchars($p['image_path']) ?>"
+                                          class="product-img-thumb" alt="">
                                 <?php else: ?>
                                     <div class="product-img-placeholder">
                                         <i class="bi bi-image"></i>
@@ -90,7 +90,7 @@ require_once __DIR__ . '/../../includes/sidebar.php';
                                     <?= htmlspecialchars($p['category_name'] ?? '—') ?>
                                 </span>
                             </td>
-                            <td class="fw-700"><?= number_format($p['price'], 2, ',', ' ') ?> €</td>
+                            <td class="fw-700"><?= number_format($p['price'], 2, ',', ' ') ?> DT</td>
                             <td>
                                 <?php
                                 $stock = (int)$p['stock'];

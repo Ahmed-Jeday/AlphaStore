@@ -59,9 +59,9 @@ require_once __DIR__ . '/../../includes/sidebar.php';
 
                                 <!-- Prix & Stock -->
                                 <div class="col-md-6">
-                                    <label class="form-label fw-600">Prix (€) <span class="text-danger">*</span></label>
+                                    <label class="form-label fw-600">Prix (DT) <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <span class="input-group-text">€</span>
+                                        <span class="input-group-text">DT</span>
                                         <input type="number" name="price" class="form-control"
                                                placeholder="0.00" min="0" step="0.01"
                                                value="<?= htmlspecialchars($_POST['price'] ?? '') ?>" required>

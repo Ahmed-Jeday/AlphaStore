@@ -84,6 +84,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
 </head>
 
 <body>
+
+    <div class="back-to-home">
+        <a href="index.html">
+            <i class='bx bx-home'></i>
+        </a>
+    </div>
     
     
     <div class="container">

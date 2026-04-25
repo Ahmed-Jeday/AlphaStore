@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i class="bi bi-envelope text-secondary"></i>
                     </span>
                     <input type="email" name="email" class="form-control" style="border-radius:0 10px 10px 0;"
-                           placeholder="admin@shop.com"
+                           placeholder="admin12@gmail.com"
                            value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required>
                 </div>
             </div>
@@ -132,8 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="fw-600 mb-1" style="font-size:12px;color:#4f46e5;">
                 <i class="bi bi-info-circle me-1"></i>ACCÈS DEMO
             </div>
-            <div><b>Email :</b> admin@shop.com</div>
-            <div><b>Mot de passe :</b> password</div>
+            <div><b>Email :</b> admin12@gmail.com</div>
+            <div><b>Mot de passe :</b> admin123</div>
         </div>
     </div>
 </body>

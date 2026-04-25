@@ -19,7 +19,7 @@ class Product {
     public function getAll(): array {
         $stmt = $this->db->query("
             SELECT p.*, c.name AS category_name
-            FROM products p
+            FROM produits p
             LEFT JOIN categories c ON p.category_id = c.id
             ORDER BY p.created_at DESC
         ");
@@ -32,7 +32,7 @@ class Product {
     public function getById(int $id): array|false {
         $stmt = $this->db->prepare("
             SELECT p.*, c.name AS category_name
-            FROM products p
+            FROM produits p
             LEFT JOIN categories c ON p.category_id = c.id
             WHERE p.id = ?
         ");
@@ -45,15 +45,15 @@ class Product {
      */
     public function create(array $data): bool {
         $stmt = $this->db->prepare("
-            INSERT INTO products (name, description, price, stock, image, category_id)
-            VALUES (:name, :description, :price, :stock, :image, :category_id)
+            INSERT INTO produits (name, description, price, stock, image_path, category_id)
+            VALUES (:name, :description, :price, :stock, :image_path, :category_id)
         ");
         return $stmt->execute([
             ':name'        => $data['name'],
             ':description' => $data['description'],
             ':price'       => $data['price'],
             ':stock'       => $data['stock'],
-            ':image'       => $data['image'] ?? null,
+            ':image_path'  => $data['image_path'] ?? null,
             ':category_id' => $data['category_id'] ?: null,
         ]);
     }
@@ -63,9 +63,9 @@ class Product {
      */
     public function update(int $id, array $data): bool {
         $stmt = $this->db->prepare("
-            UPDATE products
+            UPDATE produits
             SET name = :name, description = :description, price = :price,
-                stock = :stock, image = :image, category_id = :category_id
+                stock = :stock, image_path = :image_path, category_id = :category_id
             WHERE id = :id
         ");
         return $stmt->execute([
@@ -73,7 +73,7 @@ class Product {
             ':description' => $data['description'],
             ':price'       => $data['price'],
             ':stock'       => $data['stock'],
-            ':image'       => $data['image'] ?? null,
+            ':image_path'  => $data['image_path'] ?? null,
             ':category_id' => $data['category_id'] ?: null,
             ':id'          => $id,
         ]);
@@ -83,7 +83,7 @@ class Product {
      * Supprime un produit
      */
     public function delete(int $id): bool {
-        $stmt = $this->db->prepare("DELETE FROM products WHERE id = ?");
+        $stmt = $this->db->prepare("DELETE FROM produits WHERE id = ?");
         return $stmt->execute([$id]);
     }
 
@@ -91,7 +91,7 @@ class Product {
      * Compte le total des produits
      */
     public function count(): int {
-        return (int) $this->db->query("SELECT COUNT(*) FROM products")->fetchColumn();
+        return (int) $this->db->query("SELECT COUNT(*) FROM produits")->fetchColumn();
     }
 
     /**
@@ -99,7 +99,7 @@ class Product {
      */
     public function getLowStock(int $threshold = 5): array {
         $stmt = $this->db->prepare("
-            SELECT * FROM products WHERE stock < ? ORDER BY stock ASC
+            SELECT * FROM produits WHERE stock < ? ORDER BY stock ASC
         ");
         $stmt->execute([$threshold]);
         return $stmt->fetchAll();
@@ -110,12 +110,12 @@ class Product {
      */
     public function getTopSelling(int $limit = 5): array {
         $stmt = $this->db->prepare("
-            SELECT p.id, p.name, p.price, p.image,
+            SELECT p.id, p.name, p.price, p.image_path,
                    SUM(oi.quantity) AS total_sold,
                    SUM(oi.quantity * oi.unit_price) AS revenue
-            FROM products p
+            FROM produits p
             JOIN order_items oi ON p.id = oi.product_id
-            GROUP BY p.id, p.name, p.price, p.image
+            GROUP BY p.id, p.name, p.price, p.image_path
             ORDER BY total_sold DESC
             LIMIT ?
         ");
@@ -128,11 +128,11 @@ class Product {
      */
     public function getMostFavorited(int $limit = 5): array {
         $stmt = $this->db->prepare("
-            SELECT p.id, p.name, p.price, p.image,
+            SELECT p.id, p.name, p.price, p.image_path,
                    COUNT(f.id) AS favorites_count
-            FROM products p
+            FROM produits p
             JOIN favorites f ON p.id = f.product_id
-            GROUP BY p.id, p.name, p.price, p.image
+            GROUP BY p.id, p.name, p.price, p.image_path
             ORDER BY favorites_count DESC
             LIMIT ?
         ");
@@ -151,7 +151,7 @@ class Product {
      * Récupère l'image actuelle d'un produit
      */
     public function getImage(int $id): string|null {
-        $stmt = $this->db->prepare("SELECT image FROM products WHERE id = ?");
+        $stmt = $this->db->prepare("SELECT image_path FROM produits WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetchColumn() ?: null;
     }

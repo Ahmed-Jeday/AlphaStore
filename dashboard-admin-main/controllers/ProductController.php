@@ -42,10 +42,10 @@ class ProductController {
                 if ($imageName === false) {
                     $errors[] = "Format d'image invalide. Utilisez JPG, PNG ou WebP.";
                 } else {
-                    $data['image'] = $this->uploadUrl . $imageName;
+                    $data['image_path'] = $this->uploadUrl . $imageName;
                 }
             } else {
-                $data['image'] = null;
+                $data['image_path'] = null;
             }
 
             if (empty($errors)) {
@@ -87,11 +87,11 @@ class ProductController {
                     $errors[] = "Format d'image invalide.";
                 } else {
                     // Supprimer ancienne image
-                    $this->deleteImage($product['image']);
-                    $data['image'] = $this->uploadUrl . $imageName;
+                    $this->deleteImage($product['image_path']);
+                    $data['image_path'] = $this->uploadUrl . $imageName;
                 }
             } else {
-                $data['image'] = $product['image']; // garder l'ancienne
+                $data['image_path'] = $product['image_path']; // garder l'ancienne
             }
 
             if (empty($errors)) {
@@ -115,7 +115,7 @@ class ProductController {
         $product = $this->model->getById($id);
 
         if ($product) {
-            $this->deleteImage($product['image']);
+            $this->deleteImage($product['image_path']);
             $this->model->delete($id);
             $_SESSION['flash'] = ['type' => 'success', 'msg' => 'Produit supprimé.'];
         } else {
