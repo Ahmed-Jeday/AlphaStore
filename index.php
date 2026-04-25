@@ -34,6 +34,24 @@ if ($action === "getProduitById") {
     exit;
 }
 
+if ($action === 'getTechProduits') {
+    require_once(__DIR__ . "/Controller/ProduitTechController.php");
+    getAllTechProduits();
+    exit;
+}
+
+if ($action === 'getTechProduitByCategory') {
+    require_once(__DIR__ . "/Controller/ProduitTechController.php");
+    getTechProduitByCategory($_GET["category"]);
+    exit;
+}
+
+if ($action === "getTechProduitById") {
+    require_once(__DIR__ . "/Controller/ProduitTechController.php");
+    getTechProduitById($_GET["id"]);
+    exit;
+}
+
 if ($action === "toggleFavorite") {
     require_once(__DIR__ . "/Controller/FavoriteController.php");
     toggle();
@@ -53,6 +71,12 @@ if ($action === "getFavorites") {
 if ($action === "getAllimage") {
     require_once(__DIR__ . "/Controller/ProduitController.php");
     getAllimage($_GET["id"]);
+    exit;
+}
+
+if ($action === "getTechProduitDetail") {
+    require_once(__DIR__ . "/Controller/ProduitTechController.php");
+    getTechProduitDetail($_GET["id"]);
     exit;
 }
 

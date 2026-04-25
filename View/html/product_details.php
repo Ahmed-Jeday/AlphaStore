@@ -905,15 +905,46 @@ session_start();
     async function chargeProduit() {
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id');
+        const productType = params.get('type');
         
         if (!productId) {
             console.error("Aucun ID de produit spécifié dans l'URL");
             return;
         }
 
+        if (productType === "tech") {
+            // Hide size-related elements for tech products
+            const labels = document.querySelectorAll('.label-row');
+            labels.forEach(label => {
+                if (label.innerText.toLowerCase().includes('size')) {
+                    label.style.display = 'none';
+                }
+                if (label.innerText.toLowerCase().includes('color')) {
+                    label.style.display = 'none';
+                }
+            });
+            
+            const sizeGrid = document.querySelector('.size-grid');
+            if (sizeGrid) sizeGrid.style.display = 'none';
+            
+            const colorGrid = document.querySelector('.color-grid');
+            if (colorGrid) colorGrid.style.display = 'none';
+            
+            const accordions = document.querySelectorAll('.accordion-item');
+            accordions.forEach(acc => {
+                if (acc.innerText.includes('Size & fit')) {
+                    acc.style.display = 'none';
+                }
+            });
+        }
+
         try {
-            // Utilise getAllimage car il retourne à la fois les détails et les images
-            const response = await fetch(`../../index.php?action=getAllimage&id=${productId}`);
+            let action = "getAllimage";
+            if (productType === "tech") {
+                action = "getTechProduitDetail";
+            }
+            
+            const response = await fetch(`../../index.php?action=${action}&id=${productId}`);
             const data = await response.json();
             
             if (data && data.length > 0) {
@@ -923,11 +954,44 @@ session_start();
                 // Mise à jour des textes
                 document.querySelector('.product-title').textContent = product.name;
                 document.querySelector('.price-current').textContent = `$${product.price}`;
+                
+                // Update Breadcrumb
+                const breadcrumb = document.querySelector('.breadcrumb');
+                if (breadcrumb) {
+                    if (productType === "tech") {
+                        breadcrumb.innerHTML = `
+                            <a href="tech.html">Tech</a>
+                            <span>›</span>
+                            <a href="#">${product.category || 'Gadgets'}</a>
+                            <span>›</span>
+                            <span>${product.name}</span>
+                        `;
+                    } else {
+                        breadcrumb.innerHTML = `
+                            <a href="men.html">Men</a>
+                            <span>›</span>
+                            <a href="#">${product.category || 'Clothing'}</a>
+                            <span>›</span>
+                            <span>${product.name}</span>
+                        `;
+                    }
+                }
+
                 document.title = product.name; // Update browser tab title
                 
                 if (product.description) {
-                    const descElem = document.querySelector('.accordion-body ul li:first-child');
-                    if (descElem) descElem.textContent = product.description;
+                    const accordionUl = document.querySelector('.accordion-item:first-of-type .accordion-body ul');
+                    if (accordionUl) {
+                        if (productType === "tech") {
+                            accordionUl.innerHTML = `<li>${product.description}</li>`;
+                            if (product.sku) {
+                                accordionUl.innerHTML += `<li>Product #${product.sku}</li>`;
+                            }
+                        } else {
+                            const descElem = accordionUl.querySelector('li:first-child');
+                            if (descElem) descElem.textContent = product.description;
+                        }
+                    }
                 }
 
                 // Galerie d'images
@@ -939,7 +1003,8 @@ session_start();
                 if (gallerySub) gallerySub.innerHTML = '';
 
                 images.forEach((imgPath, index) => {
-                    const fullPath = `../../public/${imgPath}`;
+                    const isExternal = imgPath && (imgPath.startsWith('http://') || imgPath.startsWith('https://'));
+                    const fullPath = isExternal ? imgPath : `../../public/${imgPath}`;
                     const img = document.createElement('img');
                     img.src = fullPath;
                     img.alt = `${product.name} - image ${index + 1}`;

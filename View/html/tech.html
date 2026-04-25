@@ -24,7 +24,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-IRw5p4+v5Z2+rztm8llwI+lvDGvtsrPVD8K+isp3hHgRTIzE3d6Ecu8d7eFJ9z5T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../css/style_1.css">
+   
     <link rel="stylesheet" href="../css/tech.css">
     <link rel="stylesheet" href="../css/shop/shop_1.css">
 
@@ -391,12 +391,12 @@
             <!-- FILTER TOP BAR -->
             <div class="filter-top-bar">
                 <ul class="category-tabs" id="categoryTabs">
-                    <li><a href="#" data-cat="Informatique,Accessoire" class="active-tab">All</a></li>
-                    <li><a href="#" data-cat="Phones">Phones</a></li>
+                    <li><a href="#" data-cat="Ordinateurs,Smartphones,Audio,Périphériques,Écrans,Drones,Composants,Wearables,Photo,Tablettes" class="active-tab">All</a></li>
+                    <li><a href="#" data-cat="Smartphones">Phones</a></li>
                     <li><a href="#" data-cat="Audio">Audio</a></li>
                     <li><a href="#" data-cat="Wearables">Wearables</a></li>
-                    <li><a href="#" data-cat="Accessories">Accessories</a></li>
-                    <li><a href="#" data-cat="Gaming">Gaming</a></li>
+                    <li><a href="#" data-cat="Périphériques">Accessories</a></li>
+                    <li><a href="#" data-cat="Écrans,Composants">Gaming</a></li>
                 </ul>
 
                 <div class="action-buttons">
@@ -482,20 +482,16 @@
 
                     <div class="modal-gallery">
                         <div class="gallery-thumbnails">
-                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=150&auto=format&fit=crop"
-                                alt="Thumb 1" class="active-thumb">
-                            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=150&auto=format&fit=crop"
-                                alt="Thumb 2">
-                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=150&auto=format&fit=crop"
-                                alt="Thumb 3">
+                            <img src="" alt="Thumb 1" class="active-thumb img1">
+                            <img src="" alt="Thumb 2" class="img2">
+                            <img src="" alt="Thumb 3" class="img3">
                         </div>
 
                         <div class="gallery-main">
                             <button class="nav-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
-                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=500&auto=format&fit=crop"
-                                alt="Main Product Image" class="main-image">
+                            <img src="" alt="Main Product Image" class="main-image">
                             <button class="nav-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
-                            <button class="expand-btn"><i class="fas fa-expand"></i></button>
+                            <button class="expand-btn" onclick="toggleExpand()"><i class="fas fa-expand"></i></button>
                         </div>
                     </div>
 
@@ -509,18 +505,7 @@
                         </p>
 
                         <div class="product-options">
-                            <div class="option-row">
-                                <label>Size</label>
-                                <div class="select-wrapper">
-                                    <select>
-                                        <option>Choose an option</option>
-                                        <option>Size S</option>
-                                        <option>Size M</option>
-                                        <option>Size L</option>
-                                        <option>Size XL</option>
-                                    </select>
-                                </div>
-                            </div>
+
                             <div class="option-row">
                                 <label>Color</label>
                                 <div class="select-wrapper">
@@ -545,12 +530,17 @@
                         </div>
 
                         <div class="social-actions">
-                            <a href="#" class="wishlist-btn"><i class="far fa-heart"></i></a>
+                            <i class="far fa-heart heart-icon"></i>
                             <div class="social-links">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="#"><i class="fab fa-google-plus-g"></i></a>
                             </div>
+                        </div>
+
+                        <div class="more_info">
+                            <div class="id" hidden value=""></div>
+                            <a href="#" class="view-more-link">VIEW MORE</a>
                         </div>
                     </div>
 
@@ -621,7 +611,7 @@
 
     <script>
     // Configuration
-    let currentCategory = 'Informatique,Accessoire'; // Matches Tech categories
+    let currentCategory = 'Ordinateurs,Smartphones,Audio,Périphériques,Écrans,Drones,Composants,Wearables,Photo,Tablettes'; // Matches Tech categories
     let currentSort = 'default';
     let currentPriceRange = 'all';
 
@@ -630,7 +620,7 @@
         const productGrid = document.getElementById('productGrid');
         const noProductMsg = document.querySelector('.mesage');
         
-        let url = `../../index.php?action=getProduitByCategory&category=${currentCategory}&sortBy=${currentSort}`;
+        let url = `../../index.php?action=getTechProduitByCategory&category=${currentCategory}&sortBy=${currentSort}`;
         
         if (currentPriceRange !== 'all') {
             const [min, max] = currentPriceRange.split('-');
@@ -638,6 +628,7 @@
         }
     
         try {
+            console.log("URL: ", url);
             const response = await fetch(url);
             const produits = await response.json();
             console.log('Produits chargés:', produits);
@@ -724,11 +715,13 @@
         card.classList.add('product-item');
         card.dataset.id = p.id;
         
-        const fullImagePath = `../../public/${p.image_path}`;
+        const isExternal = p.image_path && (p.image_path.startsWith('http://') || p.image_path.startsWith('https://'));
+        const fullImagePath = isExternal ? p.image_path : `../../public/${p.image_path}`;
+        
         const pathNextimages = getNextImages(p.image_path);
-        const fullImagePath1 = `../../public/${p.image_path}`;
-        const fullImagePath2 = pathNextimages.length > 0 ? `../../public/${pathNextimages[0]}` : '';
-        const fullImagePath3 = pathNextimages.length > 0 ? `../../public/${pathNextimages[1]}` : '';
+        const fullImagePath1 = fullImagePath;
+        const fullImagePath2 = pathNextimages.length > 0 ? (isExternal ? pathNextimages[0] : `../../public/${pathNextimages[0]}`) : '';
+        const fullImagePath3 = pathNextimages.length > 0 ? (isExternal ? pathNextimages[1] : `../../public/${pathNextimages[1]}`) : '';
 
         card.innerHTML = `
             <div class="product-img-block">
@@ -737,7 +730,7 @@
             </div>
             <div class="product-info-block">
                 <div class="product-text">
-                    <a href="product_details.php?id=${p.id}" class="product-title">${p.name}</a>
+                    <a href="product_details.php?id=${p.id}&type=tech" class="product-title">${p.name}</a>
                     <span class="product-price">$${p.price}</span>
                 </div> 
                 <div class="product-actions">
@@ -766,22 +759,27 @@
                 e.preventDefault();
                 const modal = document.getElementById('quickViewModal');
                 if (modal) {
-                    modal.querySelector('.product-title').textContent = p.name;
-                    modal.querySelector('.product-price').textContent = `$${p.price}`;
-                    modal.querySelector('.product-description').textContent = p.description || "No description available.";
-                    modal.querySelector('.main-image').src = fullImagePath;
+                    const titleElem = modal.querySelector('.product-title');
+                    const priceElem = modal.querySelector('.product-price');
+                    const descElem = modal.querySelector('.product-description');
+                    const mainImg = modal.querySelector('.main-image');
 
-                    const img1 = modal.querySelector('.active-thumb') || modal.querySelector('.gallery-thumbnails img:first-child');
-                    if (img1) img1.src = fullImagePath1;
+                    const img1 = modal.querySelector('.img1');
+                    const img2 = modal.querySelector('.img2');
+                    const img3 = modal.querySelector('.img3');
+                    const idElem = modal.querySelector('.id');
+
+                    if (titleElem) titleElem.textContent = p.name;
+                    if (priceElem) priceElem.textContent = `$${p.price}`;
+                    if (descElem) descElem.textContent = p.description || "Aucune description disponible.";
+                    if (mainImg) mainImg.src = fullImagePath;
                     
-                    const thumbs = modal.querySelectorAll('.gallery-thumbnails img');
-                    if (thumbs[1]) thumbs[1].src = fullImagePath2 || fullImagePath1;
-                    if (thumbs[2]) thumbs[2].src = fullImagePath3 || fullImagePath1;
+                    // For Tech products, repeat the same image in thumbnails as requested
+                    if (img1) img1.src = fullImagePath;
+                    if (img2) img2.src = fullImagePath;
+                    if (img3) img3.src = fullImagePath;
                     
-                    const idElem = document.createElement('div');
-                    idElem.className = 'id-hidden';
-                    idElem.setAttribute('data-id', p.id);
-                    modal.appendChild(idElem);
+                    if (idElem) idElem.setAttribute('value', p.id);
 
                     const modalHeart = modal.querySelector('.heart-icon');
                     if (modalHeart) {
@@ -794,10 +792,15 @@
                         }
                     }
 
-                    const viewMoreLink = modal.querySelector('.view-more-link') || modal.querySelector('a[href="#"]');
-                    if (viewMoreLink && !viewMoreLink.classList.contains('wishlist-btn')) {
-                        viewMoreLink.href = `product_details.php?id=${p.id}`;
+                    const viewMoreLink = modal.querySelector('.view-more-link');
+                    if (viewMoreLink) {
+                        viewMoreLink.href = `product_details.php?id=${p.id}&type=tech`;
                     }
+
+                    currentImageIndex = 0;
+                    const thumbnails = modal.querySelectorAll('.gallery-thumbnails img');
+                    thumbnails.forEach(t => t.classList.remove('active-thumb'));
+                    if (img1) img1.classList.add('active-thumb');
                     
                     modal.classList.add('active');
                 }
@@ -816,6 +819,27 @@
             window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
         }
         
+        const modalHeart = document.querySelector('#quickViewModal .heart-icon');
+        if (modalHeart) {
+            modalHeart.addEventListener('click', function() {
+                const productId = document.querySelector('#quickViewModal .id').getAttribute('value');
+                toggleFavorite(productId, this).then(() => {
+                    const gridHeart = document.querySelector(`.product-item[data-id="${productId}"] .heart-icon`);
+                    if (gridHeart) {
+                        if (this.classList.contains('fas')) {
+                            gridHeart.classList.replace('far', 'fas');
+                            gridHeart.classList.add('liked');
+                            gridHeart.style.color = '#ff4d6d';
+                        } else {
+                            gridHeart.classList.replace('fas', 'far');
+                            gridHeart.classList.remove('liked');
+                            gridHeart.style.color = '';
+                        }
+                    }
+                });
+            });
+        }
+
         chargerProduits();
     });
 
@@ -845,10 +869,19 @@
         updateModalGallery(idx);
     });
 
-    document.querySelector('.expand-btn')?.addEventListener('click', function() {
-        const img = document.querySelector('#quickViewModal .main-image');
-        if (img) img.style.transform = img.style.transform === 'scale(1.5)' ? 'scale(1)' : 'scale(1.5)';
-    });
+    function toggleExpand() {
+        const modal = document.getElementById('quickViewModal');
+        const mainImg = modal.querySelector('.main-image');
+        if (!mainImg) return;
+
+        if (mainImg.style.transform === "scale(2.5)") {
+            mainImg.style.transform = "scale(1)";
+            mainImg.style.cursor = "zoom-in";
+        } else {
+            mainImg.style.transform = "scale(2.5)";
+            mainImg.style.cursor = "zoom-out";
+        }
+    }
 
     // Filter Logic
     document.getElementById('toggle-filter-btn')?.addEventListener('click', () => {
