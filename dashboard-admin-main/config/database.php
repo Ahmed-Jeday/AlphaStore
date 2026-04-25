@@ -4,19 +4,13 @@
  * Connexion PDO avec gestion des erreurs
  */
 
-<<<<<<< HEAD
-// Charger les variables d'environnement
-require_once __DIR__ . '/../../vendor/autoload.php';
-if (empty($_ENV['DB_HOST'])) {
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
-    $dotenv->safeLoad();
-}
-=======
+
+
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
 $dotenv->safeLoad();
->>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
+
 
 define('DB_HOST', $_ENV['DB_HOST'] ?? 'localhost');
 define('DB_NAME', $_ENV['DB_NAME'] ?? 'alphastore');
