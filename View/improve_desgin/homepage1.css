@@ -9,8 +9,8 @@ body {
   color: #333;
   background-color: #001;
   font-family: Lato, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 18px;
   
 }
 
@@ -609,4 +609,22 @@ img {
   position: relative;
   transition: opacity 0.3s;
   pointer-events: auto; /* Ensure clickable */
+}
+
+/* Typewriter Cursor */
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 5px;
+  color: #b8e6da;
+  animation: blink 0.8s infinite;
+  font-weight: 300;
+}
+
+#hero-typewriter{
+  font-family: 'Cinzel Decorative', cursive;
+
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }

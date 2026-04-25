@@ -74,6 +74,8 @@ if (isset($_SESSION["message"])) {
 
 <body>
 
+<a href="../html/vérifie.html">verifie</a>
+
     <!-- top bar with call & promo -->
     <div class="top-bar">
         <span><i class="fas fa-phone-alt"></i> +216 97 181 045</span>

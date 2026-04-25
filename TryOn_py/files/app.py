@@ -8,10 +8,12 @@ from gradio_client import Client, handle_file
 app = Flask(__name__)
 CORS(app) # Enable CORS for all routes
 
+from dotenv import load_dotenv
+import os
 # ── Configuration ──────────────────────────────────────────────
 API_ID  = "yisol/IDM-VTON"
-TOKEN   = "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"
-Token_1 ="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"
+TOKEN   = os.getenv("API_key_1")
+Token_1 = os.getenv("API_key_2")
 # creation des dossiers
 UPLOAD_FOLDER = os.path.join(os.getcwd(), "uploads")
 OUTPUT_FOLDER = os.path.join(os.getcwd(), "outputs")

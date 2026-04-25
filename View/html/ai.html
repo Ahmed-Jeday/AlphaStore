@@ -204,10 +204,16 @@
     <div class="comparison-table-wrapper">
       <table class="comp-table" id="comparisonTable">
         <thead>
-          <tr><th>Caractéristique</th><th class="product-col">Produit A</th><th class="product-col">Produit B</th></tr>
+          <tr id="comparisonHeaders">
+            <th>Caractéristique</th>
+            
+            <th class="product-col product-col-a">Produit A</th>
+            <th class="product-col product-col-b">Produit B</th>
+          </tr>
         </thead>
         <tbody id="comparisonBody">
           <tr><td colspan="3" style="text-align:center;">Chargement...</td></tr>
+          
         </tbody>
       </table>
     </div>
@@ -224,11 +230,67 @@
     
     
   </section>
+
+   <section class="ai-widget-root">
+    <main class="chatbot">
+        <div class="chatbot__container" id="chatbot-container">
+            <div class="chatbot__welcome" id="welcome-screen">
+                <div class="chatbot__icon-wrapper">
+                    <div class="chatbot__icon chatbot__icon--gradient">
+                        <svg class="chatbot__icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                            <path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="chatbot__title">ALPHA INTELLIGENCE</div>
+                <div class="chatbot__suggestions-box">
+                    <button class="chatbot__suggestion" onclick="handleSuggestion('What are the top trending tech products right now?')">Trending Tech Products</button>
+                    <button class="chatbot__suggestion" onclick="handleSuggestion('Help me find a summer outfit for a beach party')">Outfit Recommendations</button>
+                    <button class="chatbot__suggestion" onclick="handleSuggestion('Compare the latest flagship smartphones')">Smartphone Comparison</button>
+                    <div class="chatbot__input-wrapper">
+                        <label class="chatbot__label" for="chat-input">Ask</label>
+                        <input id="chat-input" class="chatbot__input" type="text" placeholder="Ask anything…" oninput="syncInput(this.value)" onkeydown="handleKeydown(event,'input')"/>
+                        <button class="chatbot__submit" id="submit-welcome" onclick="submitFromWelcome()" disabled aria-label="Submit">
+                            <svg class="chatbot__submit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot__conversation" id="conversation-screen" style="display:none">
+                <div class="chatbot__message-scroller" id="scroller">
+                    <div class="chatbot__messages" id="messages"></div>
+                </div>
+                <div class="chatbot__input-box">
+                    <div class="chatbot__suggestion-tags" id="suggestion-tags">
+                        <button class="chatbot__suggestion-tag" onclick="handleSuggestion('Show me top rated gadgets')">Top Rated Gadgets</button>
+                        <button class="chatbot__suggestion-tag" onclick="handleSuggestion('Price drops in fashion')">Fashion Deals</button>
+                    </div>
+                    <div class="chatbot__textarea-wrapper">
+                        <label class="chatbot__label" for="chat-textarea">Ask</label>
+                        <textarea id="chat-textarea" class="chatbot__textarea" placeholder="Ask anything…" oninput="syncInput(this.value)" onkeydown="handleKeydown(event,'textarea')" rows="1"></textarea>
+                        <button class="chatbot__globe-button" aria-label="Globe">
+                            <svg class="chatbot__globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        </button>
+                        <button class="chatbot__submit chatbot__submit--textarea" id="submit-conv" onclick="handleSubmit()" disabled aria-label="Submit">
+                            <svg class="chatbot__submit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    </section>
+
+
+
   <div id="footer-placeholder"></div>
 
   <script src="../javaScript/ai.js"></script>
   <script src="../javaScript/main.js"></script>
   <script src="../javaScript/tryOn.js"></script>
+  <script src="../javaScript/chat.js"></script>
 </body>
 
 </html>

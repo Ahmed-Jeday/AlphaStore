@@ -11,19 +11,26 @@ class Cart {
 
     function addToCart($user_id, $product_id, $quantity = 1)
     {
-        $stmt = $this->pdo->prepare("INSERT INTO cart (user_id, product_id, quantity) VALUES (:user_id, :product_id, :quantity)");
-        $stmt->execute(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
+        // Check if item already exists
+        $existing = $this->getCartItem($user_id, $product_id);
+        if ($existing) {
+            $newQuantity = $existing['quantite'] + $quantity;
+            $this->updateCart($user_id, $product_id, $newQuantity);
+        } else {
+            $stmt = $this->pdo->prepare("INSERT INTO cart (user_id, produit_id, quantite, created_at) VALUES (:user_id, :produit_id, :quantite, NOW())");
+            $stmt->execute(['user_id' => $user_id, 'produit_id' => $product_id, 'quantite' => $quantity]);
+        }
     }
 
     function removeFromCart($user_id, $product_id)
     {
-        $stmt = $this->pdo->prepare("DELETE FROM cart WHERE user_id = :user_id AND product_id = :product_id");
-        $stmt->execute(['user_id' => $user_id, 'product_id' => $product_id]);
+        $stmt = $this->pdo->prepare("DELETE FROM cart WHERE user_id = :user_id AND produit_id = :produit_id");
+        $stmt->execute(['user_id' => $user_id, 'produit_id' => $product_id]);
     }
 
     function getCart($user_id)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM cart WHERE user_id = :user_id");
+        $stmt = $this->pdo->prepare("SELECT c.*, p.name, p.price, p.image_path FROM cart c JOIN produits p ON c.produit_id = p.id WHERE c.user_id = :user_id");
         $stmt->execute(['user_id' => $user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -32,8 +39,8 @@ class Cart {
 
     function updateCart($user_id, $product_id, $quantity)
     {
-        $stmt = $this->pdo->prepare("UPDATE cart SET quantity = :quantity WHERE user_id = :user_id AND product_id = :product_id");
-        $stmt->execute(['user_id' => $user_id, 'product_id' => $product_id, 'quantity' => $quantity]);
+        $stmt = $this->pdo->prepare("UPDATE cart SET quantite = :quantite WHERE user_id = :user_id AND produit_id = :produit_id");
+        $stmt->execute(['user_id' => $user_id, 'produit_id' => $product_id, 'quantite' => $quantity]);
     }
 
     function clearCart($user_id)
@@ -46,23 +53,18 @@ class Cart {
 
     function getCartTotal($user_id)
     {
-        $stmt = $this->pdo->prepare("SELECT SUM(p.price * c.quantity) as total FROM cart c JOIN produits p ON c.product_id = p.id WHERE c.user_id = :user_id");
+        $stmt = $this->pdo->prepare("SELECT SUM(p.price * c.quantite) as total FROM cart c JOIN produits p ON c.produit_id = p.id WHERE c.user_id = :user_id");
         $stmt->execute(['user_id' => $user_id]);
         return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
     }
 
     function getCartItem($user_id, $product_id)
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM cart WHERE user_id = :user_id AND product_id = :product_id");
-        $stmt->execute(['user_id' => $user_id, 'product_id' => $product_id]);
+        $stmt = $this->pdo->prepare("SELECT * FROM cart WHERE user_id = :user_id AND produit_id = :produit_id");
+        $stmt->execute(['user_id' => $user_id, 'produit_id' => $product_id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-
-  
  
-   
-
-  
 
 }
