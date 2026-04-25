@@ -4,6 +4,10 @@ let cartIcons = [], cart, closeCart, cartContent, cartCountElements = [], totalP
 
 
 
+
+
+
+
 // Initialization function
 const initCartElements = () => {
     cartIcons = document.querySelectorAll('.cart-icon');
@@ -12,6 +16,11 @@ const initCartElements = () => {
     cartContent = document.querySelector('.cart-content');
     cartCountElements = document.querySelectorAll('.cart-item-count');
     totalPriceElement = document.querySelector('.total-price');
+    let checkout_btn = document.querySelector('.checkout-btn'); 
+
+    checkout_btn.addEventListener("click", function() {
+    window.location.href = "../html/checkout.php";
+    });
 
 
     if (cartIcons.length > 0 && cart && closeCart) {

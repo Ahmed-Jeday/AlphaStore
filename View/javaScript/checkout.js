@@ -71,10 +71,50 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!validateCVV('cvv')) isValid = false;
         }
 
-        if (!isValid) {
+        if (isValid) {
+            // If valid, submit via AJAX
+            event.preventDefault();
+            
+            const formData = new FormData(form);
+            formData.append('action', 'place_order');
+
+            const placeOrderBtn = document.getElementById('place-order-btn');
+            placeOrderBtn.disabled = true;
+            placeOrderBtn.textContent = 'Processing...';
+
+            fetch('../../Controller/OrderController.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    showSuccessModal(data.order_id);
+                } else {
+                    alert('Error: ' + (data.message || 'Something went wrong.'));
+                    placeOrderBtn.disabled = false;
+                    placeOrderBtn.textContent = 'Place Order';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+                placeOrderBtn.disabled = false;
+                placeOrderBtn.textContent = 'Place Order';
+            });
+        } else {
             event.preventDefault();
         }
     });
+
+    function showSuccessModal(orderId) {
+        const modal = document.getElementById('order-success-modal');
+        const orderIdDisplay = document.getElementById('order-id-display');
+        if (orderIdDisplay) orderIdDisplay.textContent = '#' + orderId;
+        if (modal) {
+            modal.style.display = 'flex';
+        }
+    }
 
     function validateRequired(fieldId) {
         const field = document.getElementById(fieldId);
