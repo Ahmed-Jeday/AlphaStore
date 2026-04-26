@@ -398,9 +398,9 @@
             <h4 class="filter-title">Price</h4>
             <ul class="filter-list" id="priceFilterList">
                 <li><a href="#" data-price="all" class="active-filter">All</a></li>
-                <li><a href="#" data-price="0-50">$0.00 - $50.00</a></li>
-                <li><a href="#" data-price="50-100">$50.00 - $100.00</a></li>
-                <li><a href="#" data-price="100-200">$100.00 - $200.00</a></li>
+                <li><a href="#" data-price="0-50">0.00 DT - 50.00 DT</a></li>
+                <li><a href="#" data-price="50-100">50.00 DT - 100.00 DT</a></li>
+                <li><a href="#" data-price="100-200">100.00 DT - 200.00 DT</a></li>
             </ul>
         </div>
         <div class="filter-column">
@@ -446,7 +446,7 @@
 
                 <div class="modal-details">
                     <h2 class="product-title">Lightweight Jacket</h2>
-                    <p class="product-price">$58.79</p>
+                    <p class="product-price">58.79 DT</p>
                     
                     <p class="product-description">
                         Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
@@ -688,7 +688,7 @@
             <div class="product-info-block flex justify-between items-center p-4">
                 <div class="product-text flex flex-col gap-1">
                     <a href="product_details.php?id=${p.id}" class="product-title font-serif text-lg text-charcoal-900 truncate hover:text-cognac-700 transition-colors">${p.name}</a>
-                    <span class="product-price text-cognac-700 font-semibold">$${p.price}</span>
+                    <span class="product-price text-cognac-700 font-semibold">${p.price} DT</span>
                 </div> 
                 <div class="product-actions-icons flex gap-3 items-center">
                     <i class="far fa-heart heart-icon cursor-pointer text-gray-400 hover:text-red-500 transition-colors text-xl" data-id="${p.id}"></i>
@@ -733,7 +733,7 @@
                     const idElem = modal.querySelector('.id');
 
                     if (titleElem) titleElem.textContent = p.name;
-                    if (priceElem) priceElem.textContent = `$${p.price}`;
+                    if (priceElem) priceElem.textContent = `${p.price} DT`;
                     if (descElem) descElem.textContent = p.description || "Aucune description disponible.";
                     if (mainImg) mainImg.src = fullImagePath;
                     if (img1) img1.src = fullImagePath1;

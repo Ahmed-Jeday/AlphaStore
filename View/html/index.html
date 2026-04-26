@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome (icônes) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTTXRNb+XxE7uR6RvZJ5mX0BzCxYEBTPqM3Cr5oONZ/0f1LFrQPR6wFz32s1QSX5G/W4OKQq3A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="../css/promo-grid.css">
     <link rel="stylesheet" href="../css/run.css">
     <link rel="stylesheet" href="../css/elegant-ui.css">
-    <link rel="stylesheet" href="../css/feature-showcase.css">
+   
 
 
 
@@ -424,46 +424,93 @@
 
     <section class="new-arrivals section">
         <div class="container">
-            <h2 class="section-title">More new arrivals.</h2>
+            <div class="new-arrivals__header">
+                <div>
+                    <span class="new-arrivals__eyebrow">Fresh Drop</span>
+                    <h2 class="section-title">More new arrivals.</h2>
+                    <p class="new-arrivals__subtitle">Curated weekly picks with modern cuts, elevated comfort, and premium style.</p>
+                </div>
+                <a href="#" class="new-arrivals__cta">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide product">
-                        <img src="../img/img1.webp" alt="Mid Rise Easy Baggy Jeans">
-                        <p>Mid Rise UltraSoft Easy Baggy Jeans</p>
+                    <div class="swiper-slide">
+                        <article class="product">
+                            <span class="product-tag">New</span>
+                            <img src="../img/img1.webp" alt="Mid Rise Easy Baggy Jeans">
+                            <div class="product-meta">
+                                <p class="product-name">Mid Rise UltraSoft Easy Baggy Jeans</p>
+                                <span class="product-price">49.99 DT</span>
+                            </div>
+                        </article>
                     </div>
-                    <div class="swiper-slide product">
-                        <img src="../img/img2.webp" alt="Classic T-Shirt">
-                        <p>Classic T-Shirt</p>
+                    <div class="swiper-slide">
+                        <article class="product">
+                            <span class="product-tag">Trending</span>
+                            <img src="../img/img2.webp" alt="Classic T-Shirt">
+                            <div class="product-meta">
+                                <p class="product-name">Classic T-Shirt</p>
+                                <span class="product-price">24.99 DT</span>
+                            </div>
+                        </article>
                     </div>
-                    <div class="swiper-slide product">
-                        <img src="../img/img3jpg.webp" alt="Horseshoe Overalls">
-                        <p>UltraSoft Denim Horseshoe Overalls</p>
+                    <div class="swiper-slide">
+                        <article class="product">
+                            <span class="product-tag">New</span>
+                            <img src="../img/img3jpg.webp" alt="Horseshoe Overalls">
+                            <div class="product-meta">
+                                <p class="product-name">UltraSoft Denim Horseshoe Overalls</p>
+                                <span class="product-price">54.99 DT</span>
+                            </div>
+                        </article>
                     </div>
-                    <div class="swiper-slide product">
-                        <img src="../img/img4.webp" alt="Mix & Match Joggers">
-                        <p>Baby & Toddler Mix & Match Pull-On Joggers</p>
+                    <div class="swiper-slide">
+                        <article class="product">
+                            <span class="product-tag">Best Seller</span>
+                            <img src="../img/img4.webp" alt="Mix & Match Joggers">
+                            <div class="product-meta">
+                                <p class="product-name">Baby & Toddler Mix & Match Pull-On Joggers</p>
+                                <span class="product-price">29.99 DT</span>
+                            </div>
+                        </article>
                     </div>
-                    <div class="swiper-slide product">
-                        <img src="../img/img5.webp" alt="New Arrival 5">
-                        <p>Kids Collection Hoodie</p>
+                    <div class="swiper-slide">
+                        <article class="product">
+                            <span class="product-tag">New</span>
+                            <img src="../img/img5.webp" alt="Kids Collection Hoodie">
+                            <div class="product-meta">
+                                <p class="product-name">Kids Collection Hoodie</p>
+                                <span class="product-price">39.99 DT</span>
+                            </div>
+                        </article>
                     </div>
-                    <div class="swiper-slide product">
-                        <img src="../img/img6jpg.webp" alt="New Arrival 6">
-                        <p>Tech Collection Earbuds</p>
+                    <div class="swiper-slide">
+                        <article class="product">
+                            <span class="product-tag">Hot</span>
+                            <img src="../img/img6jpg.webp" alt="Tech Collection Earbuds">
+                            <div class="product-meta">
+                                <p class="product-name">Tech Collection Earbuds</p>
+                                <span class="product-price">69.99 DT</span>
+                            </div>
+                        </article>
                     </div>
-                    <div class="swiper-slide product">
-                        <img src="../img/img7.webp" alt="New Arrival 7">
-                        <p>Classic Summer Sunglasses</p>
+                    <div class="swiper-slide">
+                        <article class="product">
+                            <span class="product-tag">New</span>
+                            <img src="../img/img7.webp" alt="Classic Summer Sunglasses">
+                            <div class="product-meta">
+                                <p class="product-name">Classic Summer Sunglasses</p>
+                                <span class="product-price">34.99 DT</span>
+                            </div>
+                        </article>
                     </div>
                 </div>
-                <!-- Pagination -->
-                <div class="navigation">
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
 
-
+                <div class="new-arrivals__controls">
+                    <div class="swiper-button-prev new-arrivals-prev"></div>
+                    <div class="swiper-pagination new-arrivals__pagination"></div>
+                    <div class="swiper-button-next new-arrivals-next"></div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -480,7 +527,7 @@
 
             <div class="content">
                 <h2>Show some shoulder</h2>
-                <p>Hold Me Halter $24.99</p>
+                <p>Hold Me Halter 24.99 DT</p>
                 <a href="#" class="btn">Shop now</a>
             </div>
         </div>
@@ -489,7 +536,7 @@
             style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('../img/habit\ traditionnel\ tunisien.jpg');">
             <div class="content">
                 <h2>Every fit, ever</h2>
-                <p>Shorts from $29.99</p>
+                <p>Shorts from 29.99 DT</p>
                 <a href="#" class="btn">Shop shorts</a>
             </div>
         </div>
@@ -510,7 +557,7 @@
             style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('https://images.unsplash.com/photo-1506634572416-48cdfe530110?q=80&w=1000&auto=format&fit=crop');">
             <div class="content">
                 <h2>Destination swim</h2>
-                <p>Stretch swim short $39.99</p>
+                <p>Stretch swim short 39.99 DT</p>
                 <a href="#" class="btn">Shop shorts</a>
             </div>
         </div>
@@ -567,7 +614,7 @@
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star-half-stroke"></i></div>
-                        <div class="product-price"><del>$125.00</del><span>$105.00</span></div>
+                        <div class="product-price"><del>125.00 DT</del><span>105.00 DT</span></div>
                         <button class="btn btn-primary add-cart">Add to Cart</button>
                     </div>
                 </div>
@@ -581,7 +628,7 @@
                         <h4>Puma Casual T-Shirt</h4>
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <div class="product-price"><del>$80.00</del><span>$65.00</span></div>
+                        <div class="product-price"><del>80.00 DT</del><span>65.00 DT</span></div>
                         <button class="btn btn-primary add-cart">Add to Cart</button>
                     </div>
                 </div>
@@ -596,7 +643,7 @@
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i></div>
-                        <div class="product-price"><del>$35.00</del><span>$25.00</span></div>
+                        <div class="product-price"><del>35.00 DT</del><span>25.00 DT</span></div>
                         <button class="btn btn-primary add-cart">Add to Cart</button>
                     </div>
                 </div>
@@ -611,7 +658,7 @@
                         <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i></div>
-                        <div class="product-price"><del>$215.00</del><span>$210.00</span></div>
+                        <div class="product-price"><del>215.00 DT</del><span>210.00 DT</span></div>
                         <button class="btn btn-primary add-cart">Add to Cart</button>
                     </div>
                 </div>
@@ -651,7 +698,7 @@
                             <div class="co-card__info">
                                 <div class="co-card__collection text-mask"><span>Men's Original</span></div>
                                 <div class="co-card__title text-mask"><span>Nike Air Force</span></div>
-                                <div class="co-card__price text-mask"><span>$150.00</span></div>
+                                <div class="co-card__price text-mask"><span>150.00 DT</span></div>
                             </div>
                         </div>
                     </div>
@@ -667,7 +714,7 @@
                             <div class="co-card__info">
                                 <div class="co-card__collection text-mask"><span>Jordans</span></div>
                                 <div class="co-card__title text-mask"><span>Nike Air Jordan</span></div>
-                                <div class="co-card__price text-mask"><span>$249.99</span></div>
+                                <div class="co-card__price text-mask"><span>249.99 DT</span></div>
                             </div>
                         </div>
                     </div>
@@ -683,7 +730,7 @@
                             <div class="co-card__info">
                                 <div class="co-card__collection text-mask"><span>Purple Rain</span></div>
                                 <div class="co-card__title text-mask"><span>Nike Air Max</span></div>
-                                <div class="co-card__price text-mask"><span>$150.00</span></div>
+                                <div class="co-card__price text-mask"><span>150.00 DT</span></div>
                             </div>
                         </div>
                     </div>
@@ -699,7 +746,7 @@
                             <div class="co-card__info">
                                 <div class="co-card__collection text-mask"><span>Men's Original</span></div>
                                 <div class="co-card__title text-mask"><span>Nike Air Force</span></div>
-                                <div class="co-card__price text-mask"><span>$150.00</span></div>
+                                <div class="co-card__price text-mask"><span>150.00 DT</span></div>
                             </div>
                         </div>
                     </div>
@@ -731,183 +778,6 @@
     </section>
 
 
- <section class="feature-showcase" data-debug="false" data-theme="dark">
-    <header class="product-header">
-      <div class="product-header__badge">Nouveau</div>
-      <h1 class="product-header__title">iPhone 16 Pro Max</h1>
-      <p class="product-header__subtitle">Titanium. Pro. Puissant.</p>
-      <div class="product-header__price">
-        <span class="product-header__price-value">1 199 €</span>
-        <span class="product-header__price-note">ou 49,96 €/mois</span>
-      </div>
-    </header>
-
-    <main class="feature-showcase__main">
-      <section class="feature-showcase__content">
-        <div class="feature-showcase__column feature-showcase__column--left">
-
-          <details name="feature" class="feature-showcase__detail" open>
-            <summary class="feature-showcase__summary">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="feature-showcase__icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5m14.108-11.396c.251.023.501.05.75.082M19.5 3.104c.251.023.501.05.75.082m0 0v5.714a2.25 2.25 0 0 1-.659 1.591L19.5 14.5M14.25 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5"/>
-              </svg>
-              <span class="feature-showcase__label">Design & Finitions</span>
-            </summary>
-            <div class="feature-showcase__content-box">
-              <p>Châssis en titane grade 5, finition mate texturée. Ceramic Shield de nouvelle génération. IP68 (6m, 30min). Disponible en Black Titanium, White Titanium, Natural Titanium et Desert Titanium. Dimensions : 163 × 77,6 × 8,3 mm — 227 g.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">Titanium Grade 5</span>
-                <span class="feature-tag">IP68</span>
-                <span class="feature-tag">227 g</span>
-              </div>
-            </div>
-          </details>
-
-          <details name="feature" class="feature-showcase__detail">
-            <summary class="feature-showcase__summary">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="feature-showcase__icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm2.25-2.25h.008v.008h-.008V10.5Z"/>
-              </svg>
-              <span class="feature-showcase__label">Système Photo Pro</span>
-            </summary>
-            <div class="feature-showcase__content-box">
-              <p>Triple capteur : 48 MP Fusion (f/1.78, OIS), 48 MP Ultra Grand-Angle (f/2.2, 120°), 12 MP Téléobjectif 5x (f/2.8, 120mm). Zoom optique 5×, zoom numérique 25×. LiDAR Scanner, Photonic Engine, Smart HDR 5. Contrôle Caméra physique.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">48 MP Triple</span>
-                <span class="feature-tag">5× Optique</span>
-                <span class="feature-tag">LiDAR</span>
-                <span class="feature-tag">ProRes 4K120</span>
-              </div>
-            </div>
-          </details>
-
-          <details name="feature" class="feature-showcase__detail">
-            <summary class="feature-showcase__summary">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="feature-showcase__icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"/>
-              </svg>
-              <span class="feature-showcase__label">Écran Super Retina XDR</span>
-            </summary>
-            <div class="feature-showcase__content-box">
-              <p>OLED 6,9" (2868×1320, 460 ppi). ProMotion 120 Hz adaptatif. HDR, Dolby Vision. 2000 nits en plein soleil. Always-On Display. Dynamic Island. True Tone. Ceramic Shield 2024. Ratio 19,5:9, 91,4% screen-to-body.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">6,9" OLED</span>
-                <span class="feature-tag">120 Hz</span>
-                <span class="feature-tag">2000 nits</span>
-                <span class="feature-tag">Dynamic Island</span>
-              </div>
-            </div>
-          </details>
-
-          <details name="feature" class="feature-showcase__detail">
-            <summary class="feature-showcase__summary">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="feature-showcase__icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/>
-              </svg>
-              <span class="feature-showcase__label">Puce A18 Pro</span>
-            </summary>
-            <div class="feature-showcase__content-box">
-              <p>Apple A18 Pro gravé en 3 nm. CPU 6 cœurs (2 perf. 4,05 GHz + 4 eff. 2,42 GHz). GPU 6 cœurs. Neural Engine 16 cœurs. Apple Intelligence intégrée. Geekbench : 3425 single-core, 8510 multi-core. AnTuTu v11 : 1 740 422.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">3 nm</span>
-                <span class="feature-tag">6 cœurs CPU</span>
-                <span class="feature-tag">Apple Intelligence</span>
-                <span class="feature-tag">8 Go RAM</span>
-              </div>
-            </div>
-          </details>
-
-          <details name="feature" class="feature-showcase__detail">
-            <summary class="feature-showcase__summary">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="feature-showcase__icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5H18.75M4.5 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H4.5M3.75 18h15M3.75 18a2.25 2.25 0 0 1-2.25-2.25V6.75A2.25 2.25 0 0 1 3.75 4.5h15a2.25 2.25 0 0 1 2.25 2.25v8.25a2.25 2.25 0 0 1-2.25 2.25H3.75Z"/>
-              </svg>
-              <span class="feature-showcase__label">Batterie & Charge</span>
-            </summary>
-            <div class="feature-showcase__content-box">
-              <p>4685 mAh Li-Ion. Jusqu'à 33 h de lecture vidéo, 105 h audio. Charge rapide : 50% en 30 min. MagSafe 25 W, Qi2 15 W. USB-C 3.2 Gen 2 (10 Gb/s, DisplayPort). Charge inversée 4,5 W. 4 micros studio.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">4685 mAh</span>
-                <span class="feature-tag">MagSafe 25W</span>
-                <span class="feature-tag">USB-C 10Gb/s</span>
-                <span class="feature-tag">33h Vidéo</span>
-              </div>
-            </div>
-          </details>
-
-          <div class="product-cta">
-            <button class="product-cta__button product-cta__button--primary">Ajouter au panier</button>
-            <button class="product-cta__button product-cta__button--secondary">En savoir plus</button>
-          </div>
-        </div>
-
-        <div class="feature-showcase__column feature-showcase__column--right">
-          <div class="feature-showcase__img-block">
-            <div class="feature-showcase__img-wrapper">
-              <img src="https://iplanet.one/cdn/shop/files/iPhone_16_Pro_Max_Desert_Titanium_PDP_Image_Position_1__en-IN_bd12d9b7-b81f-4671-a04e-e27d77c026ad.jpg?v=1727250983&width=1445" alt="iPhone 16 Pro Max Desert Titanium — Vue d'ensemble" />
-            </div>
-          </div>
-          <div class="feature-showcase__img-block">
-            <div class="feature-showcase__img-wrapper">
-              <img src="https://petapixel.com/assets/uploads/2024/09/Apple-iPhone-16-Pro-camera-system-240909-800x534.jpg" alt="iPhone 16 Pro Max — Système caméra triple 48 MP" />
-            </div>
-          </div>
-          <div class="feature-showcase__img-block">
-            <div class="feature-showcase__img-wrapper">
-              <img src="https://www.cnet.com/a/img/resize/d29633b3d92e27c5495615a0691b0b4bbb37c95a/hub/2024/09/17/6e811a15-07d0-443a-b096-28f0121433fa/apple-iphone-16-pro-max-apple-intelligence-siri-halo-glow-4713.jpg?auto=webp&width=1200" alt="iPhone 16 Pro Max — Écran Super Retina XDR 6,9 pouces" />
-            </div>
-          </div>
-          <div class="feature-showcase__img-block">
-            <div class="feature-showcase__img-wrapper">
-              <img src="https://photos5.appleinsider.com/gallery/60775-125105-iPhone-16-Pro-Max-Camera-xl.jpg" alt="iPhone 16 Pro Max — Gros plan sur le module photo" />
-            </div>
-          </div>
-          <div class="feature-showcase__img-block">
-            <div class="feature-showcase__img-wrapper">
-              <img src="https://guide-images.cdn.ifixit.com/igi/EQ6V3NbcxXDY1KZ2.medium" alt="iPhone 16 Pro Max — Connectique USB-C et finition titane" />
-            </div>
-          </div>
-          <div class="feature-showcase__img-block">
-            <div class="feature-showcase__img-wrapper">
-              <img src="https://img.freepik.com/premium-vector/apple-iphone-16-pro-max-silver-isolated-white-background_570051-847.jpg" alt="iPhone 16 Pro Max — Design avant et arrière" />
-            </div>
-          </div>
-        </div>
-
-        <button aria-hidden="true" tabindex="-1" data-action="next" class="feature-showcase__button">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="feature-showcase__button-icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-          </svg>
-        </button>
-        <button aria-hidden="true" tabindex="-1" data-action="previous" class="feature-showcase__button">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="feature-showcase__button-icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-          </svg>
-        </button>
-        <button aria-hidden="true" tabindex="-1" data-action="exit" class="feature-showcase__button">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="feature-showcase__button-icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-          </svg>
-        </button>
-      </section>
-    </main>
-
-    <div class="product-meta">
-      <div class="product-meta__item">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="product-meta__icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
-        <span>Garantie 2 ans</span>
-      </div>
-      <div class="product-meta__item">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="product-meta__icon"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
-        <span>Livraison gratuite</span>
-      </div>
-      <div class="product-meta__item">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="product-meta__icon"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
-        <span>Retour 30 jours</span>
-      </div>
-    </div>
-  </section>
 
 
 
@@ -1221,12 +1091,9 @@
     </script>
     <script src="../javaScript/carts.js"></script>
     <script src="../javaScript/chatbot.js"></script>
-<<<<<<< HEAD
-    
-=======
-    <script type="module" src="../javaScript/feature-showcase.js"></script>
 
->>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68
+    
+
 </body>
 
 </html>

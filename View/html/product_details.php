@@ -621,8 +621,8 @@ session_start();
     <h1 class="product-title">Adult Heavyweight Relaxed T-Shirt</h1>
 
     <div class="price-row">
-      <span class="price-original">CA$54.95</span>
-      <span class="price-current">CA$49.00</span>
+      <span class="price-original">54.95 DT</span>
+      <span class="price-current">49.00 DT</span>
     </div>
     <p class="promo-code">Extra 10% off with code <strong>ADD10</strong></p>
 
@@ -677,7 +677,7 @@ session_start();
     <div class="shipping-grid">
       <div class="shipping-card">
         <p class="sh-title">Free fast shipping</p>
-        <p>on $50+ for Rewards Members.<br><a href="#">Sign in</a> or <a href="#">Join</a></p>
+        <p>on 50 DT+ for Rewards Members.<br><a href="#">Sign in</a> or <a href="#">Join</a></p>
       </div>
       <div class="shipping-card">
         <p class="sh-title">In-store pickup</p>
@@ -745,7 +745,7 @@ session_start();
       </button>
       <div class="accordion-body">
         <ul>
-          <li>Free standard shipping on orders over $50.</li>
+          <li>Free standard shipping on orders over 50 DT.</li>
           <li>Free returns within 30 days of purchase.</li>
           <li>Final sale items cannot be returned or exchanged.</li>
         </ul>
@@ -763,8 +763,8 @@ session_start();
       <div style="width:100%;aspect-ratio:3/4;background:#2a2a2a;margin-bottom:8px"></div>
       <p class="rc-name">Adult Relaxed T-Shirt</p>
       <div class="rc-prices">
-        <span class="rc-orig">CA$44.95</span>
-        <span class="rc-sale">CA$32.00</span>
+        <span class="rc-orig">44.95 DT</span>
+        <span class="rc-sale">32.00 DT</span>
         <span class="rc-badge">30% off</span>
       </div>
     </div>
@@ -772,8 +772,8 @@ session_start();
       <div style="width:100%;aspect-ratio:3/4;background:#3a3a3a;margin-bottom:8px"></div>
       <p class="rc-name">Heavyweight Crewneck Zip Pullover</p>
       <div class="rc-prices">
-        <span class="rc-orig">CA$109.95</span>
-        <span class="rc-sale">CA$76.00</span>
+        <span class="rc-orig">109.95 DT</span>
+        <span class="rc-sale">76.00 DT</span>
         <span class="rc-badge">30% off</span>
       </div>
     </div>
@@ -781,8 +781,8 @@ session_start();
       <div style="width:100%;aspect-ratio:3/4;background:#c8b98a;margin-bottom:8px"></div>
       <p class="rc-name">Adult Original T-Shirt</p>
       <div class="rc-prices">
-        <span class="rc-orig">CA$44.95</span>
-        <span class="rc-sale">CA$32.00</span>
+        <span class="rc-orig">44.95 DT</span>
+        <span class="rc-sale">32.00 DT</span>
         <span class="rc-badge">30% off</span>
       </div>
     </div>
@@ -790,8 +790,8 @@ session_start();
       <div style="width:100%;aspect-ratio:3/4;background:#5a7ab0;margin-bottom:8px"></div>
       <p class="rc-name">'90s Loose Jeans</p>
       <div class="rc-prices">
-        <span class="rc-orig">CA$89.95</span>
-        <span class="rc-sale">CA$63.00</span>
+        <span class="rc-orig">89.95 DT</span>
+        <span class="rc-sale">63.00 DT</span>
         <span class="rc-badge">30% off</span>
       </div>
     </div>
@@ -799,8 +799,8 @@ session_start();
       <div style="width:100%;aspect-ratio:3/4;background:#4a5e3a;margin-bottom:8px"></div>
       <p class="rc-name">Adult Relaxed T-Shirt</p>
       <div class="rc-prices">
-        <span class="rc-orig">CA$44.95</span>
-        <span class="rc-sale">CA$32.00</span>
+        <span class="rc-orig">44.95 DT</span>
+        <span class="rc-sale">32.00 DT</span>
         <span class="rc-badge">30% off</span>
       </div>
     </div>
@@ -953,7 +953,7 @@ session_start();
                 
                 // Mise à jour des textes
                 document.querySelector('.product-title').textContent = product.name;
-                document.querySelector('.price-current').textContent = `$${product.price}`;
+                document.querySelector('.price-current').textContent = `${product.price} DT`;
                 
                 // Update Breadcrumb
                 const breadcrumb = document.querySelector('.breadcrumb');

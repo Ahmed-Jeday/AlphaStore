@@ -56,6 +56,7 @@ require_once("../../Controller/CartController.php");
 
 
     </header>
+      <div id="chatbot"></div>
     
 
 
@@ -178,9 +179,9 @@ require_once("../../Controller/CartController.php");
             <h4 class="filter-title">Price</h4>
             <ul class="filter-list" id="priceFilterList">
                 <li><a href="#" data-price="all" class="active-filter">All</a></li>
-                <li><a href="#" data-price="0-50">$0.00 - $50.00</a></li>
-                <li><a href="#" data-price="50-100">$50.00 - $100.00</a></li>
-                <li><a href="#" data-price="100-200">$100.00 - $200.00</a></li>
+                <li><a href="#" data-price="0-50">0.00 DT - 50.00 DT</a></li>
+                <li><a href="#" data-price="50-100">50.00 DT - 100.00 DT</a></li>
+                <li><a href="#" data-price="100-200">100.00 DT - 200.00 DT</a></li>
             </ul>
         </div>
         <div class="filter-column">
@@ -226,7 +227,7 @@ require_once("../../Controller/CartController.php");
 
                 <div class="modal-details">
                     <h2 class="product-title">Lightweight Jacket</h2>
-                    <p class="product-price">$58.79</p>
+                    <p class="product-price">58.79 DT</p>
                     
                     <p class="product-description">
                         Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
@@ -464,7 +465,7 @@ function createProductCard(p) {
         <div class="product-info-block">
             <div class="product-text">
                 <a href="product_details.php?id=${p.id}" class="product-title">${p.name}</a>
-                <span class="product-price">$${p.price}</span>
+                <span class="product-price">${p.price} DT</span>
             </div> 
             <div class="product-actions-icons" style="display: flex; gap: 12px; align-items: center;">
                 <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
@@ -507,7 +508,7 @@ function createProductCard(p) {
                 const idElem = modal.querySelector('.id');
 
                 if (titleElem) titleElem.textContent = p.name;
-                if (priceElem) priceElem.textContent = `$${p.price}`;
+                if (priceElem) priceElem.textContent = `${p.price} DT`;
                 if (descElem) descElem.textContent = p.description || "Aucune description disponible.";
                 if (mainImg) mainImg.src = fullImagePath;
                 if (img1) img1.src = fullImagePath1;

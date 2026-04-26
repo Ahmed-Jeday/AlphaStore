@@ -64,10 +64,24 @@ function doSubmit(text) {
   appendMessage('user', userText);
   isLoading = true;
   
-  setTimeout(function(){
+  // Appel à l'API backend (PHP)
+  fetch('../../index.php?action=chatbot', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ message: userText })
+  })
+  .then(response => response.json())
+  .then(data => {
     isLoading = false;
-    appendMessage('ai', findMockResponse(userText));
-  }, 1500);
+    appendMessage('ai', data.response);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    isLoading = false;
+    appendMessage('ai', "Désolé, une erreur s'est produite lors de la connexion à l'IA.");
+  });
 }
 
 function appendMessage(type, content) {

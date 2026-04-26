@@ -591,7 +591,7 @@ header("Expires: 0"); // Proxies.
             <div class="logo">AlphaStore</div>
             
             <nav class="main-links">
-                <a href="Adult.php">Women</a>
+                <a href="Women1.html">Women</a>
                 <a href="Men1.html">Men</a>
                 <a href="#">Kids</a>
                 <a href="#">Technologie</a>
@@ -625,7 +625,7 @@ header("Expires: 0"); // Proxies.
         <div class="totale">
             <div class="total-title">
                 <h3>Total:</h3>
-                <span class="total-price">$11.00</span>
+                <span class="total-price">11.00 DT</span>
             </div>
             <button class="checkout-btn">ORDER NOW</button>
             <i class="ri-close-large-fill " id="close-cart"></i>

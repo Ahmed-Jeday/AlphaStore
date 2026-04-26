@@ -5,13 +5,13 @@ const swiper = new Swiper(".mySwiper", {
     loop: true,
 
     pagination: {
-        el: ".swiper-pagination",
+        el: ".new-arrivals__pagination",
         clickable: true,
     },
 
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".new-arrivals-next",
+        prevEl: ".new-arrivals-prev",
     },
 
     breakpoints: {

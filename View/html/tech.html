@@ -427,11 +427,11 @@
                     <h4 class="filter-title">Price</h4>
                     <ul class="filter-list">
                         <li><a href="#" class="active-filter">All</a></li>
-                        <li><a href="#">$0.00 - $50.00</a></li>
-                        <li><a href="#">$50.00 - $100.00</a></li>
-                        <li><a href="#">$100.00 - $150.00</a></li>
-                        <li><a href="#">$150.00 - $200.00</a></li>
-                        <li><a href="#">$200.00+</a></li>
+                        <li><a href="#">0.00 DT - 50.00 DT</a></li>
+                        <li><a href="#">50.00 DT - 100.00 DT</a></li>
+                        <li><a href="#">100.00 DT - 150.00 DT</a></li>
+                        <li><a href="#">150.00 DT - 200.00 DT</a></li>
+                        <li><a href="#">200.00 DT+</a></li>
                     </ul>
                 </div>
 
@@ -497,7 +497,7 @@
 
                     <div class="modal-details">
                         <h2 class="product-title">Lightweight Jacket</h2>
-                        <p class="product-price">$58.79</p>
+                        <p class="product-price">58.79 DT</p>
 
                         <p class="product-description">
                             Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare
@@ -562,7 +562,7 @@
                     <h2 class="heading-style-2">Apple AirPods Max Wireless Over-Ear Headphones.</h2>
                     <p>Active Noise Cancelling, Transparency Mode, Spatial Audio, Digital Crown for Volume Control.
                         Bluetooth Headphones for iPhone</p>
-                    <h3 class="heading-style-2">$699.99</h3>
+                    <h3 class="heading-style-2">699.99 DT</h3>
                     <div class="social-icons">
                         <a href="#"><img src="../Images/instagram.svg" alt="instagram"></a>
                         <a href="#"><img src="../Images/facebook.svg" alt="facebook"></a>
@@ -790,7 +790,7 @@
             <div class="product-info-block">
                 <div class="product-text">
                     <a href="product_details.php?id=${p.id}&type=tech" class="product-title">${p.name}</a>
-                    <span class="product-price">$${p.price}</span>
+                    <span class="product-price">${p.price} DT</span>
                 </div> 
                 <div class="product-actions">
                     <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
@@ -860,7 +860,7 @@
                     const idElem = modal.querySelector('.id');
 
                     if (titleElem) titleElem.textContent = p.name;
-                    if (priceElem) priceElem.textContent = `$${p.price}`;
+                    if (priceElem) priceElem.textContent = `${p.price} DT`;
                     if (descElem) descElem.textContent = p.description || "Aucune description disponible.";
                     if (mainImg) mainImg.src = fullImagePath;
                     
@@ -1015,11 +1015,11 @@
                 else if (title.includes('price')) {
                     if (val === 'All') currentPriceRange = 'all';
                     else {
-                        // Extract min-max from "$50.00 - $100.00" or "$200.00+"
-                        const matches = val.match(/\$(\d+)/g);
+                        // Extract min-max from "50.00 DT - 100.00 DT" or "200.00 DT+"
+                        const matches = val.match(/\d+(\.\d+)?/g);
                         if (matches) {
-                            const min = matches[0].replace('$', '');
-                            const max = matches[1] ? matches[1].replace('$', '') : '999999';
+                            const min = matches[0];
+                            const max = matches[1] ? matches[1] : '999999';
                             currentPriceRange = `${min}-${max}`;
                         }
                     }

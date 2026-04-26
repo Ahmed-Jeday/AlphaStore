@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="product-info-block">
                         <div class="product-text">
                             <a href="#" class="product-title">${p.name}</a>
-                            <span class="product-price">$${p.price.toFixed(2)}</span>
+                            <span class="product-price">${p.price.toFixed(2)} DT</span>
                         </div>
                         <div class="product-actions">
                             <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
         productGrid.innerHTML = productsArr.map(p => `
                 <div class="product-item" data-category="${p.category}">
                     <div class="product-img-block"><img src="${p.img}" alt="${p.name}"><button class="quick-view-btn">Quick View</button></div>
-                    <div class="product-info-block"><div class="product-text"><a href="#" class="product-title">${p.name}</a><span class="product-price">$${p.price.toFixed(2)}</span></div><div class="product-actions"><i class="far fa-heart heart-icon"></i></div></div>
+                    <div class="product-info-block"><div class="product-text"><a href="#" class="product-title">${p.name}</a><span class="product-price">${p.price.toFixed(2)} DT</span></div><div class="product-actions"><i class="far fa-heart heart-icon"></i></div></div>
                 </div>
             `).join('');
         attachQuickViewEvents(); attachHeartEvents();

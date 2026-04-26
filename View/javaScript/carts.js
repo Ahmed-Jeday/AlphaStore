@@ -60,12 +60,12 @@ const updatePrice = () => {
         const priceElement = item.querySelector('.item-price');
         const quantityElement = item.querySelector('.quantity');
         if (priceElement && quantityElement) {
-            const price = parseFloat(priceElement.textContent.replace('$', ''));
+            const price = parseFloat(priceElement.textContent.replace('DT', '').trim());
             const quantity = parseInt(quantityElement.textContent);
             total += price * quantity;
         }
     });
-    totalPriceElement.textContent = `$${total.toFixed(2)}`;
+    totalPriceElement.textContent = `${total.toFixed(2)} DT`;
 };
 
 // --- Update Cart Badge Count ---
@@ -268,7 +268,7 @@ const loadCartItems = async () => {
                     <div class="item-details">
                         <input type="hidden" class="product-id" value="${item.produit_id}">
                         <h3 class="item-title">${item.name}</h3>
-                        <p class="item-price">$${item.price}</p>
+                        <p class="item-price">${item.price} DT</p>
                         <div class="quantity-controls">
                             <button class="decrease-qty">-</button>
                             <span class="quantity">${item.quantite}</span>

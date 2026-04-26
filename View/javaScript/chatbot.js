@@ -1,19 +1,19 @@
 
 // ---------- PRODUCT SETS ----------
 const PRODUCT_SET_1 = [
-    { name: "Sundress", price: "$89.99", desc: "Flowy & lightweight", img: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=140&h=110&fit=crop" },
-    { name: "Floral Midi", price: "$75.00", desc: "Vibrant pattern", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=140&h=110&fit=crop" },
-    { name: "Linen Dress", price: "$69.99", desc: "Breathable eco", img: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=140&h=110&fit=crop" }
+    { name: "Sundress", price: "89.99 DT", desc: "Flowy & lightweight", img: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=140&h=110&fit=crop" },
+    { name: "Floral Midi", price: "75.00 DT", desc: "Vibrant pattern", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=140&h=110&fit=crop" },
+    { name: "Linen Dress", price: "69.99 DT", desc: "Breathable eco", img: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=140&h=110&fit=crop" }
 ];
 const PRODUCT_SET_2 = [
-    { name: "Chic Sundress", price: "$94.99", desc: "Elegant silhouette", img: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=140&h=110&fit=crop" },
-    { name: "Boho Romper", price: "$82.00", desc: "Free-spirited", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=140&h=110&fit=crop" },
-    { name: "Silk Slip", price: "$99.00", desc: "Luxury satin", img: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=140&h=110&fit=crop" }
+    { name: "Chic Sundress", price: "94.99 DT", desc: "Elegant silhouette", img: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=140&h=110&fit=crop" },
+    { name: "Boho Romper", price: "82.00 DT", desc: "Free-spirited", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=140&h=110&fit=crop" },
+    { name: "Silk Slip", price: "99.00 DT", desc: "Luxury satin", img: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=140&h=110&fit=crop" }
 ];
 const PRODUCT_SET_3 = [
-    { name: "Tropical Maxi", price: "$89.00", desc: "Vacation vibes", img: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=140&h=110&fit=crop" },
-    { name: "Crochet Dress", price: "$79.99", desc: "Handmade details", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=140&h=110&fit=crop" },
-    { name: "Cotton Shirtdress", price: "$68.50", desc: "Everyday staple", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=140&h=110&fit=crop" }
+    { name: "Tropical Maxi", price: "89.00 DT", desc: "Vacation vibes", img: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=140&h=110&fit=crop" },
+    { name: "Crochet Dress", price: "79.99 DT", desc: "Handmade details", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=140&h=110&fit=crop" },
+    { name: "Cotton Shirtdress", price: "68.50 DT", desc: "Everyday staple", img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=140&h=110&fit=crop" }
 ];
 
 // ----- Bag state (items the user adds via "VIEW ITEM" in chat carousels)
@@ -210,7 +210,7 @@ function renderBag() {
     let total = 0;
     let itemsHtml = '';
     bagItems.forEach((item, idx) => {
-        const priceNum = parseFloat(item.price.replace('$', ''));
+        const priceNum = parseFloat(item.price.replace('DT', '').trim());
         total += priceNum;
         itemsHtml += `
                     <div class="bag-item">
@@ -227,7 +227,7 @@ function renderBag() {
                 <div class="section-title"><i class="fas fa-shopping-bag"></i> Your Bag (${bagItems.length})</div>
                 <div class="info-card" style="padding: 12px;">
                     ${itemsHtml}
-                    <div class="total-price">Total: $${total.toFixed(2)}</div>
+                    <div class="total-price">Total: ${total.toFixed(2)} DT</div>
                 </div>
                 <div class="back-to-chat" id="backToChatBtn"><i class="fas fa-arrow-left"></i> Back to chat</div>
             `;
@@ -358,7 +358,7 @@ function sendUserMessage() {
 function initConversation() {
     messages = [];
     addMessage('ai', 'Hello! How can I help you today?', null);
-    addMessage('user', "I'm looking for a stylish summer dress under $100.");
+    addMessage('user', "I'm looking for a stylish summer dress under 100 DT.");
     addMessage('ai', "Aria: Absolutely! Check out these top picks:", PRODUCT_SET_1);
 }
 

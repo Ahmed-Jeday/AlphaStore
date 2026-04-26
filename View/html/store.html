@@ -57,7 +57,7 @@
           <h4>Price Range</h4>
           <input type="range" min="0" max="300" value="300" class="price-slider" id="priceRange"/>
           <div class="price-labels">
-            <span>$0</span><span id="priceVal">$300</span>
+            <span>0 DT</span><span id="priceVal">300 DT</span>
           </div>
         </div>
         <div class="filter-block">
@@ -163,7 +163,7 @@
   // Price range
   const slider = document.getElementById('priceRange');
   const priceVal = document.getElementById('priceVal');
-  slider?.addEventListener('input', () => priceVal.textContent = '$' + slider.value);
+  slider?.addEventListener('input', () => priceVal.textContent = slider.value + ' DT');
 
   // Category filter
   document.querySelectorAll('.filter-list li').forEach(li => {

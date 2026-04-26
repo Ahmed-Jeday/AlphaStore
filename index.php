@@ -116,6 +116,11 @@ if ($action === "updateQuantity") {
     updateQuantity($_POST["productID"], $_POST["quantity"]);
     exit;
 }
+if ($action === "chatbot") {
+    require_once(__DIR__ . "/Controller/ChatbotController.php");
+    handleChat();
+    exit;
+}
 if ($action === "verif_code") {
     require_once(__DIR__ . "/Controller/AuthController.php");
     $result = verifOTP($_POST["email"], $_POST["code"]);
