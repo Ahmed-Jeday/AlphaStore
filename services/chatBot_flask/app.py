@@ -21,10 +21,33 @@ HEADERS = {
 # ================== TON CATALOGUE DE 100 PRODUITS ==================
 # Remplace cette liste par tes 100 vrais produits
 PRODUCTS = [
-    {"id": 1, "name": "Smartphone Samsung Galaxy S25", "price": 899.99, "category": "Téléphonie", "description": "Écran 6.8\", 256Go, caméra 200MP"},
-    {"id": 2, "name": "Ordinateur Portable Dell XPS 14", "price": 1499.99, "category": "Informatique", "description": "Intel Core Ultra, 16Go RAM, SSD 1To"},
-    # ... Ajoute ici les 98 autres produits
+  {"id": 1, "name": "MacBook Pro M3 Pro 14\"", "price": 2499.99, "category": "Ordinateurs", "description": "Ordinateur portable Apple avec puce M3 Pro, 18 Go de RAM, 512 Go SSD, écran Liquid Retina XDR"},
+  {"id": 2, "name": "iPhone 16 Pro Max", "price": 1479.99, "category": "Smartphones", "description": "Smartphone Apple avec écran Super Retina XDR 6,9\", caméra 48 MP, Titanium Design"},
+  {"id": 3, "name": "Samsung Galaxy S25 Ultra", "price": 1399.99, "category": "Smartphones", "description": "Smartphone Android haut de gamme avec stylet S Pen, zoom 100x et IA Galaxy"},
+  {"id": 4, "name": "Sony WH-1000XM6", "price": 429.99, "category": "Audio", "description": "Casque audio sans fil à réduction de bruit active leader du marché"},
+  {"id": 5, "name": "Dell XPS 14 (2026)", "price": 1899.99, "category": "Ordinateurs", "description": "Ultrabook premium avec écran OLED 3.2K, Intel Core Ultra 7, 32 Go RAM"},
+  {"id": 6, "name": "Logitech MX Master 3S", "price": 99.99, "category": "Périphériques", "description": "Souris sans fil ergonomique pour professionnels avec capteur 8000 DPI"},
+  {"id": 7, "name": "Samsung 49\" Odyssey G9 OLED", "price": 1499.99, "category": "Écrans", "description": "Écran gaming ultra-large 49 pouces, courbé, 240Hz, Dual QHD"},
+  {"id": 8, "name": "Apple AirPods Max 2", "price": 599.99, "category": "Audio", "description": "Casque audio supra-auriculaire premium avec audio spatial et ANC"},
+  {"id": 9, "name": "DJI Mini 4 Pro", "price": 759.99, "category": "Drones", "description": "Drone compact avec caméra 4K 60fps, transmission O4 et détection d'obstacles"},
+  {"id": 10, "name": "NVIDIA RTX 5090 Founders Edition", "price": 2499.99, "category": "Composants", "description": "Carte graphique haut de gamme Blackwell avec 32 Go GDDR7"},
+  {"id": 11, "name": "Google Pixel 9 Pro XL", "price": 1099.99, "category": "Smartphones", "description": "Smartphone avec IA Gemini avancée, écran 6,8\" et appareil photo exceptionnel"},
+  {"id": 12, "name": "ASUS ROG Zephyrus G16", "price": 1799.99, "category": "Ordinateurs", "description": "PC portable gaming ultrafin avec RTX 4070 et écran 240Hz"},
+  {"id": 13, "name": "Apple Watch Ultra 3", "price": 899.99, "category": "Wearables", "description": "Montre connectée extrême avec GPS double fréquence et autonomie 36h"},
+  {"id": 14, "name": "Sony A7R V", "price": 3899.99, "category": "Photo", "description": "Appareil photo hybride plein format 61 MP avec stabilisation 8 stops"},
+  {"id": 15, "name": "Razer BlackWidow V4 Pro", "price": 229.99, "category": "Périphériques", "description": "Clavier mécanique gaming RGB avec switches Orange tactiles"},
+  {"id": 16, "name": "Samsung Galaxy Tab S10 Ultra", "price": 1199.99, "category": "Tablettes", "description": "Tablette Android 14,8\" avec S Pen incluse et puce Snapdragon 8 Gen 4"},
+  {"id": 17, "name": "Bose QuietComfort Ultra", "price": 429.99, "category": "Audio", "description": "Casque à réduction de bruit la plus performante de Bose"},
+  {"id": 18, "name": "Lenovo ThinkPad X1 Carbon Gen 13", "price": 1699.99, "category": "Ordinateurs", "description": "Ultrabook professionnel léger et ultra-résistant"},
+  {"id": 19, "name": "GoPro Hero 13 Black", "price": 399.99, "category": "Photo", "description": "Caméra d'action 5.3K avec HyperSmooth 6.0 et batteries longue durée"},
+  {"id": 20, "name": "AMD Ryzen 9 9950X3D", "price": 699.99, "category": "Composants", "description": "Processeur gaming 16 cœurs avec 3D V-Cache de nouvelle génération"},
+  {"id": 21, "name": "Microsoft Surface Laptop 7", "price": 1299.99, "category": "Ordinateurs", "description": "Ultrabook avec Snapdragon X Elite, écran tactile PixelSense 13.8\""},
+  {"id": 22, "name": "OnePlus 13", "price": 899.99, "category": "Smartphones", "description": "Smartphone flagship avec charge ultra-rapide 100W et écran 120Hz fluide"},
+  {"id": 23, "name": "Keychron Q1 HE", "price": 189.99, "category": "Périphériques", "description": "Clavier mécanique custom avec switches magnétiques Hall Effect"},
+  {"id": 24, "name": "LG UltraGear 45GR95QE", "price": 1299.99, "category": "Écrans", "description": "Écran OLED gaming 45\" courbé, 240Hz, 0.03ms"},
+  {"id": 25, "name": "Garmin Fenix 8 Solar", "price": 999.99, "category": "Wearables", "description": "Montre multisport premium avec énergie solaire et carte topo intégrée"}
 ]
+
 
 # Convertir le catalogue en texte pour Gemini
 CATALOG_TEXT = "Catalogue de produits disponible :\n" + "\n".join(
@@ -86,6 +109,7 @@ Tu es un assistant commercial intelligent pour un magasin en Tunisie.
 Réponds toujours en français, de façon claire, polie et professionnelle.
 Utilise uniquement les produits du catalogue ci-dessus.
 Si le produit demandé n'existe pas, dis-le honnêtement.
+repondre courte et claire et précise
 
 Question de l'utilisateur : {user_message}
 """

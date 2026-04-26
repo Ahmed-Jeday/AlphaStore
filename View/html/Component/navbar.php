@@ -593,9 +593,9 @@ header("Expires: 0"); // Proxies.
             <nav class="main-links">
                 <a href="Women1.html">Women</a>
                 <a href="Men1.html">Men</a>
-                <a href="#">Kids</a>
+                <a href="Kid1.html">Kids</a>
                 <a href="#">Technologie</a>
-                <a href="#">AboutUS</a>
+                <a href="AboutUS.html">AboutUS</a>
                 <a href="#" class="sale">SALE</a>
             </nav>
 

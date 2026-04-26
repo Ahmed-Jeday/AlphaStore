@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHASTORE — Premium Kids' Tech & Fashion</title>
+    <meta name="description" content="Fun and safe techwear and gadgets for the modern kid.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/Kid1.css">
+    <link rel="stylesheet" href="../css/style_1.css">
+    <link rel="stylesheet" href="../css/shop/shop_1.css">
+    <link rel="stylesheet" href="../css/component/shop_animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .try-on-btn:hover {
+            background-color: #444 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .try-on-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- ═══════════════════════════════════════════
+         CAROUSEL
+    ════════════════════════════════════════════ -->
+    <div class="carousel-container">
+
+        <!-- Background images -->
+        <div class="backgrounds">
+             <img class="bg-img" src="../media/kid1.png"  alt="Kids Playing">
+            <img class="bg-img" src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=2072&auto=format&fit=crop" alt="Colorful Toys">
+            <img class="bg-img" src="../media/baby3.jpg" alt="Kids Tech">
+            <img class="bg-img" src="../media/kid6.jpeg"  alt="Kids Gadgets">
+            <img class="bg-img" src="../media/kid2.jpeg" alt="Fun Learning">
+            <img class="bg-img" src="https://plus.unsplash.com/premium_photo-1701984401514-a32a73eac549?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kids Adventure">
+        </div>
+
+        <!-- Horizontal scroller -->
+        <div class="scroller">
+            <div class="scroll-track">
+                <div class="scroll-marker" id="slide-1"></div>
+                <div class="scroll-marker" id="slide-2"></div>
+                <div class="scroll-marker" id="slide-3"></div>
+                <div class="scroll-marker" id="slide-4"></div>
+                <div class="scroll-marker" id="slide-5"></div>
+                <div class="scroll-marker" id="slide-6"></div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="frame">
+            <span class="logo-mark">AlphaStore</span>
+            <nav class="nav-links">
+                <a href="#">Collection</a>
+                <a href="#">About</a>
+                <a href="#">Journal</a>
+            </nav>
+            <a href="Kid.php" class="header-cta">Shop Now</a>
+        </header>
+
+        <!-- Content overlays -->
+        <div class="content">
+
+            <!-- Descriptions -->
+            <div class="description-wrap overlap-container">
+                <p>Explore the world with safe and fun tech gear designed for young adventurers. Our kids collection blends education with entertainment.</p>
+                <p>Colorful and interactive toys that spark imagination and creativity. Perfect for playtime and learning moments.</p>
+                <p>Safe technology for kids with parental controls and age-appropriate features. Explore, learn, and have fun safely.</p>
+                <p>Discover amazing gadgets that make learning exciting. From smart watches to educational tablets, find the perfect tech for your child.</p>
+                <p>Immersive audio experiences for young ears. High-quality headphones designed for comfort and safety during long listening sessions.</p>
+                <p>Where fun meets functionality. Our kids' collection is designed for active lifestyles and endless adventures.</p>
+            </div>
+
+            <!-- Indicators + progress -->
+            <div class="nav-wrap">
+                <nav class="indicators">
+                    <a href="#slide-1">01</a>
+                    <a href="#slide-2">02</a>
+                    <a href="#slide-3">03</a>
+                    <a href="#slide-4">04</a>
+                    <a href="#slide-5">05</a>
+                    <a href="#slide-6">06</a>
+                </nav>
+                <div class="progress-container">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Captions -->
+            <div class="caption-wrap overlap-container">
+                <div class="caption-item">
+                    <span class="caption-label">Kids Adventure</span>
+                    <h2 class="caption-title">Safe <em>Exploration</em></h2>
+                </div>
+                <div class="caption-item">
+                    <span class="caption-label">Fun Learning</span>
+                    <h2 class="caption-title">Creative <em>Play</em></h2>
+                </div>
+                <div class="caption-item">
+                    <span class="caption-label">Smart Safety</span>
+                    <h2 class="caption-title">Protected <em>Tech</em></h2>
+                </div>
+                <div class="caption-item">
+                    <span class="caption-label">Educational Fun</span>
+                    <h2 class="caption-title">Learn & <em>Play</em></h2>
+                </div>
+                <div class="caption-item">
+                    <span class="caption-label">Quality Audio</span>
+                    <h2 class="caption-title">Safe <em>Sound</em></h2>
+                </div>
+                <div class="caption-item">
+                    <span class="caption-label">Active Kids</span>
+                    <h2 class="caption-title">Fun <em>Style</em></h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="scroll-hint">
+            <div class="scroll-hint-line"></div>
+            <span>Drag to explore</span>
+        </div>
+    </div><!-- /.carousel-container -->
+
+    <!-- ═══════════════════════════════════════════
+         BRAND STATEMENT
+    ════════════════════════════════════════════ -->
+    <div class="section-divider"></div>
+
+    <section class="brand-statement">
+        <div>
+            <p class="brand-number reveal">— 001</p>
+            <h2 class="brand-title reveal">Designed for <em>Young Minds</em></h2>
+            <p class="brand-body reveal">Every item in the AlphaStore kids collection is selected at the intersection of safety, education, and fun. We believe that technology should inspire curiosity and creativity in children.</p>
+        </div>
+        <div class="brand-stats">
+            <div class="stat-item reveal">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Happy Kids</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Safe Products</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Fun Items</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number">5★</div>
+                <div class="stat-label">Parent Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FEATURED COLLECTION
+    ════════════════════════════════════════════ -->
+    <section class="featured-collection" id="collection">
+        <div class="section-header">
+            <div>
+                <p class="section-eyebrow reveal">The Kids Selection</p>
+                <h2 class="section-title reveal">Fun <em>Essentials</em></h2>
+            </div>
+            <a href="#" class="section-link reveal">View All →</a>
+        </div>
+
+        <div class="product-grid">
+
+            <!-- Card 1 – Featured (tall) -->
+            <div class="product-card featured reveal">
+                <span class="product-badge">New Arrival</span>
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=1999&auto=format&fit=crop" alt="Kids Smart Watch">
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Kids Smart Watch</div>
+                        <div class="product-sub">Fun & Safe Series</div>
+                    </div>
+                    <span class="product-price">89 DT</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="product-card reveal">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2070&auto=format&fit=crop" alt="Educational Tablet">
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Learning Tablet</div>
+                        <div class="product-sub">Educational Series</div>
+                    </div>
+                    <span class="product-price">199 DT</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="product-card reveal">
+                <span class="product-badge">Bestseller</span>
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=2080&auto=format&fit=crop" alt="Kids Headphones">
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Safe Headphones</div>
+                        <div class="product-sub">Audio Fun Series</div>
+                    </div>
+                    <span class="product-price">79 DT</span>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="product-card reveal">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1558877385-1199c1af4e8e?q=80&w=2070&auto=format&fit=crop" alt="Coding Robot">
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div>
+                        <div class="product-name">Coding Robot</div>
+                        <div class="product-sub">STEM Series</div>
+                    </div>
+                    <span class="product-price">149 DT</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         LIFESTYLE BANNER
+    ════════════════════════════════════════════ -->
+    <div class="lifestyle-banner">
+        <img src="../media/kid1.png" alt="Kids Lifestyle">
+        <div class="banner-content">
+            <p class="banner-eyebrow reveal">The Kids Vision</p>
+            <h2 class="banner-title reveal">Grow with <em>technology</em></h2>
+            <p class="banner-body reveal">Empowering young minds with safe technology that inspires learning and creativity. AlphaStore for kids is about safe exploration and fun discovery.</p>
+            <a href="#collection" class="btn-primary reveal">
+                Discover the collection
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         CATEGORIES
+    ════════════════════════════════════════════ -->
+    <section class="categories">
+        <div class="section-header">
+            <div>
+                <p class="section-eyebrow reveal">Browse by Category</p>
+                <h2 class="section-title reveal">Find your child's <em>essentials</em></h2>
+            </div>
+        </div>
+
+        <div class="cat-grid">
+            <div class="cat-card reveal">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1964&auto=format&fit=crop" alt="Educational">
+                <div class="cat-label">
+                    <div class="cat-name">Educational</div>
+                    <div class="cat-count">24 products</div>
+                </div>
+            </div>
+            <div class="cat-card reveal">
+                <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=1957&auto=format&fit=crop" alt="Audio">
+                <div class="cat-label">
+                    <div class="cat-name">Audio</div>
+                    <div class="cat-count">12 products</div>
+                </div>
+            </div>
+            <div class="cat-card reveal">
+                <img src="https://images.unsplash.com/photo-1558877385-1199c1af4e8e?q=80&w=2070&auto=format&fit=crop" alt="STEM">
+                <div class="cat-label">
+                    <div class="cat-name">STEM Toys</div>
+                    <div class="cat-count">48 products</div>
+                </div>
+            </div>
+            <div class="cat-card reveal">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2070&auto=format&fit=crop" alt="Tablets">
+                <div class="cat-label">
+                    <div class="cat-name">Tablets</div>
+                    <div class="cat-count">32 products</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         BESTSELLERS — horizontal drag scroll
+    ════════════════════════════════════════════ -->
+<section class="bestsellers">
+        <div class="inner-header section-header">
+            <div>
+                <p class="section-eyebrow reveal">Most Loved</p>
+                <h2 class="section-title reveal">Bestsellers</h2>
+            </div>
+            <a href="#" class="section-link reveal">See all →</a>
+        </div>
+
+        <div class="scroll-row" id="bestRow">
+
+            <div class="scroll-card">
+                <div class="img-wrap">
+                    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=800" alt="Kids Smart Watch">
+                    <span class="product-badge">— 01</span>
+                </div>
+                <div class="scroll-card-info">
+                    <div class="scroll-card-name">Kids GPS Watch</div>
+                    <div class="scroll-card-desc">Safe tracking, fun games, and parental controls for peace of mind.</div>
+                    <div class="scroll-card-footer">
+                        <span class="scroll-card-price">89.00 DT</span>
+                        <button class="icon-btn" title="Add to cart">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="img-wrap">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800" alt="Learning Tablet">
+                    <span class="product-badge">— 02</span>
+                </div>
+                <div class="scroll-card-info">
+                    <div class="scroll-card-name">Educational Tablet</div>
+                    <div class="scroll-card-desc">Interactive learning apps, parental controls, and kid-friendly interface.</div>
+                    <div class="scroll-card-footer">
+                        <span class="scroll-card-price">199.00 DT</span>
+                        <button class="icon-btn" title="Add to cart">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="img-wrap">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=800" alt="Safe Headphones">
+                    <span class="product-badge">— 03</span>
+                </div>
+                <div class="scroll-card-info">
+                    <div class="scroll-card-name">Volume-Limited Headphones</div>
+                    <div class="scroll-card-desc">Safe audio levels, comfortable fit, and fun designs for young listeners.</div>
+                    <div class="scroll-card-footer">
+                        <span class="scroll-card-price">79.00 DT</span>
+                        <button class="icon-btn" title="Add to cart">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="img-wrap">
+                    <img src="https://images.unsplash.com/photo-1558877385-1199c1af4e8e?q=80&w=800" alt="Coding Kit">
+                    <span class="product-badge">— 04</span>
+                </div>
+                <div class="scroll-card-info">
+                    <div class="scroll-card-name">Beginner Coding Kit</div>
+                    <div class="scroll-card-desc">Fun introduction to programming with colorful blocks and interactive lessons.</div>
+                    <div class="scroll-card-footer">
+                        <span class="scroll-card-price">149.00 DT</span>
+                        <button class="icon-btn" title="Add to cart">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-card">
+                <div class="img-wrap">
+                    <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?q=80&w=800" alt="Kids Drone">
+                    <span class="product-badge">— 05</span>
+                </div>
+                <div class="scroll-card-info">
+                    <div class="scroll-card-name">Safe Kids Drone</div>
+                    <div class="scroll-card-desc">Easy to fly, durable design, and safety features for young pilots.</div>
+                    <div class="scroll-card-footer">
+                        <span class="scroll-card-price">129.00 DT</span>
+                        <button class="icon-btn" title="Add to cart">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ═══════════════════════════════════════════
+         PRODUCT GRID (from Adult.php)
+    ════════════════════════════════════════════ -->
+    <section class="product-filter-container">
+        <!-- FILTER TOP BAR -->
+        <div class="filter-top-bar">
+            <ul class="category-tabs" id="categoryTabs">
+                <li><a href="#" data-cat="all" class="active-tab">All Products</a></li>
+                <li><a href="#" data-cat="boys">Boys</a></li>
+                <li><a href="#" data-cat="girls">Girls</a></li>
+                <li><a href="#" data-cat="educational">Educational</a></li>
+                <li><a href="#" data-cat="toys">Toys</a></li>
+                <li><a href="#" data-cat="gadgets">Gadgets</a></li>
+            </ul>
+            <div class="action-buttons">
+                <button id="toggle-filter-btn" class="action-btn">
+                    <i class="fas fa-filter"></i> Filter
+                </button>
+                <button class="action-btn" id="searchTriggerBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+
+        <!-- FILTER PANEL -->
+        <div id="filter-dropdown-panel" class="filter-panel">
+            <div class="filter-column">
+                <h4 class="filter-title">Sort By</h4>
+                <ul class="filter-list" id="sortList">
+                    <li><a href="#" data-sort="default">Default</a></li>
+                    <li><a href="#" data-sort="price_low">Price: Low to High</a></li>
+                    <li><a href="#" data-sort="price_high">Price: High to Low</a></li>
+                </ul>
+            </div>
+            <div class="filter-column">
+                <h4 class="filter-title">Price</h4>
+                <ul class="filter-list" id="priceFilterList">
+                    <li><a href="#" data-price="all" class="active-filter">All</a></li>
+                    <li><a href="#" data-price="0-50">0.00 DT - 50.00 DT</a></li>
+                    <li><a href="#" data-price="50-100">50.00 DT - 100.00 DT</a></li>
+                    <li><a href="#" data-price="100-200">100.00 DT - 200.00 DT</a></li>
+                </ul>
+            </div>
+            <div class="filter-column">
+                <h4 class="filter-title">Color</h4>
+                <ul class="filter-list">
+                    <li><a href="#"><span class="color-indicator bg-red"></span> Red</a></li>
+                    <li><a href="#"><span class="color-indicator bg-blue"></span> Blue</a></li>
+                    <li><a href="#"><span class="color-indicator bg-pink"></span> Pink</a></li>
+                    <li><a href="#"><span class="color-indicator bg-yellow"></span> Yellow</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <p class="message" id="noProductMsg"></p>
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn">LOAD MORE</button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TESTIMONIALS
+    ════════════════════════════════════════════ -->
+    <section class="testimonials">
+        <div class="testimonials-left">
+            <p class="section-eyebrow reveal">From parents</p>
+            <h2 class="section-title reveal">What families <em>say</em></h2>
+            <br><br>
+            <a href="#" class="section-link reveal">Read all reviews →</a>
+        </div>
+
+        <div class="testimonials-right">
+            <div class="review-card reveal">
+                <div class="review-stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="review-text">"The Kids Smart Watch keeps my child safe and entertained. The parental controls are fantastic."</p>
+                <div class="reviewer-name">Sarah M.</div>
+                <div class="review-product">— Kids GPS Watch</div>
+            </div>
+
+            <div class="review-card reveal">
+                <div class="review-stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="review-text">"My kids love the Learning Tablet. It's educational and fun, with great parental oversight."</p>
+                <div class="reviewer-name">David K.</div>
+                <div class="review-product">— Educational Tablet</div>
+            </div>
+
+            <div class="review-card reveal">
+                <div class="review-stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="review-text">"Safe Headphones protect my child's hearing while they enjoy their favorite shows."</p>
+                <div class="reviewer-name">Emma R.</div>
+                <div class="review-product">— Volume-Limited Headphones</div>
+            </div>
+
+            <div class="review-card reveal">
+                <div class="review-stars">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="review-text">"AlphaStore for kids has transformed how my children learn and play. Highly recommended!"</p>
+                <div class="reviewer-name">Michael L.</div>
+                <div class="review-product">— Full Kids Collection</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         NEWSLETTER
+    ════════════════════════════════════════════ -->
+    <section class="newsletter">
+        <p class="section-eyebrow reveal">Stay in the loop</p>
+        <h2 class="newsletter-title reveal">Join the <em>family</em></h2>
+        <p class="newsletter-sub reveal">New kid-friendly drops, educational content, and family offers — delivered to your inbox.</p>
+        <div class="newsletter-form reveal">
+            <input class="newsletter-input" type="email" placeholder="your@email.com">
+            <button class="newsletter-btn">Subscribe</button>
+        </div>
+    </section>
+
+  
+
+    <!-- QUICK VIEW MODAL OVERLAY -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+            <div class="modal-content">
+                <div class="modal-gallery">
+                    <div class="gallery-thumbnails">
+                        <img src="" alt="Thumb 1" class="active-thumb img1">
+                        <img src="" alt="Thumb 2" class="img2">
+                        <img src="" alt="Thumb 3" class="img3">
+                    </div>
+                    <div class="gallery-main">
+                        <button class="nav-arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+                        <img src="" alt="Main Product Image" class="main-image">
+                        <button class="nav-arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
+                        <button class="expand-btn" onclick="toggleExpand()"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 class="product-title">Product Title</h2>
+                    <p class="product-price">0.00 DT</p>
+                    <p class="product-description">Description goes here...</p>
+                    <div class="product-options">
+                        <div class="option-row">
+                            <label>Size</label>
+                            <div class="select-wrapper">
+                                <select>
+                                    <option>Choose an option</option>
+                                    <option>Size S</option>
+                                    <option>Size M</option>
+                                    <option>Size L</option>
+                                    <option>Size XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="option-row">
+                            <label>Color</label>
+                            <div class="select-wrapper">
+                                <select>
+                                    <option>Choose an option</option>
+                                    <option>Red</option>
+                                    <option>Blue</option>
+                                    <option>Pink</option>
+                                    <option>Yellow</option>
+                                    <option>Green</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-to-cart-wrapper">
+                        <div class="quantity-selector">
+                            <button class="qty-btn minus-btn">-</button>
+                            <input type="number" class="qty-input" value="1" min="1">
+                            <button class="qty-btn plus-btn">+</button>
+                        </div>
+                        <button class="add-cart-btn">ADD TO CART</button>
+                    </div>
+                    <button class="try-on-btn" id="quickViewTryOnBtn" style="margin-top: 15px; width: 100%; height: 45px; background-color: #222; color: white; border: none; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; border-radius: 4px;">
+                        <i class="fas fa-magic"></i> VIRTUAL TRY ON
+                    </button>
+                    <div class="social-actions">
+                        <i class="far fa-heart heart-icon"></i>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        </div>
+                    </div>
+                    <div class="more_info">
+                        <div class="id" hidden></div>
+                        <a href="#" class="view-more-link">VIEW MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Script -->
+    <script src="../javaScript/Kid1.js"></script>
+    <script src="../javaScript/main.js"></script>
+    <script src="../javaScript/index.js"></script>
+    <script src="../javaScript/carts.js"></script>
+
+    <script>
+        // Product Grid Logic from Adult.php
+        let currentCategory = 'Enfant';
+        let currentSort = 'default';
+        let currentPriceRange = 'all';
+        let currentImageIndex = 0;
+
+        async function chargerProduits() {
+            const productGrid = document.getElementById('productGrid');
+            if (!productGrid) return;
+            
+            let url = `../../index.php?action=getProduitByCategory&category=${currentCategory}&sortBy=${currentSort}`;
+            if (currentPriceRange !== 'all') {
+                const [min, max] = currentPriceRange.split('-');
+                url += `&minPrice=${min}&maxPrice=${max}`;
+            }
+
+            try {
+                const response = await fetch(url);
+                const produits = await response.json();
+                productGrid.innerHTML = '';
+
+                if (produits.length === 0) {
+                    productGrid.innerHTML = '<p class="message show">No products found matching your criteria.</p>';
+                    return;
+                }
+
+                produits.forEach(product => {
+                    const card = createProductCard(product);
+                    productGrid.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Erreur:', error);
+                productGrid.innerHTML = '<p class="error">Erreur lors du chargement des produits.</p>';
+            }
+        }
+
+        function getNextImages(path) {
+            const match = path.match(/^(.*_)(\d+)(\.[^.]+)$/);
+            if (!match) return [];
+            const prefix = match[1];
+            const number = parseInt(match[2]);
+            const extension = match[3];
+            return [`${prefix}${number + 1}${extension}`, `${prefix}${number + 2}${extension}`];
+        }
+
+        function createProductCard(p) {
+            const card = document.createElement('div');
+            card.classList.add('product-item');
+            card.dataset.id = p.id;
+            card.dataset.category = p.category;
+            
+            const fullImagePath = `../../public/${p.image_path}`;
+            const pathNextimages = getNextImages(p.image_path);
+            const fullImagePath1 = fullImagePath;
+            const fullImagePath2 = `../../public/${pathNextimages[0] || p.image_path}`;
+            const fullImagePath3 = `../../public/${pathNextimages[1] || p.image_path}`;
+
+            card.innerHTML = `
+                <div class="product-img-block">
+                    <img src="${fullImagePath}" alt="${p.name}" onerror="this.src='../img/placeholder.jpg'">
+                    <div hidden value="${p.id}" class="product-id"></div>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info-block">
+                    <div class="product-text">
+                        <a href="product_details.php?id=${p.id}" class="product-title">${p.name}</a>
+                        <span class="product-price">${p.price} DT</span>
+                    </div> 
+                    <div class="product-actions-icons" style="display: flex; gap: 12px; align-items: center;">
+                        <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
+                        <i class="fas fa-shopping-bag add-cart" title="Add to Cart" style="cursor: pointer; color: #aaa; font-size: 1.3rem; transition: color 0.3s;"></i>
+                    </div>
+                </div>
+            `;
+
+            const heart = card.querySelector('.heart-icon');
+            if (heart) {
+                if (p.is_favorite) {
+                    heart.classList.replace('far', 'fas');
+                    heart.classList.add('liked');
+                }
+                heart.addEventListener('click', async function(e) {
+                    e.stopPropagation();
+                    await toggleFavorite(p.id, this);
+                    p.is_favorite = !p.is_favorite;
+                });
+            }
+
+            const quickViewBtn = card.querySelector('.quick-view-btn');
+            if (quickViewBtn) {
+                quickViewBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const modal = document.getElementById('quickViewModal');
+                    if (modal) {
+                        modal.querySelector('.product-title').textContent = p.name;
+                        modal.querySelector('.product-price').textContent = `${p.price} DT`;
+                        modal.querySelector('.product-description').textContent = p.description || "Aucune description disponible.";
+                        modal.querySelector('.main-image').src = fullImagePath;
+                        modal.querySelector('.img1').src = fullImagePath1;
+                        modal.querySelector('.img2').src = fullImagePath2;
+                        modal.querySelector('.img3').src = fullImagePath3;
+                        modal.querySelector('.id').setAttribute('value', p.id);
+
+                        const modalHeart = modal.querySelector('.heart-icon');
+                        if (modalHeart) {
+                            if (p.is_favorite) {
+                                modalHeart.classList.replace('far', 'fas');
+                                modalHeart.classList.add('liked');
+                            } else {
+                                modalHeart.classList.replace('fas', 'far');
+                                modalHeart.classList.remove('liked');
+                            }
+                        }
+
+                        const viewMoreLink = modal.querySelector('.view-more-link');
+                        if (viewMoreLink) viewMoreLink.href = `product_details.php?id=${p.id}`;
+
+                        const tryOnBtn = modal.querySelector('#quickViewTryOnBtn');
+                        if (tryOnBtn) {
+                            tryOnBtn.onclick = () => {
+                                window.location.href = `ai.html?productImage=${encodeURIComponent(fullImagePath)}`;
+                            };
+                        }
+
+                        currentImageIndex = 0;
+                        const thumbnails = modal.querySelectorAll('.gallery-thumbnails img');
+                        thumbnails.forEach(t => t.classList.remove('active-thumb'));
+                        if (thumbnails[0]) thumbnails[0].classList.add('active-thumb');
+                        
+                        modal.classList.add('active');
+                    }
+                });
+            }
+            return card;
+        }
+
+        async function toggleFavorite(productId, heartElement) {
+            try {
+                const response = await fetch("../../index.php?action=toggleFavorite", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: "product_id=" + productId,
+                });
+                const data = await response.json();
+                if (data.status == 'not_logged_in') {
+                    alert("You need to be logged in to add a product to your favorites");
+                    return;
+                }
+                if (data.status === "added") {
+                    heartElement.classList.replace('far', 'fas');
+                    heartElement.classList.add('liked');
+                } else {
+                    heartElement.classList.replace('fas', 'far');
+                    heartElement.classList.remove('liked');
+                }
+            } catch (error) {
+                console.error("Error toggling favorite:", error);
+            }
+        }
+
+        function updateModalGallery(index) {
+            const modal = document.getElementById('quickViewModal');
+            const mainImg = modal.querySelector('.main-image');
+            const thumbnails = modal.querySelectorAll('.gallery-thumbnails img');
+            if (thumbnails.length > index) {
+                thumbnails.forEach(thumb => thumb.classList.remove('active-thumb'));
+                thumbnails[index].classList.add('active-thumb');
+                mainImg.src = thumbnails[index].src;
+                currentImageIndex = index;
+            }
+        }
+
+        function toggleExpand() {
+            const mainImg = document.querySelector('#quickViewModal .main-image');
+            if (!mainImg) return;
+            mainImg.style.transform = (mainImg.style.transform === "scale(2.5)") ? "scale(1)" : "scale(2.5)";
+            mainImg.style.cursor = (mainImg.style.transform === "scale(2.5)") ? "zoom-out" : "zoom-in";
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Category Tabs
+            document.querySelectorAll('.category-tabs a').forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.category-tabs a').forEach(t => t.classList.remove('active-tab'));
+                    this.classList.add('active-tab');
+                    const cat = this.getAttribute('data-cat');
+                    currentCategory = (cat === 'all') ? 'Garçon,Fille' : (cat === 'boys' ? 'Garçon' : (cat === 'girls' ? 'Fille' : cat));
+                    chargerProduits();
+                });
+            });
+
+            // Filter Panel Toggle
+            const filterBtn = document.getElementById('toggle-filter-btn');
+            const filterPanel = document.getElementById('filter-dropdown-panel');
+            if (filterBtn && filterPanel) {
+                filterBtn.addEventListener('click', () => filterPanel.classList.toggle('show-panel'));
+            }
+
+            // Sort & Price
+            document.querySelectorAll('#sortList a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('#sortList a').forEach(l => l.classList.remove('active-filter'));
+                    this.classList.add('active-filter');
+                    currentSort = this.getAttribute('data-sort');
+                    chargerProduits();
+                });
+            });
+            document.querySelectorAll('#priceFilterList a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('#priceFilterList a').forEach(l => l.classList.remove('active-filter'));
+                    this.classList.add('active-filter');
+                    currentPriceRange = this.getAttribute('data-price');
+                    chargerProduits();
+                });
+            });
+
+            // Modal Close
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modal = document.getElementById('quickViewModal');
+            if (closeModalBtn && modal) {
+                closeModalBtn.addEventListener('click', () => modal.classList.remove('active'));
+                window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+            }
+
+            // Modal Navigation
+            const leftArrow = document.querySelector('.left-arrow');
+            const rightArrow = document.querySelector('.right-arrow');
+            if (leftArrow && rightArrow) {
+                leftArrow.addEventListener('click', () => {
+                    const thumbnails = modal.querySelectorAll('.gallery-thumbnails img');
+                    let newIndex = (currentImageIndex - 1 + thumbnails.length) % thumbnails.length;
+                    updateModalGallery(newIndex);
+                });
+                rightArrow.addEventListener('click', () => {
+                    const thumbnails = modal.querySelectorAll('.gallery-thumbnails img');
+                    let newIndex = (currentImageIndex + 1) % thumbnails.length;
+                    updateModalGallery(newIndex);
+                });
+            }
+
+            // Modal Thumbnails
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'IMG' && e.target.parentElement.classList.contains('gallery-thumbnails')) {
+                        const thumbnails = Array.from(modal.querySelectorAll('.gallery-thumbnails img'));
+                        updateModalGallery(thumbnails.indexOf(e.target));
+                    }
+                });
+            }
+
+            chargerProduits();
+        });
+    </script>
+</body>
+</html>

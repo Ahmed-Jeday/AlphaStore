@@ -902,6 +902,31 @@ body {
     transition: all var(--trans-dur) var(--chat-ease);
     font-family: inherit;
     font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-widget-root .chatbot__suggestion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(204, 255, 0, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.ai-widget-root .chatbot__suggestion:hover::before {
+    left: 100%;
+}
+
+.ai-widget-root .chatbot__suggestion:hover {
+    background: rgba(204, 255, 0, 0.08);
+    border-color: var(--chat-accent);
+    color: var(--chat-accent);
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(204, 255, 0, 0.2);
 }
 
 .ai-widget-root .chatbot__suggestion:hover {
@@ -947,6 +972,14 @@ body {
     color: #fff;
     font: inherit;
     transition: all 0.3s var(--chat-ease);
+    backdrop-filter: blur(10px);
+}
+
+.ai-widget-root .chatbot__input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--chat-accent);
+    box-shadow: 0 0 25px rgba(204, 255, 0, 0.2), inset 0 0 10px rgba(204, 255, 0, 0.05);
+    transform: scale(1.01);
 }
 
 .ai-widget-root .chatbot__input:focus {
@@ -981,6 +1014,13 @@ body {
     width: 3rem;
     height: 3rem;
     transition: all 0.3s var(--chat-ease);
+    box-shadow: 0 4px 15px rgba(204, 255, 0, 0.3);
+}
+
+.ai-widget-root .chatbot__submit:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(204, 255, 0, 0.4);
 }
 
 .ai-widget-root .chatbot__submit:hover {
@@ -1092,6 +1132,14 @@ body {
     color: #fff;
     font: inherit;
     transition: all 0.3s var(--chat-ease);
+    backdrop-filter: blur(10px);
+}
+
+.ai-widget-root .chatbot__textarea:focus {
+    border-color: var(--chat-accent);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 25px rgba(204, 255, 0, 0.2), inset 0 0 10px rgba(204, 255, 0, 0.05);
+    transform: scale(1.01);
 }
 
 .ai-widget-root .chatbot__textarea:focus {
