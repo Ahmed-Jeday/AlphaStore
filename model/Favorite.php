@@ -33,11 +33,16 @@ class Favorite {
 
     function getFavoriteByUser($user_id)
     {
-        $stmt = $this->pdo->prepare('select * from produits p
-                                    join favorites f
-                                    on p.id = f.product_id
-                                    where f.user_id = :user_id
-                                    order by f.created_at desc
+        $stmt = $this->pdo->prepare('
+            SELECT f.*, 
+                   COALESCE(p.name, pt.name) as name, 
+                   COALESCE(p.price, pt.price) as price, 
+                   COALESCE(p.image_path, pt.image_path) as image_path 
+            FROM favorites f 
+            LEFT JOIN produits p ON f.product_id = p.id 
+            LEFT JOIN produits_t pt ON f.product_id = pt.id 
+            WHERE f.user_id = :user_id 
+            ORDER BY f.created_at DESC
         ');
         $stmt->execute(['user_id' => $user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

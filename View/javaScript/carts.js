@@ -260,7 +260,8 @@ const loadCartItems = async () => {
             items.forEach(item => {
                 const cartItem = document.createElement('div');
                 cartItem.classList.add('cart-item');
-                const fullImgPath = `../../public/${item.image_path}`;
+                const isExternal = item.image_path && (item.image_path.startsWith('http://') || item.image_path.startsWith('https://'));
+                const fullImgPath = isExternal ? item.image_path : `../../public/${item.image_path}`;
 
                 cartItem.innerHTML = `
                     <img src="${fullImgPath}" alt="${item.name}">

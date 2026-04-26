@@ -208,6 +208,32 @@ button {
   flex-shrink: 0;
 }
 
+.home-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: solid 1px var(--bgBorder);
+  border-radius: 8px;
+  background: var(--bgInverse);
+  font: 500 11px/11px var(--body);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bg1);
+  transition: 0.15s;
+  margin-bottom: 12px;
+  
+}
+
+.home-btn:hover {
+  opacity: 0.85;
+  background-color: var(--bg1);
+  color: var(--bgInverse);
+}
+
+.home-btn i { font-size: 16px; }
+
 .logout-btn {
   display: flex;
   align-items: center;

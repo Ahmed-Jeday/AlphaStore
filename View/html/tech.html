@@ -614,11 +614,66 @@
     let currentCategory = 'Ordinateurs,Smartphones,Audio,Périphériques,Écrans,Drones,Composants,Wearables,Photo,Tablettes'; // Matches Tech categories
     let currentSort = 'default';
     let currentPriceRange = 'all';
+    let isLoadingProducts = false; // Flag to prevent simultaneous requests
+    let lastLoadTime = 0; // Track last load time
+    let autoReloadInterval = null; // Track auto-reload interval
+    
+    // Pagination variables
+    let allProducts = []; // Store all fetched products
+    let productsPerPage = 10; // Display 10 products per load
+    let currentDisplayIndex = 0; // Track which products are currently displayed
+
+    // Display products from allProducts starting at currentDisplayIndex
+    function displayProducts() {
+        const productGrid = document.getElementById('productGrid');
+        const loadMoreBtn = document.querySelector('.load-more-btn');
+        const noProductMsg = document.querySelector('.mesage');
+        
+        // Get the next batch of products
+        const endIndex = Math.min(currentDisplayIndex + productsPerPage, allProducts.length);
+        const productsToDisplay = allProducts.slice(currentDisplayIndex, endIndex);
+        
+        // Append new products to grid (don't clear existing ones on "Load More")
+        productsToDisplay.forEach(product => {
+            const card = createProductCard(product);
+            productGrid.appendChild(card);
+        });
+        
+        // Update the current display index
+        currentDisplayIndex = endIndex;
+        
+        // Show/hide Load More button
+        if (currentDisplayIndex >= allProducts.length) {
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+        } else {
+            if (loadMoreBtn) loadMoreBtn.style.display = 'block';
+        }
+        
+        // Hide "no products" message if we have products
+        if (allProducts.length > 0 && noProductMsg) {
+            noProductMsg.textContent = '';
+        }
+    }
 
     async function chargerProduits() {
-        console.log('Chargement des produits...', {currentCategory, currentSort, currentPriceRange});
+        // Prevent simultaneous requests
+        if (isLoadingProducts) {
+            console.log('Already loading products, skipping request');
+            return;
+        }
+        
+        // Prevent too frequent requests (minimum 1 second between requests)
+        const now = Date.now();
+        if (now - lastLoadTime < 1000) {
+            console.log('Request too frequent, skipping');
+            return;
+        }
+        
+        isLoadingProducts = true;
+        lastLoadTime = now;
         const productGrid = document.getElementById('productGrid');
         const noProductMsg = document.querySelector('.mesage');
+        const loadMoreBtn = document.querySelector('.load-more-btn');
         
         let url = `../../index.php?action=getTechProduitByCategory&category=${currentCategory}&sortBy=${currentSort}`;
         
@@ -633,23 +688,27 @@
             const produits = await response.json();
             console.log('Produits chargés:', produits);
 
-            productGrid.innerHTML = '';
+            // Store all products
+            allProducts = produits || [];
+            currentDisplayIndex = 0; // Reset display index
+            productGrid.innerHTML = ''; // Clear grid
 
-            if (produits.length === 0) {
+            if (allProducts.length === 0) {
                 if (noProductMsg) noProductMsg.textContent = 'No products found matching your criteria.';
-                return;
+                if (loadMoreBtn) loadMoreBtn.style.display = 'none';
             } else {
                 if (noProductMsg) noProductMsg.textContent = '';
+                // Display first batch of products
+                displayProducts();
             }
-
-            produits.forEach(product => {
-                const card = createProductCard(product);
-                productGrid.appendChild(card);
-            });
 
         } catch (error) {
             console.error('Erreur:', error);
             productGrid.innerHTML = '<p class="error" style="grid-column: 1/-1; text-align: center; color: var(--coral);">Erreur lors du chargement des produits.</p>';
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+        } finally {
+            // Always reset the loading flag to prevent blocking future requests
+            isLoadingProducts = false;
         }
     }
 
@@ -725,7 +784,7 @@
 
         card.innerHTML = `
             <div class="product-img-block">
-                <img src="${fullImagePath}" alt="${p.name}" onerror="this.src='../img/placeholder.jpg'">
+                <img src="${fullImagePath}" alt="${p.name}" class="product-image" data-product-id="${p.id}">
                 <button class="quick-view-btn"><i class="fas fa-eye"></i> Quick View</button>
             </div>
             <div class="product-info-block">
@@ -739,6 +798,32 @@
             </div>
         `;
 
+        // Handle image loading with retry logic
+        const imgElement = card.querySelector('.product-image');
+        if (imgElement) {
+            let retryCount = 0;
+            const maxRetries = 2;
+
+            imgElement.addEventListener('error', function(e) {
+                if (retryCount < maxRetries) {
+                    retryCount++;
+                    // Wait 2 seconds before retrying
+                    setTimeout(() => {
+                        this.src = fullImagePath + '?t=' + Date.now();
+                    }, 2000);
+                } else {
+                    // Use placeholder after max retries
+                    this.src = '../img/placeholder.jpg';
+                    this.classList.add('placeholder-image');
+                }
+            }, { once: false });
+
+            // Optional: Add a load event to remove any error indicators
+            imgElement.addEventListener('load', function() {
+                this.classList.remove('placeholder-image');
+            });
+        }
+
         const heart = card.querySelector('.heart-icon');
         if (heart) {
             if (p.is_favorite) {
@@ -751,6 +836,11 @@
                 e.stopPropagation();
                 await toggleFavorite(p.id, this);
             });
+        }
+
+        // Store error count to prevent infinite reload loops
+        if (!card.dataset.imgErrorCount) {
+            card.dataset.imgErrorCount = 0;
         }
 
         const quickViewBtn = card.querySelector('.quick-view-btn');
@@ -840,7 +930,15 @@
             });
         }
 
+        // Load products on page load (only once)
         chargerProduits();
+        
+        // IMPORTANT: Prevent any automatic page reload on image errors
+        // If there was an auto-reload interval, clear it to prevent infinite loops
+        if (autoReloadInterval) {
+            clearInterval(autoReloadInterval);
+            autoReloadInterval = null;
+        }
     });
 
     // Zoom and Navigation
@@ -886,6 +984,12 @@
     // Filter Logic
     document.getElementById('toggle-filter-btn')?.addEventListener('click', () => {
         document.getElementById('filter-dropdown-panel')?.classList.toggle('open');
+    });
+
+    // LOAD MORE button functionality
+    document.querySelector('.load-more-btn')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        displayProducts();
     });
 
     // Handle Sort & Price Filters

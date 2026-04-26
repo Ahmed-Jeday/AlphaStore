@@ -25,6 +25,7 @@ $total_price = $cartModel->getCartTotal($user_id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - AlphaStore</title>
     <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="../css/animationOrder.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -70,7 +71,7 @@ $total_price = $cartModel->getCartTotal($user_id);
                             </div>
                             <div class="form-group">
                                 <label for="zip">ZIP Code *</label>
-                                <input type="text" id="zip" name="zip" required pattern="\d{5}">
+                                <input type="text" id="zip" name="zip" required>
                                 <span class="error" id="zip-error"></span>
                             </div>
                         </div>
@@ -203,6 +204,14 @@ $total_price = $cartModel->getCartTotal($user_id);
         </form>
     </div>
 
+
+    
+    <div class="animation">
+
+    
+      <canvas id="scene"></canvas>
+      </div>
+
     <!-- Success Modal -->
     <div id="order-success-modal" class="modal">
         <div class="modal-content">
@@ -210,10 +219,11 @@ $total_price = $cartModel->getCartTotal($user_id);
             <h2>Order Placed Successfully!</h2>
             <p>Your order <span id="order-id-display"></span> has been received.</p>
             <p>Thank you for shopping with AlphaStore.</p>
-            <a href="index.php" class="btn-primary">Continue Shopping</a>
+            <a href="index.html" class="btn-primary">Continue Shopping</a>
         </div>
     </div>
 
     <script src="../javaScript/checkout.js"></script>
+    <script src="../javaScript/animationOrder.js"></script>
 </body>
 </html>

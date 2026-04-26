@@ -60,7 +60,8 @@ function getProfileInfo() {
         $_SESSION['user_last_name'] = $profileInfo['lastname'];
         $_SESSION["user_phone"]     = $profileInfo['phone'];
         $_SESSION["user_age"]       = $profileInfo['age'];
-        
+        $_SESSION["user_gender"]    = $profileInfo['gender'];
+        $_SESSION["user_avatar"]    = $profileInfo['avatar'];
     }
 
 

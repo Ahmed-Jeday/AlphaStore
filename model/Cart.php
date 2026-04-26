@@ -30,7 +30,16 @@ class Cart {
 
     function getCart($user_id)
     {
-        $stmt = $this->pdo->prepare("SELECT c.*, p.name, p.price, p.image_path FROM cart c JOIN produits p ON c.produit_id = p.id WHERE c.user_id = :user_id");
+        $stmt = $this->pdo->prepare("
+            SELECT c.*, 
+                   COALESCE(p.name, pt.name) as name, 
+                   COALESCE(p.price, pt.price) as price, 
+                   COALESCE(p.image_path, pt.image_path) as image_path 
+            FROM cart c 
+            LEFT JOIN produits p ON c.produit_id = p.id 
+            LEFT JOIN produits_t pt ON c.produit_id = pt.id 
+            WHERE c.user_id = :user_id
+        ");
         $stmt->execute(['user_id' => $user_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -53,9 +62,15 @@ class Cart {
 
     function getCartTotal($user_id)
     {
-        $stmt = $this->pdo->prepare("SELECT SUM(p.price * c.quantite) as total FROM cart c JOIN produits p ON c.produit_id = p.id WHERE c.user_id = :user_id");
+        $stmt = $this->pdo->prepare("
+            SELECT SUM(COALESCE(p.price, pt.price) * c.quantite) as total 
+            FROM cart c 
+            LEFT JOIN produits p ON c.produit_id = p.id 
+            LEFT JOIN produits_t pt ON c.produit_id = pt.id 
+            WHERE c.user_id = :user_id
+        ");
         $stmt->execute(['user_id' => $user_id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+        return $stmt->fetch(PDO::FETCH_ASSOC)['total'] ?? 0;
     }
 
     function getCartItem($user_id, $product_id)

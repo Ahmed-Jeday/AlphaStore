@@ -37,6 +37,16 @@ require_once("../../Controller/CartController.php");
     <link rel="stylesheet" href="../css/component/shop_animation.css">
      <link rel="stylesheet" href="../css/component/footer.css">
      <link rel="stylesheet" href="../css/home.css">
+     <style>
+        .try-on-btn:hover {
+            background-color: #444 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .try-on-btn:active {
+            transform: translateY(0);
+        }
+     </style>
 </head>
 <body>
 
@@ -257,6 +267,10 @@ require_once("../../Controller/CartController.php");
                         </div>
                         <button class="add-cart-btn" >ADD TO CART</button>
                     </div>
+
+                    <button class="try-on-btn" id="quickViewTryOnBtn" style="margin-top: 15px; width: 100%; height: 45px; background-color: #222; color: white; border: none; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; border-radius: 4px;">
+                        <i class="fas fa-magic"></i> VIRTUAL TRY ON
+                    </button>
 
                     <div class="social-actions">
                         <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
@@ -516,6 +530,13 @@ function createProductCard(p) {
                 const viewMoreLink = modal.querySelector('.view-more-link');
                 if (viewMoreLink) {
                     viewMoreLink.href = `product_details.php?id=${p.id}`;
+                }
+
+                const tryOnBtn = modal.querySelector('#quickViewTryOnBtn');
+                if (tryOnBtn) {
+                    tryOnBtn.onclick = () => {
+                        window.location.href = `ai.html?productImage=${encodeURIComponent(fullImagePath)}`;
+                    };
                 }
 
                 currentImageIndex = 0;

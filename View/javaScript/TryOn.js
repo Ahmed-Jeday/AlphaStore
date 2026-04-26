@@ -107,4 +107,37 @@
       const style = document.createElement('style');
       style.textContent = `@keyframes pulse { 0% { opacity: 0.4; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0.4; transform: scale(0.8); } }`;
       document.head.appendChild(style);
+
+      // ---------- Handle URL parameters ----------
+      const urlParams = new URLSearchParams(window.location.search);
+      const productImage = urlParams.get('productImage');
+      if (productImage) {
+          const preview = document.getElementById('vt-product-preview');
+          const tryOnSection = document.getElementById('virtual-tryon');
+          
+          if (preview) {
+              preview.src = decodeURIComponent(productImage);
+              
+              // Load the image into the file input
+              fetch(decodeURIComponent(productImage))
+                  .then(res => res.blob())
+                  .then(blob => {
+                      const file = new File([blob], "product.jpg", { type: blob.type });
+                      const dataTransfer = new DataTransfer();
+                      dataTransfer.items.add(file);
+                      const input = document.getElementById('vt-product-input');
+                      if (input) {
+                          input.files = dataTransfer.files;
+                          console.log("Product image loaded from URL into input.");
+                      }
+                  })
+                  .catch(err => console.error("Error loading product image from URL:", err));
+          }
+
+          if (tryOnSection) {
+              setTimeout(() => {
+                  tryOnSection.scrollIntoView({ behavior: 'smooth' });
+              }, 500);
+          }
+      }
     })();

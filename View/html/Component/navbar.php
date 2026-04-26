@@ -137,11 +137,6 @@ header("Expires: 0"); // Proxies.
             gap: 15px;
         }
 
-        .currency-selector {
-            display: flex;
-            align-items: center;
-            font-size: 13px;
-        }
 
         .divider { color: #ccc; margin: 0 5px; }
 
@@ -267,12 +262,6 @@ header("Expires: 0"); // Proxies.
             color: #888;
         }
 
-        .cart-icon{
-    position: relative;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-}
 
 .cart-item-count{
     position: absolute;
@@ -474,6 +463,88 @@ header("Expires: 0"); // Proxies.
 
 
 
+.auth-btn {
+    background-color: #222;
+    color: white;
+    border: 1px solid #222;
+    border-radius: 4px;
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.auth-btn:hover::after {
+    left: 120%;
+}
+
+.auth-btn:hover {
+    background-color: #444;
+    border-color: #444;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.auth-btn.btn-outline {
+    background-color: transparent;
+    color: #222;
+}
+
+.auth-btn.btn-outline:hover {
+    background-color: #222;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.currency-selector {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.currency-selector:hover {
+    color: #888;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cart-icon:hover {
+    transform: scale(1.15);
+    color: #000;
+}
+
+#signup-btn:hover{
+    background-color: white;
+    color: #333;
+}
     </style>
 </head>
 <body>
@@ -502,9 +573,12 @@ header("Expires: 0"); // Proxies.
                     <svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                 </a>
                 <?php } else { ?>
-                <a href="signUp.php" class="action-btn">
-                    <svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </a>
+                    <a href="login.php">
+                        <button class="auth-btn btn-outline">LOGIN</button>
+                    </a>
+                    <a href="signUp.php">
+                        <button class="auth-btn" id="signup-btn" >REGISTER</button>
+                    </a>
                 <?php } ?>
                <div class="cart-icon">
             <i class="ri-shopping-bag-line"></i>
@@ -518,7 +592,7 @@ header("Expires: 0"); // Proxies.
             
             <nav class="main-links">
                 <a href="Adult.php">Women</a>
-                <a href="men.html">Men</a>
+                <a href="Men1.html">Men</a>
                 <a href="#">Kids</a>
                 <a href="#">Technologie</a>
                 <a href="#">AboutUS</a>

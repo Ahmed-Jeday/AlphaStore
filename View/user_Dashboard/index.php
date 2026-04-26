@@ -8,6 +8,19 @@ session_start();
 if (isset($_SESSION["user_id"])) {
     getUserInfo(); // Retrieves user info and stores in session
     getProfileInfo(); // Retrieves profile info and stores in session
+    
+    // Extract for easier use in template
+    $firstName = $_SESSION['user_name'] ?? '';
+    $lastName  = $_SESSION['user_last_name'] ?? '';
+    $email     = $_SESSION['user_email'] ?? '';
+    $phone     = $_SESSION['user_phone'] ?? '';
+    $age       = $_SESSION['user_age'] ?? '';
+    $gender    = $_SESSION['user_gender'] ?? '';
+    $avatar    = $_SESSION['user_avatar'] ?? 'https://i.pravatar.cc/180?img=3';
+} else {
+    // If not logged in, redirect to login
+    header("Location: ../html/index.html");
+    exit;
 }
 
 // Handle and display session messages
@@ -122,6 +135,10 @@ if (isset($_SESSION["message"])) {
       </nav>
 
       <div class="sidebar-bottom">
+        <a href="../html/index.html" class="home-btn">
+          <i class="ph ph-house"></i>
+          <span>Retour à l'accueil</span>
+        </a>
         <button class="logout-btn">
           <i class="ph ph-sign-out"></i>
           <span>Déconnexion</span>
@@ -657,11 +674,6 @@ if (isset($_SESSION["message"])) {
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <script src="index.js"></script>
-<<<<<<< HEAD
-</body>
-</html>
-=======
   <script src="updateProfile.js"></script>
 </body>
 </html>
->>>>>>> c9b4dfd97ac92a7c1c6cf615116ce52bc0f3ba68

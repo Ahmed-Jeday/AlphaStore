@@ -299,6 +299,7 @@ function updateSlider() {
 }
 updateSlider();
 
+
 setInterval(updateSlider, 8000);
 
 images[1].classList.add('next');
