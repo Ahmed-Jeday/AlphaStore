@@ -20,7 +20,7 @@ class Order {
      */
     public function getAll(): array {
         $stmt = $this->db->query("
-            SELECT o.*, u.name AS user_name, u.email AS user_email,
+            SELECT o.*, o.total_price AS total, u.name AS user_name, u.email AS user_email,
                    COUNT(oi.id) AS items_count
             FROM orders o
             JOIN users u ON o.user_id = u.id
@@ -36,7 +36,7 @@ class Order {
      */
     public function getById(int $id): array|false {
         $stmt = $this->db->prepare("
-            SELECT o.*, u.name AS user_name, u.email AS user_email
+            SELECT o.*, o.total_price AS total, u.name AS user_name, u.email AS user_email
             FROM orders o
             JOIN users u ON o.user_id = u.id
             WHERE o.id = ?
@@ -124,7 +124,7 @@ class Order {
      */
     public function getRecent(int $limit = 5): array {
         $stmt = $this->db->prepare("
-            SELECT o.*, u.name AS user_name
+            SELECT o.*, o.total_price AS total, u.name AS user_name
             FROM orders o
             JOIN users u ON o.user_id = u.id
             ORDER BY o.created_at DESC

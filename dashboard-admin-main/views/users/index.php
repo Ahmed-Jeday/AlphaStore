@@ -92,7 +92,7 @@ require_once __DIR__ . '/../../includes/sidebar.php';
                                 <?php endif; ?>
                             </td>
                             <td class="text-muted" style="font-size:12px;">
-                                <?= date('d/m/Y', strtotime($u['created_at'])) ?>
+                                <?= !empty($u['created_at']) ? date('d/m/Y', strtotime($u['created_at'])) : '-' ?>
                             </td>
                             <td>
                                 <a href="index.php?page=users&action=toggle&id=<?= $u['id'] ?>"

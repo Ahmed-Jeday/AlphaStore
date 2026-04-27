@@ -2,6 +2,10 @@
 
 include("../../Controller/AuthController.php");
 include("../../Controller/ProfileController.php");
+include("../../Controller/OrderController.php");
+include("../../Controller/CartController.php");
+include("../../Controller/FavoriteController.php");
+require_once("../../model/OrderItem.php");
 session_start();
 
 // Verify user is logged in (via user_id from AuthController)
@@ -17,6 +21,61 @@ if (isset($_SESSION["user_id"])) {
     $age       = $_SESSION['user_age'] ?? '';
     $gender    = $_SESSION['user_gender'] ?? '';
     $avatar    = $_SESSION['user_avatar'] ?? 'https://i.pravatar.cc/180?img=3';
+
+    // Fetch dashboard data
+    $user_id = $_SESSION['user_id'];
+    
+    // Get orders
+    $orderModel = new Order();
+    $orders = $orderModel->getOrdersByUserId($user_id);
+    
+    // Calculate stats
+    $totalSpent = 0;
+    $ordersCount = count($orders);
+    $pendingOrders = 0;
+    foreach ($orders as $order) {
+        $totalSpent += $order['total_price'];
+        if ($order['status'] == 'pending') $pendingOrders++;
+    }
+    
+    // Get cart items
+    $cartModel = new Cart();
+    $cartItems = $cartModel->getCart($user_id);
+    $cartCount = count($cartItems);
+    
+    // Get favorites
+    $favoriteModel = new Favorite();
+    $favorites = $favoriteModel->getFavoriteByUser($user_id);
+    $favoritesCount = count($favorites);
+    
+    // Handle cart actions (POST requests)
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['action'])) {
+            switch ($_POST['action']) {
+                case 'update_cart':
+                    if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
+                        updateQuantity($_POST['product_id'], $_POST['quantity']);
+                    }
+                    break;
+                case 'remove_cart':
+                    if (isset($_POST['product_id'])) {
+                        removeFromCart($_POST['product_id']);
+                    }
+                    break;
+            }
+        }
+        // Redirect to avoid form resubmission and keep current section
+        $sectionParam = '';
+        if (isset($_POST['section'])) {
+            $sectionParam = '?section=' . urlencode($_POST['section']);
+        }
+        header("Location: " . $_SERVER['PHP_SELF'] . $sectionParam);
+        exit;
+    }
+    
+    // Get active section
+    $activeSection = $_GET['section'] ?? 'overview';
+    
 } else {
     // If not logged in, redirect to login
     header("Location: ../html/index.html");
@@ -49,6 +108,47 @@ if (isset($_SESSION["message"])) {
 
     echo "<p style='color: $color; font-weight: bold; padding: 10px; background: " . ($color == 'green' ? '#e6ffec' : '#ffe6e6') . "; border-radius: 5px; margin-bottom: 20px; text-align: center;'>$text</p>";
     unset($_SESSION['message']);
+}
+
+// Handle URL messages
+if (isset($_GET["success"])) {
+    $msg = $_GET['success'];
+    $text = '';
+    switch ($msg) {
+        case 'order_placed':
+            $text = 'Commande passée avec succès !';
+            break;
+        case 'added_to_cart':
+            $text = 'Article ajouté au panier !';
+            break;
+        default:
+            $text = 'Action réussie.';
+            break;
+    }
+    echo "<p style='color: green; font-weight: bold; padding: 10px; background: #e6ffec; border-radius: 5px; margin-bottom: 20px; text-align: center;'>$text</p>";
+}
+
+if (isset($_GET["error"])) {
+    $msg = $_GET['error'];
+    $text = '';
+    switch ($msg) {
+        case 'cart_empty':
+            $text = 'Votre panier est vide.';
+            break;
+        case 'not_logged_in':
+            $text = 'Vous devez être connecté.';
+            break;
+        case 'order_creation_failed':
+            $text = 'Erreur lors de la création de la commande.';
+            break;
+        case 'order_items_failed':
+            $text = 'Erreur lors de l\'ajout des articles.';
+            break;
+        default:
+            $text = 'Une erreur est survenue.';
+            break;
+    }
+    echo "<p style='color: red; font-weight: bold; padding: 10px; background: #ffe6e6; border-radius: 5px; margin-bottom: 20px; text-align: center;'>$text</p>";
 }
 
 ?>
@@ -87,51 +187,52 @@ if (isset($_SESSION["message"])) {
 
       <nav class="nav">
         <div class="nav-section">Principal</div>
-        <button class="nav-item active" data-section="overview">
+        <a href="?section=overview" class="nav-item <?php echo $activeSection == 'overview' ? 'active' : ''; ?>" data-section="overview">
           <i class="ph ph-squares-four"></i>
           <span>Overview</span>
-        </button>
-        <button class="nav-item" data-section="orders">
+        </a>
+        <a href="?section=orders" class="nav-item <?php echo $activeSection == 'orders' ? 'active' : ''; ?>" data-section="orders">
           <i class="ph ph-package"></i>
           <span>Commandes</span>
-          <span class="nav-badge">3</span>
-        </button>
-        <button class="nav-item" data-section="cart">
+          <span class="nav-badge"><?php echo $pendingOrders; ?></span>
+        </a>
+        <a href="?section=cart" class="nav-item <?php echo $activeSection == 'cart' ? 'active' : ''; ?>" data-section="cart">
           <i class="ph ph-shopping-cart"></i>
           <span>Panier</span>
-          <span class="nav-badge">2</span>
-        </button>
-        <button class="nav-item" data-section="wishlist">
+          <span class="nav-badge"><?php echo $cartCount; ?></span>
+        </a>
+        <a href="?section=wishlist" class="nav-item <?php echo $activeSection == 'wishlist' ? 'active' : ''; ?>" data-section="wishlist">
           <i class="ph ph-heart"></i>
           <span>Favoris</span>
-        </button>
+          <span class="nav-badge"><?php echo $favoritesCount; ?></span>
+        </a>
 
         <div class="nav-section">Compte</div>
-        <button class="nav-item" data-section="addresses">
+        <a href="?section=addresses" class="nav-item <?php echo $activeSection == 'addresses' ? 'active' : ''; ?>" data-section="addresses">
           <i class="ph ph-map-pin"></i>
           <span>Adresses</span>
-        </button>
-        <button class="nav-item" data-section="payments">
+        </a>
+        <a href="?section=payments" class="nav-item <?php echo $activeSection == 'payments' ? 'active' : ''; ?>" data-section="payments">
           <i class="ph ph-credit-card"></i>
           <span>Paiements</span>
-        </button>
-        <button class="nav-item" data-section="profile">
+        </a>
+        <a href="?section=profile" class="nav-item <?php echo $activeSection == 'profile' ? 'active' : ''; ?>" data-section="profile">
           <i class="ph ph-user"></i>
           <span>Profil</span>
-        </button>
-        <button class="nav-item" data-section="notifications">
+        </a>
+        <a href="?section=notifications" class="nav-item <?php echo $activeSection == 'notifications' ? 'active' : ''; ?>" data-section="notifications">
           <i class="ph ph-bell"></i>
           <span>Notifications</span>
           <span class="nav-badge">5</span>
-        </button>
-        <button class="nav-item" data-section="security">
+        </a>
+        <a href="?section=security" class="nav-item <?php echo $activeSection == 'security' ? 'active' : ''; ?>" data-section="security">
           <i class="ph ph-shield-check"></i>
           <span>Sécurité</span>
-        </button>
-        <button class="nav-item" data-section="support">
+        </a>
+        <a href="?section=support" class="nav-item <?php echo $activeSection == 'support' ? 'active' : ''; ?>" data-section="support">
           <i class="ph ph-headset"></i>
           <span>Support</span>
-        </button>
+        </a>
       </nav>
 
       <div class="sidebar-bottom">
@@ -139,10 +240,10 @@ if (isset($_SESSION["message"])) {
           <i class="ph ph-house"></i>
           <span>Retour à l'accueil</span>
         </a>
-        <button class="logout-btn">
+        <a href="logout.php" class="logout-btn">
           <i class="ph ph-sign-out"></i>
           <span>Déconnexion</span>
-        </button>
+        </a>
       </div>
     </aside>
 
@@ -157,7 +258,7 @@ if (isset($_SESSION["message"])) {
           <button class="mobile-menu-btn" id="menuToggle">
             <i class="ph ph-list"></i>
           </button>
-          <h1 class="page-title" id="pageTitle">Overview</h1>
+          <h1 class="page-title" id="pageTitle"><?php echo ucfirst($activeSection); ?></h1>
         </div>
         <div class="header-actions">
           <button class="header-btn secondary" id="headerBtnSec">Export</button>
@@ -169,30 +270,30 @@ if (isset($_SESSION["message"])) {
       <div class="content-scroll">
 
         <!-- ─── OVERVIEW ─── -->
-        <section class="section active" id="sec-overview">
+        <section class="section <?php echo $activeSection == 'overview' ? 'active' : ''; ?>" id="sec-overview">
           <div class="stat-grid">
             <div class="stat-card featured">
               <div class="stat-label">Total dépensé</div>
-              <div class="stat-value">2 840 <span class="stat-unit">DT</span></div>
+              <div class="stat-value"><?php echo number_format($totalSpent, 0, ',', ' '); ?> <span class="stat-unit">DT</span></div>
               <div class="stat-sub">Cette année</div>
               <div class="stat-glow"></div>
             </div>
             <div class="stat-card">
               <div class="stat-label">Commandes</div>
-              <div class="stat-value">14</div>
-              <div class="stat-sub">3 en cours</div>
+              <div class="stat-value"><?php echo $ordersCount; ?></div>
+              <div class="stat-sub"><?php echo $pendingOrders; ?> en cours</div>
               <div class="stat-glow"></div>
             </div>
             <div class="stat-card">
               <div class="stat-label">Favoris</div>
-              <div class="stat-value">9</div>
+              <div class="stat-value"><?php echo $favoritesCount; ?></div>
               <div class="stat-sub">articles sauvegardés</div>
               <div class="stat-glow"></div>
             </div>
             <div class="stat-card">
-              <div class="stat-label">Coupons</div>
-              <div class="stat-value">2</div>
-              <div class="stat-sub">disponibles</div>
+              <div class="stat-label">Panier</div>
+              <div class="stat-value"><?php echo $cartCount; ?></div>
+              <div class="stat-sub">articles</div>
               <div class="stat-glow"></div>
             </div>
           </div>
@@ -205,27 +306,44 @@ if (isset($_SESSION["message"])) {
                 <button class="link-btn" data-goto="orders">voir tout →</button>
               </div>
               <div class="card-block-body">
-                <div class="order-row">
-                  <div class="order-dot delivered"></div>
-                  <span class="order-id">#4821</span>
-                  <span class="order-name">Sneakers Air Max</span>
-                  <span class="badge delivered">Livré</span>
-                  <span class="order-price">189 DT</span>
-                </div>
-                <div class="order-row">
-                  <div class="order-dot transit"></div>
-                  <span class="order-id">#4819</span>
-                  <span class="order-name">RTX 4060 GPU</span>
-                  <span class="badge transit">En transit</span>
-                  <span class="order-price">920 DT</span>
-                </div>
-                <div class="order-row">
-                  <div class="order-dot pending"></div>
-                  <span class="order-id">#4810</span>
-                  <span class="order-name">Mechanical KB</span>
-                  <span class="badge pending">En attente</span>
-                  <span class="order-price">85 DT</span>
-                </div>
+                <?php
+                $recentOrders = array_slice($orders, 0, 3); // Get first 3 orders
+                foreach ($recentOrders as $order) {
+                    $statusClass = '';
+                    $statusText = '';
+                    switch ($order['status']) {
+                        case 'delivered':
+                            $statusClass = 'delivered';
+                            $statusText = 'Livré';
+                            break;
+                        case 'shipped':
+                        case 'transit':
+                            $statusClass = 'transit';
+                            $statusText = 'En transit';
+                            break;
+                        case 'pending':
+                        default:
+                            $statusClass = 'pending';
+                            $statusText = 'En attente';
+                            break;
+                    }
+                    // Get order items for product name
+                    $orderItemModel = new OrderItem();
+                    $items = $orderItemModel->getItemsByOrderId($order['id']);
+                    $productName = !empty($items) ? $items[0]['name'] : 'Produit';
+                    
+                    echo '<div class="order-row">
+                      <div class="order-dot ' . $statusClass . '"></div>
+                      <span class="order-id">#' . $order['id'] . '</span>
+                      <span class="order-name">' . htmlspecialchars($productName) . '</span>
+                      <span class="badge ' . $statusClass . '">' . $statusText . '</span>
+                      <span class="order-price">' . number_format($order['total_price'], 0, ',', ' ') . ' DT</span>
+                    </div>';
+                }
+                if (empty($recentOrders)) {
+                    echo '<div class="order-row">Aucune commande trouvée</div>';
+                }
+                ?>
               </div>
             </div>
 
@@ -263,7 +381,7 @@ if (isset($_SESSION["message"])) {
         </section>
 
         <!-- ─── ORDERS ─── -->
-        <section class="section" id="sec-orders">
+        <section class="section <?php echo $activeSection == 'orders' ? 'active' : ''; ?>" id="sec-orders">
           <div class="card-block">
             <div class="card-block-head">
               <i class="ph ph-list"></i>
@@ -282,46 +400,44 @@ if (isset($_SESSION["message"])) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><strong>#4821</strong></td>
-                    <td>12 Avr</td>
-                    <td>Sneakers Air Max</td>
-                    <td>189 DT</td>
-                    <td><span class="badge delivered">Livré</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#4819</strong></td>
-                    <td>10 Avr</td>
-                    <td>RTX 4060 GPU</td>
-                    <td>920 DT</td>
-                    <td><span class="badge transit">En transit</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#4810</strong></td>
-                    <td>3 Avr</td>
-                    <td>Mechanical KB</td>
-                    <td>85 DT</td>
-                    <td><span class="badge pending">En attente</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#4805</strong></td>
-                    <td>28 Mar</td>
-                    <td>USB-C Hub</td>
-                    <td>55 DT</td>
-                    <td><span class="badge delivered">Livré</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#4780</strong></td>
-                    <td>15 Mar</td>
-                    <td>Hoodie + Jeans</td>
-                    <td>210 DT</td>
-                    <td><span class="badge delivered">Livré</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
+                  <?php
+                  foreach ($orders as $order) {
+                      $statusClass = '';
+                      $statusText = '';
+                      switch ($order['status']) {
+                          case 'delivered':
+                              $statusClass = 'delivered';
+                              $statusText = 'Livré';
+                              break;
+                          case 'shipped':
+                          case 'transit':
+                              $statusClass = 'transit';
+                              $statusText = 'En transit';
+                              break;
+                          case 'pending':
+                          default:
+                              $statusClass = 'pending';
+                              $statusText = 'En attente';
+                              break;
+                      }
+                      // Get order items for product name
+                      $orderItemModel = new OrderItem();
+                      $items = $orderItemModel->getItemsByOrderId($order['id']);
+                      $productName = !empty($items) ? $items[0]['name'] : 'Produit';
+                      
+                      echo '<tr>
+                        <td><strong>#' . $order['id'] . '</strong></td>
+                        <td>' . date('d M', strtotime($order['created_at'])) . '</td>
+                        <td>' . htmlspecialchars($productName) . '</td>
+                        <td>' . number_format($order['total_price'], 0, ',', ' ') . ' DT</td>
+                        <td><span class="badge ' . $statusClass . '">' . $statusText . '</span></td>
+                        <td><button class="view-btn">Détails</button></td>
+                      </tr>';
+                  }
+                  if (empty($orders)) {
+                      echo '<tr><td colspan="6">Aucune commande trouvée</td></tr>';
+                  }
+                  ?>
                 </tbody>
               </table>
             </div>
@@ -329,61 +445,91 @@ if (isset($_SESSION["message"])) {
         </section>
 
         <!-- ─── CART ─── -->
-        <section class="section" id="sec-cart">
+        <section class="section <?php echo $activeSection == 'cart' ? 'active' : ''; ?>" id="sec-cart">
           <div class="cart-list">
-            <div class="cart-item" data-price="189">
-              <div class="cart-img">👟</div>
-              <div class="cart-info">
-                <div class="cart-name">Nike Air Max 270</div>
-                <div class="cart-detail">Taille 42 · Blanc/Noir</div>
-              </div>
-              <div class="qty-ctrl">
-                <button class="qty-btn" data-action="dec">−</button>
-                <span class="qty-val">1</span>
-                <button class="qty-btn" data-action="inc">+</button>
-              </div>
-              <div class="cart-price">189 DT</div>
-              <button class="del-btn" title="Supprimer"><i class="ph ph-trash"></i></button>
-            </div>
-            <div class="cart-item" data-price="85">
-              <div class="cart-img">⌨️</div>
-              <div class="cart-info">
-                <div class="cart-name">Keychron K2 Keyboard</div>
-                <div class="cart-detail">Switch Rouge · Sans fil</div>
-              </div>
-              <div class="qty-ctrl">
-                <button class="qty-btn" data-action="dec">−</button>
-                <span class="qty-val">1</span>
-                <button class="qty-btn" data-action="inc">+</button>
-              </div>
-              <div class="cart-price">85 DT</div>
-              <button class="del-btn" title="Supprimer"><i class="ph ph-trash"></i></button>
-            </div>
+            <?php
+            $cartTotal = 0;
+            foreach ($cartItems as $item) {
+                $itemTotal = $item['price'] * $item['quantite'];
+                $cartTotal += $itemTotal;
+                echo '<div class="cart-item" data-price="' . $item['price'] . '">
+                  <div class="cart-img">' . (!empty($item['image_path']) ? '<img src="' . htmlspecialchars($item['image_path']) . '" alt="' . htmlspecialchars($item['name']) . '">' : '📦') . '</div>
+                  <div class="cart-info">
+                    <div class="cart-name">' . htmlspecialchars($item['name']) . '</div>
+                    <div class="cart-detail">Quantité: ' . $item['quantite'] . '</div>
+                  </div>
+                  <div class="qty-ctrl">
+                    <form method="post" style="display: inline;">
+                      <input type="hidden" name="action" value="update_cart">
+                      <input type="hidden" name="product_id" value="' . $item['produit_id'] . '">
+                      <input type="hidden" name="quantity" value="' . ($item['quantite'] - 1) . '">
+                      <input type="hidden" name="section" value="cart">
+                      <button type="submit" class="qty-btn" name="dec">−</button>
+                    </form>
+                    <span class="qty-val">' . $item['quantite'] . '</span>
+                    <form method="post" style="display: inline;">
+                      <input type="hidden" name="action" value="update_cart">
+                      <input type="hidden" name="product_id" value="' . $item['produit_id'] . '">
+                      <input type="hidden" name="quantity" value="' . ($item['quantite'] + 1) . '">
+                      <input type="hidden" name="section" value="cart">
+                      <button type="submit" class="qty-btn" name="inc">+</button>
+                    </form>
+                  </div>
+                  <div class="cart-price">' . number_format($itemTotal, 0, ',', ' ') . ' DT</div>
+                  <form method="post" style="display: inline;">
+                    <input type="hidden" name="action" value="remove_cart">
+                    <input type="hidden" name="product_id" value="' . $item['produit_id'] . '">
+                    <input type="hidden" name="section" value="cart">
+                    <button type="submit" class="del-btn" title="Supprimer"><i class="ph ph-trash"></i></button>
+                  </form>
+                </div>';
+            }
+            if (empty($cartItems)) {
+                echo '<div class="cart-item">Votre panier est vide</div>';
+            }
+            ?>
           </div>
           <div class="cart-summary">
             <div class="cart-summary-info">
               <div class="cart-summary-label">Total</div>
-              <div class="cart-total-val" id="cartTotal">274 DT</div>
+              <div class="cart-total-val" id="cartTotal"><?php echo number_format($cartTotal, 0, ',', ' '); ?> DT</div>
               <div class="cart-summary-sub">Livraison gratuite incluse</div>
             </div>
-            <button class="checkout-btn">Passer commande →</button>
+            <form method="post" action="../../Controller/OrderController.php" style="display: inline;">
+              <input type="hidden" name="action" value="place_order">
+              <button type="submit" class="checkout-btn">Passer commande →</button>
+            </form>
           </div>
         </section>
 
         <!-- ─── WISHLIST ─── -->
-        <section class="section" id="sec-wishlist">
+        <section class="section <?php echo $activeSection == 'wishlist' ? 'active' : ''; ?>" id="sec-wishlist">
           <div class="wish-grid">
-            <div class="wish-card"><div class="wish-img">💻</div><div class="wish-body"><div class="wish-name">MacBook Air M2</div><div class="wish-price">2 899 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">🎧</div><div class="wish-body"><div class="wish-name">Sony WH-1000XM5</div><div class="wish-price">499 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">📱</div><div class="wish-body"><div class="wish-name">iPhone 15 Pro</div><div class="wish-price">3 199 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">🖥️</div><div class="wish-body"><div class="wish-name">Dell 4K Monitor</div><div class="wish-price">750 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">🕹️</div><div class="wish-body"><div class="wish-name">PS5 Controller</div><div class="wish-price">180 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">⌚</div><div class="wish-body"><div class="wish-name">Apple Watch S9</div><div class="wish-price">1 100 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
+            <?php
+            foreach ($favorites as $fav) {
+                echo '<div class="wish-card">
+                  <div class="wish-img">' . (!empty($fav['image_path']) ? '<img src="' . htmlspecialchars($fav['image_path']) . '" alt="' . htmlspecialchars($fav['name']) . '">' : '❤️') . '</div>
+                  <div class="wish-body">
+                    <div class="wish-name">' . htmlspecialchars($fav['name']) . '</div>
+                    <div class="wish-price">' . number_format($fav['price'], 0, ',', ' ') . ' DT</div>
+                            <form method="post" action="../../Controller/CartController.php" style="display: inline;">
+                      <input type="hidden" name="product_id" value="' . $fav['product_id'] . '">
+                      <input type="hidden" name="quantity" value="1">
+                      <input type="hidden" name="section" value="wishlist">
+                      <button type="submit" class="wish-add">+ Ajouter au panier</button>
+                    </form>
+                  </div>
+                </div>';
+            }
+            if (empty($favorites)) {
+                echo '<div class="wish-card">Aucun favori trouvé</div>';
+            }
+            ?>
           </div>
         </section>
 
         <!-- ─── ADDRESSES ─── -->
-        <section class="section" id="sec-addresses">
+        <section class="section <?php echo $activeSection == 'addresses' ? 'active' : ''; ?>" id="sec-addresses">
           <div class="addr-grid">
             <div class="addr-card default">
               <span class="addr-badge">Défaut</span>
@@ -411,21 +557,26 @@ if (isset($_SESSION["message"])) {
         </section>
 
         <!-- ─── PAYMENTS ─── -->
-        <section class="section" id="sec-payments">
+        <section class="section <?php echo $activeSection == 'payments' ? 'active' : ''; ?>" id="sec-payments">
           <div class="pay-grid">
             <div class="pay-card featured">
-              <div class="pay-icon">💳</div>
-              <div class="pay-info">
-                <div class="pay-type">Visa</div>
-                <div class="pay-num">•••• •••• •••• 4291</div>
+              <div class="pay-card-top">
+                <div class="pay-icon"><i class="ph-fill ph-credit-card"></i></div>
+                <span class="pay-default-badge">Défaut</span>
               </div>
-              <span class="pay-default-badge">Défaut</span>
+              <div class="pay-info">
+                <div class="pay-num">•••• •••• •••• 4291</div>
+                <div class="pay-type">Visa Signature</div>
+              </div>
+              <div class="pay-card-chip"></div>
             </div>
             <div class="pay-card">
-              <div class="pay-icon">🏦</div>
+              <div class="pay-card-top">
+                <div class="pay-icon"><i class="ph ph-bank"></i></div>
+              </div>
               <div class="pay-info">
-                <div class="pay-type">Virement Bancaire</div>
                 <div class="pay-num">BNA — Compte courant</div>
+                <div class="pay-type">Virement Bancaire</div>
               </div>
             </div>
           </div>
@@ -450,14 +601,19 @@ if (isset($_SESSION["message"])) {
         </section>
 
         <!-- ─── PROFILE ─── -->
-        <section class="section" id="sec-profile">
+        <section class="section <?php echo $activeSection == 'profile' ? 'active' : ''; ?>" id="sec-profile">
           <div class="profile-grid">
             <div class="profile-avatar-block">
-              <div class="profile-avatar-circle" id="profileAvatarCircle"><?= !empty($firstName) ? strtoupper($firstName[0]) : 'U' ?></div>
-              <img id="profileAvatar" src="<?= $avatar ?>" style="display:none;">
+              <div class="profile-avatar-circle" id="profileAvatarCircle">
+                <?php if ($avatar && strpos($avatar, 'pravatar.cc') === false): ?>
+                  <img src="<?= $avatar ?>" alt="Avatar" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+                <?php else: ?>
+                  <?= !empty($firstName) ? strtoupper($firstName[0]) : 'U' ?>
+                <?php endif; ?>
+              </div>
               <div class="profile-fullname"><?= htmlspecialchars($firstName . " " . $lastName) ?></div>
               <div class="profile-since">Membre depuis <?= $_SESSION['user_created_at'] ?? '2023' ?></div>
-              <button class="change-photo-btn">Changer la photo</button>
+              <button class="change-photo-btn"><i class="ph ph-camera"></i> Changer la photo</button>
             </div>
             <div class="profile-form-block">
               <div class="form-row">
@@ -516,7 +672,7 @@ if (isset($_SESSION["message"])) {
         </section>
 
         <!-- ─── NOTIFICATIONS ─── -->
-        <section class="section" id="sec-notifications">
+        <section class="section <?php echo $activeSection == 'notifications' ? 'active' : ''; ?>" id="sec-notifications">
           <div class="card-block">
             <div class="card-block-head">
               <i class="ph ph-bell"></i>
@@ -564,7 +720,7 @@ if (isset($_SESSION["message"])) {
         </section>
 
         <!-- ─── SECURITY ─── -->
-        <section class="section" id="sec-security">
+        <section class="section <?php echo $activeSection == 'security' ? 'active' : ''; ?>" id="sec-security">
           <div class="security-list">
             <div class="security-item">
               <div class="security-icon active"><i class="ph ph-lock-key-open"></i></div>
@@ -602,7 +758,7 @@ if (isset($_SESSION["message"])) {
         </section>
 
         <!-- ─── SUPPORT ─── -->
-        <section class="section" id="sec-support">
+        <section class="section <?php echo $activeSection == 'support' ? 'active' : ''; ?>" id="sec-support">
           <div class="contact-grid">
             <div class="contact-card">
               <i class="ph ph-chat-dots"></i>
@@ -673,7 +829,9 @@ if (isset($_SESSION["message"])) {
   <!-- Overlay for mobile menu -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
+  <!-- Scripts -->
   <script src="index.js"></script>
   <script src="updateProfile.js"></script>
+
 </body>
 </html>

@@ -43,7 +43,7 @@ class OrderItem
     public function getItemsByOrderId($order_id)
     {
         $stmt = $this->pdo->prepare("SELECT oi.*, 
-                                            COALESCE(p.name, pt.name) as product_name, 
+                                            COALESCE(p.name, pt.name) as name, 
                                             COALESCE(p.image_path, pt.image_path) as image_path 
                                     FROM order_items oi 
                                     LEFT JOIN produits p ON oi.product_id = p.id 

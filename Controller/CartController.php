@@ -2,6 +2,10 @@
 
 require_once(__DIR__ . "/../model/Cart.php");
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 function addToCart($productID, $quantity)
 {
@@ -49,4 +53,16 @@ function updateQuantity($productID, $quantity)
     $cart = new Cart();
     $cart->updateCart($user_id, $productID, $quantity);
     echo json_encode(['status' => 'success']);
+}
+
+// Handle form submissions only when CartController.php is accessed directly
+if (basename($_SERVER['SCRIPT_FILENAME']) === basename(__FILE__)) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
+            addToCart($_POST['product_id'], $_POST['quantity']);
+            $section = isset($_POST['section']) ? '&section=' . urlencode($_POST['section']) : '';
+            header("Location: ../View/user_Dashboard/index.php?success=added_to_cart" . $section);
+            exit;
+        }
+    }
 }

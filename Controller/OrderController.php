@@ -14,6 +14,11 @@ if (session_status() === PHP_SESSION_NONE) {
 function placeOrder()
 {
     if (!isset($_SESSION['user_id'])) {
+        if (isset($_POST['action'])) {
+            // Form submission, redirect with error
+            header("Location: ../View/user_Dashboard/index.php?section=cart&error=not_logged_in");
+            exit;
+        }
         echo json_encode(['status' => 'error', 'message' => 'User not logged in']);
         exit;
     }
@@ -23,6 +28,10 @@ function placeOrder()
     $cartItems = $cartModel->getCart($user_id);
 
     if (empty($cartItems)) {
+        if (isset($_POST['action'])) {
+            header("Location: ../View/user_Dashboard/index.php?section=cart&error=cart_empty");
+            exit;
+        }
         echo json_encode(['status' => 'error', 'message' => 'Cart is empty']);
         exit;
     }
@@ -45,11 +54,23 @@ function placeOrder()
 
         if ($orderItemModel->addItems($order_id, $items)) {
             $cartModel->clearCart($user_id);
+            if (isset($_POST['action'])) {
+                header("Location: ../View/user_Dashboard/index.php?section=cart&success=order_placed");
+                exit;
+            }
             echo json_encode(['status' => 'success', 'order_id' => $order_id]);
         } else {
+            if (isset($_POST['action'])) {
+                header("Location: ../View/user_Dashboard/index.php?section=cart&error=order_items_failed");
+                exit;
+            }
             echo json_encode(['status' => 'error', 'message' => 'Failed to add order items']);
         }
     } else {
+        if (isset($_POST['action'])) {
+            header("Location: ../View/user_Dashboard/index.php?section=cart&error=order_creation_failed");
+            exit;
+        }
         echo json_encode(['status' => 'error', 'message' => 'Failed to create order']);
     }
     exit;
@@ -101,22 +122,24 @@ function getOrderDetails($order_id)
     exit;
 }
 
-// Simple routing based on action parameter if needed
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
-    switch ($_POST['action']) {
-        case 'place_order':
-            placeOrder();
-            break;
-    }
-} elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])) {
-    switch ($_GET['action']) {
-        case 'get_user_orders':
-            getUserOrders();
-            break;
-        case 'get_order_details':
-            if (isset($_GET['order_id'])) {
-                getOrderDetails($_GET['order_id']);
-            }
-            break;
+// Simple routing based on action parameter if the controller is accessed directly
+if (basename($_SERVER['SCRIPT_FILENAME']) === basename(__FILE__)) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+        switch ($_POST['action']) {
+            case 'place_order':
+                placeOrder();
+                break;
+        }
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])) {
+        switch ($_GET['action']) {
+            case 'get_user_orders':
+                getUserOrders();
+                break;
+            case 'get_order_details':
+                if (isset($_GET['order_id'])) {
+                    getOrderDetails($_GET['order_id']);
+                }
+                break;
+        }
     }
 }

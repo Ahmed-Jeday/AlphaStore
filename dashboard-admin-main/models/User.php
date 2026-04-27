@@ -20,11 +20,11 @@ class User {
         $stmt = $this->db->query("
             SELECT u.*,
                    COUNT(o.id) AS order_count,
-                   COALESCE(SUM(o.total), 0) AS total_spent
+                   COALESCE(SUM(o.total_price), 0) AS total_spent
             FROM users u
             LEFT JOIN orders o ON u.id = o.user_id
             GROUP BY u.id
-            ORDER BY u.created_at DESC
+            ORDER BY u.id DESC
         ");
         return $stmt->fetchAll();
     }

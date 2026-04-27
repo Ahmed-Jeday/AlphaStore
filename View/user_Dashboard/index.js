@@ -204,6 +204,8 @@
   /* ─────────────────────────────────────
      INIT
   ───────────────────────────────────── */
-  showSection('overview');
+  /* Detect active section from PHP-rendered active class or URL */
+  const currentActive = document.querySelector('.nav-item.active')?.dataset.section || 'overview';
+  showSection(currentActive);
 
 })();
