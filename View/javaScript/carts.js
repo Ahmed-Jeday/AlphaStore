@@ -22,6 +22,14 @@ const initCartElements = () => {
     window.location.href = "../html/checkout.php";
     });
 
+    let smartBudgetBtn = document.querySelector('.smartBudget-btn');
+    if (smartBudgetBtn && !smartBudgetBtn.dataset.listened) {
+        smartBudgetBtn.addEventListener('click', () => {
+            window.location.href = "../html/smart-suggestion.php";
+        });
+        smartBudgetBtn.dataset.listened = "true";
+    }
+
 
     if (cartIcons.length > 0 && cart && closeCart) {
         cartIcons.forEach(icon => {

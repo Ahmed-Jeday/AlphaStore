@@ -2,6 +2,10 @@
 
 include("../../Controller/AuthController.php");
 include("../../Controller/ProfileController.php");
+include("../../model/Order.php");
+include("../../model/OrderItem.php");
+include("../../model/Cart.php");
+include("../../model/Favorite.php");
 session_start();
 
 // Verify user is logged in (via user_id from AuthController)
@@ -10,6 +14,7 @@ if (isset($_SESSION["user_id"])) {
     getProfileInfo(); // Retrieves profile info and stores in session
     
     // Extract for easier use in template
+    $userId    = $_SESSION['user_id'];
     $firstName = $_SESSION['user_name'] ?? '';
     $lastName  = $_SESSION['user_last_name'] ?? '';
     $email     = $_SESSION['user_email'] ?? '';
@@ -17,6 +22,44 @@ if (isset($_SESSION["user_id"])) {
     $age       = $_SESSION['user_age'] ?? '';
     $gender    = $_SESSION['user_gender'] ?? '';
     $avatar    = $_SESSION['user_avatar'] ?? 'https://i.pravatar.cc/180?img=3';
+    
+    $cartModel = new Cart();
+    $favModel = new Favorite();
+
+    // Handle cart actions (Simple PHP, no AJAX)
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cart_action'])) {
+        $action = $_POST['cart_action'];
+        $productId = $_POST['product_id'] ?? null;
+        
+        if ($action === 'remove' && $productId) {
+            $cartModel->removeFromCart($userId, $productId);
+        } elseif ($action === 'update' && $productId) {
+            $quantity = intval($_POST['quantity'] ?? 1);
+            if ($quantity > 0) {
+                $cartModel->updateCart($userId, $productId, $quantity);
+            } else {
+                $cartModel->removeFromCart($userId, $productId);
+            }
+        } elseif ($action === 'add' && $productId) {
+            $cartModel->addToCart($userId, $productId, 1);
+        }
+        // Refresh to apply changes and avoid form resubmission
+        header("Location: index.php?section=cart");
+        exit;
+    }
+
+    // Fetch user orders
+    $orderModel = new Order();
+    $user_orders = $orderModel->getOrdersByUserId($userId);
+    
+    // Fetch cart data
+    $cart_items = $cartModel->getCart($userId);
+    $cart_total = $cartModel->getCartTotal($userId);
+    $cart_count = count($cart_items);
+
+    // Fetch wishlist data
+    $fav_items = $favModel->getFavoriteByUser($userId);
+    $fav_count = count($fav_items);
 } else {
     // If not logged in, redirect to login
     header("Location: ../html/index.html");
@@ -94,16 +137,17 @@ if (isset($_SESSION["message"])) {
         <button class="nav-item" data-section="orders">
           <i class="ph ph-package"></i>
           <span>Commandes</span>
-          <span class="nav-badge">3</span>
+          <span class="nav-badge"><?= count($user_orders ?? []) ?></span>
         </button>
         <button class="nav-item" data-section="cart">
           <i class="ph ph-shopping-cart"></i>
           <span>Panier</span>
-          <span class="nav-badge">2</span>
+          <span class="nav-badge"><?= $cart_count ?? 0 ?></span>
         </button>
         <button class="nav-item" data-section="wishlist">
           <i class="ph ph-heart"></i>
           <span>Favoris</span>
+          <span class="nav-badge"><?= $fav_count ?? 0 ?></span>
         </button>
 
         <div class="nav-section">Compte</div>
@@ -185,7 +229,7 @@ if (isset($_SESSION["message"])) {
             </div>
             <div class="stat-card">
               <div class="stat-label">Favoris</div>
-              <div class="stat-value">9</div>
+              <div class="stat-value"><?= $fav_count ?? 0 ?></div>
               <div class="stat-sub">articles sauvegardés</div>
               <div class="stat-glow"></div>
             </div>
@@ -205,27 +249,66 @@ if (isset($_SESSION["message"])) {
                 <button class="link-btn" data-goto="orders">voir tout →</button>
               </div>
               <div class="card-block-body">
+                <?php
+                if (!empty($user_orders) && is_array($user_orders)) {
+                    // Show only the last 3 orders
+                    $recent_orders = array_slice($user_orders, 0, 3);
+                    
+                    foreach ($recent_orders as $order) {
+                        // Determine dot class based on status
+                        $dot_class = 'pending';
+                        $badge_class = 'pending';
+                        $status_text = ucfirst($order['status']);
+                        
+                        if ($order['status'] === 'delivered') {
+                            $dot_class = 'delivered';
+                            $badge_class = 'delivered';
+                            $status_text = 'Livré';
+                        } elseif ($order['status'] === 'shipped') {
+                            $dot_class = 'transit';
+                            $badge_class = 'transit';
+                            $status_text = 'En transit';
+                        } elseif ($order['status'] === 'pending') {
+                            $dot_class = 'pending';
+                            $badge_class = 'pending';
+                            $status_text = 'En attente';
+                        } elseif ($order['status'] === 'cancelled') {
+                            $dot_class = 'cancelled';
+                            $badge_class = 'cancelled';
+                            $status_text = 'Annulée';
+                        } elseif ($order['status'] === 'paid') {
+                            $dot_class = 'paid';
+                            $badge_class = 'paid';
+                            $status_text = 'Payée';
+                        }
+                        
+                        // Get order items to display product names
+                        $orderItemModel = new OrderItem();
+                        $order_items = $orderItemModel->getItemsByOrderId($order['id']);
+                        $product_name = 'Article';
+                        
+                        if (!empty($order_items) && isset($order_items[0]['product_name'])) {
+                            $product_name = $order_items[0]['product_name'];
+                        }
+                ?>
                 <div class="order-row">
-                  <div class="order-dot delivered"></div>
-                  <span class="order-id">#4821</span>
-                  <span class="order-name">Sneakers Air Max</span>
-                  <span class="badge delivered">Livré</span>
-                  <span class="order-price">189 DT</span>
+                  <div class="order-dot <?php echo $dot_class; ?>"></div>
+                  <span class="order-id">#<?php echo htmlspecialchars($order['id']); ?></span>
+                  <span class="order-name"><?php echo htmlspecialchars($product_name); ?></span>
+                  <span class="badge <?php echo $badge_class; ?>"><?php echo $status_text; ?></span>
+                  <span class="order-price"><?php echo htmlspecialchars($order['total_price']); ?> DT</span>
                 </div>
-                <div class="order-row">
-                  <div class="order-dot transit"></div>
-                  <span class="order-id">#4819</span>
-                  <span class="order-name">RTX 4060 GPU</span>
-                  <span class="badge transit">En transit</span>
-                  <span class="order-price">920 DT</span>
+                <?php
+                    }
+                } else {
+                    // No orders message
+                ?>
+                <div style="padding: 20px; text-align: center; color: #999;">
+                  <p style="margin: 0; font-size: 14px;">Aucune commande encore. Commencez à acheter!</p>
                 </div>
-                <div class="order-row">
-                  <div class="order-dot pending"></div>
-                  <span class="order-id">#4810</span>
-                  <span class="order-name">Mechanical KB</span>
-                  <span class="badge pending">En attente</span>
-                  <span class="order-price">85 DT</span>
-                </div>
+                <?php
+                }
+                ?>
               </div>
             </div>
 
@@ -269,7 +352,10 @@ if (isset($_SESSION["message"])) {
               <i class="ph ph-list"></i>
               <span>Toutes les commandes</span>
             </div>
-            <div class="table-wrap">
+            <?php
+            // Check if user has orders
+            if (!empty($user_orders) && is_array($user_orders)) {
+            ?>
               <table class="data-table">
                 <thead>
                   <tr>
@@ -282,48 +368,78 @@ if (isset($_SESSION["message"])) {
                   </tr>
                 </thead>
                 <tbody>
+                  <?php 
+                  foreach ($user_orders as $order) {
+                    // Determine status badge class
+                    $status_class = 'pending';
+                    $status_text = ucfirst($order['status']);
+                    
+                    if ($order['status'] === 'delivered') {
+                        $status_class = 'delivered';
+                        $status_text = 'Livré';
+                    } elseif ($order['status'] === 'shipped') {
+                        $status_class = 'transit';
+                        $status_text = 'En transit';
+                    } elseif ($order['status'] === 'pending') {
+                        $status_class = 'pending';
+                        $status_text = 'En attente';
+                    } elseif ($order['status'] === 'cancelled') {
+                        $status_class = 'cancelled';
+                        $status_text = 'Annulée';
+                    } elseif ($order['status'] === 'paid') {
+                        $status_class = 'paid';
+                        $status_text = 'Payée';
+                    }
+                    
+                    // Format date
+                    $date = new DateTime($order['created_at']);
+                    $formatted_date = $date->format('d M');
+                    
+                    // Get order items to display product names
+                    $orderItemModel = new OrderItem();
+                    $order_items = $orderItemModel->getItemsByOrderId($order['id']);
+                    $items_text = '';
+                    
+                    if (!empty($order_items)) {
+                        $items_names = [];
+                        foreach ($order_items as $item) {
+                            $items_names[] = $item['product_name'] ?? 'Article';
+                        }
+                        $items_text = implode(', ', array_slice($items_names, 0, 2));
+                        if (count($items_names) > 2) {
+                            $items_text .= ' +' . (count($items_names) - 2);
+                        }
+                    } else {
+                        $items_text = 'Article(s)';
+                    }
+                  ?>
                   <tr>
-                    <td><strong>#4821</strong></td>
-                    <td>12 Avr</td>
-                    <td>Sneakers Air Max</td>
-                    <td>189 DT</td>
-                    <td><span class="badge delivered">Livré</span></td>
-                    <td><button class="view-btn">Détails</button></td>
+                    <td><strong>#<?php echo htmlspecialchars($order['id']); ?></strong></td>
+                    <td><?php echo htmlspecialchars($formatted_date); ?></td>
+                    <td><?php echo htmlspecialchars($items_text); ?></td>
+                    <td><?php echo htmlspecialchars($order['total_price']); ?> DT</td>
+                    <td><span class="badge <?php echo $status_class; ?>"><?php echo $status_text; ?></span></td>
+                    <td><button class="view-btn" onclick="alert('Détails de la commande #<?php echo $order['id']; ?>')">Détails</button></td>
                   </tr>
-                  <tr>
-                    <td><strong>#4819</strong></td>
-                    <td>10 Avr</td>
-                    <td>RTX 4060 GPU</td>
-                    <td>920 DT</td>
-                    <td><span class="badge transit">En transit</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#4810</strong></td>
-                    <td>3 Avr</td>
-                    <td>Mechanical KB</td>
-                    <td>85 DT</td>
-                    <td><span class="badge pending">En attente</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#4805</strong></td>
-                    <td>28 Mar</td>
-                    <td>USB-C Hub</td>
-                    <td>55 DT</td>
-                    <td><span class="badge delivered">Livré</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>#4780</strong></td>
-                    <td>15 Mar</td>
-                    <td>Hoodie + Jeans</td>
-                    <td>210 DT</td>
-                    <td><span class="badge delivered">Livré</span></td>
-                    <td><button class="view-btn">Détails</button></td>
-                  </tr>
+                  <?php 
+                  }
+                  ?>
                 </tbody>
               </table>
+            <?php
+            } else {
+            ?>
+              <div style="text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px;">
+                <div style="font-size: 48px; margin-bottom: 20px;">🛍️</div>
+                <h3 style="font-size: 24px; font-weight: 600; color: #333; margin-bottom: 10px;">Pas encore de commandes</h3>
+                <p style="font-size: 16px; color: #666; margin-bottom: 20px;">Commençons votre première aventure !</p>
+                <a href="../html/index.html" style="display: inline-block; padding: 12px 30px; background: #007AFF; color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: background 0.3s;">
+                  Découvrir les produits
+                </a>
+              </div>
+            <?php
+            }
+            ?>
             </div>
           </div>
         </section>
@@ -331,54 +447,103 @@ if (isset($_SESSION["message"])) {
         <!-- ─── CART ─── -->
         <section class="section" id="sec-cart">
           <div class="cart-list">
-            <div class="cart-item" data-price="189">
-              <div class="cart-img">👟</div>
-              <div class="cart-info">
-                <div class="cart-name">Nike Air Max 270</div>
-                <div class="cart-detail">Taille 42 · Blanc/Noir</div>
+            <?php if (!empty($cart_items)): ?>
+              <?php foreach ($cart_items as $item): ?>
+                <div class="cart-item" data-price="<?= htmlspecialchars($item['price']) ?>">
+                  <div class="cart-img">
+                    <?php 
+                    $img_src = $item['image_path'] ?? '';
+                    if (!empty($img_src)) {
+                        if (strpos($img_src, 'http') !== 0) {
+                            $img_src = "../../public/" . $img_src;
+                        }
+                    ?>
+                      <img src="<?= htmlspecialchars($img_src) ?>" alt="<?= htmlspecialchars($item['name']) ?>" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                    <?php } else { ?>
+                      📦
+                    <?php } ?>
+                  </div>
+                  <div class="cart-info">
+                    <div class="cart-name"><?= htmlspecialchars($item['name']) ?></div>
+                    <div class="cart-detail">Prix unitaire: <?= htmlspecialchars($item['price']) ?> DT</div>
+                  </div>
+                  
+                  <div class="qty-ctrl">
+                    <form method="POST" style="display: flex; align-items: center;">
+                      <input type="hidden" name="cart_action" value="update">
+                      <input type="hidden" name="product_id" value="<?= htmlspecialchars($item['produit_id']) ?>">
+                      
+                      <button type="submit" name="quantity" value="<?= $item['quantite'] - 1 ?>" class="qty-btn" <?= $item['quantite'] <= 1 ? 'disabled' : '' ?>>−</button>
+                      <span class="qty-val"><?= htmlspecialchars($item['quantite']) ?></span>
+                      <button type="submit" name="quantity" value="<?= $item['quantite'] + 1 ?>" class="qty-btn">+</button>
+                    </form>
+                  </div>
+                  
+                  <div class="cart-price"><?= $item['price'] * $item['quantite'] ?> DT</div>
+                  
+                  <form method="POST" onsubmit="return confirm('Supprimer cet article ?');">
+                    <input type="hidden" name="cart_action" value="remove">
+                    <input type="hidden" name="product_id" value="<?= htmlspecialchars($item['produit_id']) ?>">
+                    <button type="submit" class="del-btn" title="Supprimer"><i class="ph ph-trash"></i></button>
+                  </form>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <div style="text-align: center; padding: 40px; color: #666;">
+                <i class="ph ph-shopping-cart" style="font-size: 48px; margin-bottom: 10px; display: block;"></i>
+                <p>Votre panier est vide.</p>
+                <a href="../html/index.html" class="link-btn" style="margin-top: 15px; display: inline-block;">Continuer mes achats</a>
               </div>
-              <div class="qty-ctrl">
-                <button class="qty-btn" data-action="dec">−</button>
-                <span class="qty-val">1</span>
-                <button class="qty-btn" data-action="inc">+</button>
-              </div>
-              <div class="cart-price">189 DT</div>
-              <button class="del-btn" title="Supprimer"><i class="ph ph-trash"></i></button>
-            </div>
-            <div class="cart-item" data-price="85">
-              <div class="cart-img">⌨️</div>
-              <div class="cart-info">
-                <div class="cart-name">Keychron K2 Keyboard</div>
-                <div class="cart-detail">Switch Rouge · Sans fil</div>
-              </div>
-              <div class="qty-ctrl">
-                <button class="qty-btn" data-action="dec">−</button>
-                <span class="qty-val">1</span>
-                <button class="qty-btn" data-action="inc">+</button>
-              </div>
-              <div class="cart-price">85 DT</div>
-              <button class="del-btn" title="Supprimer"><i class="ph ph-trash"></i></button>
-            </div>
+            <?php endif; ?>
           </div>
+          
+          <?php if (!empty($cart_items)): ?>
           <div class="cart-summary">
             <div class="cart-summary-info">
               <div class="cart-summary-label">Total</div>
-              <div class="cart-total-val" id="cartTotal">274 DT</div>
+              <div class="cart-total-val" id="cartTotal"><?= htmlspecialchars($cart_total) ?> DT</div>
               <div class="cart-summary-sub">Livraison gratuite incluse</div>
             </div>
-            <button class="checkout-btn">Passer commande →</button>
+            <button class="checkout-btn" onclick="alert('Redirection vers le paiement...')">Passer commande →</button>
           </div>
+          <?php endif; ?>
         </section>
 
         <!-- ─── WISHLIST ─── -->
         <section class="section" id="sec-wishlist">
           <div class="wish-grid">
-            <div class="wish-card"><div class="wish-img">💻</div><div class="wish-body"><div class="wish-name">MacBook Air M2</div><div class="wish-price">2 899 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">🎧</div><div class="wish-body"><div class="wish-name">Sony WH-1000XM5</div><div class="wish-price">499 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">📱</div><div class="wish-body"><div class="wish-name">iPhone 15 Pro</div><div class="wish-price">3 199 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">🖥️</div><div class="wish-body"><div class="wish-name">Dell 4K Monitor</div><div class="wish-price">750 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">🕹️</div><div class="wish-body"><div class="wish-name">PS5 Controller</div><div class="wish-price">180 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
-            <div class="wish-card"><div class="wish-img">⌚</div><div class="wish-body"><div class="wish-name">Apple Watch S9</div><div class="wish-price">1 100 DT</div><button class="wish-add">+ Ajouter au panier</button></div></div>
+            <?php if (!empty($fav_items)): ?>
+              <?php foreach ($fav_items as $fav): ?>
+                <div class="wish-card">
+                  <div class="wish-img">
+                    <?php 
+                    $img_src = $fav['image_path'] ?? '';
+                    if (!empty($img_src)) {
+                        if (strpos($img_src, 'http') !== 0) {
+                            $img_src = "../../public/" . $img_src;
+                        }
+                    ?>
+                      <img src="<?= htmlspecialchars($img_src) ?>" alt="<?= htmlspecialchars($fav['name']) ?>" style="width: 100%; height: 100%; object-fit: cover;">
+                    <?php } else { ?>
+                      🎁
+                    <?php } ?>
+                  </div>
+                  <div class="wish-body">
+                    <div class="wish-name"><?= htmlspecialchars($fav['name']) ?></div>
+                    <div class="wish-price"><?= htmlspecialchars($fav['price']) ?> DT</div>
+                    <form method="POST" action="">
+                        <input type="hidden" name="cart_action" value="add">
+                        <input type="hidden" name="product_id" value="<?= htmlspecialchars($fav['product_id']) ?>">
+                        <button type="submit" class="wish-add">+ Ajouter au panier</button>
+                    </form>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #666;">
+                <p>Aucun article dans vos favoris.</p>
+              </div>
+            <?php endif; ?>
           </div>
         </section>
 

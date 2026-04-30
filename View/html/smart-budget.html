@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Budget | AlphaStore AI</title>
+    <link rel="stylesheet" href="../css/smart-budget.css">
+    <link rel="stylesheet" href="../css/component/navbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="noise"></div>
+    
+
+
+    <div class="container">
+        <header class="stagger-in">
+            <h1>Smart Budget</h1>
+            <p>Laissez notre intelligence artificielle génétique composer le panier parfait selon votre budget et vos préférences.</p>
+        </header>
+
+        <div class="smart-grid">
+            <!-- Sidebar: Inputs -->
+            <aside class="input-panel stagger-in">
+                <div class="input-group">
+                    <label for="budget">Votre Budget (€)</label>
+                    <input type="number" id="budget" value="100" min="10" max="5000">
+                </div>
+                
+                <div class="input-group">
+                    <label for="category">Catégorie Préférée</label>
+                    <select id="category">
+                        <option value="all">Toutes les catégories</option>
+                        <option value="Femme">Mode Femme</option>
+                        <option value="Homme">Mode Homme</option>
+                        <option value="Enfant">Mode Enfant</option>
+                        <option value="Laptops">Laptops & Tech</option>
+                    </select>
+                </div>
+
+                <button class="btn-optimize" id="optimizeBtn">
+                    <i class="fas fa-microchip"></i> Optimiser
+                </button>
+                
+                <div id="statusMsg" style="margin-top: 1rem; font-size: 0.8rem; color: #888; text-align: center;"></div>
+            </aside>
+
+            <!-- Main Content: Viz & Results -->
+            <main>
+                <section class="viz-panel stagger-in">
+                    <div class="viz-header">
+                        <h2>Évolution de l'Optimisation</h2>
+                        <div id="generationCount" style="font-size: 0.8rem; color: var(--accent);">Génération: 0/100</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="fitnessChart"></canvas>
+                    </div>
+                </section>
+
+                <div class="stats-bar stagger-in">
+                    <div class="stat-card">
+                        <span>Prix Total</span>
+                        <h3 id="statPrice">0.00 €</h3>
+                    </div>
+                    <div class="stat-card">
+                        <span>Score Satisfaction</span>
+                        <h3 id="statScore">0</h3>
+                    </div>
+                    <div class="stat-card">
+                        <span>Articles</span>
+                        <h3 id="statCount">0</h3>
+                    </div>
+                </div>
+
+                <section class="results-section">
+                    <div class="results-header">
+                        <h2>Votre Panier Optimisé</h2>
+                    </div>
+                    <div class="results-grid" id="resultsGrid">
+                        <!-- Products will be injected here -->
+                        <div style="grid-column: 1/-1; text-align: center; color: #555; padding: 4rem;">
+                            Entrez un budget et cliquez sur Optimiser pour commencer.
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="../javaScript/main.js"></script>
+    <script src="../javaScript/smart-budget.js"></script>
+</body>
+</html>

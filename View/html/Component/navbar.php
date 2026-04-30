@@ -431,6 +431,27 @@ header("Expires: 0"); // Proxies.
     font-weight: 700;
 }
 
+.smartBudget-btn{
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #c0392b;
+    margin-bottom: 5px;
+    border-color: white;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+.smartBudget-btn:hover {
+    background-color: #333;
+    border-color: #bc0000ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
 /* --- Checkout Button --- */
 .checkout-btn {
     display: block;
@@ -564,12 +585,13 @@ header("Expires: 0"); // Proxies.
                 <a href="#" class="tab">KIDS</a>
                 <a href="tech.html" class="tab">TECH</a>
                 <a href="ai.html" class="tab">Ai</a>
+                <a href="smart-budget.html" class="tab">BUDGET</a>
             </div>
             
             <div class="user-actions">
                 <div class="currency-selector">Dt <span class="divider">|</span></div>
                 <?php if (isset($_SESSION["user_id"])) { ?>
-                <a href="../my-account/my-account.php" class="action-btn">
+                <a href="../user_Dashbord/index.php" class="action-btn">
                     <svg class="icon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                 </a>
                 <?php } else { ?>
@@ -627,6 +649,7 @@ header("Expires: 0"); // Proxies.
                 <h3>Total:</h3>
                 <span class="total-price">11.00 DT</span>
             </div>
+            <button class="smartBudget-btn">Smart BUDGET</button>
             <button class="checkout-btn">ORDER NOW</button>
             <i class="ri-close-large-fill " id="close-cart"></i>
         </div>
