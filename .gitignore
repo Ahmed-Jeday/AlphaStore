@@ -5,4 +5,5 @@ node_modules/
 Thumbs.db
 .gemini
 
-services/chatBot_flask
+sevices/chatBot_flask/
+

@@ -14,6 +14,7 @@ if (isset($_SESSION["user_id"])) {
     getProfileInfo(); // Retrieves profile info and stores in session
     
     // Extract for easier use in template
+    $userId    = $_SESSION['user_id'];
     $firstName = $_SESSION['user_name'] ?? '';
     $lastName  = $_SESSION['user_last_name'] ?? '';
     $email     = $_SESSION['user_email'] ?? '';
@@ -387,7 +388,10 @@ if (isset($_GET["error"])) {
               <i class="ph ph-list"></i>
               <span>Toutes les commandes</span>
             </div>
-            <div class="table-wrap">
+            <?php
+            // Check if user has orders
+            if (!empty($user_orders) && is_array($user_orders)) {
+            ?>
               <table class="data-table">
                 <thead>
                   <tr>
@@ -440,6 +444,20 @@ if (isset($_GET["error"])) {
                   ?>
                 </tbody>
               </table>
+            <?php
+            } else {
+            ?>
+              <div style="text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px;">
+                <div style="font-size: 48px; margin-bottom: 20px;">🛍️</div>
+                <h3 style="font-size: 24px; font-weight: 600; color: #333; margin-bottom: 10px;">Pas encore de commandes</h3>
+                <p style="font-size: 16px; color: #666; margin-bottom: 20px;">Commençons votre première aventure !</p>
+                <a href="../html/index.html" style="display: inline-block; padding: 12px 30px; background: #007AFF; color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: background 0.3s;">
+                  Découvrir les produits
+                </a>
+              </div>
+            <?php
+            }
+            ?>
             </div>
           </div>
         </section>
@@ -489,6 +507,8 @@ if (isset($_GET["error"])) {
             }
             ?>
           </div>
+          
+          <?php if (!empty($cart_items)): ?>
           <div class="cart-summary">
             <div class="cart-summary-info">
               <div class="cart-summary-label">Total</div>
@@ -500,6 +520,7 @@ if (isset($_GET["error"])) {
               <button type="submit" class="checkout-btn">Passer commande →</button>
             </form>
           </div>
+          <?php endif; ?>
         </section>
 
         <!-- ─── WISHLIST ─── -->

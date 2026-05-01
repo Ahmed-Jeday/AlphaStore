@@ -93,6 +93,8 @@
   /* ─────────────────────────────────────
      CART — quantity controls & total
   ───────────────────────────────────── */
+  /* Disabling JS-only cart logic as we now use PHP forms for better backend integration */
+  /*
   function recalcCart() {
     let total = 0;
     document.querySelectorAll('.cart-item').forEach(item => {
@@ -100,7 +102,6 @@
       const qty   = parseInt(item.querySelector('.qty-val').textContent, 10) || 1;
       total += price * qty;
 
-      /* Update per-item displayed price */
       item.querySelector('.cart-price').textContent = (price * qty) + ' DT';
     });
     const totalEl = document.getElementById('cartTotal');
@@ -108,7 +109,6 @@
   }
 
   document.addEventListener('click', function (e) {
-    /* Quantity buttons */
     if (e.target.closest('.qty-btn')) {
       const btn  = e.target.closest('.qty-btn');
       const ctrl = btn.closest('.qty-ctrl');
@@ -122,7 +122,6 @@
       recalcCart();
     }
 
-    /* Delete cart item */
     if (e.target.closest('.del-btn')) {
       const item = e.target.closest('.cart-item');
       if (item) {
@@ -132,6 +131,7 @@
       }
     }
   });
+  */
 
   /* ─────────────────────────────────────
      NOTIFICATIONS — mark all read
@@ -194,9 +194,7 @@
   if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
       if (confirm('Voulez-vous vraiment vous déconnecter ?')) {
-        /* redirect to login page */
-        /* window.location.href = '/login'; */
-        alert('Déconnexion simulée.');
+        window.location.href = 'logout.php';
       }
     });
   }
