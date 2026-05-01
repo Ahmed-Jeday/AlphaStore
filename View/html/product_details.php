@@ -415,6 +415,13 @@ session_start();
 
   .related-card:hover img { opacity: 0.85; }
 
+  .dfs-chain {
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--dark-gray);
+    line-height: 1.5;
+  }
+
   .related-card .rc-name {
     font-size: 13px;
     color: var(--dark-gray);
@@ -757,53 +764,10 @@ session_start();
 
 <!-- ALSO VIEWED -->
 <section class="related-section">
-  <h2 class="section-title">Customers also viewed</h2>
-  <div class="related-grid">
-    <div class="related-card">
-      <div style="width:100%;aspect-ratio:3/4;background:#2a2a2a;margin-bottom:8px"></div>
-      <p class="rc-name">Adult Relaxed T-Shirt</p>
-      <div class="rc-prices">
-        <span class="rc-orig">44.95 DT</span>
-        <span class="rc-sale">32.00 DT</span>
-        <span class="rc-badge">30% off</span>
-      </div>
-    </div>
-    <div class="related-card">
-      <div style="width:100%;aspect-ratio:3/4;background:#3a3a3a;margin-bottom:8px"></div>
-      <p class="rc-name">Heavyweight Crewneck Zip Pullover</p>
-      <div class="rc-prices">
-        <span class="rc-orig">109.95 DT</span>
-        <span class="rc-sale">76.00 DT</span>
-        <span class="rc-badge">30% off</span>
-      </div>
-    </div>
-    <div class="related-card">
-      <div style="width:100%;aspect-ratio:3/4;background:#c8b98a;margin-bottom:8px"></div>
-      <p class="rc-name">Adult Original T-Shirt</p>
-      <div class="rc-prices">
-        <span class="rc-orig">44.95 DT</span>
-        <span class="rc-sale">32.00 DT</span>
-        <span class="rc-badge">30% off</span>
-      </div>
-    </div>
-    <div class="related-card">
-      <div style="width:100%;aspect-ratio:3/4;background:#5a7ab0;margin-bottom:8px"></div>
-      <p class="rc-name">'90s Loose Jeans</p>
-      <div class="rc-prices">
-        <span class="rc-orig">89.95 DT</span>
-        <span class="rc-sale">63.00 DT</span>
-        <span class="rc-badge">30% off</span>
-      </div>
-    </div>
-    <div class="related-card">
-      <div style="width:100%;aspect-ratio:3/4;background:#4a5e3a;margin-bottom:8px"></div>
-      <p class="rc-name">Adult Relaxed T-Shirt</p>
-      <div class="rc-prices">
-        <span class="rc-orig">44.95 DT</span>
-        <span class="rc-sale">32.00 DT</span>
-        <span class="rc-badge">30% off</span>
-      </div>
-    </div>
+  <h2 class="section-title">Produits similaires</h2>
+  <div class="dfs-chain" id="dfsChainText">Chargement de la chaîne de découverte...</div>
+  <div class="related-grid" id="recommendationsGrid">
+    <p>Chargement des recommandations...</p>
   </div>
 </section>
 
@@ -1030,6 +994,70 @@ session_start();
     }
 
     chargeProduit();
+    loadRecommendations();
+
+    async function loadRecommendations() {
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');
+        const productType = params.get('type');
+        if (!productId) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`../../index.php?action=getRecommendations&id=${productId}${productType ? `&type=${productType}` : ''}`);
+            const data = await response.json();
+            const grid = document.getElementById('recommendationsGrid');
+            const dfsText = document.getElementById('dfsChainText');
+
+            if (!grid) return;
+            if (!data || !Array.isArray(data.recommendations)) {
+                grid.innerHTML = '<p>Aucune recommandation disponible pour le moment.</p>';
+                if (dfsText) dfsText.textContent = '';
+                return;
+            }
+
+            const recommendations = data.recommendations;
+            if (recommendations.length === 0) {
+                grid.innerHTML = '<p>Aucune recommandation trouvée.</p>';
+            } else {
+                grid.innerHTML = recommendations.map(prod => {
+                    const imageUrl = prod.image_path ? `../../public/${prod.image_path}` : 'https://via.placeholder.com/320x420?text=No+Image';
+                    const categoryLabel = prod.category ? prod.category : prod.category_id ? prod.category_id : 'Produit';
+                    return `
+                        <a href="product_details.php?id=${encodeURIComponent(prod.id)}${productType ? `&type=${productType}` : ''}" class="related-card">
+                            <img src="${imageUrl}" alt="${escapeHtml(prod.name)}" onerror="this.style.background='#f2f2f2';this.removeAttribute('src')">
+                            <p class="rc-name">${escapeHtml(prod.name)}</p>
+                            <div class="rc-prices">
+                                <span class="rc-sale">${prod.price} DT</span>
+                                <span class="rc-badge">${escapeHtml(categoryLabel)}</span>
+                            </div>
+                        </a>`;
+                }).join('');
+            }
+
+            if (dfsText) {
+                if (Array.isArray(data.dfsChain) && data.dfsChain.length) {
+                    dfsText.textContent = 'Chaîne de découverte : ' + data.dfsChain.map(item => item.name).join(' → ');
+                } else {
+                    dfsText.textContent = 'Chaîne de découverte indisponible pour ce produit.';
+                }
+            }
+        } catch (error) {
+            console.error('Erreur de recommandations :', error);
+            const grid = document.getElementById('recommendationsGrid');
+            if (grid) grid.innerHTML = '<p>Impossible de charger les recommandations.</p>';
+        }
+    }
+
+    function escapeHtml(text) {
+        return String(text)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
 </script>
 
 <script src="../javaScript/carts.js"></script>

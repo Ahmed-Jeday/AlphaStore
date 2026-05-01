@@ -80,6 +80,12 @@ if ($action === "getTechProduitDetail") {
     exit;
 }
 
+if ($action === "getRecommendations") {
+    require_once(__DIR__ . "/Controller/RecommendationController.php");
+    getRecommendations($_GET["id"], $_GET["type"] ?? 'regular');
+    exit;
+}
+
 if ($action === "addReview") {
     require_once(__DIR__ . "/Controller/ReviewController.php");
     AddReview();

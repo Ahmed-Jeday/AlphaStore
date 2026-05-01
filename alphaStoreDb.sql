@@ -614,6 +614,74 @@ ALTER TABLE `profiles`
 ALTER TABLE `reviews`
   ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `produits` (`id`) ON DELETE CASCADE;
+
+--
+-- Migration: Add product_type and season columns to produits table
+--
+ALTER TABLE produits 
+  ADD COLUMN product_type ENUM('haut','bas','accessoire','chaussure','ensemble') DEFAULT NULL,
+  ADD COLUMN season ENUM('ete','hiver','mi_saison','toutes_saisons') DEFAULT 'toutes_saisons';
+
+--
+-- Classification automatique des produits existants
+--
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-001';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-002';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-003';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-004';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-005';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-006';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-007'; -- Robe t-shirt -> haut
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-008';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-009';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-010';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-011';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-012';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-013';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-014';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-015';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-016';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-017';
+UPDATE produits SET product_type = 'accessoire', season = 'toutes_saisons' WHERE id = 'GAP-018';
+UPDATE produits SET product_type = 'haut', season = 'ete' WHERE id = 'GAP-019';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-020';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-021';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-022';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-023';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-024';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-025';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-026';
+UPDATE produits SET product_type = 'accessoire', season = 'toutes_saisons' WHERE id = 'GAP-027';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-028';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-029';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-030';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-031';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-032';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-033';
+UPDATE produits SET product_type = 'bas', season = 'toutes_saisons' WHERE id = 'GAP-034';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-035';
+UPDATE produits SET product_type = 'accessoire', season = 'toutes_saisons' WHERE id = 'GAP-036';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-037';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-038';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-039';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-040';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-041';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-042';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-043';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-044';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-045';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-046';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-047';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-048';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-049';
+UPDATE produits SET product_type = 'accessoire', season = 'toutes_saisons' WHERE id = 'GAP-050';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-051';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-052';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-053';
+UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-054';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-055';
+UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-056';
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
