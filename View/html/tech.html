@@ -1056,8 +1056,8 @@
         
         const pathNextimages = getNextImages(p.image_path);
         const fullImagePath1 = fullImagePath;
-        const fullImagePath2 = pathNextimages.length > 0 ? (isExternal ? pathNextimages[0] : `../../public/${pathNextimages[0]}`) : '';
-        const fullImagePath3 = pathNextimages.length > 0 ? (isExternal ? pathNextimages[1] : `../../public/${pathNextimages[1]}`) : '';
+        const fullImagePath2 = pathNextimages.length > 0 ? (isExternal ? pathNextimages[0] : `../../public/${pathNextimages[0]}`) : fullImagePath;
+        const fullImagePath3 = pathNextimages.length > 0 ? (isExternal ? pathNextimages[1] : `../../public/${pathNextimages[1]}`) : fullImagePath;
 
         card.innerHTML = `
             <div class="product-img-block">

@@ -745,11 +745,12 @@
             card.dataset.id = p.id;
             card.dataset.category = p.category;
 
-            const fullImagePath = `../../public/${p.image_path}`;
+            const isExternal = p.image_path && (p.image_path.startsWith('http://') || p.image_path.startsWith('https://'));
+            const fullImagePath = isExternal ? p.image_path : `../../public/${p.image_path}`;
             const pathNextimages = getNextImages(p.image_path);
             const fullImagePath1 = fullImagePath;
-            const fullImagePath2 = `../../public/${pathNextimages[0] || p.image_path}`;
-            const fullImagePath3 = `../../public/${pathNextimages[1] || p.image_path}`;
+            const fullImagePath2 = pathNextimages.length > 0 ? (isExternal ? pathNextimages[0] : `../../public/${pathNextimages[0]}`) : (isExternal ? p.image_path : `../../public/${p.image_path}`);
+            const fullImagePath3 = pathNextimages.length > 0 ? (isExternal ? pathNextimages[1] : `../../public/${pathNextimages[1]}`) : (isExternal ? p.image_path : `../../public/${p.image_path}`);
 
             card.innerHTML = `
                 <div class="product-img-block">

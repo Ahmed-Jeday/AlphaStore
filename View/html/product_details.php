@@ -1022,7 +1022,8 @@ session_start();
                 grid.innerHTML = '<p>Aucune recommandation trouvée.</p>';
             } else {
                 grid.innerHTML = recommendations.map(prod => {
-                    const imageUrl = prod.image_path ? `../../public/${prod.image_path}` : 'https://via.placeholder.com/320x420?text=No+Image';
+                    const isExternal = prod.image_path && (prod.image_path.startsWith('http://') || prod.image_path.startsWith('https://'));
+                    const imageUrl = prod.image_path ? (isExternal ? prod.image_path : `../../public/${prod.image_path}`) : 'https://via.placeholder.com/320x420?text=No+Image';
                     const categoryLabel = prod.category ? prod.category : prod.category_id ? prod.category_id : 'Produit';
                     return `
                         <a href="product_details.php?id=${encodeURIComponent(prod.id)}${productType ? `&type=${productType}` : ''}" class="related-card">

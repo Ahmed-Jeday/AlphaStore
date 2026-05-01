@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2026 at 01:51 AM
+-- Generation Time: May 01, 2026 at 07:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,6 +35,16 @@ CREATE TABLE `cart` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `produit_id`, `quantite`, `created_at`, `updated_at`) VALUES
+(21, 30, 'GAP-053', 2, '2026-04-29 21:56:31', '2026-04-30 15:45:44'),
+(22, 30, 'GAP-049', 2, '2026-04-29 21:56:35', '2026-04-30 16:40:32'),
+(23, 30, 'GAP-046', 2, '2026-04-29 21:56:38', '2026-04-30 15:46:23'),
+(24, 30, 'GAP-042', 1, '2026-04-29 21:56:40', '2026-04-29 21:56:40');
 
 -- --------------------------------------------------------
 
@@ -121,6 +131,16 @@ CREATE TABLE `favorites` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`id`, `user_id`, `product_id`, `created_at`) VALUES
+(6, 30, '23', '2026-04-26 13:48:51'),
+(7, 30, '16', '2026-04-26 13:59:48'),
+(8, 30, 'GAP-005', '2026-04-26 14:58:29'),
+(9, 30, 'GAP-047', '2026-04-26 15:01:40');
+
 -- --------------------------------------------------------
 
 --
@@ -149,14 +169,28 @@ INSERT INTO `login_logs` (`id`, `user_id`, `email`, `status`, `created_at`) VALU
 (7, NULL, 'ahmed.jday2005@gmail.com', 'success', '2026-04-19 18:54:37'),
 (8, NULL, 'ahmed.jday2005@gmail.com', 'success', '2026-04-19 23:05:50'),
 (9, NULL, 'jday99708@gmail.com', 'success', '2026-04-19 23:07:38'),
-(10, 27, 'ahmed.jday2005@gmail.com', 'success', '2026-04-20 17:14:46'),
-(11, 27, 'ahmed.jday2005@gmail.com', 'success', '2026-04-21 13:26:48'),
-(12, 27, 'ahmed.jday2005@gmail.com', 'success', '2026-04-22 11:36:48'),
-(13, 27, 'ahmed.jday2005@gmail.com', 'failed', '2026-04-22 13:30:08'),
-(14, 27, 'ahmed.jday2005@gmail.com', 'success', '2026-04-22 13:30:16'),
+(10, NULL, 'ahmed.jday2005@gmail.com', 'success', '2026-04-20 17:14:46'),
+(11, NULL, 'ahmed.jday2005@gmail.com', 'success', '2026-04-21 13:26:48'),
+(12, NULL, 'ahmed.jday2005@gmail.com', 'success', '2026-04-22 11:36:48'),
+(13, NULL, 'ahmed.jday2005@gmail.com', 'failed', '2026-04-22 13:30:08'),
+(14, NULL, 'ahmed.jday2005@gmail.com', 'success', '2026-04-22 13:30:16'),
 (15, NULL, 'ahmed27@gmail.com', 'failed', '2026-04-23 10:04:41'),
-(16, 27, 'ahmed.jday2005@gmail.com', 'success', '2026-04-23 10:05:04'),
-(17, 27, 'ahmed.jday2005@gmail.com', 'success', '2026-04-23 10:07:46');
+(16, NULL, 'ahmed.jday2005@gmail.com', 'success', '2026-04-23 10:05:04'),
+(17, NULL, 'ahmed.jday2005@gmail.com', 'success', '2026-04-23 10:07:46'),
+(18, 29, 'admin@gamil.com', 'success', '2026-04-25 21:36:51'),
+(19, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-25 21:39:16'),
+(20, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-26 09:58:57'),
+(21, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-26 12:13:54'),
+(22, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-26 13:30:26'),
+(23, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-26 13:43:49'),
+(24, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-27 09:58:40'),
+(25, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-27 11:26:29'),
+(26, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-28 11:32:26'),
+(27, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-29 21:38:03'),
+(28, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-29 22:00:34'),
+(29, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-30 15:37:49'),
+(30, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-30 16:07:14'),
+(31, 30, 'ahmed.jday2005@gmail.com', 'success', '2026-04-30 16:19:24');
 
 -- --------------------------------------------------------
 
@@ -172,6 +206,14 @@ CREATE TABLE `orders` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `total_price`, `status`, `created_at`) VALUES
+(1, 30, 81.98, 'shipped', '2026-04-26 12:25:46'),
+(2, 30, 7604.95, 'pending', '2026-04-27 11:32:49');
+
 -- --------------------------------------------------------
 
 --
@@ -185,6 +227,17 @@ CREATE TABLE `order_items` (
   `quantity` int(11) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
+(1, 1, 'GAP-054', 1, 47.99),
+(2, 1, 'GAP-055', 1, 33.99),
+(3, 2, 'GAP-054', 1, 47.99),
+(4, 2, 'GAP-052', 1, 56.99),
+(5, 2, '1', 3, 2499.99);
 
 -- --------------------------------------------------------
 
@@ -202,70 +255,85 @@ CREATE TABLE `produits` (
   `image_path` varchar(255) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `color_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `product_type` enum('haut','bas','accessoire','chaussure','ensemble') DEFAULT NULL,
+  `season` enum('ete','hiver','mi_saison','toutes_saisons') DEFAULT 'toutes_saisons'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `produits`
 --
 
-INSERT INTO `produits` (`id`, `name`, `description`, `price`, `stock`, `sku`, `image_path`, `category_id`, `color_id`, `created_at`) VALUES
-('GAP-001', 'Ensemble chemise et short', 'Ensemble chemise et short de couleur Jaune pour Femme. Idéal pour un look décontracté.', 49.99, 25, 'SKU-GAP-001', 'product_images/product1/produit_2.jpg', 1, 1, '2024-03-15 09:30:00'),
-('GAP-002', 'Débardeur basique', 'Débardeur basique de couleur Blanc pour Femme. Un indispensable de la garde-robe.', 19.99, 120, 'SKU-GAP-002', 'product_images/product2/produit_8.jpg', 1, 2, '2024-05-20 13:15:00'),
-('GAP-003', 'Débardeur', 'Débardeur de couleur Jaune pour Femme. Léger et confortable.', 15.99, 85, 'SKU-GAP-003', 'product_images/product3/produit_17.jpg', 1, 1, '2024-07-10 08:45:00'),
-('GAP-004', 'Pull léger à manches longues', 'Pull léger à manches longues de couleur Jaune pour Femme.', 39.99, 42, 'SKU-GAP-004', 'product_images/product4/produit_23.jpg', 1, 1, '2024-09-05 10:20:00'),
-('GAP-005', 'Chemise à manches courtes', 'Chemise à manches courtes de couleur Blanc pour Homme.', 34.99, 63, 'SKU-GAP-005', 'product_images/product5/produit_29.jpg', 2, 2, '2024-04-12 15:00:00'),
-('GAP-006', 'Ensemble top et jupe', 'Ensemble top et jupe de couleur Jaune pastel pour Enfant.', 29.99, 38, 'SKU-GAP-006', 'product_images/product6/produit_34.jpg', 3, 3, '2024-06-18 12:10:00'),
-('GAP-007', 'Robe t-shirt', 'Robe t-shirt de couleur Jaune pastel pour Enfant.', 24.99, 57, 'SKU-GAP-007', 'product_images/product7/produit_38.jpg', 3, 3, '2024-08-22 09:05:00'),
-('GAP-008', 'T-shirt basique', 'T-shirt basique de couleur Blanc pour Enfant.', 12.99, 200, 'SKU-GAP-008', 'product_images/product8/produit_42.jpg', 3, 2, '2024-11-01 07:30:00'),
-('GAP-009', 'T-shirt graphique 93', 'T-shirt graphique 93 de couleur Jaune pour Enfant.', 17.99, 74, 'SKU-GAP-009', 'product_images/product9/produit_48.jpg', 3, 1, '2025-01-25 14:40:00'),
-('GAP-010', 'T-shirt classique', 'T-shirt classique de couleur Jaune pastel pour Homme.', 18.99, 92, 'SKU-GAP-010', 'product_images/product10/produit_52.jpg', 2, 3, '2025-02-14 08:00:00'),
-('GAP-011', 'Débardeur sans manches', 'Débardeur sans manches de couleur Blanc pour Femme.', 14.99, 110, 'SKU-GAP-011', 'product_images/product11/produit_58.jpg', 1, 2, '2025-03-30 11:20:00'),
-('GAP-012', 'Veste en jean', 'Veste en jean de couleur Bleu denim pour Enfant.', 45.99, 18, 'SKU-GAP-012', 'product_images/product12/produit_65.jpg', 3, 4, '2025-01-05 10:55:00'),
-('GAP-013', 'Veste en jean classique', 'Veste en jean classique de couleur Bleu denim pour Enfant.', 47.99, 22, 'SKU-GAP-013', 'product_images/product13/produit_68.jpg', 3, 4, '2025-02-20 13:45:00'),
-('GAP-014', 'Débardeur cintré', 'Débardeur cintré de couleur Blanc pour Femme.', 16.99, 67, 'SKU-GAP-014', 'product_images/product14/produit_72.jpg', 1, 2, '2025-04-07 09:00:00'),
-('GAP-015', 'T-shirt manches courtes', 'T-shirt manches courtes de couleur Blanc pour Femme.', 13.99, 155, 'SKU-GAP-015', 'product_images/product15/produit_79.jpg', 1, 2, '2024-12-12 08:30:00'),
-('GAP-016', 'T-shirt col rond', 'T-shirt col rond de couleur Blanc pour Femme.', 13.99, 140, 'SKU-GAP-016', 'product_images/product16/produit_86.jpg', 1, 2, '2024-10-08 15:20:00'),
-('GAP-017', 'Chemise rayée ample', 'Chemise rayée ample de couleur Bleu clair pour Femme.', 36.99, 31, 'SKU-GAP-017', 'product_images/product17/produit_94.jpg', 1, 5, '2024-11-18 12:50:00'),
-('GAP-018', 'Sac cabas tressé', 'Sac cabas tressé de couleur Beige naturel pour Accessoires.', 29.99, 45, 'SKU-GAP-018', 'product_images/product18/produit_99.jpg', 4, 6, '2024-06-25 10:10:00'),
-('GAP-019', 'Chemise à motifs', 'Chemise à motifs de couleur Bleu pour Enfant.', 22.99, 53, 'SKU-GAP-019', 'product_images/product19/produit_103.jpg', 3, 7, '2024-07-30 14:05:00'),
-('GAP-020', 'T-shirt manches longues', 'T-shirt manches longues de couleur Blanc pour Enfant.', 15.99, 88, 'SKU-GAP-020', 'product_images/product20/produit_107.jpg', 3, 2, '2024-09-14 07:40:00'),
-('GAP-021', 'Ensemble pyjama chemise pantalon', 'Ensemble pyjama chemise pantalon Gris rayé Femme.', 39.99, 34, 'SKU-GAP-021', 'product_images/product21/produit_112.jpg', 1, 8, '2025-01-19 19:15:00'),
-('GAP-022', 'Ensemble pyjama chemise pantalon', 'Ensemble pyjama Gris rayé Femme.', 39.99, 29, 'SKU-GAP-022', 'product_images/product22/produit_121.jpg', 1, 8, '2025-02-10 20:00:00'),
-('GAP-023', 'Ensemble pyjama court', 'Pyjama court Bleu clair Enfant.', 27.99, 61, 'SKU-GAP-023', 'product_images/product23/produit_126.jpg', 3, 5, '2025-03-05 18:30:00'),
-('GAP-024', 'Polo texturé', 'Polo Marron Homme.', 32.99, 47, 'SKU-GAP-024', 'product_images/product24/produit_129.jpg', 2, 9, '2025-03-28 13:25:00'),
-('GAP-025', 'T-shirt basique manches courtes', 'T-shirt Blanc Homme.', 14.99, 178, 'SKU-GAP-025', 'product_images/product25/produit_134.jpg', 2, 2, '2024-05-02 11:00:00'),
-('GAP-026', 'Débardeur col V', 'Débardeur Blanc Femme.', 17.99, 96, 'SKU-GAP-026', 'product_images/product26/produit_148.jpg', 1, 2, '2024-06-08 09:50:00'),
-('GAP-027', 'Grand sac cabas', 'Sac Beige Accessoires.', 34.99, 27, 'SKU-GAP-027', 'product_images/product27/produit_153.jpg', 4, 10, '2024-10-30 15:35:00'),
-('GAP-028', 'Surchemise légère', 'Surchemise Blanc Enfant.', 28.99, 39, 'SKU-GAP-028', 'product_images/product28/produit_145.jpg', 3, 2, '2024-11-11 12:20:00'),
-('GAP-029', 'Ensemble chemise short', 'Ensemble Beige clair Femme.', 44.99, 33, 'SKU-GAP-029', 'product_images/product29/produit_160.jpg', 1, 11, '2025-01-08 14:55:00'),
-('GAP-030', 'Ensemble chemise manches longues', 'Ensemble Beige clair Femme.', 46.99, 26, 'SKU-GAP-030', 'product_images/product30/produit_165.jpg', 1, 11, '2025-01-22 08:10:00'),
-('GAP-031', 'Top court manches longues', 'Top Blanc Femme.', 23.99, 52, 'SKU-GAP-031', 'product_images/product31/produit_172.jpg', 1, 2, '2025-02-28 16:40:00'),
-('GAP-032', 'Chemise en lin', 'Chemise Beige clair Homme.', 42.99, 41, 'SKU-GAP-032', 'product_images/product32/produit_177.jpg', 2, 11, '2025-03-12 10:15:00'),
-('GAP-033', 'Débardeur fines bretelles', 'Débardeur Marron Femme.', 16.99, 73, 'SKU-GAP-033', 'product_images/product33/produit_182.jpg', 1, 9, '2025-04-01 17:20:00'),
-('GAP-034', 'Pantalon ample', 'Pantalon Blanc Femme.', 38.99, 48, 'SKU-GAP-034', 'product_images/product34/produit_188.jpg', 1, 2, '2024-08-05 13:55:00'),
-('GAP-035', 'Chemise manches longues', 'Chemise Marron Homme.', 37.99, 55, 'SKU-GAP-035', 'product_images/product35/produit_193.jpg', 2, 9, '2024-09-20 09:25:00'),
-('GAP-036', 'Sandales plates', 'Sandales Marron et Blanc.', 27.99, 35, 'SKU-GAP-036', 'product_images/product36/produit_197.jpg', 4, 18, '2025-02-01 15:05:00'),
-('GAP-037', 'T-shirt classique', 'T-shirt Marron Homme.', 18.99, 84, 'SKU-GAP-037', 'product_images/product37/LV04RD008G_UB1_main.webp', 2, 9, '2025-03-18 12:45:00'),
-('GAP-038', 'Ensemble t-shirt short', 'Ensemble Beige clair Femme.', 41.99, 30, 'SKU-GAP-038', 'product_images/product38/produit_201.jpg', 1, 11, '2025-03-22 07:30:00'),
-('GAP-039', 'Chemise fluide', 'Chemise Marron foncé Femme.', 39.99, 44, 'SKU-GAP-039', 'product_images/product39/produit_208.jpg', 1, 12, '2024-12-01 10:00:00'),
-('GAP-040', 'Ensemble chemise pantalon', 'Ensemble Marron foncé Femme.', 54.99, 21, 'SKU-GAP-040', 'product_images/product40/produit_214.jpg', 1, 12, '2025-01-15 08:50:00'),
-('GAP-041', 'Chemise manches courtes', 'Chemise Noir Homme.', 33.99, 59, 'SKU-GAP-041', 'product_images/product41/produit_222.jpg', 2, 13, '2024-11-25 14:30:00'),
-('GAP-042', 'Pull texturé', 'Pull Rose fuchsia Femme.', 43.99, 37, 'SKU-GAP-042', 'product_images/product42/produit_227.jpg', 1, 14, '2024-10-15 16:10:00'),
-('GAP-043', 'Débardeur côtelé', 'Débardeur Noir Femme.', 17.99, 91, 'SKU-GAP-043', 'product_images/product43/produit_232.jpg', 1, 13, '2024-09-28 11:40:00'),
-('GAP-044', 'Ensemble fluide', 'Ensemble Rose fuchsia Femme.', 52.99, 24, 'SKU-GAP-044', 'product_images/product44/produit_237.jpg', 1, 14, '2024-08-19 13:00:00'),
-('GAP-045', 'Ensemble vue face', 'Ensemble Rose fuchsia Femme.', 52.99, 23, 'SKU-GAP-045', 'product_images/product45/produit_243.jpg', 1, 14, '2024-08-20 09:15:00'),
-('GAP-046', 'Haut sans manches', 'Haut Noir Femme.', 26.99, 49, 'SKU-GAP-046', 'product_images/product46/produit_253.jpg', 1, 13, '2025-01-30 18:25:00'),
-('GAP-047', 'Chemise motifs', 'Chemise Beige imprimé Homme.', 35.99, 42, 'SKU-GAP-047', 'product_images/product47/produit_257.jpg', 2, 15, '2025-02-05 07:55:00'),
-('GAP-048', 'Chemise texturée', 'Chemise Gris-vert Homme.', 36.99, 38, 'SKU-GAP-048', 'product_images/product48/produit_262.jpg', 2, 16, '2025-02-25 15:45:00'),
-('GAP-049', 'Surchemise', 'Surchemise Noir Homme.', 40.99, 32, 'SKU-GAP-049', 'product_images/product49/produit_267.jpg', 2, 13, '2025-03-15 10:35:00'),
-('GAP-050', 'Sac cabas zébré', 'Sac Noir et Blanc.', 31.99, 28, 'SKU-GAP-050', 'product_images/product50/produit_272.jpg', 4, 17, '2025-03-25 08:20:00'),
-('GAP-051', 'Ensemble débardeur pantalon', 'Ensemble Gris chiné Femme.', 48.99, 19, 'SKU-GAP-051', 'product_images/product51/produit_276.jpg', 1, 19, '2024-07-07 13:30:00'),
-('GAP-052', 'Ensemble pull pantalon', 'Ensemble Beige imprimé Femme.', 56.99, 16, 'SKU-GAP-052', 'product_images/product52/produit_285.jpg', 1, 15, '2024-10-22 11:55:00'),
-('GAP-053', 'Ensemble tunique pantalon', 'Ensemble Beige Femme.', 50.99, 20, 'SKU-GAP-053', 'product_images/product53/produit_291.jpg', 1, 10, '2024-12-18 14:15:00'),
-('GAP-054', 'Ensemble chemise short', 'Ensemble Blanc Femme.', 47.99, 27, 'SKU-GAP-054', 'product_images/product54/produit_299.jpg', 1, 2, '2025-01-28 16:50:00'),
-('GAP-055', 'Chemise légère', 'Chemise Blanc Femme.', 33.99, 40, 'SKU-GAP-055', 'product_images/product55/produit_309.jpg', 1, 2, '2025-02-18 12:05:00'),
-('GAP-056', 'Top bustier', 'Top Blanc Femme.', 21.99, 65, 'SKU-GAP-056', 'product_images/product56/produit_314.jpg', 1, 2, '2025-03-08 09:30:00');
+INSERT INTO `produits` (`id`, `name`, `description`, `price`, `stock`, `sku`, `image_path`, `category_id`, `color_id`, `created_at`, `product_type`, `season`) VALUES
+('GAP-001', 'Ensemble chemise et short', 'Ensemble chemise et short de couleur Jaune pour Femme. Idéal pour un look décontracté.', 49.99, 25, 'SKU-GAP-001', 'product_images/product1/produit_2.jpg', 1, 1, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-002', 'Débardeur basique', 'Débardeur basique de couleur Blanc pour Femme. Un indispensable de la garde-robe.', 19.99, 120, 'SKU-GAP-002', 'product_images/product2/produit_8.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-003', 'Débardeur', 'Débardeur de couleur Jaune pour Femme. Léger et confortable.', 15.99, 85, 'SKU-GAP-003', 'product_images/product3/produit_17.jpg', 1, 1, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-004', 'Pull léger à manches longues', 'Pull léger à manches longues de couleur Jaune pour Femme.', 39.99, 42, 'SKU-GAP-004', 'product_images/product4/produit_23.jpg', 1, 1, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-005', 'Chemise à manches courtes', 'Chemise à manches courtes de couleur Blanc pour Homme.', 34.99, 63, 'SKU-GAP-005', 'product_images/product5/produit_29.jpg', 2, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-006', 'Ensemble top et jupe', 'Ensemble top et jupe de couleur Jaune pastel pour Enfant.', 29.99, 38, 'SKU-GAP-006', 'product_images/product6/produit_34.jpg', 3, 3, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-007', 'Robe t-shirt', 'Robe t-shirt de couleur Jaune pastel pour Enfant.', 24.99, 57, 'SKU-GAP-007', 'product_images/product7/produit_38.jpg', 3, 3, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-008', 'T-shirt basique', 'T-shirt basique de couleur Blanc pour Enfant.', 12.99, 200, 'SKU-GAP-008', 'product_images/product8/produit_42.jpg', 3, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-009', 'T-shirt graphique 93', 'T-shirt graphique 93 de couleur Jaune pour Enfant.', 17.99, 74, 'SKU-GAP-009', 'product_images/product9/produit_48.jpg', 3, 1, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-010', 'T-shirt classique', 'T-shirt classique de couleur Jaune pastel pour Homme.', 18.99, 92, 'SKU-GAP-010', 'product_images/product10/produit_52.jpg', 2, 3, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-011', 'Débardeur sans manches', 'Débardeur sans manches de couleur Blanc pour Femme.', 14.99, 110, 'SKU-GAP-011', 'product_images/product11/produit_58.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-012', 'Veste en jean', 'Veste en jean de couleur Bleu denim pour Enfant.', 45.99, 18, 'SKU-GAP-012', 'product_images/product12/produit_65.jpg', 3, 4, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-013', 'Veste en jean classique', 'Veste en jean classique de couleur Bleu denim pour Enfant.', 47.99, 22, 'SKU-GAP-013', 'product_images/product13/produit_68.jpg', 3, 4, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-014', 'Débardeur cintré', 'Débardeur cintré de couleur Blanc pour Femme.', 16.99, 67, 'SKU-GAP-014', 'product_images/product14/produit_72.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-015', 'T-shirt manches courtes', 'T-shirt manches courtes de couleur Blanc pour Femme.', 13.99, 155, 'SKU-GAP-015', 'product_images/product15/produit_79.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-016', 'T-shirt col rond', 'T-shirt col rond de couleur Blanc pour Femme.', 13.99, 140, 'SKU-GAP-016', 'product_images/product16/produit_86.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-017', 'Chemise rayée ample', 'Chemise rayée ample de couleur Bleu clair pour Femme.', 36.99, 31, 'SKU-GAP-017', 'product_images/product17/produit_94.jpg', 1, 5, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-018', 'Sac cabas tressé', 'Sac cabas tressé de couleur Beige naturel pour Accessoires.', 29.99, 45, 'SKU-GAP-018', 'product_images/product18/produit_99.jpg', 4, 6, '2026-05-01 17:02:02', 'accessoire', 'toutes_saisons'),
+('GAP-019', 'Chemise à motifs', 'Chemise à motifs de couleur Bleu pour Enfant.', 22.99, 53, 'SKU-GAP-019', 'product_images/product19/produit_103.jpg', 3, 7, '2026-05-01 17:02:02', 'haut', 'ete'),
+('GAP-020', 'T-shirt manches longues', 'T-shirt manches longues de couleur Blanc pour Enfant.', 15.99, 88, 'SKU-GAP-020', 'product_images/product20/produit_107.jpg', 3, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-021', 'Ensemble pyjama chemise pantalon', 'Ensemble pyjama chemise pantalon Gris rayé Femme.', 39.99, 34, 'SKU-GAP-021', 'product_images/product21/produit_112.jpg', 1, 8, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-022', 'Ensemble pyjama chemise pantalon', 'Ensemble pyjama Gris rayé Femme.', 39.99, 29, 'SKU-GAP-022', 'product_images/product22/produit_121.jpg', 1, 8, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-023', 'Ensemble pyjama court', 'Pyjama court Bleu clair Enfant.', 27.99, 61, 'SKU-GAP-023', 'product_images/product23/produit_126.jpg', 3, 5, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-024', 'Polo texturé', 'Polo Marron Homme.', 32.99, 47, 'SKU-GAP-024', 'product_images/product24/produit_129.jpg', 2, 9, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-025', 'T-shirt basique manches courtes', 'T-shirt Blanc Homme.', 14.99, 178, 'SKU-GAP-025', 'product_images/product25/produit_134.jpg', 2, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-026', 'Débardeur col V', 'Débardeur Blanc Femme.', 17.99, 96, 'SKU-GAP-026', 'product_images/product26/produit_148.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-027', 'Grand sac cabas', 'Sac Beige Accessoires.', 34.99, 27, 'SKU-GAP-027', 'product_images/product27/produit_153.jpg', 4, 10, '2026-05-01 17:02:02', 'accessoire', 'toutes_saisons'),
+('GAP-028', 'Surchemise légère', 'Surchemise Blanc Enfant.', 28.99, 39, 'SKU-GAP-028', 'product_images/product28/produit_145.jpg', 3, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-029', 'Ensemble chemise short', 'Ensemble Beige clair Femme.', 44.99, 33, 'SKU-GAP-029', 'product_images/product29/produit_160.jpg', 1, 11, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-030', 'Ensemble chemise manches longues', 'Ensemble Beige clair Femme.', 46.99, 26, 'SKU-GAP-030', 'product_images/product30/produit_165.jpg', 1, 11, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-031', 'Top court manches longues', 'Top Blanc Femme.', 23.99, 52, 'SKU-GAP-031', 'product_images/product31/produit_172.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-032', 'Chemise en lin', 'Chemise Beige clair Homme.', 42.99, 41, 'SKU-GAP-032', 'product_images/product32/produit_177.jpg', 2, 11, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-033', 'Débardeur fines bretelles', 'Débardeur Marron Femme.', 16.99, 73, 'SKU-GAP-033', 'product_images/product33/produit_182.jpg', 1, 9, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-034', 'Pantalon ample', 'Pantalon Blanc Femme.', 38.99, 48, 'SKU-GAP-034', 'product_images/product34/produit_188.jpg', 1, 2, '2026-05-01 17:02:02', 'bas', 'toutes_saisons'),
+('GAP-035', 'Chemise manches longues', 'Chemise Marron Homme.', 37.99, 55, 'SKU-GAP-035', 'product_images/product35/produit_193.jpg', 2, 9, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-036', 'Sandales plates', 'Sandales Marron et Blanc.', 27.99, 35, 'SKU-GAP-036', 'product_images/product36/produit_197.jpg', 4, 18, '2026-05-01 17:02:02', 'accessoire', 'toutes_saisons'),
+('GAP-037', 'T-shirt classique', 'T-shirt Marron Homme.', 18.99, 84, 'SKU-GAP-037', 'product_images/product37/LV04RD008G_UB1_main.webp', 2, 9, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-038', 'Ensemble t-shirt short', 'Ensemble Beige clair Femme.', 41.99, 30, 'SKU-GAP-038', 'product_images/product38/produit_201.jpg', 1, 11, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-039', 'Chemise fluide', 'Chemise Marron foncé Femme.', 39.99, 44, 'SKU-GAP-039', 'product_images/product39/produit_208.jpg', 1, 12, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-040', 'Ensemble chemise pantalon', 'Ensemble Marron foncé Femme.', 54.99, 21, 'SKU-GAP-040', 'product_images/product40/produit_214.jpg', 1, 12, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-041', 'Chemise manches courtes', 'Chemise Noir Homme.', 33.99, 59, 'SKU-GAP-041', 'product_images/product41/produit_222.jpg', 2, 13, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-042', 'Pull texturé', 'Pull Rose fuchsia Femme.', 43.99, 37, 'SKU-GAP-042', 'product_images/product42/produit_227.jpg', 1, 14, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-043', 'Débardeur côtelé', 'Débardeur Noir Femme.', 17.99, 91, 'SKU-GAP-043', 'product_images/product43/produit_232.jpg', 1, 13, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-044', 'Ensemble fluide', 'Ensemble Rose fuchsia Femme.', 52.99, 24, 'SKU-GAP-044', 'product_images/product44/produit_237.jpg', 1, 14, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-045', 'Ensemble vue face', 'Ensemble Rose fuchsia Femme.', 52.99, 23, 'SKU-GAP-045', 'product_images/product45/produit_243.jpg', 1, 14, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-046', 'Haut sans manches', 'Haut Noir Femme.', 26.99, 49, 'SKU-GAP-046', 'product_images/product46/produit_253.jpg', 1, 13, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-047', 'Chemise motifs', 'Chemise Beige imprimé Homme.', 35.99, 42, 'SKU-GAP-047', 'product_images/product47/produit_257.jpg', 2, 15, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-048', 'Chemise texturée', 'Chemise Gris-vert Homme.', 36.99, 38, 'SKU-GAP-048', 'product_images/product48/produit_262.jpg', 2, 16, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-049', 'Surchemise', 'Surchemise Noir Homme.', 40.99, 32, 'SKU-GAP-049', 'product_images/product49/produit_267.jpg', 2, 13, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-050', 'Sac cabas zébré', 'Sac Noir et Blanc.', 31.99, 28, 'SKU-GAP-050', 'product_images/product50/produit_272.jpg', 4, 17, '2026-05-01 17:02:02', 'accessoire', 'toutes_saisons'),
+('GAP-051', 'Ensemble débardeur pantalon', 'Ensemble Gris chiné Femme.', 48.99, 19, 'SKU-GAP-051', 'product_images/product51/produit_276.jpg', 1, 19, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-052', 'Ensemble pull pantalon', 'Ensemble Beige imprimé Femme.', 56.99, 16, 'SKU-GAP-052', 'product_images/product52/produit_285.jpg', 1, 15, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-053', 'Ensemble tunique pantalon', 'Ensemble Beige Femme.', 50.99, 20, 'SKU-GAP-053', 'product_images/product53/produit_291.jpg', 1, 10, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-054', 'Ensemble chemise short', 'Ensemble Blanc Femme.', 47.99, 27, 'SKU-GAP-054', 'product_images/product54/produit_299.jpg', 1, 2, '2026-05-01 17:02:02', 'ensemble', 'toutes_saisons'),
+('GAP-055', 'Chemise légère', 'Chemise Blanc Femme.', 33.99, 40, 'SKU-GAP-055', 'product_images/product55/produit_309.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('GAP-056', 'Top bustier', 'Top Blanc Femme.', 21.99, 65, 'SKU-GAP-056', 'product_images/product56/produit_314.jpg', 1, 2, '2026-05-01 17:02:02', 'haut', 'toutes_saisons'),
+('HOM001', 'T-shirt col rond noir - Collection Essential', 'T-shirt col rond noir - Collection Essential', 29.90, 150, 'SKU-HOM001', 'https://www.hom.com/media/catalog/product/cache/790421f214897a3493395295add0d504/h/a/harronew_tee-shirtcrewneck_405508_40m014_blackcombination.jpg', 2, 13, CURRENT_TIMESTAMP, 'haut', 'toutes_saisons'),
+('LAP002', 'Robe légère à fleurs - Collection Printemps', 'Robe légère à fleurs - Collection Printemps', 45.00, 85, 'SKU-LAP002', 'https://laparisienne-officielle.com/cdn/shop/products/S8fef73ea107e4abca00cd3c906a0a15aU.jpg?v=1675874902&width=900', 1, 2, CURRENT_TIMESTAMP, 'haut', 'toutes_saisons'),
+('NUD003', 'Jean Slim Lean Dean - Blue Ritual', 'Jean Slim Lean Dean - Blue Ritual', 119.00, 60, 'SKU-NUD003', 'https://marche-commun.com/cdn/shop/products/marche-commun-nudie-jeans-lean-dean-blue-ritual-2.jpg?v=1721225512', 2, 4, CURRENT_TIMESTAMP, 'bas', 'toutes_saisons'),
+('CAM004', 'Sneakers 217RN - Blanc/Marine', 'Sneakers 217RN - Blanc/Marine', 149.00, 42, 'SKU-CAM004', 'https://www.camilliano.fr/img/p/1/7/3/6/1736.jpg', 2, 2, CURRENT_TIMESTAMP, 'chaussure', 'toutes_saisons'),
+('CDI005', 'Short Cargo Multi-poches Kaki', 'Short Cargo Multi-poches Kaki', 34.99, 200, 'SKU-CDI005', 'https://www.cdiscount.com/pdt2/8/2/9/1/400x400/mp58564829/rw/short-cargo-multi-poches-homme-short-ete-camouflag.jpg', 2, 16, CURRENT_TIMESTAMP, 'bas', 'toutes_saisons'),
+('GUS006', 'Sac à dos cuir marron - Vintage', 'Sac à dos cuir marron - Vintage', 89.90, 35, 'SKU-GUS006', 'https://m.media-amazon.com/images/I/81wKvjx-eLL._AC_UY1000_.jpg', 4, 9, CURRENT_TIMESTAMP, 'accessoire', 'toutes_saisons'),
+('MEL007', 'Bottines cuir noir Lemon', 'Bottines cuir noir Lemon', 159.00, 28, 'SKU-MEL007', 'https://www.mellowyellow.com/media/catalog/product/8/2/827999_10.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=1820&width=1560&canvas=1560:1820', 1, 13, CURRENT_TIMESTAMP, 'chaussure', 'toutes_saisons'),
+('MAR008', 'Ceinture cuir homme marron Rome', 'Ceinture cuir homme marron Rome', 39.00, 120, 'SKU-MAR008', 'https://www.maroquinerie-enligne.fr/wp-content/uploads/2021/01/ceinture-cuir-homme-marron-Rome-5.jpg', 4, 9, CURRENT_TIMESTAMP, 'accessoire', 'toutes_saisons'),
+('MAI009', 'Pull oversize laine française - Gris Clair', 'Pull oversize laine française - Gris Clair', 95.00, 55, 'SKU-MAI009', 'https://www.maisonizard.com/cdn/shop/files/pull-ethique-oversize-femme-gris-clair-laine-pyrenees-coton-recycle-maison-izard-made-in-france.jpg?v=1698511276&width=1500', 1, 19, CURRENT_TIMESTAMP, 'haut', 'toutes_saisons'),
+('CHE010', 'Chemise business twill blanche - Sur mesure', 'Chemise business twill blanche - Sur mesure', 79.00, 90, 'SKU-CHE010', 'https://lechemiseur.imgix.net/data/lechemiseur/chemise-homme/fiche-produit-pleine-page/fiche-produit-pleine-page-v4/UW12-5.jpg?auto=compress%2Cformat&w=800', 2, 2, CURRENT_TIMESTAMP, 'haut', 'toutes_saisons'),
+('SEV011', 'Veste tailleur blazer noir - Coupe cintrée', 'Veste tailleur blazer noir - Coupe cintrée', 189.00, 40, 'SKU-SEV011', 'https://17h10.com/cdn/shop/files/VESTE-PARIS-NOIR_1.jpg?v=1755183766&width=1080', 1, 13, CURRENT_TIMESTAMP, 'haut', 'toutes_saisons'),
+('MOU012', 'Veste imperméable Pakka - Kaki', 'Veste imperméable Pakka - Kaki', 59.99, 75, 'SKU-MOU012', 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/B35756s2.jpg?im=Resize,width=750', 2, 16, CURRENT_TIMESTAMP, 'haut', 'toutes_saisons');
+
 
 -- --------------------------------------------------------
 
@@ -341,7 +409,7 @@ CREATE TABLE `profiles` (
 INSERT INTO `profiles` (`id`, `phone`, `gender`, `lastname`, `firstname`, `avatar`, `user_id`, `age`) VALUES
 (1, NULL, NULL, NULL, '', NULL, 15, NULL),
 (4, '97101045', 'male', 'jday', 'e', 0, 23, 25),
-(8, '', 'female', '', 'ahmed', 0, 27, 25);
+(9, '97101045', 'male', 'jeday', 'ahmed', 0, 30, 25);
 
 -- --------------------------------------------------------
 
@@ -365,7 +433,7 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `user_id`, `product_id`, `rating`, `comment`, `status`, `updated_at`, `created_at`) VALUES
-(2, 27, 'GAP-048', 5.0, 'test - test', 'pending', NULL, '2026-04-20 17:19:06');
+(5, 30, 'GAP-054', 4.0, 'test - r', 'pending', NULL, '2026-04-27 15:26:37');
 
 -- --------------------------------------------------------
 
@@ -399,8 +467,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `role`, `is_active`, `password`, `re
 (14, 'ahmed', 'ahmed.jday75@gmail.com', 'customer', 1, '$2y$10$nw/OKdoKCS1JTZycT/T0FeGRFOxx5TrFJCGnyMW5W.8T.JoxW9uqO', NULL, NULL, 0, NULL, NULL),
 (15, 'testuser', 'test@example.com', 'customer', 1, '$2y$10$gEjMWHO4rZfXzRJsuKM4Qe302APIle7/JvYHFC3a3OIfoRLJi/rnC', NULL, NULL, 0, NULL, NULL),
 (23, 'e', 'ahmed.jday05@gmail.com', 'customer', 1, '$2y$10$Su727pXzgeDFJzp6SlK.Y.by1gZGXsLhhF0v8hkZMNpTHjIa0bLRe', NULL, NULL, 0, NULL, NULL),
-(27, 'ahmed', 'ahmed.jday2005@gmail.com', 'customer', 1, '$2y$10$KwfjGmsV0on85V9m8271UeTXVnroqALYHYMYEl6WRZMVJ0UfGVb7u', 'e94a035b3f726be6f70be79756e51454784adce0bfdb2efb7791f9bba04eb574', '2026-04-21 19:34:18', 1, NULL, NULL),
-(28, 'admin', 'admin12@gmail.com', 'admin', 1, 'admin123', NULL, NULL, 1, NULL, NULL);
+(28, 'admin', 'admin12@gmail.com', 'admin', 1, 'admin123', NULL, NULL, 1, NULL, NULL),
+(29, 'ahmed jeday', 'admin@gamil.com', 'admin', 1, '$2y$10$6vG0paMR7sf5prsCDMKTi.yMZ3Xw7/JLOfQC392tzhNbiC6jLdPje', NULL, NULL, 1, NULL, NULL),
+(30, 'ahmed', 'ahmed.jday2005@gmail.com', 'customer', 1, '$2y$10$h5lRSEoQCPn/Hy1Uk92oSOYsJkAyKRo1EKY9vS3gTGeNKxxkHJ4Q6', NULL, NULL, 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -502,7 +571,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -520,43 +589,43 @@ ALTER TABLE `colors`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `login_logs`
 --
 ALTER TABLE `login_logs`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
@@ -566,14 +635,12 @@ ALTER TABLE `users`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `fk_produit` FOREIGN KEY (`produit_id`) REFERENCES `produits` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `favorites`
 --
 ALTER TABLE `favorites`
-  ADD CONSTRAINT `fk_favorites_product` FOREIGN KEY (`product_id`) REFERENCES `produits` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_favorites_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
@@ -592,8 +659,7 @@ ALTER TABLE `orders`
 -- Constraints for table `order_items`
 --
 ALTER TABLE `order_items`
-  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `produits` (`id`) ON DELETE SET NULL;
+  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `produits`
@@ -614,77 +680,7 @@ ALTER TABLE `profiles`
 ALTER TABLE `reviews`
   ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `produits` (`id`) ON DELETE CASCADE;
-
---
--- Migration: Add product_type and season columns to produits table
---
-ALTER TABLE produits 
-  ADD COLUMN product_type ENUM('haut','bas','accessoire','chaussure','ensemble') DEFAULT NULL,
-  ADD COLUMN season ENUM('ete','hiver','mi_saison','toutes_saisons') DEFAULT 'toutes_saisons';
-
---
--- Classification automatique des produits existants
---
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-001';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-002';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-003';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-004';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-005';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-006';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-007'; -- Robe t-shirt -> haut
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-008';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-009';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-010';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-011';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-012';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-013';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-014';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-015';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-016';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-017';
-UPDATE produits SET product_type = 'accessoire', season = 'toutes_saisons' WHERE id = 'GAP-018';
-UPDATE produits SET product_type = 'haut', season = 'ete' WHERE id = 'GAP-019';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-020';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-021';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-022';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-023';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-024';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-025';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-026';
-UPDATE produits SET product_type = 'accessoire', season = 'toutes_saisons' WHERE id = 'GAP-027';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-028';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-029';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-030';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-031';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-032';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-033';
-UPDATE produits SET product_type = 'bas', season = 'toutes_saisons' WHERE id = 'GAP-034';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-035';
-UPDATE produits SET product_type = 'accessoire', season = 'toutes_saisons' WHERE id = 'GAP-036';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-037';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-038';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-039';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-040';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-041';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-042';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-043';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-044';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-045';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-046';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-047';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-048';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-049';
-UPDATE produits SET product_type = 'accessoire', season = 'toutes_saisons' WHERE id = 'GAP-050';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-051';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-052';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-053';
-UPDATE produits SET product_type = 'ensemble', season = 'toutes_saisons' WHERE id = 'GAP-054';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-055';
-UPDATE produits SET product_type = 'haut', season = 'toutes_saisons' WHERE id = 'GAP-056';
-
 COMMIT;
-
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
