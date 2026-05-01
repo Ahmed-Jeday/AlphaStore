@@ -1,92 +1,17 @@
 <?php
 // mix-match.php
 
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "alphastore";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Get User Inputs
 $meteo = isset($_GET['meteo']) ? $_GET['meteo'] : 'toutes_saisons';
 $budget = isset($_GET['budget']) ? (float)$_GET['budget'] : 150.0;
-
-// Simple CSP Logic (Constraint Satisfaction Problem) in PHP
-// Constraints:
-// 1. Must pick 1 Haut, 1 Bas (and optionally 1 Accessoire if budget allows)
-// 2. Total price <= $budget
-// 3. Season must match $meteo (or be 'toutes_saisons')
-
-$outfits = [];
-
-// Fetch candidates
-$hauts = [];
-$bas = [];
-$accessoires = [];
-
-// Let's get products
-$sql = "SELECT id, name, price, product_type, season, image_path FROM produits";
-$result = $conn->query($sql);
-if ($result && $result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        // Enforce season constraint (simplified)
-        if ($row['season'] !== $meteo && $row['season'] !== 'toutes_saisons' && $meteo !== 'toutes_saisons') {
-            // Depending on strictness, we might skip. Let's just allow it or weight it if we want,
-            // but CSP says it's a hard constraint:
-            // continue; 
-        }
-
-        if ($row['product_type'] === 'haut') $hauts[] = $row;
-        if ($row['product_type'] === 'bas') $bas[] = $row;
-        if ($row['product_type'] === 'accessoire') $accessoires[] = $row;
-    }
-}
-
-// Generate combinations (Backtracking / Brute force for simple CSP)
-$max_outfits = 5;
-shuffle($hauts);
-shuffle($bas);
-shuffle($accessoires);
-
-foreach ($hauts as $h) {
-    foreach ($bas as $b) {
-        $total = $h['price'] + $b['price'];
-        if ($total <= $budget) {
-            $outfit = ['items' => [$h, $b], 'total' => $total, 'score' => 100];
-            
-            // Try to add accessoire
-            foreach ($accessoires as $a) {
-                if ($total + $a['price'] <= $budget) {
-                    $outfit['items'][] = $a;
-                    $outfit['total'] += $a['price'];
-                    $outfit['score'] += 20; // Bonus for complete outfit
-                    break;
-                }
-            }
-            $outfits[] = $outfit;
-            if (count($outfits) >= $max_outfits) break 2;
-        }
-    }
-}
-
-// Sort by score
-usort($outfits, function($a, $b) {
-    return $b['score'] - $a['score'];
-});
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mix & Match Results - AlphaStore</title>
+    <title>Mix & Match AI - AlphaStore</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/mix-match.css">
     <style>
         body { margin: 0; padding: 0; font-family: 'Space Grotesk', sans-serif; background: #050505; color: #fff; }
         .header { padding: 40px 20px; text-align: center; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -111,54 +36,22 @@ usort($outfits, function($a, $b) {
 <body>
 
 <div class="header">
-    <h1>Your CSP Generated Outfits</h1>
-    <p>Based on Weather: <strong><?= htmlspecialchars(ucfirst($meteo)) ?></strong> & Budget: <strong>£<?= htmlspecialchars($budget) ?></strong></p>
+    <h1>Your AI Generated Outfits</h1>
+    <p>Powered by CSP (Constraint Satisfaction Problem) Algorithm</p>
+    <p style="margin-top: 10px; font-size: 0.9rem;">
+        Weather: <strong><?= htmlspecialchars(ucfirst($meteo)) ?></strong> | 
+        Budget: <strong>£<?= htmlspecialchars($budget) ?></strong>
+    </p>
 </div>
 
-<div class="container">
-    <?php if (empty($outfits)): ?>
-        <div class="no-results">
-            <p>No outfits found matching your constraints. Try increasing your budget or changing the weather.</p>
-            <a href="ai.html#mix-match" class="btn-add">Go Back</a>
-        </div>
-    <?php else: ?>
-        <?php foreach ($outfits as $index => $outfit): ?>
-            <div class="outfit-card">
-                <div class="outfit-header">
-                    <h2>Outfit #<?= $index + 1 ?></h2>
-                    <div class="outfit-price">£<?= number_format($outfit['total'], 2) ?> / £<?= $budget ?></div>
-                </div>
-                
-                <div class="items-grid">
-                    <?php foreach ($outfit['items'] as $item): ?>
-                        <div class="item-card">
-                            <?php 
-                                $img = $item['image_path'];
-                                if (!empty($img) && !filter_var($img, FILTER_VALIDATE_URL)) {
-                                    $img = "../../public/" . $img;
-                                }
-                                if (empty($img)) {
-                                    $img = 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=600&fit=crop';
-                                }
-                                $img = htmlspecialchars($img);
-                            ?>
-                            <img src="<?= $img ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="item-img">
-                            <div class="item-info">
-                                <span class="item-type"><?= htmlspecialchars($item['product_type']) ?></span>
-                                <h3 class="item-name" title="<?= htmlspecialchars($item['name']) ?>"><?= htmlspecialchars($item['name']) ?></h3>
-                                <div class="item-price">£<?= number_format($item['price'], 2) ?></div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <div style="text-align: right;">
-                    <button class="btn-add">Add Entire Outfit to Cart</button>
-                </div>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+<div class="container" id="outfits-container">
+    <!-- Results will be loaded here via JS -->
+    <div class="loading">
+        <div class="spinner"></div>
+        <p>Initializing AI recommendation engine...</p>
+    </div>
 </div>
 
+<script src="../javaScript/mix-match.js"></script>
 </body>
 </html>

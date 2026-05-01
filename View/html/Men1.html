@@ -614,6 +614,9 @@
                     <button class="try-on-btn" id="quickViewTryOnBtn" style="margin-top: 15px; width: 100%; height: 45px; background-color: #222; color: white; border: none; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; border-radius: 4px;">
                         <i class="fas fa-magic"></i> VIRTUAL TRY ON
                     </button>
+                    <button class="try-on-btn" id="quickViewMixMatchBtn" style="margin-top: 10px; width: 100%; height: 45px; background: linear-gradient(135deg, #a855f7, #6366f1); color: white; border: none; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; border-radius: 4px;">
+                        <i class="fas fa-tshirt"></i> MIX & MATCH
+                    </button>
                     <div class="social-actions">
                         <i class="far fa-heart heart-icon"></i>
                         <div class="social-links">
@@ -761,7 +764,14 @@
                         const tryOnBtn = modal.querySelector('#quickViewTryOnBtn');
                         if (tryOnBtn) {
                             tryOnBtn.onclick = () => {
-                                window.location.href = `ai.html?productImage=${encodeURIComponent(fullImagePath)}`;
+                                window.location.href = `ai.html?productImage=${encodeURIComponent(fullImagePath)}&productId=${p.id}`;
+                            };
+                        }
+
+                        const mixMatchBtn = modal.querySelector('#quickViewMixMatchBtn');
+                        if (mixMatchBtn) {
+                            mixMatchBtn.onclick = () => {
+                                window.location.href = `mix-match.php?product_id=${p.id}`;
                             };
                         }
 

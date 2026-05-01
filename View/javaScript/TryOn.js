@@ -140,4 +140,19 @@
               }, 500);
           }
       }
+      // ---------- Mix & Match Button ----------
+      const mixMatchBtn = document.getElementById('vt-btn-mix-match');
+      if (mixMatchBtn) {
+        mixMatchBtn.addEventListener('click', () => {
+          const meteo = document.getElementById('meteo')?.value || 'ete';
+          const budget = document.getElementById('budget')?.value || '150';
+          const productId = urlParams.get('productId');
+          let url = `mix-match.php?meteo=${meteo}&budget=${budget}`;
+          if (productId) {
+            url += `&product_id=${productId}`;
+          }
+          window.location.href = url;
+        });
+      }
+
     })();
