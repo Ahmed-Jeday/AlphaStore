@@ -111,3 +111,28 @@ def get_cart_products_for_optimizer(user_id):
             })
         
     return formatted_products
+
+def get_products_for_csp():
+    """Fetch products with color names, product_type, and season for CSP solver"""
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    query = """
+        SELECT p.id, p.name, p.price, p.image_path as image, p.stock, 
+               p.product_type, p.season, p.category_id, c.name as color_name
+        FROM produits p
+        LEFT JOIN colors c ON p.color_id = c.id
+        WHERE p.stock > 0
+    """
+    
+    cursor.execute(query)
+    products = cursor.fetchall()
+    
+    cursor.close()
+    conn.close()
+    
+    # Format prices to float
+    for p in products:
+        p['price'] = float(p['price'])
+        
+    return products
