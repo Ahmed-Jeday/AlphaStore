@@ -127,6 +127,24 @@ if ($action === "chatbot") {
     handleChat();
     exit;
 }
+if ($action === "getPCComponents") {
+    require_once(__DIR__ . "/Controller/PCBuildController.php");
+    getPCComponents();
+    exit;
+}
+
+if ($action === "filterPCComponents") {
+    require_once(__DIR__ . "/Controller/PCBuildController.php");
+    filterPCComponents();
+    exit;
+}
+
+if ($action === "getPCRecommendation") {
+    require_once(__DIR__ . "/Controller/PCBuildController.php");
+    getPCRecommendation();
+    exit;
+}
+
 if ($action === "verif_code") {
     require_once(__DIR__ . "/Controller/AuthController.php");
     $result = verifOTP($_POST["email"], $_POST["code"]);

@@ -586,6 +586,7 @@ header("Expires: 0"); // Proxies.
                 <a href="tech.html" class="tab">TECH</a>
                 <a href="ai.html" class="tab">Ai</a>
                 <a href="smart-budget.html" class="tab">BUDGET</a>
+                <a href="pc-builder.php" class="tab" style="color: var(--accent-cyan); border-left: 1px solid rgba(255,255,255,0.1); padding-left: 15px;">🖥️ BUILD PC</a>
             </div>
             
             <div class="user-actions">
