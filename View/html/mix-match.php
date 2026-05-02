@@ -1,56 +1,102 @@
 <?php
 // mix-match.php
 
-$meteo = isset($_GET['meteo']) ? $_GET['meteo'] : 'toutes_saisons';
-$budget = isset($_GET['budget']) ? (float)$_GET['budget'] : 150.0;
+$meteo = isset($_GET['meteo']) ? preg_replace('/[^a-z_]/i', '', $_GET['meteo']) : 'toutes_saisons';
+if ($meteo === '') {
+    $meteo = 'toutes_saisons';
+}
+$budgetRaw = isset($_GET['budget']) ? $_GET['budget'] : 150;
+$budget = max(10, min(1000, (float)$budgetRaw));
+$productId = isset($_GET['product_id']) ? htmlspecialchars((string)$_GET['product_id'], ENT_QUOTES, 'UTF-8') : '';
+$seasonLabels = [
+    'ete' => 'Summer / Hot',
+    'hiver' => 'Winter / Cold',
+    'mi_saison' => 'Spring / Autumn',
+    'toutes_saisons' => 'All seasons',
+];
+$seasonLabel = $seasonLabels[$meteo] ?? ucfirst(str_replace('_', ' ', $meteo));
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mix & Match AI - AlphaStore</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Mix &amp; Match — Alpha Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/mix-match.css">
-    <style>
-        body { margin: 0; padding: 0; font-family: 'Space Grotesk', sans-serif; background: #050505; color: #fff; }
-        .header { padding: 40px 20px; text-align: center; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .header h1 { margin: 0 0 10px 0; font-size: 2.5rem; background: linear-gradient(to right, #a855f7, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .header p { color: #a1a1aa; margin: 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        .outfit-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px; }
-        .outfit-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
-        .outfit-price { font-size: 1.5rem; font-weight: bold; color: #a855f7; }
-        .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .item-card { background: #000; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
-        .item-img { width: 100%; height: 250px; object-fit: cover; }
-        .item-info { padding: 15px; }
-        .item-name { font-size: 1rem; margin: 0 0 5px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .item-price { color: #a1a1aa; font-size: 0.9rem; }
-        .item-type { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #a855f7; margin-bottom: 5px; display: inline-block; padding: 2px 8px; background: rgba(168,85,247,0.1); border-radius: 10px; }
-        .no-results { text-align: center; color: #a1a1aa; padding: 50px 0; font-size: 1.2rem; }
-        .btn-add { display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #a855f7, #6366f1); color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; transition: transform 0.2s; border: none; cursor: pointer; }
-        .btn-add:hover { transform: translateY(-2px); }
-    </style>
 </head>
-<body>
+<body class="mix-match-page">
 
-<div class="header">
-    <h1>Your AI Generated Outfits</h1>
-    <p>Powered by CSP (Constraint Satisfaction Problem) Algorithm</p>
-    <p style="margin-top: 10px; font-size: 0.9rem;">
-        Weather: <strong><?= htmlspecialchars(ucfirst($meteo)) ?></strong> | 
-        Budget: <strong>£<?= htmlspecialchars($budget) ?></strong>
+<div class="mix-match-bg" aria-hidden="true"></div>
+
+
+
+<section class="mix-match-hero" aria-labelledby="mix-match-title">
+    <p class="mix-match-brand-line">
+        <span class="mix-match-brand-line__lead"><strong>Alpha Store</strong> helps you</span>
+        <span class="mix-match-brand-line__rest">dress with confidence—balanced outfits, real prices, and pieces that belong in your wardrobe.</span>
     </p>
-</div>
 
-<div class="container" id="outfits-container">
-    <!-- Results will be loaded here via JS -->
-    <div class="loading">
-        <div class="spinner"></div>
-        <p>Initializing AI recommendation engine...</p>
+    <p class="mix-match-eyebrow">Outfit studio</p>
+    <h1 id="mix-match-title" class="mix-match-title">Mix &amp; match</h1>
+    <p class="mix-match-lead">Tell us the season and budget; we suggest full looks around your chosen item, using rules our stylists and algorithms agree on.</p>
+
+    <ul class="mix-match-trust" aria-label="What we check">
+        <li><span class="mix-match-trust__icon" aria-hidden="true">✓</span> Budget limit</li>
+        <li><span class="mix-match-trust__icon" aria-hidden="true">✓</span> Season fit</li>
+        <li><span class="mix-match-trust__icon" aria-hidden="true">✓</span> Stock &amp; catalogue</li>
+    </ul>
+
+    <div class="mix-match-current">
+        <span class="mix-match-chip">
+            <span class="mix-match-chip-label">Season</span>
+            <strong id="mix-match-season-label"><?= htmlspecialchars($seasonLabel) ?></strong>
+        </span>
+        <span class="mix-match-chip">
+            <span class="mix-match-chip-label">Budget</span>
+            <strong>£<span id="mix-match-budget-label"><?= htmlspecialchars((string)$budget) ?></span></strong>
+        </span>
     </div>
-</div>
+
+    <div class="mix-match-controls">
+        <input type="hidden" id="mix-match-product-id" value="<?= $productId ?>">
+        <div class="mix-match-field">
+            <label for="mix-match-meteo">Season / weather</label>
+            <select id="mix-match-meteo" name="meteo">
+                <option value="ete" <?= $meteo === 'ete' ? 'selected' : '' ?>>Summer / Hot</option>
+                <option value="hiver" <?= $meteo === 'hiver' ? 'selected' : '' ?>>Winter / Cold</option>
+                <option value="mi_saison" <?= $meteo === 'mi_saison' ? 'selected' : '' ?>>Spring / Autumn / Mild</option>
+                <option value="toutes_saisons" <?= $meteo === 'toutes_saisons' ? 'selected' : '' ?>>All seasons</option>
+            </select>
+        </div>
+        <div class="mix-match-field">
+            <label for="mix-match-budget-input">Budget (£)</label>
+            <input type="number" id="mix-match-budget-input" name="budget" min="10" max="1000" step="1" value="<?= htmlspecialchars((string)$budget) ?>">
+        </div>
+        <button type="button" id="mix-match-apply" class="btn-add mix-match-apply-btn">Update looks</button>
+    </div>
+</section>
+
+<main class="mix-match-main">
+    <div class="mix-match-main-inner">
+        <header class="mix-match-results-intro">
+            <h2 class="mix-match-results-intro__title">Your curated looks</h2>
+            <p class="mix-match-results-intro__text">Each suggestion is built to work as a set—so you spend less time pairing and more time wearing what you love.</p>
+        </header>
+        <div id="outfits-container" class="mix-match-outfits">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Preparing your outfits…</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="mix-match-footer">
+    <p><strong>Alpha Store</strong> — fashion that fits your life, not just your feed.</p>
+</footer>
 
 <script src="../javaScript/mix-match.js"></script>
 </body>

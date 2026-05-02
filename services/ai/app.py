@@ -32,12 +32,27 @@ def optimize():
     
     return jsonify(result)
 
+VALID_MIX_MATCH_SEASONS = frozenset({'ete', 'hiver', 'mi_saison', 'toutes_saisons'})
+
+
 @app.route('/api/mix-match', methods=['POST'])
 def mix_match():
-    data = request.json
+    data = request.json or {}
     anchor_id = data.get('product_id')
-    budget = float(data.get('budget', 250))
-    season = data.get('season', None)
+    try:
+        budget = float(data.get('budget', 250))
+    except (TypeError, ValueError):
+        return jsonify({"error": "Invalid budget"}), 400
+    budget = max(10.0, min(1000.0, budget))
+
+    season = data.get('season')
+    if isinstance(season, str):
+        season = season.strip().lower()
+        season = ''.join(c for c in season if c.isalnum() or c == '_') or None
+    else:
+        season = None
+    if season not in VALID_MIX_MATCH_SEASONS:
+        season = None
     
     # Fetch all products for CSP
     all_products = get_products_for_csp()

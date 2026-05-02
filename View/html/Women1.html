@@ -17,24 +17,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="../css/Women1.css">
+    <!-- Styles: shared first, Women1 last so body/tokens win over style_1.css -->
     <link rel="stylesheet" href="../css/style_1.css">
     <link rel="stylesheet" href="../css/shop/shop_1.css">
     <link rel="stylesheet" href="../css/component/shop_animation.css">
+    <link rel="stylesheet" href="../css/Women1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-    <style>
-        .try-on-btn:hover {
-            background-color: #c966a8 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(201, 102, 168, 0.15);
-        }
-
-        .try-on-btn:active {
-            transform: translateY(0);
-        }
-    </style>
 </head>
 
 <body>
@@ -665,10 +654,10 @@
                         <button class="add-cart-btn">ADD TO CART</button>
                     </div>
                     <button class="try-on-btn" id="quickViewTryOnBtn"
-                        style="margin-top: 15px; width: 100%; height: 45px; background-color: #c966a8; color: white; border: none; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; border-radius: 4px;">
+                        style="margin-top: 15px; width: 100%; height: 45px; background-color: #D39BC2; color: white; border: none; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; border-radius: 4px;">
                         <i class="fas fa-magic"></i> VIRTUAL TRY ON
                     </button>
-                    <button class="try-on-btn" id="quickViewMixMatchBtn" style="margin-top: 10px; width: 100%; height: 45px; background: linear-gradient(135deg, #a855f7, #6366f1); color: white; border: none; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; border-radius: 4px;">
+                    <button class="try-on-btn" id="quickViewMixMatchBtn" style="margin-top: 10px; width: 100%; height: 45px; background: linear-gradient(135deg, #b56fa3, #D39BC2 50%, #e8b896); color: white; border: none; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; border-radius: 4px;">
                         <i class="fas fa-tshirt"></i> MIX & MATCH
                     </button>
                     <div class="social-actions">
