@@ -4,96 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpha Store - Men, Women, Kids & Tech</title>
+    <meta name="description" content="Alpha Store - Your premium destination for the latest in fashion for men, women, and kids, plus cutting-edge tech gadgets. Experience quality and style.">
+    <meta name="keywords" content="Alpha Store, Fashion, Tech, Men's Clothing, Women's Clothing, Kids' Wear, Smartwatches, Sneakers">
+    <meta property="og:title" content="Alpha Store - Fashion & Tech Excellence">
+    <meta property="og:description" content="Shop the latest trends in fashion and technology at Alpha Store.">
+    <meta property="og:image" content="../../public/og-image.png">
+    <title>Alpha Store | Premium Fashion & Tech Essentials</title>
     <link rel="icon" href="../../public/icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/new_front.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome (icônes) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-Fo3rlrZj/k7ujTTXRNb+XxE7uR6RvZJ5mX0BzCxYEBTPqM3Cr5oONZ/0f1LFrQPR6wFz32s1QSX5G/W4OKQq3A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-IRw5p4+v5Z2+rztm8llwI+lvDGvtsrPVD8K+isp3hHgRTIzE3d6Ecu8d7eFJ9z5T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/new_front.css">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/shop/store.css">
-
     <link rel="stylesheet" href="../css/style_1.css">
-
     <link rel="stylesheet" href="../css/style_parallex.css">
     <link rel="stylesheet" href="../css/homeindex.css">
     <link rel="stylesheet" href="../css/new_arrival.css">
     <link rel="stylesheet" href="../css/promo-grid.css">
     <link rel="stylesheet" href="../css/run.css">
     <link rel="stylesheet" href="../css/elegant-ui.css">
-   
-
-
-
-
     <link rel="stylesheet" href="../css/scroll-snap.css">
 </head>
 
-
-
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="chatbot"></div>
     
-    <header class="hero-section">
-        <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder"></div>
 
-
-        <div class="h">
-
-            <div class="loader">
-                <div class="revealer"></div>
-                <div class="loader-text-wrapper">
-                    <div class="loader-text">
-                        <h3>Alpha Store</h3>
+    <main id="main-content">
+        <section class="hero-slider-section" aria-label="Hero Product Slider">
+            <div class="h">
+                <div class="loader" aria-hidden="true">
+                    <div class="revealer"></div>
+                    <div class="loader-text-wrapper">
+                        <div class="loader-text">
+                            <h3>Alpha Store</h3>
+                        </div>
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="progress-line-wrapper">
+                            <span class="progress-line" id="progress-bar"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="progress-wrapper">
-                    <div class="progress-line-wrapper">
-                        <span class="progress-line" id="progress-bar"></span>
+                
+                <div class="arrow" aria-label="Previous and Next buttons">
+                    <div class="arrow-img-wrapper">
+                        <img src="https://www.yudiz.com/codepen/gsap-slider/left-arrow.png" alt="Previous Slide"
+                            class="img-fluid dark-arrow">
                     </div>
                 </div>
-            </div>
-            <div class="arrow">
-                <div class="arrow-img-wrapper">
-                    <img src="https://www.yudiz.com/codepen/gsap-slider/left-arrow.png" alt="arrow"
-                        class="img-fluid dark-arrow">
-                </div>
-            </div>
 
-
-            <div class="slider">
-                <div class="content-slider">
-                    <ul>
-                        <li class="active">
-                            <div class="title-main">
-                                <div class="title-wrapper">
-                                    <h1 class="t-stroke italic">T-Shirt Classic</h1>
-                                    <h1>T-Shirt Classic</h1>
-                                    <h1 class="t-stroke italic">T-Shirt Classic</h1>
-                                    <h1>T-Shirt Classic</h1>
+                <div class="slider">
+                    <div class="content-slider">
+                        <ul role="list">
+                            <li class="active" aria-current="true">
+                                <div class="title-main">
+                                    <div class="title-wrapper">
+                                        <h2 class="t-stroke italic">T-Shirt Classic</h2>
+                                        <h2 class="hero-title">T-Shirt Classic</h2>
+                                        <h2 class="t-stroke italic">T-Shirt Classic</h2>
+                                        <h2 class="hero-title">T-Shirt Classic</h2>
+                                    </div>
+                                    <div class="title-wrapper">
+                                        <h2 class="t-stroke italic">T-Shirt Classic</h2>
+                                        <h2 class="hero-title">T-Shirt Classic</h2>
+                                        <h2 class="t-stroke italic">T-Shirt Classic</h2>
+                                        <h2 class="hero-title">T-Shirt Classic</h2>
+                                    </div>
                                 </div>
-                                <div class="title-wrapper">
-                                    <h1 class="t-stroke italic">T-Shirt Classic</h1>
-                                    <h1>T-Shirt Classic</h1>
-                                    <h1 class="t-stroke italic">T-Shirt Classic</h1>
-                                    <h1>T-Shirt Classic</h1>
-                                </div>
-                            </div>
-                        </li>
+                            </li>>
                         <li>
                             <div class="title-main">
                                 <div class="title-wrapper">
@@ -393,31 +385,23 @@
 
 
 
-    <div class="Image-wrapper">
-        <div class="Image-container">
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg"
-                    alt="Nike" /></div>
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg"
-                    alt="Adidas" /></div>
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg"
-                    alt="Zara" /></div>
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg"
-                    alt="H&M" /></div>
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/en/d/da/Puma_complete_logo.svg"
-                    alt="Puma" /></div>
-            <!-- Second set for seamless scroll -->
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg"
-                    alt="Nike" /></div>
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg"
-                    alt="Adidas" /></div>
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg"
-                    alt="Zara" /></div>
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg"
-                    alt="H&M" /></div>
-            <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/en/d/da/Puma_complete_logo.svg"
-                    alt="Puma" /></div>
-        </div>
-    </div>
+        <section class="brand-showcase" aria-label="Our Trusted Brands">
+            <div class="Image-wrapper">
+                <div class="Image-container">
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike Official Logo" /></div>
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas Official Logo" /></div>
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" alt="Zara Official Logo" /></div>
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="H&M Official Logo" /></div>
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/en/d/da/Puma_complete_logo.svg" alt="Puma Official Logo" /></div>
+                    <!-- Second set for seamless scroll -->
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike Official Logo" /></div>
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas Official Logo" /></div>
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg" alt="Zara Official Logo" /></div>
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg" alt="H&M Official Logo" /></div>
+                    <div class="brand-icon"><img src="https://upload.wikimedia.org/wikipedia/en/d/da/Puma_complete_logo.svg" alt="Puma Official Logo" /></div>
+                </div>
+            </div>
+        </section>
 
 
 
@@ -429,72 +413,69 @@
 
 
 
-       <section class="landing-27-section">
+    <section class="landing-27-section" aria-label="Premium Product Showcase">
         <div class="landing-27-header" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10; text-align: center;">
-            <h1 style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; letter-spacing: 5px; color: #fff; margin: 0; text-shadow: 0 4px 10px rgba(0,0,0,0.5);">ALPHA PREMIUM</h1>
+            <h2 style="font-family: 'Poppins', sans-serif; font-size: 2.5rem; letter-spacing: 5px; color: #fff; margin: 0; text-shadow: 0 4px 10px rgba(0,0,0,0.5);">ALPHA PREMIUM</h2>
         </div>
         <div class="swiper landingSwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" style="background: linear-gradient(to bottom, #FE783D, #121826);">
-                    <h2>ALPHA</h2>
+                    <h3>ALPHA</h3>
                     <div class="info">
                         <p>SUMMER 2026</p>
-                        <span> @ Urban style <br> meets comfort</span>
+                        <span>Urban style meets comfort</span>
                         <p>ALPHA EXCLUSIVE</p>
-                        <span>Premium, sleek, <br> and durable</span>
+                        <span>Premium, sleek, and durable</span>
                     </div>
                     <div class="pricing">
-                        <p>Color:</p>
-                        <span>Blood Orange</span>
-                        <h3>$1249.00</h3>
+                        <p>Color: <span>Blood Orange</span></p>
+                        <div class="price-value">$1249.00</div>
                         <div class="btn-block">
-                            <a href="#" class="light-btn">Buy Now</a>
-                            <a href="#" class="btn">Add To Cart</a>
+                            <a href="store.html" class="light-btn" aria-label="Buy Blood Orange Alpha Premium now">Buy Now</a>
+                            <a href="#" class="btn add-cart" aria-label="Add Blood Orange Alpha Premium to cart">Add To Cart</a>
                         </div>
                     </div>
-                    <img src="../landing-27/image/1.png" alt="1" class="main-img">
+                    <img src="../landing-27/image/1.png" alt="Alpha Premium Sneaker in Blood Orange" class="main-img">
                 </div>
                 <div class="swiper-slide" style="background: linear-gradient(to bottom, #00499D, #121826);">
-                    <h2>ALPHA</h2>
+                    <h3>ALPHA</h3>
                     <div class="info">
                         <p>SUMMER 2026</p>
-                        <span> @ Urban style <br> meets comfort</span>
+                        <span>Urban style meets comfort</span>
                         <p>ALPHA EXCLUSIVE</p>
-                        <span>Premium, sleek, <br> and durable</span>
+                        <span>Premium, sleek, and durable</span>
                     </div>
                     <div class="pricing">
-                        <p>Color:</p>
-                        <span>Blue Sky</span>
-                        <h3>$1249.00</h3>
+                        <p>Color: <span>Blue Sky</span></p>
+                        <div class="price-value">$1249.00</div>
                         <div class="btn-block">
-                            <a href="#" class="light-btn">Buy Now</a>
-                            <a href="#" class="btn">Add To Cart</a>
+                            <a href="store.html" class="light-btn" aria-label="Buy Blue Sky Alpha Premium now">Buy Now</a>
+                            <a href="#" class="btn add-cart" aria-label="Add Blue Sky Alpha Premium to cart">Add To Cart</a>
                         </div>
                     </div>
-                    <img src="../landing-27/image/2.png" alt="2" class="main-img">
+                    <img src="../landing-27/image/2.png" alt="Alpha Premium Sneaker in Blue Sky" class="main-img">
                 </div>
                 <div class="swiper-slide" style="background: linear-gradient(to bottom, #DAB1C8, #511990);">
-                    <h2>ALPHA</h2>
+                    <h3>ALPHA</h3>
                     <div class="info">
                         <p>SUMMER 2026</p>
-                        <span> @ Urban style <br> meets comfort</span>
+                        <span>Urban style meets comfort</span>
                         <p>ALPHA EXCLUSIVE</p>
-                        <span>Premium, sleek, <br> and durable</span>
+                        <span>Premium, sleek, and durable</span>
                     </div>
                     <div class="pricing">
-                        <p>Color:</p>
-                        <span>Deep Purple</span>
-                        <h3>$1249.00</h3>
+                        <p>Color: <span>Deep Purple</span></p>
+                        <div class="price-value">$1249.00</div>
                         <div class="btn-block">
-                            <a href="#" class="light-btn">Buy Now</a>
-                            <a href="#" class="btn">Add To Cart</a>
+                            <a href="store.html" class="light-btn" aria-label="Buy Deep Purple Alpha Premium now">Buy Now</a>
+                            <a href="#" class="btn add-cart" aria-label="Add Deep Purple Alpha Premium to cart">Add To Cart</a>
                         </div>
                     </div>
-                    <img src="../landing-27/image/3.png" alt="3" class="main-img">
+                    <img src="../landing-27/image/3.png" alt="Alpha Premium Sneaker in Deep Purple" class="main-img">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
-            <div class="swiper-thumbs landingThumbs">
+            <div class="swiper-thumbs landingThumbs" aria-hidden="true">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="../landing-27/image/1.png" alt="Thumb 1"></div>
                     <div class="swiper-slide"><img src="../landing-27/image/2.png" alt="Thumb 2"></div>
@@ -505,101 +486,101 @@
         </div>
     </section>
 
-    <section class="new-arrivals section">
+    <section class="new-arrivals section" aria-labelledby="new-arrivals-title">
         <div class="container">
             <div class="new-arrivals__header">
                 <div>
                     <span class="new-arrivals__eyebrow">Fresh Drop</span>
-                    <h2 class="section-title">More new arrivals.</h2>
+                    <h2 id="new-arrivals-title" class="section-title">More new arrivals.</h2>
                     <p class="new-arrivals__subtitle">Curated weekly picks with modern cuts, elevated comfort, and premium style.</p>
                 </div>
-                <a href="#" class="new-arrivals__cta">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="store.html" class="new-arrivals__cta">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <article class="product">
                             <span class="product-tag">New</span>
-                            <img src="../img/img1.webp" alt="Mid Rise Easy Baggy Jeans">
+                            <img src="../img/img1.webp" alt="Mid Rise UltraSoft Easy Baggy Jeans in classic denim">
                             <div class="product-meta">
-                                <p class="product-name">Mid Rise UltraSoft Easy Baggy Jeans</p>
+                                <h3 class="product-name">Mid Rise UltraSoft Easy Baggy Jeans</h3>
                                 <span class="product-price">49.99 DT</span>
-                                <button class="btn btn-primary add-cart product-add-cart">Add to Cart</button>
+                                <button class="btn btn-primary add-cart product-add-cart" aria-label="Add Mid Rise UltraSoft Easy Baggy Jeans to cart">Add to Cart</button>
                             </div>
                         </article>
                     </div>
                     <div class="swiper-slide">
                         <article class="product">
                             <span class="product-tag">Trending</span>
-                            <img src="../img/img2.webp" alt="Classic T-Shirt">
+                            <img src="../img/img2.webp" alt="Classic White T-Shirt with premium finish">
                             <div class="product-meta">
-                                <p class="product-name">Classic T-Shirt</p>
+                                <h3 class="product-name">Classic T-Shirt</h3>
                                 <span class="product-price">24.99 DT</span>
-                                <button class="btn btn-primary add-cart product-add-cart">Add to Cart</button>
+                                <button class="btn btn-primary add-cart product-add-cart" aria-label="Add Classic T-Shirt to cart">Add to Cart</button>
                             </div>
                         </article>
                     </div>
                     <div class="swiper-slide">
                         <article class="product">
                             <span class="product-tag">New</span>
-                            <img src="../img/img3jpg.webp" alt="Horseshoe Overalls">
+                            <img src="../img/img3jpg.webp" alt="UltraSoft Denim Horseshoe Overalls for toddlers">
                             <div class="product-meta">
-                                <p class="product-name">UltraSoft Denim Horseshoe Overalls</p>
+                                <h3 class="product-name">UltraSoft Denim Horseshoe Overalls</h3>
                                 <span class="product-price">54.99 DT</span>
-                                <button class="btn btn-primary add-cart product-add-cart">Add to Cart</button>
+                                <button class="btn btn-primary add-cart product-add-cart" aria-label="Add UltraSoft Denim Horseshoe Overalls to cart">Add to Cart</button>
                             </div>
                         </article>
                     </div>
                     <div class="swiper-slide">
                         <article class="product">
                             <span class="product-tag">Best Seller</span>
-                            <img src="../img/img4.webp" alt="Mix & Match Joggers">
+                            <img src="../img/img4.webp" alt="Baby & Toddler Mix & Match Pull-On Joggers">
                             <div class="product-meta">
-                                <p class="product-name">Baby & Toddler Mix & Match Pull-On Joggers</p>
+                                <h3 class="product-name">Baby & Toddler Mix & Match Pull-On Joggers</h3>
                                 <span class="product-price">29.99 DT</span>
-                                <button class="btn btn-primary add-cart product-add-cart">Add to Cart</button>
+                                <button class="btn btn-primary add-cart product-add-cart" aria-label="Add Mix & Match Pull-On Joggers to cart">Add to Cart</button>
                             </div>
                         </article>
                     </div>
                     <div class="swiper-slide">
                         <article class="product">
                             <span class="product-tag">New</span>
-                            <img src="../img/img5.webp" alt="Kids Collection Hoodie">
+                            <img src="../img/img5.webp" alt="Kids Collection Hoodie in soft grey">
                             <div class="product-meta">
-                                <p class="product-name">Kids Collection Hoodie</p>
+                                <h3 class="product-name">Kids Collection Hoodie</h3>
                                 <span class="product-price">39.99 DT</span>
-                                <button class="btn btn-primary add-cart product-add-cart">Add to Cart</button>
+                                <button class="btn btn-primary add-cart product-add-cart" aria-label="Add Kids Collection Hoodie to cart">Add to Cart</button>
                             </div>
                         </article>
                     </div>
                     <div class="swiper-slide">
                         <article class="product">
                             <span class="product-tag">Hot</span>
-                            <img src="../img/img6jpg.webp" alt="Tech Collection Earbuds">
+                            <img src="../img/img6jpg.webp" alt="Alpha Tech Collection Wireless Earbuds">
                             <div class="product-meta">
-                                <p class="product-name">Tech Collection Earbuds</p>
+                                <h3 class="product-name">Tech Collection Earbuds</h3>
                                 <span class="product-price">69.99 DT</span>
-                                <button class="btn btn-primary add-cart product-add-cart">Add to Cart</button>
+                                <button class="btn btn-primary add-cart product-add-cart" aria-label="Add Tech Collection Earbuds to cart">Add to Cart</button>
                             </div>
                         </article>
                     </div>
                     <div class="swiper-slide">
                         <article class="product">
                             <span class="product-tag">New</span>
-                            <img src="../img/img7.webp" alt="Classic Summer Sunglasses">
+                            <img src="../img/img7.webp" alt="Classic Summer Sunglasses with UV protection">
                             <div class="product-meta">
-                                <p class="product-name">Classic Summer Sunglasses</p>
+                                <h3 class="product-name">Classic Summer Sunglasses</h3>
                                 <span class="product-price">34.99 DT</span>
-                                <button class="btn btn-primary add-cart product-add-cart">Add to Cart</button>
+                                <button class="btn btn-primary add-cart product-add-cart" aria-label="Add Classic Summer Sunglasses to cart">Add to Cart</button>
                             </div>
                         </article>
                     </div>
                 </div>
 
                 <div class="new-arrivals__controls">
-                    <div class="swiper-button-prev new-arrivals-prev"></div>
+                    <div class="swiper-button-prev new-arrivals-prev" aria-label="Previous Products"></div>
                     <div class="swiper-pagination new-arrivals__pagination"></div>
-                    <div class="swiper-button-next new-arrivals-next"></div>
+                    <div class="swiper-button-next new-arrivals-next" aria-label="Next Products"></div>
                 </div>
             </div>
         </div>
@@ -611,53 +592,53 @@
 
 
 
-    <section class="promo-grid">
+    <section class="promo-grid" aria-label="Special Promotions">
         <div class="grid-item tall"
-            style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('../img/section3_1.jpg');">
+            style="background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent 40%), url('../img/section3_1.jpg');" role="img" aria-label="Fashion model showcasing shoulder-off top">
 
             <div class="content">
                 <h2>Show some shoulder</h2>
                 <p>Hold Me Halter 24.99 DT</p>
-                <a href="#" class="btn">Shop now</a>
+                <a href="store.html" class="btn" aria-label="Shop shoulder tops now">Shop now</a>
             </div>
         </div>
 
         <div class="grid-item tall"
-            style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('../img/habit\ traditionnel\ tunisien.jpg');">
+            style="background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent 40%), url('../img/habit\ traditionnel\ tunisien.jpg');" role="img" aria-label="Traditional Tunisian attire exhibition">
             <div class="content">
                 <h2>Every fit, ever</h2>
                 <p>Shorts from 29.99 DT</p>
-                <a href="#" class="btn">Shop shorts</a>
+                <a href="store.html" class="btn" aria-label="Shop shorts now">Shop shorts</a>
             </div>
         </div>
 
         <div class="grid-item wide" id="grid_video">
-            <video autoplay muted loop playsinline>
+            <video autoplay muted loop playsinline aria-label="Vacation lifestyle video">
                 <source src="../img/vaction.webm" type="video/webm">
+                Your browser does not support the video tag.
             </video>
             <div class="content center">
                 <h2>TAKE OFF</h2>
-                <p>Pack simple. Travel light. See everything.
-                    This is vacation, simplified.</p>
-                <a href="#" class="btn">Vacation shop</a>
+                <p>Pack simple. Travel light. See everything. This is vacation, simplified.</p>
+                <a href="store.html" class="btn" aria-label="Shop vacation collection">Vacation shop</a>
             </div>
         </div>
 
         <div class="grid-item tall"
-            style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('https://images.unsplash.com/photo-1506634572416-48cdfe530110?q=80&w=1000&auto=format&fit=crop');">
+            style="background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent 40%), url('https://images.unsplash.com/photo-1506634572416-48cdfe530110?q=80&w=1000&auto=format&fit=crop');" role="img" aria-label="Man wearing stretch swim shorts">
             <div class="content">
                 <h2>Destination swim</h2>
                 <p>Stretch swim short 39.99 DT</p>
-                <a href="#" class="btn">Shop shorts</a>
+                <a href="store.html" class="btn" aria-label="Shop swim shorts now">Shop shorts</a>
             </div>
         </div>
 
         <div class="grid-item tall"
-            style="background-image: linear-gradient(to top, rgba(0,0,0,0.4), transparent 40%), url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop');">
+            style="background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent 40%), url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop');" role="img" aria-label="Woman in trendy pants">
             <div class="content">
                 <h2>Have to Haven</h2>
                 <p>New fold over waist</p>
-                <a href="#" class="btn">Shop pants</a>
+                <a href="store.html" class="btn" aria-label="Shop pants now">Shop pants</a>
             </div>
         </div>
     </section>
@@ -674,11 +655,11 @@
 
 
 
-    <section class="section deals-section">
+    <section class="section deals-section" aria-labelledby="deals-title">
         <div class="container">
             <div class="deals-header">
-                <h2 class="section-title">Today's Deals</h2>
-                <div class="countdown" id="countdown">
+                <h2 id="deals-title" class="section-title">Today's Deals</h2>
+                <div class="countdown" id="countdown" aria-label="Offer ends in">
                     <div class="cd-block"><span id="cd-h">08</span>
                         <p>Hours</p>
                     </div>
@@ -693,169 +674,163 @@
                 </div>
             </div>
             <div class="products-grid">
-                <div class="product-card">
+                <article class="product-card">
                     <div class="product-img-wrap">
                         <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=500&fit=crop"
-                            alt="Zen's Men Casual Shoes" />
+                            alt="Zen's Men Casual Shoes in brown leather" />
                         <span class="product-badge sale">16% Off</span>
                     </div>
                     <div class="product-info">
-                        <h4>Zen's Men Casual Shoes</h4>
-                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        <h3>Zen's Men Casual Shoes</h3>
+                        <div class="stars" aria-label="4.5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star-half-stroke"></i></div>
-                        <div class="product-price"><del>125.00 DT</del><span>105.00 DT</span></div>
-                        <button class="btn btn-primary add-cart">Add to Cart</button>
+                        <div class="product-price"><del aria-label="Original price">125.00 DT</del> <span aria-label="Discounted price">105.00 DT</span></div>
+                        <button class="btn btn-primary add-cart" aria-label="Add Zen's Men Casual Shoes to cart">Add to Cart</button>
                     </div>
-                </div>
-                <div class="product-card">
+                </article>
+                <article class="product-card">
                     <div class="product-img-wrap">
                         <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&h=500&fit=crop"
-                            alt="Puma Casual T-Shirt" />
+                            alt="Puma Casual Black T-Shirt" />
                         <span class="product-badge sale">19% Off</span>
                     </div>
                     <div class="product-info">
-                        <h4>Puma Casual T-Shirt</h4>
-                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        <h3>Puma Casual T-Shirt</h3>
+                        <div class="stars" aria-label="4 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <div class="product-price"><del>80.00 DT</del><span>65.00 DT</span></div>
-                        <button class="btn btn-primary add-cart">Add to Cart</button>
+                        <div class="product-price"><del aria-label="Original price">80.00 DT</del> <span aria-label="Discounted price">65.00 DT</span></div>
+                        <button class="btn btn-primary add-cart" aria-label="Add Puma Casual T-Shirt to cart">Add to Cart</button>
                     </div>
-                </div>
-                <div class="product-card">
+                </article>
+                <article class="product-card">
                     <div class="product-img-wrap">
                         <img src="https://img.freepik.com/free-photo/woman-with-socks-having-pumpkin-grapefruit-her-feet_23-2149384023.jpg?semt=ais_incoming&w=740&q=80"
-                            alt="HX Socks" />
+                            alt="HX Premium Cotton Socks (Set of 3)" />
                         <span class="product-badge sale">29% Off</span>
                     </div>
                     <div class="product-info">
-                        <h4>HX Socks (Set of 3)</h4>
-                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        <h3>HX Socks (Set of 3)</h3>
+                        <div class="stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i></div>
-                        <div class="product-price"><del>35.00 DT</del><span>25.00 DT</span></div>
-                        <button class="btn btn-primary add-cart">Add to Cart</button>
+                        <div class="product-price"><del aria-label="Original price">35.00 DT</del> <span aria-label="Discounted price">25.00 DT</span></div>
+                        <button class="btn btn-primary add-cart" aria-label="Add HX Socks to cart">Add to Cart</button>
                     </div>
-                </div>
-                <div class="product-card">
+                </article>
+                <article class="product-card">
                     <div class="product-img-wrap">
                         <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&h=500&fit=crop"
-                            alt="Fossil TX23 Watch" />
+                            alt="Fossil TX23 Premium Watch" />
                         <span class="product-badge sale">2% Off</span>
                     </div>
                     <div class="product-info">
-                        <h4>Fossil TX23 Watch</h4>
-                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        <h3>Fossil TX23 Watch</h3>
+                        <div class="stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                                 class="fa-solid fa-star"></i></div>
-                        <div class="product-price"><del>215.00 DT</del><span>210.00 DT</span></div>
-                        <button class="btn btn-primary add-cart">Add to Cart</button>
+                        <div class="product-price"><del aria-label="Original price">215.00 DT</del> <span aria-label="Discounted price">210.00 DT</span></div>
+                        <button class="btn btn-primary add-cart" aria-label="Add Fossil TX23 Watch to cart">Add to Cart</button>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
 
-    <section class="run">
-
-
-
-
+    <section class="run-section section" aria-labelledby="run-title">
         <div class="co-carousel-wrap">
             <div class="run_header">
-                <h2 class="run_title">IT'S TIME TO RUN</h2>
-                <a href="#" class="run_view">VIEW ALL</a>
+                <h2 id="run-title" class="run_title">IT'S TIME TO RUN</h2>
+                <a href="store.html" class="run_view">VIEW ALL</a>
             </div>
             <!-- Background gradient layers (matched to slides) -->
-            <div class="co-background co-background--style-0"></div>
-            <div class="co-background co-background--style-1"></div>
-            <div class="co-background co-background--style-2"></div>
-            <div class="co-background co-background--style-3"></div>
+            <div class="co-background co-background--style-0" aria-hidden="true"></div>
+            <div class="co-background co-background--style-1" aria-hidden="true"></div>
+            <div class="co-background co-background--style-2" aria-hidden="true"></div>
+            <div class="co-background co-background--style-3" aria-hidden="true"></div>
 
             <!-- Swiper Container -->
             <div class="swiper co-carousel">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide co-carousel__slide">
-                        <div class="co-card">
+                        <article class="co-card">
                             <div class="co-card__shoe">
                                 <img class="co-card__shoe-img"
                                     src="https://codocular.com/lab/swiper-carousel/nike1.85b9a747.png"
-                                    alt="Nike Air Force" />
-                                <span class="co-card__shoe-shadow"></span>
+                                    alt="Nike Air Force White - Men's Original" />
+                                <span class="co-card__shoe-shadow" aria-hidden="true"></span>
                             </div>
                             <div class="co-card__info">
-                                <div class="co-card__collection text-mask"><span>Men's Original</span></div>
-                                <div class="co-card__title text-mask"><span>Nike Air Force</span></div>
-                                <div class="co-card__price text-mask"><span>150.00 DT</span></div>
+                                <span class="co-card__collection text-mask">Men's Original</span>
+                                <h3 class="co-card__title text-mask">Nike Air Force</h3>
+                                <span class="co-card__price text-mask">150.00 DT</span>
                             </div>
-                        </div>
+                        </article>
                     </div>
                     <!-- Slide 2 -->
                     <div class="swiper-slide co-carousel__slide">
-                        <div class="co-card co-card--style-1">
+                        <article class="co-card co-card--style-1">
                             <div class="co-card__shoe">
                                 <img class="co-card__shoe-img"
                                     src="https://codocular.com/lab/swiper-carousel/nike2.3412fa36.png"
-                                    alt="Nike Air Jordan" />
-                                <span class="co-card__shoe-shadow"></span>
+                                    alt="Nike Air Jordan Red & Black" />
+                                <span class="co-card__shoe-shadow" aria-hidden="true"></span>
                             </div>
                             <div class="co-card__info">
-                                <div class="co-card__collection text-mask"><span>Jordans</span></div>
-                                <div class="co-card__title text-mask"><span>Nike Air Jordan</span></div>
-                                <div class="co-card__price text-mask"><span>249.99 DT</span></div>
+                                <span class="co-card__collection text-mask">Jordans</span>
+                                <h3 class="co-card__title text-mask">Nike Air Jordan</h3>
+                                <span class="co-card__price text-mask">249.99 DT</span>
                             </div>
-                        </div>
+                        </article>
                     </div>
                     <!-- Slide 3 -->
                     <div class="swiper-slide co-carousel__slide">
-                        <div class="co-card co-card--style-2">
+                        <article class="co-card co-card--style-2">
                             <div class="co-card__shoe">
                                 <img class="co-card__shoe-img"
                                     src="https://codocular.com/lab/swiper-carousel/nike3.14907490.png"
-                                    alt="Nike Air Max" />
-                                <span class="co-card__shoe-shadow"></span>
+                                    alt="Nike Air Max Purple Rain Edition" />
+                                <span class="co-card__shoe-shadow" aria-hidden="true"></span>
                             </div>
                             <div class="co-card__info">
-                                <div class="co-card__collection text-mask"><span>Purple Rain</span></div>
-                                <div class="co-card__title text-mask"><span>Nike Air Max</span></div>
-                                <div class="co-card__price text-mask"><span>150.00 DT</span></div>
+                                <span class="co-card__collection text-mask">Purple Rain</span>
+                                <h3 class="co-card__title text-mask">Nike Air Max</h3>
+                                <span class="co-card__price text-mask">150.00 DT</span>
                             </div>
-                        </div>
+                        </article>
                     </div>
                     <!-- Slide 4 -->
                     <div class="swiper-slide co-carousel__slide">
-                        <div class="co-card co-card--style-3">
+                        <article class="co-card co-card--style-3">
                             <div class="co-card__shoe">
                                 <img class="co-card__shoe-img"
                                     src="https://codocular.com/lab/swiper-carousel/nike4.62fca82d.png"
-                                    alt="Nike Air Force Limited" />
-                                <span class="co-card__shoe-shadow"></span>
+                                    alt="Nike Air Force Limited Edition Blue" />
+                                <span class="co-card__shoe-shadow" aria-hidden="true"></span>
                             </div>
                             <div class="co-card__info">
-                                <div class="co-card__collection text-mask"><span>Men's Original</span></div>
-                                <div class="co-card__title text-mask"><span>Nike Air Force</span></div>
-                                <div class="co-card__price text-mask"><span>150.00 DT</span></div>
+                                <span class="co-card__collection text-mask">Men's Original</span>
+                                <h3 class="co-card__title text-mask">Nike Air Force</h3>
+                                <span class="co-card__price text-mask">150.00 DT</span>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
-
-
             </div>
 
             <!-- Custom Navigation -->
             <div class="co-carousel__nav-buttons">
-                <div class="co-carousel__nav-button prev"><span>Prev</span></div>
-                <div class="co-carousel__nav-button next"><span>Next</span></div>
+                <button class="co-carousel__nav-button prev" aria-label="Previous Slide"><span>Prev</span></button>
+                <button class="co-carousel__nav-button next" aria-label="Next Slide"><span>Next</span></button>
             </div>
-
 
             <div class="discovr-all">
-                <a href="http://localhost:3000">DISCOVER ALL</a>
+                <a href="store.html" aria-label="Discover all running shoes">DISCOVER ALL</a>
             </div>
         </div>
+    </section>
 
 
 
@@ -875,149 +850,124 @@
 
 
 
-    <section class="s">
-        <div class="parallex">
+    <section class="promo-special-section" aria-label="Special Edition Promotion">
+        <div class="parallex" style="background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;">
             <div class="parallaxs parallax1">
                 <div class="promo-special-container">
                     <div class="promo-special-content">
-                        <h3 class="promo-special-subtitle">Limited Time Offer</h3>
-                        <h1 class="promo-special-title">Special Edition</h1>
+                        <span class="promo-special-subtitle">Limited Time Offer</span>
+                        <h2 class="promo-special-title">Special Edition</h2>
                         <p class="promo-special-desc">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                            luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            Experience the pinnacle of comfort and style with our limited edition collection. Crafted for those who demand the best.
                         </p>
-                        <h4 class="promo-special-offer">Buy This T-shirt At 20% Discount, Use Code OFF20</h4>
-                        <a href="#" class="promo-special-btn">SHOP NOW</a>
+                        <h3 class="promo-special-offer">Buy This T-shirt At 20% Discount, Use Code <span class="promo-code">OFF20</span></h3>
+                        <a href="store.html" class="promo-special-btn" aria-label="Shop Special Edition now">SHOP NOW</a>
                     </div>
-
-
                 </div>
-
-
-
-
             </div>
 
-
-            <section class="features-container">
-                <div class="feature-item">
-                    <div class="icon">🌍</div>
+            <section class="features-container" aria-label="Our Service Features">
+                <article class="feature-item">
+                    <div class="icon" aria-hidden="true">🌍</div>
                     <h3>Worldwide Shipping</h3>
-                    <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">👗</div>
+                    <p>Fast and reliable delivery to your doorstep, anywhere in the world.</p>
+                </article>
+                <article class="feature-item">
+                    <div class="icon" aria-hidden="true">👗</div>
                     <h3>Best Quality</h3>
-                    <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🏷️</div>
+                    <p>Premium materials and expert craftsmanship in every piece we offer.</p>
+                </article>
+                <article class="feature-item">
+                    <div class="icon" aria-hidden="true">🏷️</div>
                     <h3>Best Offers</h3>
-                    <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🔒</div>
+                    <p>Unbeatable prices and exclusive deals on top-tier fashion and tech.</p>
+                </article>
+                <article class="feature-item">
+                    <div class="icon" aria-hidden="true">🔒</div>
                     <h3>Secure Payments</h3>
-                    <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                </div>
+                    <p>Shop with confidence using our 100% secure payment gateways.</p>
+                </article>
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     </section>
 
-    <section class="banner">
+    <section class="banner-tech section" aria-labelledby="banner-tech-title">
         <div class="content_banner">
-            <h1 class="title">Wear the Future</h1>
+            <h2 id="banner-tech-title" class="title">Wear the Future</h2>
             <p class="subtitle">Smartwatch – Style & Technology in One</p>
-
         </div>
 
-
-        <div class="p_slider">
+        <div class="p_slider" aria-label="Smartwatch Showcase">
             <div class="p_slider__item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch1.png" />
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch1.png" alt="Apple Watch Series 1" />
             </div>
             <div class="p_slider__item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch2.png" />
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch2.png" alt="Apple Watch Series 2" />
             </div>
             <div class="p_slider__item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch3.png" />
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/iwatch3.png" alt="Apple Watch Series 3" />
             </div>
 
             <div class="controls">
-                <div class="left">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrow.png" />
-                </div>
-                <div class="right">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrow.png" />
-                </div>
+                <button class="left" aria-label="Previous Watch">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrow.png" alt="" aria-hidden="true" />
+                </button>
+                <button class="right" aria-label="Next Watch">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrow.png" alt="" aria-hidden="true" />
+                </button>
             </div>
         </div>
 
-        <button id="banner-btn">
+        <button id="banner-btn" class="btn btn-primary" aria-label="View technical collection">
             View Now
         </button>
-
-
-
     </section>
 
 
 
-    <section class="news">
-        <div class="news-banner" style="background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('../media/news.png'); background-size: cover; background-position: center;">
+    <section class="news-newsletter section" aria-labelledby="news-title">
+        <div class="news-banner" style="background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('../media/news.png'); background-size: cover; background-position: center;">
             <div class="news-content">
-                <h2 class="news-title">Stay Updated</h2>
-                <p class="news-subtitle">Subscribe to our newsletter for the latest news and exclusive offers</p>
-                <form class="news-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                <h2 id="news-title" class="news-title">Stay Updated</h2>
+                <p class="news-subtitle">Subscribe to our newsletter for the latest trends and exclusive offers.</p>
+                <form class="news-form" aria-label="Newsletter subscription">
+                    <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter" required>
+                    <button type="submit" class="btn btn-primary">Subscribe Now</button>
                 </form>
             </div>
         </div>
     </section>
 
 
-    <section class="genration">
-        <h2>For every generation.</h2>
+    <section class="generation-categories section" aria-labelledby="gen-title">
+        <h2 id="gen-title" class="section-title text-center">For every generation.</h2>
 
         <div class="genration-container">
-            <div class="genration-item">
-
-                <div class="image-wrapper"> <img src="../img/men.jpg" alt="HX Socks" /></div>
-
-                <a href="Adult.html">Men</a>
-
-            </div>
-            <div class="genration-item">
-                <div class="image-wrapper"> <img src="../img/najla.jpg" alt="HX Socks" /></div>
-                <a href="Adult.html">Women</a>
-
-            </div>
-            <div class="genration-item">
-                <div class="image-wrapper"> <img src="../img/kid.jpg" alt="HX Socks" /></div>
-                <a href="Kids.html">Kids</a>
-
-            </div>
-            <div class="genration-item">
-                <div class="image-wrapper"> <img src="../img/baby.png" alt="HX Socks" /></div>
-                <a href="Baby.html">Baby & Toddler</a>
-
-            </div>
+            <article class="genration-item">
+                <div class="image-wrapper">
+                    <img src="../img/men.jpg" alt="Men's fashion category" />
+                </div>
+                <a href="Adult.html" aria-label="Shop Men's Collection">Men</a>
+            </article>
+            <article class="genration-item">
+                <div class="image-wrapper">
+                    <img src="../img/najla.jpg" alt="Women's fashion category" />
+                </div>
+                <a href="Adult.html" aria-label="Shop Women's Collection">Women</a>
+            </article>
+            <article class="genration-item">
+                <div class="image-wrapper">
+                    <img src="../img/kid.jpg" alt="Kids' fashion category" />
+                </div>
+                <a href="Kids.html" aria-label="Shop Kids' Collection">Kids</a>
+            </article>
+            <article class="genration-item">
+                <div class="image-wrapper">
+                    <img src="../img/baby.png" alt="Baby and Toddler fashion category" />
+                </div>
+                <a href="Baby.html" aria-label="Shop Baby & Toddler Collection">Baby & Toddler</a>
+            </article>
         </div>
-
     </section>
 
 
@@ -1025,6 +975,8 @@
 
 
 
+
+    </main>
 
     <div id="footer-placeholder"></div>
 
@@ -1041,209 +993,23 @@
 
 
     <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoQY9Fe0/SnU1w0k9B5QxB5xQnY4o6zwOb+gGClg0jQK4h+"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.    <!-- External Libraries (Deferred) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/split-type" defer></script>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-
-    <script src="../javaScript/new_arrival.js"></script>
-
-    <!-- jQuery (load before banner script) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Initialize Swiper -->
-
-
-    <!-- Initialize product filter -->
-    <script src="../javaScript/productFilter.js"></script>
-    <script src="../javaScript/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="../files/index.js"></script>
-    <script type="module" src="../javaScript/run.js"></script>
-    <script>
-        let getNowBtn = document.getElementById("btn-get-now");
-        if (getNowBtn) {
-            getNowBtn.addEventListener("click", function () {
-                window.location.href = "store.html";
-            });
-
-        }
-    </script>
-
-    <script>
-        // Countdown timer
-        let secs = 8 * 3600 + 45 * 60;
-        const cdH = document.getElementById('cd-h');
-        const cdM = document.getElementById('cd-m');
-        const cdS = document.getElementById('cd-s');
-        setInterval(() => {
-            if (secs <= 0) return;
-            secs--;
-            cdH.textContent = String(Math.floor(secs / 3600)).padStart(2, '0');
-            cdM.textContent = String(Math.floor((secs % 3600) / 60)).padStart(2, '0');
-            cdS.textContent = String(secs % 60).padStart(2, '0');
-        }, 1000);
-    </script>
-
-
-    <!--script for the banner-->
-    <script>
-        $(document).ready(function () {
-
-            let on = 0;
-            let time = 500;
-            let pos = 1, pos2 = 2, pos3 = 3;
-            let play;
-
-            $('.right').click(function () {
-                rotateRight();
-                on = 1;
-            });
-
-            $('.left').click(function () {
-                rotateLeft();
-                on = 1;
-            });
-
-            play = setInterval(function () {
-                rotateLeft();
-            }, 3000);
-
-            function rotateLeft() {
-                if (on == 0) {
-                    $('.p_slider__item:nth-of-type(' + pos + ')').animate({ left: '200px' }, 200).css('z-index', '0');
-                    $('.p_slider__item:nth-of-type(' + pos2 + ')').animate({ left: '-200px' }, 200);
-
-                    setTimeout(function () {
-                        $('.p_slider__item:nth-of-type(' + pos2 + ')').css({
-                            transform: 'scale(0.6)',
-                            opacity: '0.8',
-                            filter: 'blur(2px)',
-                            'z-index': '1'
-                        });
-
-                        pos++; pos2++; pos3++;
-                        if (pos > 3) pos = 1;
-                        if (pos2 > 3) pos2 = 1;
-                        if (pos3 > 3) pos3 = 1;
-
-                    }, 400);
-
-                    $('.p_slider__item:nth-of-type(' + pos3 + ')').animate({ left: '0px' }, 200).css({
-                        transform: 'scale(1)',
-                        opacity: '1',
-                        filter: 'blur(0px)',
-                        'z-index': '2'
-                    });
-
-                    setTimeout(() => on = 0, time);
-                }
-            }
-
-            function rotateRight() {
-                if (on == 0) {
-                    $('.p_slider__item:nth-of-type(' + pos3 + ')').animate({ left: '-200px' }, 200).css('z-index', '0');
-                    $('.p_slider__item:nth-of-type(' + pos2 + ')').animate({ left: '200px' }, 200);
-
-                    setTimeout(function () {
-                        $('.p_slider__item:nth-of-type(' + pos2 + ')').css({
-                            transform: 'scale(0.6)',
-                            opacity: '0.8',
-                            filter: 'blur(2px)'
-                        });
-
-                        pos--; pos2--; pos3--;
-                        if (pos < 1) pos = 3;
-                        if (pos2 < 1) pos2 = 3;
-                        if (pos3 < 1) pos3 = 3;
-
-                    }, 400);
-
-                    $('.p_slider__item:nth-of-type(' + pos + ')').animate({ left: '0px' }, 200).css({
-                        transform: 'scale(1)',
-                        opacity: '1',
-                        filter: 'blur(0px)'
-                    });
-
-                    setTimeout(() => on = 0, time);
-                }
-            }
-
-            $('.p_slider__item img').hover(function () {
-                clearInterval(play);
-            });
-
-            $('.p_slider__item img').mouseenter(function () {
-                $(this).animate({ top: '-14px' }, 300);
-            });
-
-            $('.p_slider__item img').mouseout(function () {
-                $(this).stop(true).animate({ top: '0px' }, 300);
-                play = setInterval(() => rotateLeft(), 3000);
-            });
-
-        });
-
-        let btn = document.getElementById("banner-btn");
-        if (btn) {
-            btn.addEventListener("click", function () {
-                window.location.href = "tech.html";
-            });
-
-        }
-
-
-    </script>
-    <script src="../javaScript/carts.js"></script>
-    <script src="../javaScript/connecterChatbotAvecflask.js"></script>
-    <script src="../javaScript/new_front.js"></script>
-
+    <!-- Core App Logic (Deferred) -->
+    <script src="../javaScript/main.js" defer></script>
+    <script src="../javaScript/carts.js" defer></script>
+    <script src="../javaScript/new_arrival.js" defer></script>
+    <script src="../javaScript/productFilter.js" defer></script>
+    <script src="../javaScript/homepage_init.js" defer></script>
+    <script src="../javaScript/new_front.js" defer></script>
+    <script src="../javaScript/connecterChatbotAvecflask.js" defer></script>
+    <script type="module" src="../javaScript/run.js" defer></script>
     
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var landingThumbs = new Swiper('.landingThumbs', {
-                spaceBetween: 10,
-                slidesPerView: 3,
-                freeMode: true,
-                watchSlidesProgress: true,
-            });
-            var landingSwiper = new Swiper('.landingSwiper', {
-                loop: true,
-                spaceBetween: 0,
-                mousewheel: false, // Prevents conflict with page scroll
-                speed: 1200,
-                effect: 'coverflow',
-                direction: 'horizontal',
-                coverflowEffect: {
-                    rotate: 50,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                    slideShadows: true,
-                },
-                thumbs: {
-                    swiper: landingThumbs,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                on: {
-                    slideChangeTransitionStart: function () {
-                        gsap.from('.landingSwiper .swiper-slide-active h2', { x: -200, opacity: 0, duration: 1, delay: 0.5 });
-                        gsap.from('.landingSwiper .info p , .landingSwiper .info span', { y: 10, opacity: 0, stagger: 0.1, delay: 0.5 });
-                        gsap.from('.landingSwiper .pricing p , .landingSwiper .pricing span , .landingSwiper .pricing h3, .landingSwiper .btn-block', { y: 10, opacity: 0, stagger: 0.1, delay: 0.5 });
-                        gsap.from('.landingSwiper .main-img', { y: 50, opacity: 0, duration: 1, delay: 1 });
-                    },
-                }
-            });
-        });
-    </script>
+    <!-- Legacy/Misc (Deferred) -->
+    <script src="../files/index.js" defer></script>
 </body>
-
 </html>
