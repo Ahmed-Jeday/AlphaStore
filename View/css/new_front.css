@@ -1039,7 +1039,7 @@
   --text-main: #1a1a1a;
   --text-muted: #666;
   --bg-main: #ffffff;
-  --section-padding: clamp(4rem, 8vw, 8rem);
+  --section-padding: clamp(2rem, 4vw, 4rem);
   --container-max: 1320px;
 }
 
@@ -1077,8 +1077,7 @@
 
 /* Section Spacing Consistency */
 section.section,
-.hero-slider-section,
-.brand-showcase,
+
 .landing-27-section,
 .new-arrivals,
 .promo-grid,

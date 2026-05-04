@@ -1,5 +1,5 @@
 // Variables to hold elements that might be loaded asynchronously
-let cartIcons = [], cart, closeCart, cartContent, cartCountElements = [], totalPriceElement;
+let cartIcons = [], cart, closeCart, cartContent, cartCountElements = [], totalPriceElement, checkout_btn, smartBudgetBtn;
 
 
 
@@ -16,10 +16,19 @@ const initCartElements = () => {
     cartContent = document.querySelector('.cart-content');
     cartCountElements = document.querySelectorAll('.cart-item-count');
     totalPriceElement = document.querySelector('.total-price');
-    if (checkout_btn) {
+    checkout_btn = document.querySelector('.checkout-btn');
+    smartBudgetBtn = document.querySelector('.smartBudget-btn');
+
+    if (checkout_btn && !checkout_btn.dataset.listened) {
         checkout_btn.addEventListener("click", function() {
+            // Close cart before redirecting for a smoother transition
+            if (cart) {
+                cart.classList.remove('active');
+                cart.style.visibility = 'hidden';
+            }
             window.location.href = "checkout.php";
         });
+        checkout_btn.dataset.listened = "true";
     }
 
     if (smartBudgetBtn && !smartBudgetBtn.dataset.listened) {
