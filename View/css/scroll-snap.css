@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "P22";
+  src: url("../landing-27/font/font.ttf") format("truetype");
+}
+
+/* Standard Layout (Scroll Snap Disabled) */
+.landing-27-section {
+    height: 700px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Landing 27 Scoped Styles */
+.landing-27-section {
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    background: #121826;
+}
+
+.landing-27-section .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.landing-27-section .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.landing-27-section .swiper-slide img.main-img {
+    object-fit: contain;
+    height: 80%;
+    z-index: 1;
+}
+
+.landing-27-section h2 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(90deg) translate(-50%, -100%);
+    font-size: 115px;
+    margin: 0;
+    white-space: nowrap;
+    z-index: 0;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.landing-27-section .info, 
+.landing-27-section .pricing {
+    position: absolute;
+    font-size: 14px;
+    z-index: 2;
+    text-align: left;
+}
+
+.landing-27-section .info {
+    left: 10%;
+    bottom: 20%;
+    line-height: 2;
+}
+
+.landing-27-section .pricing {
+    right: 10%;
+    bottom: 20%;
+}
+
+.landing-27-section .pricing p, 
+.landing-27-section .info p {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.landing-27-section .pricing span, 
+.landing-27-section .info span {
+    display: block;
+    line-height: 1.5;
+    font-weight: 200 !important;
+}
+
+.landing-27-section .pricing h3 { font-size: 30px; }
+
+.landing-27-section .btn-block {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.landing-27-section .btn, 
+.landing-27-section .light-btn {
+    padding: 12px 30px;
+    font-family: "Poppins", sans-serif;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.landing-27-section .light-btn { background: rgba(255,255,255,0.1); }
+.landing-27-section .btn:hover { background: #fff; color: #000; }
+
+.landing-27-section .swiper-thumbs {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 300px;
+    overflow: hidden;
+}
+
+.landing-27-section .swiper-thumbs .swiper-slide {
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.landing-27-section .swiper-thumbs img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.landing-27-section .scroll {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-size: 12px;
+    font-weight: 200;
+}
