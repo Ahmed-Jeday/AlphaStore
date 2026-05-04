@@ -1,0 +1,1 @@
+Analyze the page and propose a detailed plan to improve the design of the professional designer and adapt it to a modern e-commerce site. Identifies the problems of UI/UX (structure, navigation, layouts, typography, visual history, access, etc.) and proposes concrete solutions and practices. The results should be organized sous vide recommendations and actions.
