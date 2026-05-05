@@ -296,6 +296,10 @@ input:checked + .radio-custom::after {
     margin-top: 24px;
 }
 
+.news-btn:hover{
+    color: #c00707;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .checkout-grid {

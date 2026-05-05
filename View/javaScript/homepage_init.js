@@ -23,86 +23,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
-    // 2. Banner Tech Slider (jQuery dependent)
+    // 2. Banner Tech Slider (Modern & Robust)
     if (typeof jQuery !== 'undefined') {
         $(function() {
-            let on = 0;
-            let time = 500;
-            let pos = 1, pos2 = 2, pos3 = 3;
-            let play;
+            let rotationInterval;
+            const $slider = $('.p_slider');
+            const $items = $('.p_slider__item');
+            let currentIndex = 1; // 0-based index of the active item (starts at 1 for the 2nd item)
 
-            function rotateLeft() {
-                if (on === 0) {
-                    on = 1;
-                    $('.p_slider__item:nth-of-type(' + pos + ')').animate({ left: '200px' }, 200).css('z-index', '0');
-                    $('.p_slider__item:nth-of-type(' + pos2 + ')').animate({ left: '-200px' }, 200);
+            function updateSlider() {
+                $items.removeClass('active prev next');
+                
+                const total = $items.length;
+                const prevIndex = (currentIndex - 1 + total) % total;
+                const nextIndex = (currentIndex + 1) % total;
 
-                    setTimeout(function () {
-                        $('.p_slider__item:nth-of-type(' + pos2 + ')').css({
-                            transform: 'scale(0.6)',
-                            opacity: '0.8',
-                            filter: 'blur(2px)',
-                            'z-index': '1'
-                        });
-
-                        pos++; pos2++; pos3++;
-                        if (pos > 3) pos = 1;
-                        if (pos2 > 3) pos2 = 1;
-                        if (pos3 > 3) pos3 = 1;
-                    }, 400);
-
-                    $('.p_slider__item:nth-of-type(' + pos3 + ')').animate({ left: '0px' }, 200).css({
-                        transform: 'scale(1)',
-                        opacity: '1',
-                        filter: 'blur(0px)',
-                        'z-index': '2'
-                    });
-
-                    setTimeout(() => on = 0, time);
-                }
+                $items.eq(prevIndex).addClass('prev');
+                $items.eq(currentIndex).addClass('active');
+                $items.eq(nextIndex).addClass('next');
             }
 
-            function rotateRight() {
-                if (on === 0) {
-                    on = 1;
-                    $('.p_slider__item:nth-of-type(' + pos3 + ')').animate({ left: '-200px' }, 200).css('z-index', '0');
-                    $('.p_slider__item:nth-of-type(' + pos2 + ')').animate({ left: '200px' }, 200);
-
-                    setTimeout(function () {
-                        $('.p_slider__item:nth-of-type(' + pos2 + ')').css({
-                            transform: 'scale(0.6)',
-                            opacity: '0.8',
-                            filter: 'blur(2px)'
-                        });
-
-                        pos--; pos2--; pos3--;
-                        if (pos < 1) pos = 3;
-                        if (pos2 < 1) pos2 = 3;
-                        if (pos3 < 1) pos3 = 3;
-                    }, 400);
-
-                    $('.p_slider__item:nth-of-type(' + pos + ')').animate({ left: '0px' }, 200).css({
-                        transform: 'scale(1)',
-                        opacity: '1',
-                        filter: 'blur(0px)'
-                    });
-
-                    setTimeout(() => on = 0, time);
-                }
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % $items.length;
+                updateSlider();
             }
 
-            $('.right').click(rotateRight);
-            $('.left').click(rotateLeft);
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + $items.length) % $items.length;
+                updateSlider();
+            }
 
-            play = setInterval(rotateLeft, 3000);
+            // Click handlers
+            $(document).on('click', '.banner-tech .right', nextSlide);
+            $(document).on('click', '.banner-tech .left', prevSlide);
 
-            $('.p_slider__item img').on('mouseenter', function () {
-                clearInterval(play);
-                $(this).animate({ top: '-14px' }, 300);
-            }).on('mouseleave', function () {
-                $(this).stop(true).animate({ top: '0px' }, 300);
-                play = setInterval(rotateLeft, 3000);
-            });
+            // Allow clicking on the side items to move to them
+            $(document).on('click', '.p_slider__item.prev', prevSlide);
+            $(document).on('click', '.p_slider__item.next', nextSlide);
+
+            const startAuto = () => {
+                clearInterval(rotationInterval);
+                rotationInterval = setInterval(nextSlide, 4000);
+            };
+
+            const stopAuto = () => clearInterval(rotationInterval);
+
+            // Initialize
+            updateSlider();
+            startAuto();
+
+            $slider.on('mouseenter', stopAuto).on('mouseleave', startAuto);
         });
     }
 

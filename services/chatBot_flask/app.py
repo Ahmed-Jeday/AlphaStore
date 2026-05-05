@@ -217,7 +217,7 @@ def chat():
 if __name__ == '__main__':
     if not HEADERS["cookie"]:
         print("⚠️  ATTENTION : Tu n'as pas mis ton cookie dans HEADERS !")
-    print("🚀 Serveur Flask démarré → http://127.0.0.1:5001")
+    print("🚀 Serveur Flask démarré → http://127.0.0.1:5003")
     print("Assure-toi que le script Thonny marche toujours avant de tester ici.")
-    print("Chatbot HTML can access the API at: http://127.0.0.1:5001/chat")
-    app.run(debug=True, host='127.0.0.1', port=5001)
+    print("Chatbot HTML can access the API at: http://127.0.0.1:5003/chat")
+    app.run(debug=True, host='127.0.0.1', port=5003)

@@ -46,13 +46,14 @@ function initChatbotElements() {
     messagesContainer = document.getElementById('chatMessagesContainer');
     messageInput = document.getElementById('messageInput');
     sendBtn = document.getElementById('sendButton');
-    micBtn = document.getElementById('micButton');
+    micBtn = document.getElementById('micButton'); // Optional element
     widgetCloseBtn = document.getElementById('widgetCloseBtn');
     toggleBtn = document.getElementById('chatToggleBtn');
     widgetPanel = document.getElementById('chatbotWidget');
     sidebarIcons = document.querySelectorAll('.sidebar-icon');
 
-    return messagesContainer && messageInput && sendBtn && micBtn && widgetCloseBtn && toggleBtn && widgetPanel;
+    // Check required elements only (micBtn is optional)
+    return messagesContainer && messageInput && sendBtn && widgetCloseBtn && toggleBtn && widgetPanel;
 }
 
 function initChatbot() {
@@ -76,7 +77,9 @@ function initChatbot() {
     }
 
     sendBtn.addEventListener('click', sendUserMessage);
-    micBtn.addEventListener('click', () => alert("🎤 Voice input demo — coming soon. Type your message!"));
+    if (micBtn) {
+        micBtn.addEventListener('click', () => alert("🎤 Voice input demo — coming soon. Type your message!"));
+    }
     messageInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
