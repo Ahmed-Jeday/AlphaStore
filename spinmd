@@ -1,0 +1,159 @@
+# Archiver l'Historique des Gains du Spin (Roue de la Fortune)
+
+Permettre de sauvegarder et d'afficher l'historique des gains de chaque utilisateur connecté sur la roue de la fortune (Carnival Spin).
+
+## État Actuel
+
+- Le jeu de spin (`View/spin/`) est **100% côté client** : Three.js + animations, aucun appel backend.
+- Quand la roue s'arrête, le résultat est calculé côté JS (`spin.js` ligne 404-416`) et affiché dans un overlay HTML.
+- **Aucune persistance** : les gains sont perdus au rechargement de la page.
+- La session PHP stocke `user_id`, `user_name`, `user_email` après login.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Authentification requise ?** — Le spin est actuellement accessible sans connexion. Faut-il :
+> - (A) Bloquer l'accès au spin pour les utilisateurs non connectés ?
+> - (B) Permettre le spin sans connexion mais sauvegarder uniquement si l'utilisateur est connecté ?
+
+> [!IMPORTANT]
+> **Limite de spins ?** — Voulez-vous limiter le nombre de spins par jour/par utilisateur, ou c'est illimité ?
+
+> [!IMPORTANT]
+> **Page d'historique** — Où voulez-vous afficher l'historique des gains ?
+> - (A) Dans une section du tableau de bord utilisateur (`user_Dashboard`) ?
+> - (B) Directement sur la page spin, dans un panneau latéral ?
+> - (C) Les deux ?
+
+## Proposed Changes
+
+### 1. Base de données — Nouvelle table `spin_history`
+
+#### [NEW] Migration SQL
+
+```sql
+CREATE TABLE `spin_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `prize_number` int(11) NOT NULL COMMENT 'Numéro du segment (1-10)',
+  `prize_label` varchar(100) NOT NULL COMMENT 'Ex: 🏷️ -10% Solde',
+  `is_win` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_user_id` (`user_id`),
+  KEY `idx_created_at` (`created_at`),
+  CONSTRAINT `fk_spin_user` FOREIGN KEY (`user_id`) 
+    REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+```
+
+| Colonne | Description |
+|---------|-------------|
+| `user_id` | FK vers `users.id` |
+| `prize_number` | Segment gagné (1-10) |
+| `prize_label` | Texte du prix affiché |
+| `is_win` | `1` = gain, `0` = "Rien" |
+| `created_at` | Horodatage du spin |
+
+---
+
+### 2. Backend PHP — Model + Controller
+
+#### [NEW] [SpinHistory.php](file:///c:/xampp/htdocs/AlphaStore/model/SpinHistory.php)
+
+Modèle PHP pour les opérations CRUD sur `spin_history` :
+- `saveSpin($userId, $prizeNumber, $prizeLabel, $isWin)` — Enregistre un résultat
+- `getHistoryByUser($userId, $limit = 50)` — Récupère les derniers gains d'un utilisateur
+- `getStats($userId)` — Stats agrégées (total spins, total wins, meilleur gain)
+
+#### [NEW] [SpinController.php](file:///c:/xampp/htdocs/AlphaStore/Controller/SpinController.php)
+
+Controller avec 2 actions :
+- `saveSpin` — POST : reçoit `prize_number`, `prize_label`, `is_win` → sauvegarde en BDD
+- `getSpinHistory` — GET : retourne l'historique JSON de l'utilisateur connecté
+
+---
+
+### 3. Routeur — Ajout des routes
+
+#### [MODIFY] [index.php](file:///c:/xampp/htdocs/AlphaStore/index.php)
+
+Ajouter 2 nouvelles routes :
+```php
+if ($action === "saveSpin") { ... }
+if ($action === "getSpinHistory") { ... }
+```
+
+---
+
+### 4. Frontend — Envoi du résultat au backend
+
+#### [MODIFY] [spin.js](file:///c:/xampp/htdocs/AlphaStore/View/spin/spin.js)
+
+Après la détection du gain (ligne ~408), ajouter un `fetch()` POST vers `/AlphaStore/index.php?action=saveSpin` pour enregistrer le résultat.
+
+---
+
+### 5. Frontend — Page d'historique des gains
+
+#### [MODIFY] [spin.html](file:///c:/xampp/htdocs/AlphaStore/View/spin/spin.html)
+
+Ajouter un bouton "📜 Historique" à côté du tableau des prix, qui ouvre un panneau/modal affichant :
+- Liste des gains précédents (date, résultat, icône)
+- Stats résumées (nombre de spins, taux de victoire)
+
+#### [MODIFY] [spin.css](file:///c:/xampp/htdocs/AlphaStore/View/spin/spin.css)
+
+Styles pour le panneau d'historique, cohérents avec le thème carnival (dorés, fonds sombres, glassmorphism).
+
+---
+
+## Architecture du Flux
+
+```mermaid
+sequenceDiagram
+    participant U as Utilisateur
+    participant JS as spin.js (Frontend)
+    participant PHP as index.php → SpinController
+    participant DB as MySQL (spin_history)
+
+    U->>JS: Tire le levier
+    JS->>JS: Calcule le segment gagnant
+    JS->>U: Affiche l'overlay du prix
+    JS->>PHP: POST /index.php?action=saveSpin
+    PHP->>DB: INSERT INTO spin_history
+    DB-->>PHP: OK
+    PHP-->>JS: {success: true}
+    
+    U->>JS: Clique "📜 Historique"
+    JS->>PHP: GET /index.php?action=getSpinHistory
+    PHP->>DB: SELECT * FROM spin_history WHERE user_id=?
+    DB-->>PHP: Résultats
+    PHP-->>JS: JSON [{prize_label, is_win, created_at}, ...]
+    JS->>U: Affiche le panneau d'historique
+```
+
+## Fichiers à créer/modifier — Résumé
+
+| Fichier | Action | Description |
+|---------|--------|-------------|
+| `spin_history` (SQL) | **NEW** | Table de stockage des gains |
+| `model/SpinHistory.php` | **NEW** | Modèle d'accès aux données |
+| `Controller/SpinController.php` | **NEW** | Actions saveSpin + getHistory |
+| `index.php` | **MODIFY** | 2 nouvelles routes |
+| `View/spin/spin.js` | **MODIFY** | Appel fetch() après chaque spin |
+| `View/spin/spin.html` | **MODIFY** | Bouton + panneau historique |
+| `View/spin/spin.css` | **MODIFY** | Styles du panneau historique |
+
+## Verification Plan
+
+### Automated Tests
+1. Exécuter la migration SQL sur la base `alphastore`
+2. Tester l'endpoint `saveSpin` via un POST curl
+3. Tester l'endpoint `getSpinHistory` via un GET dans le navigateur
+4. Faire un spin complet dans le navigateur et vérifier l'insertion en BDD
+
+### Manual Verification
+- Ouvrir la page spin, jouer, et vérifier que l'historique se met à jour en temps réel
+- Vérifier que le panneau d'historique affiche correctement les données
+- Tester sans être connecté pour vérifier le comportement (selon la décision prise)

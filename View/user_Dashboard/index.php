@@ -6,6 +6,7 @@ include("../../Controller/OrderController.php");
 include("../../Controller/CartController.php");
 include("../../Controller/FavoriteController.php");
 require_once("../../model/OrderItem.php");
+require_once("../../model/SpinHistory.php");
 session_start();
 
 // Verify user is logged in (via user_id from AuthController)
@@ -48,8 +49,12 @@ if (isset($_SESSION["user_id"])) {
     $favoriteModel = new Favorite();
     $favorites = $favoriteModel->getFavoriteByUser($user_id);
     $favoritesCount = count($favorites);
+
+    // Get spin status
+    $spinHistoryModel = new SpinHistory();
+    $hasSpunToday = $spinHistoryModel->hasSpunToday($user_id);
     
-    // Handle cart actions (POST requests)
+    // Handle cart and spin actions (POST requests)
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['action'])) {
             switch ($_POST['action']) {
@@ -61,6 +66,17 @@ if (isset($_SESSION["user_id"])) {
                 case 'remove_cart':
                     if (isset($_POST['product_id'])) {
                         removeFromCart($_POST['product_id']);
+                    }
+                    break;
+                case 'save_spin':
+                    if (isset($_POST['prize_label'])) {
+                        $prizeLabel  = $_POST['prize_label'];
+                        $prizeNumber = $_POST['prize_number'] ?? 0;
+                        $isWin       = $_POST['is_win'] ?? 0;
+                        
+                        $spinHistoryModel->saveSpin($user_id, $prizeLabel, $prizeNumber, $isWin);
+                        header("Location: " . $_SERVER['PHP_SELF'] . "?section=spin&success=spin_saved");
+                        exit;
                     }
                     break;
             }
@@ -121,6 +137,9 @@ if (isset($_GET["success"])) {
             break;
         case 'added_to_cart':
             $text = 'Article ajouté au panier !';
+            break;
+        case 'spin_saved':
+            $text = 'Votre gain a été enregistré !';
             break;
         default:
             $text = 'Action réussie.';
@@ -206,6 +225,10 @@ if (isset($_GET["error"])) {
           <i class="ph ph-heart"></i>
           <span>Favoris</span>
           <span class="nav-badge"><?php echo $favoritesCount; ?></span>
+        </a>
+        <a href="?section=spin" class="nav-item <?php echo $activeSection == 'spin' ? 'active' : ''; ?>" data-section="spin">
+          <i class="ph ph-spinner-gap"></i>
+          <span>Carnival Spin</span>
         </a>
 
         <div class="nav-section">Compte</div>
@@ -839,6 +862,48 @@ if (isset($_GET["error"])) {
                 </button>
                 <div class="faq-a">Entrez votre code coupon lors du paiement. Les coupons peuvent être en pourcentage ou en montant fixe et peuvent avoir une date d'expiration.</div>
               </div>
+            </div>
+          </div>
+        <!-- ─── SPIN ─── -->
+        <section class="section <?php echo $activeSection == 'spin' ? 'active' : ''; ?>" id="sec-spin">
+          <div class="card-block">
+            <div class="card-block-head">
+              <i class="ph ph-spinner-gap"></i>
+              <span>Carnival Spin</span>
+            </div>
+            <div class="card-block-body" style="min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+              <?php if ($hasSpunToday): ?>
+                <div style="text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.05); border-radius: 15px; width: 100%; max-width: 600px;">
+                  <div style="font-size: 64px; margin-bottom: 20px;">🎡</div>
+                  <h3 style="font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 15px;">Limite quotidienne atteinte</h3>
+                  <p style="font-size: 18px; color: #666; margin-bottom: 30px; line-height: 1.6;">
+                    Vous avez déjà utilisé votre tour gratuit aujourd'hui. Revenez demain pour retenter votre chance !
+                  </p>
+                  <div style="padding: 20px; background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); border-radius: 12px; color: #000; font-weight: 700; box-shadow: 0 10px 20px rgba(255, 165, 0, 0.3);">
+                    <i class="ph ph-crown" style="font-size: 24px; vertical-align: middle; margin-right: 10px;"></i>
+                    Il faut s'abonner en Alpha+ pour des spins illimités !
+                  </div>
+                </div>
+              <?php else: ?>
+                <iframe src="../spin/spin.php" style="width: 100%; height: 700px; border: none; border-radius: 15px;" id="spinFrame"></iframe>
+                <form id="saveSpinForm" method="POST" style="display: none;">
+                  <input type="hidden" name="action" value="save_spin">
+                  <input type="hidden" name="prize_label" id="prizeLabelInput">
+                  <input type="hidden" name="prize_number" id="prizeNumberInput">
+                  <input type="hidden" name="is_win" id="isWinInput">
+                  <input type="hidden" name="section" value="spin">
+                </form>
+                <script>
+                  window.addEventListener('message', function(event) {
+                    if (event.data.type === 'spin_result') {
+                      document.getElementById('prizeLabelInput').value = event.data.prize;
+                      document.getElementById('prizeNumberInput').value = event.data.prize_number;
+                      document.getElementById('isWinInput').value = event.data.is_win;
+                      document.getElementById('saveSpinForm').submit();
+                    }
+                  });
+                </script>
+              <?php endif; ?>
             </div>
           </div>
         </section>

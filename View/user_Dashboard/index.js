@@ -17,6 +17,7 @@
     notifications: 'Notifications',
     security:      'Sécurité',
     support:       'Support',
+    spin:          'Carnival Spin',
   };
 
   /* ─── Header button labels per section ─── */
@@ -31,6 +32,7 @@
     notifications: { pri: 'Tout lire',           sec: '' },
     security:      { pri: '',                    sec: '' },
     support:       { pri: 'Nouveau ticket',      sec: '' },
+    spin:          { pri: 'Bonne chance !',      sec: '' },
   };
 
   /* ─────────────────────────────────────

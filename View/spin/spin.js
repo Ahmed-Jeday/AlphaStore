@@ -415,6 +415,15 @@ const tick = () => {
           } else {
             alert(`Vous avez gagné : ${prize.label} ${prize.icon}`);
           }
+          
+          // Send result to parent (Dashboard)
+          window.parent.postMessage({
+            type: 'spin_result',
+            prize: prize.label,
+            prize_number: answer,
+            is_win: prize.isWin ? 1 : 0
+          }, '*');
+
           console.log("spin stopped", {
             speed,
             angle: wheel.rotation.z,

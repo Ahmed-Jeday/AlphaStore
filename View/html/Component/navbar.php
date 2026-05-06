@@ -279,7 +279,7 @@ header("Expires: 0");
     <header class="site-header" id="dynamic-header">
         <div class="promo-bar">
            <span>Spin the wheel and try your luck!</span> 
-           <a href="../spin/spin.html" aria-label="Spin the fortune wheel">
+           <a href="../spin/spin.php" aria-label="Spin the fortune wheel">
                <img src="../icon/fortune-wheel.png" alt="">
            </a>
         </div>
@@ -297,7 +297,7 @@ header("Expires: 0");
             <div class="user-actions">
                 <div class="currency-selector" aria-label="Currency: DT">DT</div>
                 <?php if (isset($_SESSION["user_id"])) { ?>
-                <a href="../user_Dashbord/index.php" class="action-btn" aria-label="User Dashboard">
+                <a href="../user_Dashboard/index.php" class="action-btn" aria-label="User Dashboard">
                     <i class="ri-user-line"></i>
                 </a>
                 <?php } else { ?>

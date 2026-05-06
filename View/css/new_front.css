@@ -1091,6 +1091,29 @@ section.section,
   padding-bottom: var(--section-padding);
   position: relative;
   overflow: hidden;
+}.titre {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  position: relative;
+}
+
+.titre::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, #FE783D, transparent);
+  border-radius: 2px;
 }
 
 /* Typography Scale Improvements */

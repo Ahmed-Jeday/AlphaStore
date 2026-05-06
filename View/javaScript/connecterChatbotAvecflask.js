@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function initChatbotLogic() {
     // ================== CONFIG ==================
-    const API_URL = "http://127.0.0.1:5003/chat";
+    const API_URL = "http://127.0.0.1:5001/chat";
     let messages = [];
     let bagItems = [];
     let currentView = 'chat';
@@ -53,64 +53,6 @@ function initChatbotLogic() {
         renderMessages();
     }
 
-    function formatMarkdown(text) {
-        if (!text) return '';
-
-        // 1. Gérer les blocs de citation (>)
-        text = text.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
-
-        // 2. Gérer les titres (###)
-        text = text.replace(/^### (.*$)/gim, '<h4>$1</h4>');
-
-        // 3. Gérer les lignes horizontales (---)
-        text = text.replace(/^---$/gim, '<hr>');
-
-        // 4. Détecter et convertir les listes de produits en tableaux
-        // Format attendu: * **Nom** : Description — **Prix**
-        const lines = text.split('\n');
-        let inProductList = false;
-        let tableHtml = '<table class="product-table"><thead><tr><th>Produit</th><th>Description</th><th>Prix</th></tr></thead><tbody>';
-        let newLines = [];
-
-        for (let i = 0; i < lines.length; i++) {
-            let line = lines[i].trim();
-            // Supporte — (em-dash), – (en-dash) et - (hyphen)
-            let match = /^\*\s+\*\*(.*?)\*\*\s*:\s*(.*?)\s*[—-–-]\s*\*\*(.*?)\*\*$/.exec(line);
-            
-            if (match) {
-                if (!inProductList) {
-                    inProductList = true;
-                }
-                tableHtml += `<tr><td><strong>${match[1]}</strong></td><td>${match[2]}</td><td class="price-tag">${match[3]}</td></tr>`;
-            } else {
-                if (inProductList) {
-                    tableHtml += '</tbody></table>';
-                    newLines.push(tableHtml);
-                    tableHtml = '<table class="product-table"><thead><tr><th>Produit</th><th>Description</th><th>Prix</th></tr></thead><tbody>';
-                    inProductList = false;
-                }
-                newLines.push(lines[i]); // On garde la ligne originale pour préserver le formatage si ce n'est pas un produit
-            }
-        }
-        if (inProductList) {
-            tableHtml += '</tbody></table>';
-            newLines.push(tableHtml);
-        }
-        text = newLines.join('\n');
-
-        // 5. Gérer les listes à puces simples (si pas déjà transformées en tableau)
-        text = text.replace(/^\*\s+(?!<table)(.*$)/gim, '<ul><li>$1</li></ul>');
-        text = text.replace(/<\/ul>\n<ul>/gim, ''); // Fusionner les ul consécutifs
-
-        // 6. Gérer le gras (**text**)
-        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-
-        // 7. Gérer les sauts de ligne (restants)
-        text = text.replace(/\n/g, '<br>');
-
-        return text;
-    }
-
     function renderMessages() {
         messagesContainer.innerHTML = '';
         messages.forEach(msg => {
@@ -125,7 +67,7 @@ function initChatbotLogic() {
 
                 const bubble = document.createElement('div');
                 bubble.className = 'bubble';
-                bubble.innerHTML = `<div>${formatMarkdown(msg.text)}</div>`;
+                bubble.innerHTML = `<div>${msg.text}</div>`;
 
                 if (msg.products && msg.products.length > 0) {
                     const strip = document.createElement('div');
@@ -184,7 +126,7 @@ function initChatbotLogic() {
         } catch (err) {
             console.error(err);
             messages.splice(loadingIndex, 1);
-            addMessage('ai', "❌ Impossible de se connecter au serveur. Vérifie que le backend Flask tourne sur le port 5003.", []);
+            addMessage('ai', "❌ Impossible de se connecter au serveur. Vérifie que le backend Flask tourne sur le port 5001.", []);
         }
     }
 
