@@ -14,11 +14,6 @@ if (session_status() === PHP_SESSION_NONE) {
 function placeOrder()
 {
     if (!isset($_SESSION['user_id'])) {
-        if (isset($_POST['action'])) {
-            // Form submission, redirect with error
-            header("Location: ../View/user_Dashboard/index.php?section=cart&error=not_logged_in");
-            exit;
-        }
         echo json_encode(['status' => 'error', 'message' => 'User not logged in']);
         exit;
     }
@@ -28,10 +23,6 @@ function placeOrder()
     $cartItems = $cartModel->getCart($user_id);
 
     if (empty($cartItems)) {
-        if (isset($_POST['action'])) {
-            header("Location: ../View/user_Dashboard/index.php?section=cart&error=cart_empty");
-            exit;
-        }
         echo json_encode(['status' => 'error', 'message' => 'Cart is empty']);
         exit;
     }
@@ -54,30 +45,27 @@ function placeOrder()
 
         if ($orderItemModel->addItems($order_id, $items)) {
             $cartModel->clearCart($user_id);
-            if (isset($_POST['action'])) {
-                header("Location: ../View/user_Dashboard/index.php?section=cart&success=order_placed");
-                exit;
-            }
             echo json_encode(['status' => 'success', 'order_id' => $order_id]);
         } else {
-            if (isset($_POST['action'])) {
-                header("Location: ../View/user_Dashboard/index.php?section=cart&error=order_items_failed");
-                exit;
-            }
             echo json_encode(['status' => 'error', 'message' => 'Failed to add order items']);
         }
     } else {
-        if (isset($_POST['action'])) {
-            header("Location: ../View/user_Dashboard/index.php?section=cart&error=order_creation_failed");
-            exit;
-        }
         echo json_encode(['status' => 'error', 'message' => 'Failed to create order']);
     }
     exit;
 }
 
 /**
- * Get all orders for the logged-in user
+ * Fetch all orders for a user (returns array, for PHP use)
+ */
+function fetchUserOrders($user_id)
+{
+    $orderModel = new Order();
+    return $orderModel->getOrdersByUserId($user_id);
+}
+
+/**
+ * Get all orders for the logged-in user (for AJAX/API use)
  */
 function getUserOrders()
 {
@@ -87,15 +75,43 @@ function getUserOrders()
     }
 
     $user_id = $_SESSION['user_id'];
-    $orderModel = new Order();
-    $orders = $orderModel->getOrdersByUserId($user_id);
+    $orders = fetchUserOrders($user_id);
     
     echo json_encode($orders);
     exit;
 }
 
 /**
- * Get details of a specific order
+ * Fetch details of a specific order (returns array, for PHP use)
+ */
+function fetchOrderDetails($order_id, $user_id)
+{
+    $orderModel = new Order();
+    $order = $orderModel->getOrderById($order_id);
+
+    // Security check: ensure the order belongs to the user
+    if (!$order || $order['user_id'] != $user_id) {
+        return null;
+    }
+
+    $orderItemModel = new OrderItem();
+    $items = $orderItemModel->getItemsByOrderId($order_id);
+    
+    $order['items'] = $items;
+    return $order;
+}
+
+/**
+ * Fetch items for a specific order
+ */
+function fetchOrderItems($order_id)
+{
+    $orderItemModel = new OrderItem();
+    return $orderItemModel->getItemsByOrderId($order_id);
+}
+
+/**
+ * Get details of a specific order (for AJAX/API use)
  */
 function getOrderDetails($order_id)
 {
@@ -104,20 +120,13 @@ function getOrderDetails($order_id)
         exit;
     }
 
-    $orderModel = new Order();
-    $order = $orderModel->getOrderById($order_id);
+    $order = fetchOrderDetails($order_id, $_SESSION['user_id']);
 
-    // Security check: ensure the order belongs to the user
-    if (!$order || $order['user_id'] != $_SESSION['user_id']) {
+    if (!$order) {
         echo json_encode(['status' => 'error', 'message' => 'Order not found or access denied']);
         exit;
     }
 
-    $orderItemModel = new OrderItem();
-    $items = $orderItemModel->getItemsByOrderId($order_id);
-    
-    $order['items'] = $items;
-    
     echo json_encode($order);
     exit;
 }

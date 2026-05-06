@@ -28,8 +28,7 @@ if (isset($_SESSION["user_id"])) {
     $user_id = $_SESSION['user_id'];
     
     // Get orders
-    $orderModel = new Order();
-    $orders = $orderModel->getOrdersByUserId($user_id);
+    $orders = fetchUserOrders($user_id);
     
     // Calculate stats
     $totalSpent = 0;
@@ -352,8 +351,7 @@ if (isset($_GET["error"])) {
                             break;
                     }
                     // Get order items for product name
-                    $orderItemModel = new OrderItem();
-                    $items = $orderItemModel->getItemsByOrderId($order['id']);
+                    $items = fetchOrderItems($order['id']);
                     $productName = !empty($items) ? $items[0]['name'] : 'Produit';
                     
                     echo '<div class="order-row">
@@ -413,7 +411,7 @@ if (isset($_GET["error"])) {
             </div>
             <?php
             // Check if user has orders
-            if (!empty($user_orders) && is_array($user_orders)) {
+            if (!empty($orders) && is_array($orders)) {
             ?>
               <table class="data-table">
                 <thead>
@@ -448,8 +446,7 @@ if (isset($_GET["error"])) {
                               break;
                       }
                       // Get order items for product name
-                      $orderItemModel = new OrderItem();
-                      $items = $orderItemModel->getItemsByOrderId($order['id']);
+                      $items = fetchOrderItems($order['id']);
                       $productName = !empty($items) ? $items[0]['name'] : 'Produit';
                       
                       echo '<tr>
