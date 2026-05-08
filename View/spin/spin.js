@@ -416,6 +416,10 @@ const tick = () => {
             alert(`Vous avez gagné : ${prize.label} ${prize.icon}`);
           }
           
+          // --- NEW: Save result to backend ---
+          saveSpinResult(prize, answer);
+          // ------------------------------------
+
           // Send result to parent (Dashboard)
           window.parent.postMessage({
             type: 'spin_result',
@@ -514,4 +518,90 @@ window.resetSpin = () => {
     revealAnim.isShowing = false;
   }
 };
+
+// --- NEW: Helper Functions for Save and History ---
+
+async function saveSpinResult(prize, answer) {
+  const formData = new FormData();
+  formData.append('prize_label', prize.label);
+  formData.append('prize_number', answer);
+  formData.append('is_win', prize.isWin ? 1 : 0);
+
+  try {
+    const response = await fetch('/AlphaStore/index.php?action=saveSpin', {
+      method: 'POST',
+      body: formData
+    });
+    const data = await response.json();
+    console.log("Spin saved:", data);
+  } catch (error) {
+    console.error("Error saving spin:", error);
+  }
+}
+
+async function loadHistory() {
+  const list = document.getElementById('history-list');
+  const statTotal = document.getElementById('stat-total');
+  const statWins = document.getElementById('stat-wins');
+
+  try {
+    const response = await fetch('/AlphaStore/index.php?action=getSpinHistory');
+    const data = await response.json();
+
+    if (data.success) {
+      const history = data.history;
+      statTotal.innerText = history.length;
+      statWins.innerText = history.filter(h => h.is_win == 1).length;
+
+      if (history.length === 0) {
+        list.innerHTML = '<p class="empty-msg">Aucun spin enregistré.</p>';
+        return;
+      }
+
+      list.innerHTML = history.map(item => `
+        <div class="history-item">
+          <div class="history-info">
+            <span class="history-prize">${item.prize_label}</span>
+            <span class="history-date">${new Date(item.created_at).toLocaleString()}</span>
+          </div>
+          <span class="history-status ${item.is_win == 1 ? 'status-win' : 'status-loss'}">
+            ${item.is_win == 1 ? 'Gagné' : 'Perdu'}
+          </span>
+        </div>
+      `).join('');
+    } else {
+      list.innerHTML = `<p class="empty-msg">Erreur: ${data.message}</p>`;
+    }
+  } catch (error) {
+    console.error("Error loading history:", error);
+    list.innerHTML = '<p class="empty-msg">Erreur de connexion.</p>';
+  }
+}
+
+// UI Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+  const historyBtn = document.getElementById('history-btn');
+  const closeHistoryBtn = document.getElementById('close-history');
+  const historyPanel = document.getElementById('history-panel');
+
+  if (historyBtn) {
+    historyBtn.addEventListener('click', () => {
+      historyPanel.classList.remove('hidden');
+      loadHistory();
+    });
+  }
+
+  if (closeHistoryBtn) {
+    closeHistoryBtn.addEventListener('click', () => {
+      historyPanel.classList.add('hidden');
+    });
+  }
+
+  // Close panel on outside click
+  historyPanel.addEventListener('click', (e) => {
+    if (e.target === historyPanel) {
+      historyPanel.classList.add('hidden');
+    }
+  });
+});
 

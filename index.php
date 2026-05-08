@@ -145,6 +145,18 @@ if ($action === "getPCRecommendation") {
     exit;
 }
 
+if ($action === "saveSpin") {
+    require_once(__DIR__ . "/Controller/SpinController.php");
+    saveSpin();
+    exit;
+}
+
+if ($action === "getSpinHistory") {
+    require_once(__DIR__ . "/Controller/SpinController.php");
+    getSpinHistory();
+    exit;
+}
+
 if ($action === "verif_code") {
     require_once(__DIR__ . "/Controller/AuthController.php");
     $result = verifOTP($_POST["email"], $_POST["code"]);

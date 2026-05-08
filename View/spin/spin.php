@@ -47,7 +47,34 @@ if (!isset($_SESSION['user_id'])) {
         <tr data-num="10"><td>10</td><td>🏆 Grand Prix !</td><td>3%</td></tr>
       </tbody>
     </table>
-    <a class="back_home" href="../html/index.html">Back to Home</a>
+    <div id="prize-actions">
+      <button id="history-btn">📜 Historique</button>
+      <a class="back_home" href="../html/index.html">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- HISTORY PANEL -->
+  <div id="history-panel" class="hidden">
+    <div id="history-content">
+      <div id="history-header">
+        <h3>📜 Votre Historique</h3>
+        <button id="close-history">&times;</button>
+      </div>
+      <div id="history-stats">
+        <div class="stat-box">
+          <span class="stat-label">Total Spins</span>
+          <span id="stat-total" class="stat-value">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Victoires</span>
+          <span id="stat-wins" class="stat-value">0</span>
+        </div>
+      </div>
+      <div id="history-list">
+        <!-- History items will be injected here -->
+        <p class="empty-msg">Chargement...</p>
+      </div>
+    </div>
   </div>
 
   <!-- GIFT OVERLAY -->
