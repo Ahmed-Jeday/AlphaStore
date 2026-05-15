@@ -210,9 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const psu = state.selected['psu'];
         if (psu) {
             const margin = Math.round(((parseInt(psu.wattage) / (tdp * 1.2 || 1)) - 1) * 100);
-            psuStatusEl.textContent = `PSU: ${psu.wattage}W (Marge: ${margin}%)`;
+            psuStatusEl.textContent = `${psu.wattage}W (${margin}% margin)`;
+            psuStatusEl.style.color = margin < 10 ? 'var(--danger)' : 'var(--success)';
         } else {
-            psuStatusEl.textContent = 'PSU: Non sélectionné';
+            psuStatusEl.textContent = 'Not selected';
+            psuStatusEl.style.color = 'var(--text-muted)';
         }
 
         if (count > 0) {
@@ -258,12 +260,14 @@ document.addEventListener('DOMContentLoaded', () => {
             data: {
                 labels: [],
                 datasets: [{
-                    label: 'Fitness',
+                    label: 'Fitness Convergence',
                     data: [],
-                    borderColor: '#ffd700',
-                    borderWidth: 2,
+                    borderColor: '#4f46e5',
+                    borderWidth: 3,
                     pointRadius: 0,
-                    tension: 0.4
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(79, 70, 229, 0.05)'
                 }]
             },
             options: {
@@ -271,7 +275,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 maintainAspectRatio: false,
                 scales: {
                     x: { display: false },
-                    y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#888' } }
+                    y: { 
+                        grid: { color: 'rgba(0,0,0,0.05)' }, 
+                        ticks: { color: '#64748b', font: { family: 'Inter' } } 
+                    }
                 },
                 plugins: { legend: { display: false } }
             }
@@ -318,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const ids = Object.values(state.selected).map(c => c.id);
         if (ids.length === 0) return;
 
-        addToCartBtn.textContent = 'Ajout en cours...';
+        addToCartBtn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Ajout en cours...';
         addToCartBtn.disabled = true;
 
         for (const id of ids) {
@@ -332,6 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        addToCartBtn.textContent = 'Terminé !';
         alert('Tous les composants ont été ajoutés au panier !');
         window.location.href = 'index.html';
     }

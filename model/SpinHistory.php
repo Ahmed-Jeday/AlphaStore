@@ -30,9 +30,11 @@ class SpinHistory {
      * Get user spin history
      */
     public function getHistoryByUser($userId, $limit = 10) {
-        $sql = "SELECT * FROM spin_history WHERE user_id = ? ORDER BY created_at DESC LIMIT ?";
+        $sql = "SELECT * FROM spin_history WHERE user_id = :user_id ORDER BY created_at DESC LIMIT :limit";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$userId, $limit]);
+        $stmt->bindValue(':user_id', (int)$userId, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

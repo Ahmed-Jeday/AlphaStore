@@ -169,6 +169,32 @@ if ($action === "verif_code") {
     exit;
 }
 
-header("Location: View/html/index.html");
+if ($action === null) {
+    $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $script_name = $_SERVER['SCRIPT_NAME'];
+    $base_path = rtrim(dirname($script_name), '/\\');
+    if ($base_path === '') $base_path = '/';
+    else $base_path .= '/';
+
+    if ($path === $base_path || $path === $base_path . 'index.php') {
+        header("Location: View/html/index.html");
+        exit;
+    }
+}
+
+http_response_code(404);
+$html = @file_get_contents(__DIR__ . "/View/html/404.html");
+if ($html === false) {
+    echo "<h1>404 Not Found</h1>";
+} else {
+    // Inject <base> tag to ensure relative assets in 404.html resolve correctly
+    $script_name = $_SERVER['SCRIPT_NAME'];
+    $base_path = rtrim(dirname($script_name), '/\\');
+    if ($base_path === '') $base_path = '/';
+    else $base_path .= '/';
+    
+    $base_href = $base_path . "View/html/";
+    echo str_replace('<head>', '<head><base href="' . $base_href . '">', $html);
+}
 exit;
 ?>

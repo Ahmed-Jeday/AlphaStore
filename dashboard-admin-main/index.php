@@ -109,5 +109,18 @@ switch ($page) {
 
     default:
         http_response_code(404);
-        echo '<h1>404 — Page non trouvée</h1>';
+        $html = @file_get_contents(__DIR__ . "/../View/html/404.html");
+        if ($html === false) {
+            echo "<h1>404 Not Found</h1>";
+        } else {
+            // Inject <base> tag to ensure relative assets in 404.html resolve correctly
+            $script_name = $_SERVER['SCRIPT_NAME'];
+            $project_root = rtrim(dirname(dirname($script_name)), '/\\');
+            if ($project_root === '') $project_root = '/';
+            else $project_root .= '/';
+            
+            $base_href = $project_root . "View/html/";
+            echo str_replace('<head>', '<head><base href="' . $base_href . '">', $html);
+        }
+        exit;
 }

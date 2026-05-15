@@ -7,7 +7,9 @@ include("../../Controller/CartController.php");
 include("../../Controller/FavoriteController.php");
 require_once("../../model/OrderItem.php");
 require_once("../../model/SpinHistory.php");
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Verify user is logged in (via user_id from AuthController)
 if (isset($_SESSION["user_id"])) {
@@ -52,6 +54,11 @@ if (isset($_SESSION["user_id"])) {
     // Get spin status
     $spinHistoryModel = new SpinHistory();
     $hasSpunToday = $spinHistoryModel->hasSpunToday($user_id);
+    $userSpinHistory = $spinHistoryModel->getHistoryByUser($user_id, 10);
+    
+    // Calculate spin stats
+    $totalSpins = count($userSpinHistory); // This is only the last 10, maybe we need a separate count? 
+    // For now let's just use the history we have or keep it simple.
     
     // Handle cart and spin actions (POST requests)
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -69,12 +76,17 @@ if (isset($_SESSION["user_id"])) {
                     break;
                 case 'save_spin':
                     if (isset($_POST['prize_label'])) {
-                        $prizeLabel  = $_POST['prize_label'];
-                        $prizeNumber = $_POST['prize_number'] ?? 0;
-                        $isWin       = $_POST['is_win'] ?? 0;
-                        
-                        $spinHistoryModel->saveSpin($user_id, $prizeLabel, $prizeNumber, $isWin);
-                        header("Location: " . $_SERVER['PHP_SELF'] . "?section=spin&success=spin_saved");
+                        // Extra safety check: verify they haven't spun today already
+                        if (!$spinHistoryModel->hasSpunToday($user_id)) {
+                            $prizeLabel  = $_POST['prize_label'];
+                            $prizeNumber = $_POST['prize_number'] ?? 0;
+                            $isWin       = $_POST['is_win'] ?? 0;
+                            
+                            $spinHistoryModel->saveSpin($user_id, $prizeLabel, $prizeNumber, $isWin);
+                            header("Location: " . $_SERVER['PHP_SELF'] . "?section=spin&success=spin_saved");
+                        } else {
+                            header("Location: " . $_SERVER['PHP_SELF'] . "?section=spin&error=already_spun");
+                        }
                         exit;
                     }
                     break;
@@ -162,6 +174,9 @@ if (isset($_GET["error"])) {
             break;
         case 'order_items_failed':
             $text = 'Erreur lors de l\'ajout des articles.';
+            break;
+        case 'already_spun':
+            $text = 'Vous avez déjà utilisé votre tour aujourd\'hui.';
             break;
         default:
             $text = 'Une erreur est survenue.';
@@ -870,7 +885,7 @@ if (isset($_GET["error"])) {
             </div>
             <div class="card-block-body" style="min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
               <?php if ($hasSpunToday): ?>
-                <div style="text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.05); border-radius: 15px; width: 100%; max-width: 600px;">
+                <div style="text-align: center; padding: 60px 20px; background: rgba(0,0,0,0.05); border-radius: 15px; width: 100%; max-width: 600px; margin-bottom: 30px;">
                   <div style="font-size: 64px; margin-bottom: 20px;">🎡</div>
                   <h3 style="font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 15px;">Limite quotidienne atteinte</h3>
                   <p style="font-size: 18px; color: #666; margin-bottom: 30px; line-height: 1.6;">
@@ -901,6 +916,37 @@ if (isset($_GET["error"])) {
                   });
                 </script>
               <?php endif; ?>
+
+              <!-- Spin History Table -->
+              <div class="history-container" style="width: 100%; margin-top: 40px;">
+                <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 20px; color: #333;">📜 Votre Historique de Gains</h4>
+                <?php if (!empty($userSpinHistory)): ?>
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Cadeau</th>
+                        <th>Résultat</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php foreach ($userSpinHistory as $spin): ?>
+                        <tr>
+                          <td><?= date('d M Y, H:i', strtotime($spin['created_at'])) ?></td>
+                          <td><strong><?= htmlspecialchars($spin['prize_label']) ?></strong></td>
+                          <td>
+                            <span class="badge <?= $spin['is_win'] ? 'delivered' : 'pending' ?>">
+                              <?= $spin['is_win'] ? 'Gagné' : 'Perdu' ?>
+                            </span>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
+                    </tbody>
+                  </table>
+                <?php else: ?>
+                  <p style="color: #666; font-style: italic;">Aucun spin enregistré pour le moment.</p>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
         </section>
