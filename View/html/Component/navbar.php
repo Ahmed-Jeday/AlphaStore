@@ -287,7 +287,7 @@ header("Expires: 0");
         <nav class="top-nav-bar" aria-label="Secondary Navigation">
             <div class="brand-tabs">
                 <a href="index.html" class="tab">HOME</a>
-                <a href="Adult.html" class="tab">ADULT</a>
+                <a href="Adult.php" class="tab">ADULT</a>
                 <a href="Kids.html" class="tab">KIDS</a>
                 <a href="tech.html" class="tab">TECH</a>
                 <a href="smart-budget.html" class="tab">BUDGET</a>
