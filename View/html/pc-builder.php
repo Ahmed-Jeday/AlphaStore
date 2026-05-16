@@ -25,7 +25,7 @@
             <div class="control-group">
                 <label class="control-label">Budget Maximum</label>
                 <input type="range" id="budgetRange" min="500" max="5000" step="50" value="1500">
-                <div id="budgetValue" style="text-align: center; font-weight: 700; color: var(--accent-cyan);">1500 €</div>
+                <div id="budgetValue">1500 €</div>
             </div>
 
             <div class="control-group">
@@ -62,8 +62,8 @@
                     <span class="stat-value" id="totalTdp">0 W</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-label">Statut Alimentation</span>
-                    <span class="stat-label" id="psuStatus" style="color: var(--success); font-weight: 700;">PSU: OK</span>
+                    <span class="stat-label">Alimentation</span>
+                    <span class="stat-value" id="psuStatus" style="font-size: 0.9rem; color: var(--success);">PSU: OK</span>
                 </div>
             </div>
 

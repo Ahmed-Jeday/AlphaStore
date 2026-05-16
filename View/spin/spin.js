@@ -416,8 +416,9 @@ const tick = () => {
             alert(`Vous avez gagné : ${prize.label} ${prize.icon}`);
           }
           
-          // --- NEW: Save result to backend ---
-          saveSpinResult(prize, answer);
+          // --- REMOVED: saveSpinResult(prize, answer); ---
+          // The parent dashboard handles saving to ensure single-source-of-truth
+          // and to trigger the daily limit refresh.
           // ------------------------------------
 
           // Send result to parent (Dashboard)
@@ -521,23 +522,7 @@ window.resetSpin = () => {
 
 // --- NEW: Helper Functions for Save and History ---
 
-async function saveSpinResult(prize, answer) {
-  const formData = new FormData();
-  formData.append('prize_label', prize.label);
-  formData.append('prize_number', answer);
-  formData.append('is_win', prize.isWin ? 1 : 0);
-
-  try {
-    const response = await fetch('/AlphaStore/index.php?action=saveSpin', {
-      method: 'POST',
-      body: formData
-    });
-    const data = await response.json();
-    console.log("Spin saved:", data);
-  } catch (error) {
-    console.error("Error saving spin:", error);
-  }
-}
+// --- REMOVED: Redundant saveSpinResult function ---
 
 async function loadHistory() {
   const list = document.getElementById('history-list');
@@ -545,7 +530,7 @@ async function loadHistory() {
   const statWins = document.getElementById('stat-wins');
 
   try {
-    const response = await fetch('/AlphaStore/index.php?action=getSpinHistory');
+    const response = await fetch('../../index.php?action=getSpinHistory');
     const data = await response.json();
 
     if (data.success) {

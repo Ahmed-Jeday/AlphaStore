@@ -807,6 +807,9 @@
 
                         <div class="social-actions">
                             <i class="far fa-heart heart-icon"></i>
+                            <button class="compare-add-btn" id="modalCompareBtn" title="Ajouter à la comparaison">
+                                <i class="fas fa-code-compare"></i> Comparer
+                            </button>
                             <div class="social-links">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -871,6 +874,44 @@
     </section>
     <div id="footer-placeholder"></div>
 
+    <!-- Barre flottante de comparaison -->
+    <div class="compare-bar" id="compareBar">
+        <div class="compare-bar__items">
+            <div class="compare-bar__slot" id="compareSlot1">
+                <span class="compare-bar__empty">+ Produit 1</span>
+            </div>
+            <div class="compare-bar__vs">VS</div>
+            <div class="compare-bar__slot" id="compareSlot2">
+                <span class="compare-bar__empty">+ Produit 2</span>
+            </div>
+        </div>
+        <div class="compare-bar__actions">
+            <button class="compare-bar__btn" id="compareNowBtn" disabled>
+                <i class="fas fa-code-compare"></i> Comparer maintenant
+            </button>
+            <button class="compare-bar__clear" id="compareClearBtn">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Comparaison Détaillee -->
+    <div class="compare-modal-overlay" id="compareModal">
+        <div class="compare-modal">
+            <button class="compare-modal__close" id="compareModalClose">&times;</button>
+            <h2 class="compare-modal__title">
+                <i class="fas fa-code-compare"></i> Comparateur Intelligent
+            </h2>
+            <div class="compare-modal__cards" id="compareCards"></div>
+            <div class="compare-modal__table-wrap">
+                <table class="compare-modal__table" id="compareTable">
+                    <thead><tr id="compareTableHead"></tr></thead>
+                    <tbody id="compareTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -885,6 +926,7 @@
     <script src="../javaScript/phone.js"></script>
     <script src="../javaScript/carts.js"></script>
     <script type="module" src="../javaScript/new_front.js"></script>
+    <script src="../javaScript/tech-compare.js"></script>
 
     <script>
     // Configuration
@@ -1071,6 +1113,7 @@
                 </div> 
                 <div class="product-actions">
                     <i class="far fa-heart heart-icon" data-id="${p.id}"></i>
+                    <i class="fas fa-code-compare compare-icon" data-id="${p.id}" title="Comparer"></i>
                 </div>
             </div>
         `;

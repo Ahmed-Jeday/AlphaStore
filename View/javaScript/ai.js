@@ -155,88 +155,8 @@
 
 //compare
 
-// ---------- CATALOGUE PRODUITS (simulation e-commerce) ----------
-const productsCatalog = [
-  {
-    id: 1,
-    name: "Phoenix X5",
-    price: "599 €",
-    rating: 4.5,
-    inStock: true,
-    image: "https://picsum.photos/id/133/300/200",
-    specs: [
-      { key: "Écran", value: "6.1″ OLED 120Hz" },
-      { key: "Processeur", value: "A17 Bionic" },
-      { key: "Stockage", value: "128 Go" },
-      { key: "Batterie", value: "3870 mAh" },
-      { key: "Appareil photo", value: "48 MP + 12 MP" },
-      { key: "Rechargement", value: "25W filaire" }
-    ]
-  },
-  {
-    id: 2,
-    name: "Stellar X9 Pro",
-    price: "799 €",
-    rating: 4.8,
-    inStock: true,
-    image: "https://picsum.photos/id/1/300/200",
-    specs: [
-      { key: "Écran", value: "6.7″ AMOLED 144Hz" },
-      { key: "Processeur", value: "Snapdragon 8 Gen 3" },
-      { key: "Stockage", value: "256 Go" },
-      { key: "Batterie", value: "5000 mAh" },
-      { key: "Appareil photo", value: "200 MP + 50 MP" },
-      { key: "Rechargement", value: "65W + 50W sans fil" }
-    ]
-  },
-  {
-    id: 3,
-    name: "UltraBook Air M3",
-    price: "1 299 €",
-    rating: 4.9,
-    inStock: true,
-    image: "https://picsum.photos/id/20/300/200",
-    specs: [
-      { key: "Écran", value: "13.6″ Liquid Retina" },
-      { key: "Processeur", value: "Apple M3 (8 cœurs)" },
-      { key: "RAM", value: "16 Go unifiée" },
-      { key: "Stockage", value: "512 Go SSD" },
-      { key: "Batterie", value: "Jusqu'à 18h" },
-      { key: "Poids", value: "1.24 kg" }
-    ]
-  },
-  {
-    id: 4,
-    name: "ZenPad Elite",
-    price: "449 €",
-    rating: 4.3,
-    inStock: false,
-    image: "https://picsum.photos/id/106/300/200",
-    specs: [
-      { key: "Écran", value: "11″ IPS 90Hz" },
-      { key: "Processeur", value: "MediaTek Helio G99" },
-      { key: "Stockage", value: "128 Go" },
-      { key: "Batterie", value: "8000 mAh" },
-      { key: "Stylet", value: "Inclus" },
-      { key: "Rechargement", value: "18W" }
-    ]
-  },
-  {
-    id: 5,
-    name: "Audiopulse Wave",
-    price: "129 €",
-    rating: 4.2,
-    inStock: true,
-    image: "https://picsum.photos/id/21/300/200",
-    specs: [
-      { key: "Type", value: "Casque Bluetooth" },
-      { key: "Autonomie", value: "40h" },
-      { key: "Réduction bruit", value: "Active (ANC)" },
-      { key: "Connectivité", value: "Bluetooth 5.3" },
-      { key: "Poids", value: "250g" }
-    ]
-  }
-];
+// ---------- CATALOGUE PRODUITS (fetch depuis le backend) ----------
+let productsCatalog = [];
 
 // Éléments DOM
 const selectA = document.getElementById('productA-select');
@@ -245,8 +165,115 @@ const swapBtn = document.getElementById('swapBtn');
 const cardsContainer = document.getElementById('productCardsContainer');
 const comparisonBody = document.getElementById('comparisonBody');
 
-let currentProductA = productsCatalog[0];
-let currentProductB = productsCatalog[1];
+let currentProductA = null;
+let currentProductB = null;
+
+// Charger les produits depuis le backend
+async function loadProducts() {
+  try {
+    // Détermination d’une URL racine stable pour le backend, même si le fichier est servi depuis View/html
+    const appRoot = window.location.origin + window.location.pathname.replace(/\/View\/html\/.*$/, '');
+    const apiBase = `${appRoot}/index.php`;
+
+    // On récupère les produits tech et les composants PC pour avoir un catalogue riche
+    const [techResponse, pcResponse] = await Promise.all([
+      fetch(`${apiBase}?action=getTechProduits`),
+      fetch(`${apiBase}?action=getPCComponents`)
+    ]);
+
+    if (!techResponse.ok || !pcResponse.ok) {
+      throw new Error(`HTTP ${techResponse.status} / ${pcResponse.status}`);
+    }
+
+    const techProducts = await techResponse.json();
+    const pcComponentsGrouped = await pcResponse.json();
+
+    if (techProducts && techProducts.error) {
+      throw new Error(`Backend error: ${techProducts.error}`);
+    }
+    if (pcComponentsGrouped && pcComponentsGrouped.error) {
+      throw new Error(`Backend error: ${pcComponentsGrouped.error}`);
+    }
+    if (!Array.isArray(techProducts)) {
+      throw new Error('Réponse invalide pour les produits tech.');
+    }
+    if (!Array.isArray(pcComponentsGrouped) && typeof pcComponentsGrouped !== 'object') {
+      throw new Error('Réponse invalide pour les composants PC.');
+    }
+
+    // Aplatir les composants PC (car ils sont groupés par type par le backend Flask)
+    let pcComponents = [];
+    if (Array.isArray(pcComponentsGrouped)) {
+      pcComponents = pcComponentsGrouped;
+    } else if (typeof pcComponentsGrouped === 'object') {
+      pcComponents = Object.values(pcComponentsGrouped).flat();
+    }
+
+    // Normaliser les données pour le comparateur
+    const normalizedTech = techProducts.map(p => ({
+      id: `tech_${p.id}`,
+      dbId: p.id,
+      type: 'tech',
+      name: p.name,
+      price: parseFloat(p.price),
+      rating: 4.5, // Par défaut car non présent en DB
+      inStock: parseInt(p.stock) > 0,
+      image: p.image_path || 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300&h=200&fit=crop',
+      specs: [
+        { key: "Catégorie", value: p.category },
+        { key: "Couleur", value: p.color },
+        { key: "SKU", value: p.sku },
+        { key: "Description", value: p.description ? p.description.substring(0, 100) + '...' : 'N/A' }
+      ]
+    }));
+
+    const normalizedPC = pcComponents.map(p => {
+      let parsedSpecs = [];
+      try {
+        const specsObj = typeof p.specs === 'string' ? JSON.parse(p.specs) : p.specs;
+        if (specsObj) {
+          parsedSpecs = Object.entries(specsObj).map(([key, value]) => ({
+            key: key.charAt(0).toUpperCase() + key.slice(1),
+            value: value.toString()
+          }));
+        }
+      } catch (e) {
+        console.error("Error parsing specs for", p.name, e);
+      }
+
+      // Ajouter des specs de base
+      parsedSpecs.unshift(
+        { key: "Marque", value: p.brand },
+        { key: "Type", value: p.component_type.toUpperCase() }
+      );
+
+      return {
+        id: `pc_${p.id}`,
+        dbId: p.id,
+        type: 'pc',
+        name: p.name,
+        price: parseFloat(p.price),
+        rating: (p.performance_score / 20).toFixed(1), // Simuler un rating basé sur le score de perf
+        inStock: parseInt(p.stock) > 0,
+        image: p.image_url || 'https://images.unsplash.com/photo-1591799264318-7e6ef8e0b9e9?w=300&h=200&fit=crop',
+        specs: parsedSpecs
+      };
+    });
+
+    productsCatalog = [...normalizedTech, ...normalizedPC];
+    
+    if (productsCatalog.length >= 2) {
+      currentProductA = productsCatalog[0];
+      currentProductB = productsCatalog[1];
+      init();
+    } else {
+      comparisonBody.innerHTML = '<tr><td colspan="3" style="text-align:center;">Pas assez de produits pour comparer.</td></tr>';
+    }
+  } catch (error) {
+    console.error("Erreur lors du chargement des produits:", error);
+    comparisonBody.innerHTML = '<tr><td colspan="3" style="text-align:center; color: #ef4444;">Erreur de connexion au serveur.</td></tr>';
+  }
+}
 
 // Remplir les selects avec tous les produits
 function populateSelects() {
@@ -259,26 +286,29 @@ function populateSelects() {
 
 // Générer des étoiles
 function renderStars(rating) {
-  const fullStars = Math.floor(rating);
-  const halfStar = (rating % 1) >= 0.5 ? 1 : 0;
+  const r = parseFloat(rating);
+  const fullStars = Math.floor(r);
+  const halfStar = (r % 1) >= 0.5 ? 1 : 0;
   const emptyStars = 5 - fullStars - halfStar;
   let starsHtml = '';
   for (let i = 0; i < fullStars; i++) starsHtml += '<i class="fas fa-star"></i>';
   if (halfStar) starsHtml += '<i class="fas fa-star-half-alt"></i>';
   for (let i = 0; i < emptyStars; i++) starsHtml += '<i class="far fa-star"></i>';
-  return `<span class="stars">${starsHtml}</span> <span style="font-size:0.8rem;">(${rating})</span>`;
+  return `<span class="stars">${starsHtml}</span> <span style="font-size:0.8rem;">(${r})</span>`;
 }
 
 // Mettre à jour les cartes aperçu
 function updateCards() {
+  if (!currentProductA || !currentProductB) return;
+  
   const cardHtml = `
     <div class="product-card">
       <div class="card-img">
-        <img src="${currentProductA.image}" alt="${currentProductA.name}" loading="lazy">
+        <img src="${currentProductA.image}" alt="${currentProductA.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300&h=200&fit=crop'">
       </div>
       <div class="card-info">
         <h3>${currentProductA.name}</h3>
-        <div class="price-badge">${currentProductA.price}</div>
+        <div class="price-badge">${currentProductA.price.toLocaleString('fr-FR', {style: 'currency', currency: 'EUR'})}</div>
         <div class="rating">${renderStars(currentProductA.rating)}</div>
         <div class="stock ${currentProductA.inStock ? 'in' : 'out'}">
           <i class="fas ${currentProductA.inStock ? 'fa-check-circle' : 'fa-times-circle'}"></i> 
@@ -288,11 +318,11 @@ function updateCards() {
     </div>
     <div class="product-card">
       <div class="card-img">
-        <img src="${currentProductB.image}" alt="${currentProductB.name}" loading="lazy">
+        <img src="${currentProductB.image}" alt="${currentProductB.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300&h=200&fit=crop'">
       </div>
       <div class="card-info">
         <h3>${currentProductB.name}</h3>
-        <div class="price-badge">${currentProductB.price}</div>
+        <div class="price-badge">${currentProductB.price.toLocaleString('fr-FR', {style: 'currency', currency: 'EUR'})}</div>
         <div class="rating">${renderStars(currentProductB.rating)}</div>
         <div class="stock ${currentProductB.inStock ? 'in' : 'out'}">
           <i class="fas ${currentProductB.inStock ? 'fa-check-circle' : 'fa-times-circle'}"></i> 
@@ -312,7 +342,7 @@ function getSpecValue(product, key) {
 
 // Nettoyer le HTML pour comparaison
 function stripHtml(str) {
-  if (typeof str !== 'string') return '';
+  if (typeof str !== 'string') return str ? str.toString() : '';
   const temp = document.createElement('div');
   temp.innerHTML = str;
   return temp.textContent || temp.innerText || '';
@@ -320,8 +350,10 @@ function stripHtml(str) {
 
 // Générer le tableau comparatif
 function renderComparisonTable() {
+  if (!currentProductA || !currentProductB) return;
+
   const baseRows = [
-    { key: "💰 Prix", getValue: (p) => p.price },
+    { key: "💰 Prix", getValue: (p) => p.price.toLocaleString('fr-FR', {style: 'currency', currency: 'EUR'}) },
     { key: "⭐ Note", getValue: (p) => renderStars(p.rating) },
     { 
       key: "📦 Disponibilité", 
@@ -357,16 +389,21 @@ function renderComparisonTable() {
   for (let row of allRows) {
     const valA = row.getValue(currentProductA);
     const valB = row.getValue(currentProductB);
-    const isDifferent = (stripHtml(valA) !== stripHtml(valB));
-    const rowClass = isDifferent ? 'diff-highlight' : '';
+    
+    // Comparaison intelligente pour surlignage
+    const strA = stripHtml(valA);
+    const strB = stripHtml(valB);
+    const isDifferent = (strA !== strB);
+    
+    let highlightClass = '';
+    if (isDifferent) {
+        highlightClass = 'diff-highlight';
+    }
 
     tbodyHtml += `
-      <tr class="${rowClass}">
+      <tr class="${highlightClass}">
         <th>${row.key}</th>
-        
-
         <td class="spec-value spec-col-a">${valA}</td>
-        
         <td class="spec-value spec-col-b">${valB}</td>
       </tr>
     `;
@@ -382,8 +419,8 @@ function refreshComparison() {
 
 // Changer les produits selon les selects
 function updateFromSelectors() {
-  const idA = parseInt(selectA.value, 10);
-  const idB = parseInt(selectB.value, 10);
+  const idA = selectA.value;
+  const idB = selectB.value;
   const newProductA = productsCatalog.find(p => p.id === idA);
   const newProductB = productsCatalog.find(p => p.id === idB);
   if (newProductA && newProductB) {
@@ -404,18 +441,28 @@ function swapProducts() {
 // Initialisation
 function init() {
   populateSelects();
-  const defaultA = productsCatalog.find(p => p.id === parseInt(selectA.value, 10));
-  const defaultB = productsCatalog.find(p => p.id === parseInt(selectB.value, 10));
-  if (defaultA && defaultB) {
-    currentProductA = defaultA;
-    currentProductB = defaultB;
-  }
   refreshComparison();
 
   selectA.addEventListener('change', updateFromSelectors);
   selectB.addEventListener('change', updateFromSelectors);
   swapBtn.addEventListener('click', swapProducts);
+
+  // Bouton ALPHA AI
+  const aiBtn = document.querySelector('.ai-assistant button');
+  if (aiBtn) {
+    aiBtn.addEventListener('click', () => {
+        if (typeof handleSuggestion === 'function') {
+            const query = `Compare ${currentProductA.name} and ${currentProductB.name}`;
+            handleSuggestion(query);
+            // Faire défiler jusqu'au chatbot si nécessaire
+            const chatBox = document.querySelector('.ai-widget-root');
+            if (chatBox) chatBox.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+  }
 }
 
-// Démarrer l'application
-init();
+// Démarrer l'application au chargement
+document.addEventListener('DOMContentLoaded', () => {
+    loadProducts();
+});

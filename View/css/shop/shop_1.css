@@ -624,3 +624,370 @@
 .more_info button:hover{
     background-color: #222;
 }
+
+/* ============================================================
+   AI COMPARATOR STYLES
+   ============================================================ */
+
+/* Product Grid Icon */
+.product-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.compare-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #aaa;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.compare-icon:hover {
+    color: #717fe0;
+    transform: scale(1.15) rotate(15deg);
+}
+
+.compare-icon.active {
+    color: #717fe0;
+    transform: scale(1.1);
+}
+
+/* Modal Button */
+.compare-add-btn {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.compare-add-btn:hover {
+    background: #717fe0;
+    color: white;
+    border-color: #717fe0;
+}
+
+.compare-add-btn.active {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+/* Floating Comparison Bar */
+.compare-bar {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 60px;
+    padding: 10px 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+}
+
+.compare-bar.active {
+    bottom: 30px;
+    opacity: 1;
+}
+
+.compare-bar__items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.compare-bar__slot {
+    width: 160px;
+    height: 50px;
+    background: rgba(0,0,0,0.03);
+    border: 2px dashed #ddd;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #888;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.compare-bar__product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0 10px;
+    position: relative;
+}
+
+.compare-bar__product img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+}
+
+.compare-bar__product span {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    color: #333;
+}
+
+.compare-bar__product .remove-btn {
+    background: none;
+    border: none;
+    color: #ff4d6d;
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.compare-bar__vs {
+    font-weight: 900;
+    color: #717fe0;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.compare-bar__actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.compare-bar__btn {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.compare-bar__btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.compare-bar__btn.ready {
+    background: #717fe0;
+    box-shadow: 0 4px 15px rgba(113, 127, 224, 0.4);
+}
+
+.compare-bar__clear {
+    background: rgba(255, 77, 109, 0.1);
+    color: #ff4d6d;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.compare-bar__clear:hover {
+    background: #ff4d6d;
+    color: white;
+}
+
+/* Compare Modal */
+.compare-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    z-index: 10001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+}
+
+.compare-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.compare-modal {
+    width: 95%;
+    max-width: 1000px;
+    max-height: 90vh;
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    position: relative;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.compare-modal-overlay.active .compare-modal {
+    transform: scale(1);
+}
+
+.compare-modal__close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: #ccc;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.compare-modal__close:hover {
+    color: #333;
+}
+
+.compare-modal__title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.compare-modal__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.compare-card {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 20px;
+}
+
+.compare-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.compare-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.compare-card .price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #717fe0;
+}
+
+/* Compare Table */
+.compare-modal__table-wrap {
+    overflow-x: auto;
+}
+
+.compare-modal__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.compare-modal__table th {
+    background: #f1f3f5;
+    padding: 15px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.compare-modal__table td {
+    padding: 18px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.compare-modal__table tr.diff {
+    background: rgba(113, 127, 224, 0.03);
+}
+
+.compare-modal__table .label {
+    font-weight: 700;
+    width: 25%;
+    color: #555;
+    background: #fafafa;
+}
+
+.val-diff {
+    color: #111;
+    font-weight: 600;
+}
+
+/* Loading & Error */
+.compare-loading, .compare-error {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .compare-bar {
+        width: 95%;
+        padding: 10px 15px;
+        border-radius: 20px;
+        flex-direction: column;
+        gap: 10px;
+        bottom: -200px;
+    }
+    
+    .compare-bar.active {
+        bottom: 15px;
+    }
+
+    .compare-bar__slot {
+        width: 120px;
+        height: 40px;
+    }
+
+    .compare-modal {
+        padding: 20px;
+    }
+
+    .compare-modal__cards {
+        gap: 15px;
+    }
+
+    .compare-card img {
+        width: 100px;
+        height: 100px;
+    }
+}

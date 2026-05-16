@@ -48,8 +48,8 @@ if (!isset($_SESSION['user_id'])) {
       </tbody>
     </table>
     <div id="prize-actions">
-      <button id="history-btn">📜 Historique</button>
-      <a class="back_home" href="../html/index.html">Back to Home</a>
+      <button id="history-btn">📜 Mon Historique</button>
+      <a class="back_home" href="../user_Dashboard/index.php?section=spin">Back to Dashboard</a>
     </div>
   </div>
 
@@ -57,22 +57,21 @@ if (!isset($_SESSION['user_id'])) {
   <div id="history-panel" class="hidden">
     <div id="history-content">
       <div id="history-header">
-        <h3>📜 Votre Historique</h3>
+        <h3>📜 Historique des Gains</h3>
         <button id="close-history">&times;</button>
       </div>
       <div id="history-stats">
         <div class="stat-box">
           <span class="stat-label">Total Spins</span>
-          <span id="stat-total" class="stat-value">0</span>
+          <span class="stat-value" id="stat-total">0</span>
         </div>
         <div class="stat-box">
-          <span class="stat-label">Victoires</span>
-          <span id="stat-wins" class="stat-value">0</span>
+          <span class="stat-label">Gagnés</span>
+          <span class="stat-value" id="stat-wins">0</span>
         </div>
       </div>
       <div id="history-list">
-        <!-- History items will be injected here -->
-        <p class="empty-msg">Chargement...</p>
+        <!-- Will be populated by JS -->
       </div>
     </div>
   </div>
