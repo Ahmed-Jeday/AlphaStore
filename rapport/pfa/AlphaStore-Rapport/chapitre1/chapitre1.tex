@@ -1,0 +1,117 @@
+\chapter{Présentation du projet}
+\label{chap:presentation_projet}
+
+\section{Introduction}
+
+Dans un monde de plus en plus connecté, le commerce électronique s'impose comme un pilier incontournable de l'économie numérique mondiale. Les consommateurs recherchent aujourd'hui des expériences d'achat intelligentes, personnalisées et fluides, bien au-delà du simple catalogue en ligne. Cette évolution crée une opportunité majeure pour les plateformes capables d'intégrer des technologies avancées d'intelligence artificielle au cœur de leur expérience utilisateur.
+
+C'est dans ce contexte que s'inscrit \textbf{Alpha Store}, un projet de fin d'année (PFA) développé dans le cadre de notre formation en LI2 à l'École Supérieure des Sciences et de la Technologie de Hammam Sousse (ESST). Alpha Store est une plateforme e-commerce multi-secteurs alimentée par l'intelligence artificielle, couvrant à la fois les domaines de la \textbf{mode} (Femme, Homme, Enfants, Accessoires) et de la \textbf{technologie} (Laptops, Smartphones, Audio, Périphériques, Composants).
+
+Ce premier chapitre a pour objectif de situer le projet dans son contexte général, d'exposer la problématique à laquelle il répond, d'analyser les solutions existantes sur le marché, puis de présenter notre approche ainsi que la planification adoptée pour mener ce projet à bien.
+
+\section{Présentation du sujet}
+
+\subsection{Problématique}
+
+Le marché tunisien et nord-africain du e-commerce souffre d'un écart significatif entre les attentes des utilisateurs modernes et les fonctionnalités réellement proposées par les plateformes locales. Les consommateurs se retrouvent face à des interfaces peu personnalisées, des expériences de recherche limitées et une absence quasi totale d'assistance intelligente lors du parcours d'achat.
+
+Plusieurs problèmes concrets se posent :
+
+\begin{itemize}[label=$\bullet$]
+    \item \textbf{Du côté des acheteurs :} Comment trouver rapidement un produit correspondant exactement à ses besoins, à son budget et à ses préférences stylistiques ? Comment assembler une tenue coordonnée ou configurer un PC compatible sans expertise technique particulière ? Comment savoir si un vêtement lui conviendra avant de l'acheter ?
+    \item \textbf{Du côté des vendeurs :} Comment proposer une tarification dynamique et compétitive ? Comment fidéliser les clients et leur offrir une expérience suffisamment engageante pour qu'ils reviennent ?
+    \item \textbf{Sur le plan technologique :} Comment concevoir une architecture full-stack capable d'intégrer des algorithmes d'IA classiques (BFS, DFS, CSP, Algorithmes Génétiques) et des modèles de langage modernes (LLM) dans une plateforme cohérente, scalable et maintenable ?
+\end{itemize}
+
+Ces problématiques constituent le fil directeur du projet Alpha Store, qui ambitionne d'y répondre de manière concrète et opérationnelle.
+
+\subsection{Étude de l'existant}
+
+\subsubsection{Analyse de l'existant}
+
+Plusieurs plateformes e-commerce opèrent sur le marché tunisien et international, offrant des services partiels mais rarement une solution complète intégrant commerce multi-secteurs et intelligence artificielle avancée.
+
+\textbf{Jumia} est la principale marketplace africaine, présente en Tunisie. Elle propose un catalogue multi-catégories large, une interface mobile-first et un système de livraison relativement structuré. Cependant, ses fonctionnalités d'IA se limitent à des recommandations basiques fondées sur l'historique de navigation, sans personnalisation profonde ni assistance conversationnelle.
+
+\textbf{Mytek} est le leader local du commerce d'électronique et d'informatique. Sa plateforme est solide sur le plan technique, avec un catalogue bien documenté. Elle reste néanmoins strictement limitée au secteur technologique, sans aucune fonctionnalité d'intelligence artificielle, de conseil personnalisé ou d'expérience utilisateur enrichie.
+
+\textbf{Alibaba} constitue la référence mondiale du e-commerce B2B/B2C. Sa puissance réside dans son catalogue quasi-illimité et ses outils de traduction automatique. Il intègre un chatbot basique et quelques outils de recherche visuelle, mais reste inaccessible à de nombreux utilisateurs tunisiens en raison des barrières linguistiques, des délais de livraison intercontinentaux et des incertitudes douanières. De plus, ses fonctionnalités d'IA avancées (essayage virtuel, optimisation de configuration PC, solveur de tenues) sont absentes.
+
+Le tableau comparatif ci-dessous résume les capacités de ces plateformes face à Alpha Store :
+
+\begin{table}[H]
+\centering
+\caption{Tableau comparatif des plateformes e-commerce}
+\arrayrulecolor{black}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\rowcolor{LightCyan} \textbf{Fonctionnalité} & \textbf{Jumia / Mytek} & \textbf{Alibaba} & \textbf{Alpha Store} \\ \hline
+Catalogue multi-secteurs (Mode + Tech) & \faCheck & \faCheck & \faCheck \\ \hline
+Recommandations IA (BFS/DFS) & \faTimes & \faTimes & \faCheck \\ \hline
+Solveur de tenues (CSP) & \faTimes & \faTimes & \faCheck \\ \hline
+Configurateur PC (CSP + GA) & \faTimes & \faTimes & \faCheck \\ \hline
+Essayage virtuel (IDM-VTON) & \faTimes & \faTimes & \faCheck \\ \hline
+Chatbot IA (Gemini) & \faTimes & Basique & \faCheck \\ \hline
+Optimiseur de budget (GA) & \faTimes & \faTimes & \faCheck \\ \hline
+Gamification (Roue des prix) & \faTimes & \faTimes & \faCheck \\ \hline
+Animations premium (GSAP) & \faTimes & \faTimes & \faCheck \\ \hline
+\end{tabular}
+\label{tab:comparatif}
+\end{table}
+
+\subsubsection{Critique de l'existant}
+
+L'analyse des plateformes existantes révèle plusieurs lacunes majeures :
+
+\begin{itemize}[label=$\bullet$]
+    \item \textbf{Absence d'IA métier :} Aucune des plateformes locales n'implémente d'algorithmes d'IA structurés pour assister le client dans ses décisions d'achat. Les recommandations proposées sont superficielles, fondées sur des règles simples ou du filtrage collaboratif élémentaire, sans exploitation d'algorithmes de recherche ou d'optimisation.
+    \item \textbf{Cloisonnement sectoriel :} Les plateformes se spécialisent soit dans la mode, soit dans la technologie. Il n'existe pas, sur le marché local, une solution unifiée permettant au client de gérer un panier mixte (vêtements + équipements informatiques) avec une expérience cohérente.
+    \item \textbf{Expérience utilisateur générique :} L'interface des plateformes locales reste fonctionnelle mais peu engageante. Les animations, les transitions et le design système ne sont pas au niveau des standards UX modernes, ce qui nuit à la rétention et à l'image de marque.
+    \item \textbf{Manque de fonctionnalités immersives :} Des fonctionnalités telles que l'essayage virtuel de vêtements, la configuration intelligente d'un PC avec vérification de compatibilité en temps réel, ou encore la suggestion automatique de tenues coordonnées sont inexistantes sur le marché local.
+    \item \textbf{Engagement limité :} L'absence de mécanismes de gamification (récompenses, jeux, défis) réduit l'engagement des utilisateurs et leur fidélisation sur le long terme.
+\end{itemize}
+
+\subsection{Solution proposée}
+
+Alpha Store se positionne comme une réponse directe aux insuffisances identifiées dans l'existant. Il s'agit d'une plateforme e-commerce full-stack, multi-secteurs, intégrant nativement l'intelligence artificielle à chaque étape du parcours client.
+
+\textbf{Sur le plan fonctionnel}, Alpha Store propose une vingtaine de fonctionnalités organisées autour de quatre axes principaux :
+
+\begin{itemize}[label=$\bullet$]
+    \item \textbf{Découverte intelligente des produits}, grâce à un système de recommandations fondé sur les algorithmes BFS et DFS appliqués à un graphe de similarité entre produits, permettant au client de trouver des articles connexes selon la catégorie, la couleur ou le prix.
+    \item \textbf{Assistance à la décision d'achat}, via un solveur CSP pour la coordination de tenues (Mix \& Match), un configurateur PC combinant CSP pour la compatibilité et un Algorithme Génétique pour l'optimisation des composants, et un optimiseur de budget utilisant les Algorithmes Génétiques pour maximiser la valeur des achats dans une enveloppe budgétaire donnée.
+    \item \textbf{Immersion et personnalisation}, grâce à l'essayage virtuel de vêtements (IDM-VTON via HuggingFace), un chatbot conversationnel alimenté par l'API Gemini 2.0 Flash, et un système de recherche visuelle par image (Google Vision API, en cours d'intégration).
+    \item \textbf{Engagement et fidélisation}, via un système de gamification (roue des prix quotidienne), un tableau de bord utilisateur complet, un système d'avis et de notation, et des listes de favoris.
+\end{itemize}
+
+\textbf{Sur le plan technique}, Alpha Store repose sur une architecture MVC en PHP 8.2 pour le backend principal, MariaDB pour la base de données, et des microservices Python/Flask pour les modules d'IA. Le frontend exploite GSAP, Swiper.js et Bootstrap 5.3 pour offrir une expérience visuelle premium avec des animations fluides et des transitions soignées.
+
+\section{Planification du travail}
+
+La réalisation d'Alpha Store a été organisée en plusieurs phases successives, couvrant l'ensemble du cycle de développement logiciel, de l'analyse initiale jusqu'aux tests et à la documentation finale.
+
+\begin{table}[H]
+\caption{Diagramme de Gantt du projet Alpha Store}
+\centering
+\arrayrulecolor{black}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{5cm}|*{11}{>{\centering\arraybackslash}p{0.6cm}|}}
+\hline
+\rowcolor{LightCyan} \textbf{Phase / Semaine} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} \\ \hline
+\textbf{Analyse \& Conception} & \cellcolor{blue!50} & \cellcolor{blue!50} & & & & & & & & & \\ \hline
+\textbf{Infrastructure \& Auth} & & \cellcolor{blue!50} & \cellcolor{blue!50} & & & & & & & & \\ \hline
+\textbf{Core E-commerce} & & & \cellcolor{blue!50} & \cellcolor{blue!50} & \cellcolor{blue!50} & & & & & & \\ \hline
+\textbf{Modules IA} & & & & & \cellcolor{blue!50} & \cellcolor{blue!50} & \cellcolor{blue!50} & \cellcolor{blue!50} & & & \\ \hline
+\textbf{Frontend \& UX} & & & & \cellcolor{blue!50} & \cellcolor{blue!50} & \cellcolor{blue!50} & \cellcolor{blue!50} & \cellcolor{blue!50} & \cellcolor{blue!50} & & \\ \hline
+\textbf{Tests \& Sécurité} & & & & & & & & & \cellcolor{blue!50} & \cellcolor{blue!50} & \\ \hline
+\textbf{Documentation} & & & & & & & & & & \cellcolor{blue!50} & \cellcolor{blue!50} \\ \hline
+\end{tabular}
+\label{tab:gantt_alpha}
+\end{table}
+
+\section{Conclusion}
+
+Ce premier chapitre a permis de poser les fondations conceptuelles du projet Alpha Store. Nous avons mis en évidence les insuffisances des plateformes e-commerce existantes sur le marché local, notamment l'absence d'intelligence artificielle métier, le cloisonnement sectoriel et la pauvreté de l'expérience utilisateur. Face à ces constats, Alpha Store se présente comme une solution ambitieuse et cohérente, combinant un socle e-commerce complet avec des fonctionnalités IA avancées fondées sur des algorithmes classiques et des APIs modernes.
+
+La planification adoptée, structurée en sept phases itératives sur une période de onze semaines, a permis de maintenir un développement organisé et progressif, en accordant une place centrale aux modules d'intelligence artificielle et à la qualité de l'expérience utilisateur.
+
+Les chapitres suivants présenteront en détail l'architecture technique retenue, les choix de conception, l'implémentation des différents modules, ainsi que les résultats des tests effectués.

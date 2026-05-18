@@ -1,0 +1,284 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{Test Validation Plan (TVP) - PRO-PFE}
+
+% ===== COLORS =====
+\newcommand{\student}[1]{\textcolor{blue}{#1}} % student input
+\newcommand{\important}[1]{\textcolor{red}{#1}} % critical info
+
+\begin{document}
+
+% ================= TITLE PAGE =================
+\begin{titlepage}
+\begin{center}
+
+\includegraphics[width=4cm]{logo_essths.png}\\
+\vspace{0.5cm}
+
+\textbf{University of Sousse}\\
+Higher School of Science and Technology of Hammam Sousse
+
+\vfill
+
+\Huge{\textbf{Test Validation Plan (PVT)}}\\[1cm]
+
+\Large{PRO-PFE Project}\\
+Computer Science - LI2\\[1cm]
+
+\Large{\textbf{Group Number:} \student{[Fill here]}}\\
+\Large{\textbf{Project Title:} \student{[Project Name]}}\\[0.5cm]
+
+\Large{\textbf{Team Members:}}\\
+\student{[Name 1]}\\
+\student{[Name 2]}\\
+\student{[Name 3]}\\[1cm]
+
+\Large{Academic Year 2025–2026}
+
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ================= EXECUTIVE SUMMARY =================
+\section*{Executive Summary}
+
+This document presents the \textbf{Test Validation Plan (PVT)} for the project \student{[Project Name]}.
+
+\important{This document is PRE-IMPLEMENTATION. It describes HOW testing will be performed and MUST NOT contain any results.}
+
+\textbf{Project Description:}
+
+\student{Provide a short description of your system (objectives, users, main features).}
+
+\vspace{0.3cm}
+
+This document defines:
+\begin{itemize}
+\item The testing strategy
+\item The types of tests to be performed
+\item The tools and environment
+\item The validation criteria
+\end{itemize}
+
+\newpage
+
+% ================= IMPORTANT RULE =================
+\section{Mandatory Rule}
+
+\important{Each project MUST include at least THREE different categories of testing.}
+
+These categories must be chosen depending on:
+\begin{itemize}
+\item The project complexity
+\item The number of team members
+\item The system architecture
+\end{itemize}
+
+\textbf{Examples of test types (students can choose):}
+\begin{itemize}
+\item Functional Testing
+\item Security Testing
+\item Performance Testing
+\item Usability Testing
+\item API Testing / Integration Testing
+\item Unit Testing
+\item ...
+\end{itemize}
+
+\important{Minimum required: 3 types of testing. More is highly recommended for high-quality projects.}
+
+\vspace{0.3cm}
+
+\textbf{Guideline:}
+\begin{itemize}
+\item 3 members → at least 3 types
+\item 4 members → at least 4 types recommended
+\item 5 members → at least 5 types recommended
+\end{itemize}
+
+% ================= OBJECTIVES =================
+\section{Testing Objectives}
+
+The objectives of testing are:
+
+\begin{itemize}
+\item Ensure that the system meets functional requirements
+\item Detect defects before deployment
+\item Evaluate system robustness
+\item Validate system security
+\item Measure performance under load
+\end{itemize}
+
+\textbf{Important:}
+\student{You must adapt these objectives to your specific project context.}
+
+% ================= SCOPE =================
+\section{Scope of Testing}
+
+\subsection{Included Features}
+\student{List the features that will be tested}
+
+\subsection{Excluded Features}
+\student{List features NOT tested and explain why}
+
+% ================= STRATEGY =================
+\section{Testing Strategy}
+
+Testing will be conducted at different levels:
+
+\begin{itemize}
+\item Unit Testing (code-level validation)
+\item Integration Testing (interaction between components)
+\item System Testing (end-to-end scenarios)
+\end{itemize}
+
+\textbf{Important Explanation:}
+
+\begin{itemize}
+\item Unit testing ensures code correctness
+\item Integration testing validates interactions (API, database)
+\item System testing validates the full user workflow
+\end{itemize}
+
+\important{Do NOT include test results here. Only describe the approach.}
+
+% ================= TOOLS =================
+\section{Testing Tools}
+
+\student{Select tools depending on your project}
+
+\begin{itemize}
+\item PHPUnit – Unit testing
+\item Postman – API testing
+\item JMeter / Loader.io – Performance testing
+\item OWASP ZAP – Security testing
+\end{itemize}
+
+% ================= TEST TYPES =================
+\section{Test Categories}
+
+\important{You must define at least THREE categories.}
+
+% -------- FUNCTIONAL --------
+\subsection{Functional Testing}
+
+\textbf{Objective:}
+Verify that system features behave as expected.
+
+\textbf{Explanation:}
+Functional tests validate business logic and user actions.
+
+\student{Describe what functionalities you will test.}
+
+% -------- SECURITY --------
+\subsection{Security Testing}
+
+\textbf{Objective:}
+Ensure the system is protected against attacks.
+
+\textbf{Explanation:}
+Security testing checks vulnerabilities such as:
+\begin{itemize}
+\item SQL Injection
+\item XSS
+\item Unauthorized access
+\end{itemize}
+
+\student{Describe your system risks.}
+
+% -------- PERFORMANCE --------
+\subsection{Performance Testing}
+
+\textbf{Objective:}
+Measure system behavior under load.
+
+\textbf{Explanation:}
+Performance testing evaluates:
+\begin{itemize}
+\item Response time
+\item Stability under load
+\item Maximum capacity
+\end{itemize}
+
+\student{Define expected load (e.g., 100 users, 500 requests).}
+
+% ================= TEST SCENARIO TEMPLATE =================
+\section{Test Scenarios}
+
+\textbf{Each test must follow this structure:}
+
+\subsection*{Scenario \student{[ID]} – \student{[Name]}}
+
+\textbf{Preconditions:}
+\student{Initial state}
+
+\textbf{Steps:}
+\begin{enumerate}
+\item \student{Step 1}
+\item \student{Step 2}
+\end{enumerate}
+
+\textbf{Expected Result:}
+\student{Expected system behavior}
+
+\textbf{Priority:}
+\begin{itemize}
+\item Critical
+\item Major
+\item Minor
+\end{itemize}
+
+% ================= TEST DATA =================
+\section{Test Data}
+
+\textbf{Explanation:}
+Test data represents the inputs used during testing.
+
+\student{Provide examples (users, inputs, payloads).}
+
+% ================= VALIDATION CRITERIA =================
+\section{Validation Criteria}
+
+\textbf{A test is successful if:}
+\begin{itemize}
+\item Expected result matches actual behavior
+\item No unexpected errors occur
+\end{itemize}
+
+\textbf{A test fails if:}
+\begin{itemize}
+\item Output is incorrect
+\item System crashes or behaves unexpectedly
+\end{itemize}
+
+% ================= FINAL WARNING =================
+\section*{Important Notice}
+
+\important{This document MUST NOT contain:}
+\begin{itemize}
+\item Test results
+\item Screenshots
+\item Metrics
+\end{itemize}
+
+\important{All results belong to the FINAL REPORT.}
+
+\end{document}
