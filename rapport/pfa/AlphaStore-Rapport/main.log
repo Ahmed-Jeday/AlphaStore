@@ -1,0 +1,1790 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.15)  18 MAY 2026 18:54
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./main.tex
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLa
+TeX and XeLaTeX
+\babel@savecnt=\count284
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2068.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2070.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2072.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2073.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2074.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2076.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2101.
+\U@D=\dimen149
+\l@unhyphenated=\language79
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count285
+Package babel Info: Configuration files are deprecated, as
+(babel)             they can break document portability.
+(babel)             Reported on input line 4196.
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/fr\babel
+-french.tex)
+Package babel Info: Importing font and identification data for french
+(babel)             from babel-fr.ini. Reported on input line 4320.
+ (C:\Program Files\MiKTeX\tex/generic/babel-french\french.ldf
+Language: french 2025-08-15 v4.0e French support from the babel system
+
+(C:\Program Files\MiKTeX\tex/generic/babel-french\french3.ldf
+Language: french 2025-08-15 v3.7e French support from the babel system
+\FB@stdchar=\count286
+Package babel Info: Making : an active character on input line 273.
+Package babel Info: Making ; an active character on input line 274.
+Package babel Info: Making ! an active character on input line 275.
+Package babel Info: Making ? an active character on input line 276.
+\FBguill@level=\count287
+\FBold@everypar=\toks19
+\FB@Mht=\dimen150
+\mc@charclass=\count288
+\mc@charfam=\count289
+\mc@charslot=\count290
+\std@mcc=\count291
+\dec@mcc=\count292
+\FB@pardim=\dimen151
+\listindentFB=\dimen152
+\descindentFB=\dimen153
+\labelindentFB=\dimen154
+\labelwidthFB=\dimen155
+\leftmarginFB=\dimen156
+\parindentFFN=\dimen157
+\FBfnindent=\dimen158
+)))
+(C:\Program Files\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+(C:\Program Files\MiKTeX\tex/latex/a4wide\a4wide.sty
+Package: a4wide 1994/08/30
+
+(C:\Program Files\MiKTeX\tex/latex/ntgclass\a4.sty
+Package: a4 2025/12/29 v1.2g A4 based page layout
+))
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen159
+\Gin@req@width=\dimen160
+) (C:\Program Files\MiKTeX\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen161
+\ar@mcellbox=\box53
+\extrarowheight=\dimen162
+\NC@list=\toks21
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box54
+)
+(C:\Program Files\MiKTeX\tex/latex/fontawesome\fontawesome.sty
+Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(C:\Program Files\MiKTeX\tex/latex/fontawesome\fontawesomesymbols-generic.tex)
+(C:\Program Files\MiKTeX\tex/latex/fontawesome\fontawesomesymbols-pdftex.tex))
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen163
+\TX@old@table=\dimen164
+\TX@old@col=\dimen165
+\TX@target=\dimen166
+\TX@delta=\dimen167
+\TX@cols=\count293
+\TX@ftn=\toks22
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (C:\Program Files\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
+\everycr=\toks23
+\minrowclearance=\skip53
+\rownum=\count294
+)
+(C:\Program Files\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen168
+\WF@size=\dimen169
+\c@WF@wrappedlines=\count295
+\WF@box=\box55
+\WF@everypar=\toks24
+Package: wrapfig 2003/01/31  v 3.6
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count296
+\LTcapwidth=\dimen170
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count297
+\LT@rows=\count298
+\c@LT@tables=\count299
+\c@LT@chunks=\count300
+\LT@p@ftn=\toks25
+)
+(C:\Program Files\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count301
+\float@exts=\toks26
+\float@box=\box61
+\@float@everytoks=\toks27
+\@floatcapt=\box62
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+(C:\Program Files\MiKTeX\tex/latex/algorithm2e\algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count302
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip58
+
+(C:\Program Files\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count303
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(C:\Program Files\MiKTeX\tex/latex/relsize\relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip59
+\skiplinenumber=\skip60
+\skiprule=\skip61
+\skiphlne=\skip62
+\skiptext=\skip63
+\skiplength=\skip64
+\algomargin=\skip65
+\skipalgocfslide=\skip66
+\algowidth=\dimen171
+\inoutsize=\dimen172
+\inoutindent=\dimen173
+\interspacetitleruled=\dimen174
+\interspacealgoruled=\dimen175
+\interspacetitleboxruled=\dimen176
+\algocf@ruledwidth=\skip67
+\algocf@inoutbox=\box63
+\algocf@inputbox=\box64
+\AlCapSkip=\skip68
+\AlCapHSkip=\skip69
+\algoskipindent=\skip70
+\algocf@nlbox=\box65
+\algocf@hangingbox=\box66
+\algocf@untilbox=\box67
+\algocf@skipuntil=\skip71
+\algocf@capbox=\box68
+\algocf@lcaptionbox=\skip72
+\algoheightruledefault=\skip73
+\algoheightrule=\skip74
+\algotitleheightruledefault=\skip75
+\algotitleheightrule=\skip76
+\c@algocfline=\count304
+\c@algocfproc=\count305
+\c@algocf=\count306
+\algocf@algoframe=\box69
+\algocf@algobox=\box70
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\afterpage.sty
+Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
+\AP@output=\toks28
+\AP@partial=\box71
+\AP@footins=\box72
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
+Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
+\c@r@tfl@t=\count307
+\rotFPtop=\skip77
+\rotFPbot=\skip78
+\rot@float@box=\box73
+\rot@mess@toks=\toks29
+)
+(C:\Program Files\MiKTeX\tex/latex/tocbibind\tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (C:\Program Files\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+Package: pdfpages 2026/03/30 v0.6h Insert pages of external PDF documents (AM)
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count308
+\calc@Bcount=\count309
+\calc@Adimen=\dimen177
+\calc@Bdimen=\dimen178
+\calc@Askip=\skip79
+\calc@Bskip=\skip80
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count310
+\calc@Cskip=\skip81
+)
+(C:\Program Files\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+Package: eso-pic 2025/12/10 v3.0d eso-pic (RN)
+\ESO@tempdima=\dimen179
+\ESO@tempdimb=\dimen180
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count311
+)
+\AM@pagewidth=\dimen181
+\AM@pageheight=\dimen182
+\AM@fboxrule=\dimen183
+
+(C:\Program Files\MiKTeX\tex/latex/pdfpages\pppdftex.def
+File: pppdftex.def 2026/03/30 v0.6h Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count312
+\AM@pagebox=\box74
+\AM@global@opts=\toks30
+\AM@pagecnt=\count313
+\AM@toc@title=\toks31
+\AM@lof@heading=\toks32
+\c@AM@survey=\count314
+\AM@templatesizebox=\box75
+)
+(C:\Program Files\MiKTeX\tex/latex/subfig\subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(C:\Program Files\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Program Files\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen184
+\captionmargin=\dimen185
+\caption@leftmargin=\dimen186
+\caption@rightmargin=\dimen187
+\caption@width=\dimen188
+\caption@indent=\dimen189
+\caption@parindent=\dimen190
+\caption@hangindent=\dimen191
+Package caption Info: Standard document class detected.
+Package caption Info: french babel package is loaded.
+)
+\c@caption@flags=\count315
+\c@continuedfloat=\count316
+Package caption Info: float package is loaded.
+Package caption Info: longtable package is loaded.
+
+(C:\Program Files\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: rotating package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+\c@KVtest=\count317
+\sf@farskip=\skip82
+\sf@captopadj=\dimen192
+\sf@capskip=\skip83
+\sf@nearskip=\skip84
+\c@subfigure=\count318
+\c@subfigure@save=\count319
+\c@lofdepth=\count320
+\c@subtable=\count321
+\c@subtable@save=\count322
+\c@lotdepth=\count323
+\sf@top=\skip85
+\sf@bottom=\skip86
+)
+\figureheight=\skip87
+\figurewidth=\skip88
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(C:\Program Files\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Program Files\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+ (C:\Program Files\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(C:\Program Files\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(C:\Program Files\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Program Files\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count324
+)
+(C:\Program Files\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen193
+\Hy@linkcounter=\count325
+\Hy@pagecounter=\count326
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Program Files\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count327
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count328
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen194
+
+(C:\Program Files\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Program Files\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count329
+\Field@Width=\dimen195
+\Fld@charsize=\dimen196
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count330
+\c@Item=\count331
+\c@Hfootnote=\count332
+)
+Package hyperref Info: Driver: hpdftex.
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count333
+\c@bookmark@seq@number=\count334
+
+(C:\Program Files\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Program Files\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip89
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 48.
+
+(C:\Program Files\MiKTeX\tex/latex/changepage\changepage.sty
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count335
+\cp@tempcnt=\count336
+LaTeX Info: Redefining \checkoddpage on input line 59.
+)
+(C:\Program Files\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen197
+\lightrulewidth=\dimen198
+\cmidrulewidth=\dimen199
+\belowrulesep=\dimen256
+\belowbottomsep=\dimen257
+\aboverulesep=\dimen258
+\abovetopsep=\dimen259
+\cmidrulesep=\dimen260
+\cmidrulekern=\dimen261
+\defaultaddspace=\dimen262
+\@cmidla=\count337
+\@cmidlb=\count338
+\@aboverulesep=\dimen263
+\@belowrulesep=\dimen264
+\@thisruleclass=\count339
+\@lastruleclass=\count340
+\@thisrulewidth=\dimen265
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip90
+\RaggedLeftLeftskip=\skip91
+\RaggedRightLeftskip=\skip92
+\CenteringRightskip=\skip93
+\RaggedLeftRightskip=\skip94
+\RaggedRightRightskip=\skip95
+\CenteringParfillskip=\skip96
+\RaggedLeftParfillskip=\skip97
+\RaggedRightParfillskip=\skip98
+\JustifyingParfillskip=\skip99
+\CenteringParindent=\skip100
+\RaggedLeftParindent=\skip101
+\RaggedRightParindent=\skip102
+\JustifyingParindent=\skip103
+)
+(C:\Program Files\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count341
+\Gm@cntv=\count342
+\c@Gm@tempcnt=\count343
+\Gm@bindingoffset=\dimen266
+\Gm@wd@mp=\dimen267
+\Gm@odd@mp=\dimen268
+\Gm@even@mp=\dimen269
+\Gm@layoutwidth=\dimen270
+\Gm@layoutheight=\dimen271
+\Gm@layouthoffset=\dimen272
+\Gm@layoutvoffset=\dimen273
+\Gm@dimlist=\toks33
+
+(C:\Program Files\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Program Files\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+LaTeX Info: Redefining \subref on input line 189.
+Package subcaption Info: The counter `subfigure' was already defined by
+(subcaption)             \newsubfloat (offered by the subfig package) on input 
+line 238.
+Package subcaption Info: The counter `subtable' was already defined by
+(subcaption)             \newsubfloat (offered by the subfig package) on input 
+line 238.
+)
+(C:\Program Files\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip104
+\enit@outerparindent=\dimen274
+\enit@toks=\toks34
+\enit@inbox=\box76
+\enit@count@id=\count344
+\enitdp@description=\count345
+)
+\enitdp@tabitemize=\count346
+
+(C:\Program Files\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip105
+\multirow@cntb=\count347
+\multirow@dima=\skip106
+\bigstrutjot=\dimen275
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 72.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 72.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 72.
+
+(C:\Program Files\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip107
+\f@nch@offset@elh=\skip108
+\f@nch@offset@erh=\skip109
+\f@nch@offset@olh=\skip110
+\f@nch@offset@orh=\skip111
+\f@nch@offset@elf=\skip112
+\f@nch@offset@erf=\skip113
+\f@nch@offset@olf=\skip114
+\f@nch@offset@orf=\skip115
+\f@nch@height=\skip116
+\f@nch@footalignment=\skip117
+\f@nch@widthL=\skip118
+\f@nch@widthC=\skip119
+\f@nch@widthR=\skip120
+\@temptokenb=\toks35
+)
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 84.
+
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 85.
+
+(C:\Program Files\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks36
+\thm@bodyfont=\toks37
+\thm@headfont=\toks38
+\thm@notefont=\toks39
+\thm@headpunct=\toks40
+\thm@preskip=\skip121
+\thm@postskip=\skip122
+\thm@headsep=\skip123
+\dth@everypar=\toks41
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks42
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip124
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks43
+\ex@=\dimen276
+))
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen277
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count348
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count349
+\leftroot@=\count350
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count351
+\DOTSCASE@=\count352
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box77
+\strutbox@=\box78
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen278
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count353
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count354
+\dotsspace@=\muskip18
+\c@parentequation=\count355
+\dspbrk@lvl=\count356
+\tag@help=\toks44
+\row@=\count357
+\column@=\count358
+\maxfields@=\count359
+\andhelp@=\toks45
+\eqnshift@=\dimen279
+\alignsep@=\dimen280
+\tagshift@=\dimen281
+\tagwidth@=\dimen282
+\totwidth@=\dimen283
+\lineht@=\dimen284
+\@envbody=\toks46
+\multlinegap=\skip125
+\multlinetaggap=\skip126
+\mathdisplay@stack=\toks47
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(C:\Program Files\MiKTeX\tex/latex/bbm\bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
+Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
+(C:\Program Files\MiKTeX\tex/latex/acronym\acronym.sty
+Package: acronym 2025/01/17 v1.50 Support for acronyms (Tobias Oetiker)
+
+(C:\Program Files\MiKTeX\tex/latex/bigfoot\suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
+)
+(C:\Program Files\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Program Files\MiKTeX\tex/generic/xstring\xstring.tex
+\xs_counta=\count360
+\xs_countb=\count361
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+)
+\AC@clearlist=\toks48
+)
+(C:\Program Files\MiKTeX\tex/latex/footmisc\footmisc.sty
+Package: footmisc 2025/05/09 v7.0b a miscellany of footnote facilities
+\FN@temptoken=\toks49
+\footnotemargin=\dimen285
+Package footmisc Info: Declaring symbol style bringhurst on input line 549.
+Package footmisc Info: Declaring symbol style chicago on input line 557.
+Package footmisc Info: Declaring symbol style wiley on input line 566.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 577.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 597.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 618
+.
+)
+\c@definition=\count362
+\c@theoreme=\count363
+\c@remarque=\count364
+\c@propriete=\count365
+\c@exemple=\count366
+
+(C:\Program Files\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen286
+\c@nlinenum=\count367
+\TeXr@lab=\toks50
+)
+Package french3.ldf Info: Setting StandardItemizeEnv=true for
+(french3.ldf)             compatibility with enumitem package,
+(french3.ldf)             reported on input line 219.
+Package french3.ldf Info: Setting StandardEnumerateEnv=true for
+(french3.ldf)             compatibility with enumitem package,
+(french3.ldf)             reported on input line 219.
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count368
+)
+No file main.aux.
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+Package babel Info: 'french' activates 'french' shorthands.
+(babel)             Reported on input line 219.
+LaTeX Info: Redefining \degres on input line 219.
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count369
+\scratchdimen=\dimen287
+\scratchbox=\box79
+\nofMPsegments=\count370
+\nofMParguments=\count371
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count372
+\MPscratchDim=\dimen288
+\MPnumerator=\count373
+\makeMPintoPDFobject=\count374
+\everyMPtoPDFconversion=\toks52
+)
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)) (C:\Program Files\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Program Files\MiKTeX\tex/latex/pdflscape\pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: changepage package is loaded.
+\caption@adjustwidth@hsize=\dimen289
+\caption@adjustwidth@linewidth=\dimen290
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring ON on input line 219.
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=14.5pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=54.2025pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+Package pdfpages Warning: Option `page' is unknow to \includepdf.
+(pdfpages)                Did you mean `pages'? (Note the `s'!)
+(pdfpages)                OK, I'll proceed as if it were `pages'.
+
+<cover/pagedegardeahmedfinallleee.pdf, id=3, 597.73312pt x 845.40843pt>
+File: cover/pagedegardeahmedfinallleee.pdf Graphic file (type pdf)
+<use cover/pagedegardeahmedfinallleee.pdf>
+Package pdftex.def Info: cover/pagedegardeahmedfinallleee.pdf  used on input li
+ne 220.
+(pdftex.def)             Requested size: 597.73166pt x 845.40636pt.
+<cover/pagedegardeahmedfinallleee.pdf, id=5, page=1, 597.73312pt x 845.40843pt>
+
+File: cover/pagedegardeahmedfinallleee.pdf Graphic file (type pdf)
+<use cover/pagedegardeahmedfinallleee.pdf, page 1>
+Package pdftex.def Info: cover/pagedegardeahmedfinallleee.pdf , page1 used on i
+nput line 220.
+(pdftex.def)             Requested size: 597.73166pt x 845.40636pt.
+File: cover/pagedegardeahmedfinallleee.pdf Graphic file (type pdf)
+<use cover/pagedegardeahmedfinallleee.pdf, page 1>
+Package pdftex.def Info: cover/pagedegardeahmedfinallleee.pdf , page1 used on i
+nput line 220.
+(pdftex.def)             Requested size: 597.75902pt x 845.44505pt.
+File: cover/pagedegardeahmedfinallleee.pdf Graphic file (type pdf)
+<use cover/pagedegardeahmedfinallleee.pdf, page 1>
+Package pdftex.def Info: cover/pagedegardeahmedfinallleee.pdf , page1 used on i
+nput line 220.
+(pdftex.def)             Requested size: 597.75902pt x 845.44505pt.
+File: cover/pagedegardeahmedfinallleee.pdf Graphic file (type pdf)
+<use cover/pagedegardeahmedfinallleee.pdf, page 1>
+Package pdftex.def Info: cover/pagedegardeahmedfinallleee.pdf , page1 used on i
+nput line 220.
+(pdftex.def)             Requested size: 597.75902pt x 845.44505pt.
+File: cover/pagedegardeahmedfinallleee.pdf Graphic file (type pdf)
+<use cover/pagedegardeahmedfinallleee.pdf, page 1>
+Package pdftex.def Info: cover/pagedegardeahmedfinallleee.pdf , page1 used on i
+nput line 220.
+(pdftex.def)             Requested size: 597.75902pt x 845.44505pt.
+[1
+
+
+ <./cover/pagedegardeahmedfinallleee.pdf>]
+No file main.toc.
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+[2
+
+{C:/Users/ahmed/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+No file main.lot.
+\tf@lot=\write5
+\openout5 = `main.lot'.
+
+[3
+
+
+]
+No file main.lof.
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+[4
+
+
+]
+\openout2 = `intoduction/introduction.aux'.
+
+ (intoduction/introduction.tex
+LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+
+
+(C:\Users\ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.243 \include{intoduction/introduction}
+                                         [1
+
+
+
+
+]
+\openout2 = `chapitre1/chapitre1.aux'.
+
+ (chapitre1/chapitre1.tex
+Chapitre 1.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.23     \item \textbf
+                      {Sur le plan technologique :} Comment concevoir une ar...
+[2
+
+
+
+
+]
+LaTeX Font Info:    Trying to load font information for U+fontawesometwo on inp
+ut line 49.
+ (C:\Program Files\MiKTeX\tex/latex/fontawesome\ufontawesometwo.fd
+File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
+)
+Package babel Info: 'french' activates 'french' shorthands.
+(babel)             Reported on input line 67.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.67     \item \textbf
+                      {Absence d'IA métier :} Aucune des plateformes locale...
+[3]
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.88 
+      [4]
+Overfull \hbox (3.35696pt too wide) in paragraph at lines 97--109
+ [][] 
+ []
+
+) [5]
+\openout2 = `chapitre2/chapitre2.aux'.
+
+ (chapitre2/chapitre2.tex
+Chapitre 2.
+[6
+
+
+
+
+]
+<chapitre2/figuresChap2/UML.png, id=150, 2569.6pt x 1868.9825pt>
+File: chapitre2/figuresChap2/UML.png Graphic file (type png)
+<use chapitre2/figuresChap2/UML.png>
+Package pdftex.def Info: chapitre2/figuresChap2/UML.png  used on input line 72.
+
+(pdftex.def)             Requested size: 256.97505pt x 186.9092pt.
+ [7] [8 <./chapitre2/figuresChap2/UML.png>]
+<chapitre2/figuresChap2/usercase.png, id=170, 699.61375pt x 2104.86375pt>
+File: chapitre2/figuresChap2/usercase.png Graphic file (type png)
+<use chapitre2/figuresChap2/usercase.png>
+Package pdftex.def Info: chapitre2/figuresChap2/usercase.png  used on input lin
+e 87.
+(pdftex.def)             Requested size: 199.29591pt x 599.61874pt.
+ [9 <./chapitre2/figuresChap2/usercase.png (PNG copy)>]
+<chapitre2/figuresChap2/Visiteur.png, id=177, 932.48375pt x 344.28625pt>
+File: chapitre2/figuresChap2/Visiteur.png Graphic file (type png)
+<use chapitre2/figuresChap2/Visiteur.png>
+Package pdftex.def Info: chapitre2/figuresChap2/Visiteur.png  used on input lin
+e 101.
+(pdftex.def)             Requested size: 338.58632pt x 125.00938pt.
+<chapitre2/figuresChap2/UtilisateurConnecté.png, id=178, 2314.6475pt x 431.612
+5pt>
+File: chapitre2/figuresChap2/UtilisateurConnecté.png Graphic file (type png)
+<use chapitre2/figuresChap2/UtilisateurConnecté.png>
+Package pdftex.def Info: chapitre2/figuresChap2/UtilisateurConnecté.png  used 
+on input line 110.
+(pdftex.def)             Requested size: 386.95897pt x 72.15475pt.
+<chapitre2/figuresChap2/admin.png, id=179, 1524.69624pt x 240.9pt>
+File: chapitre2/figuresChap2/admin.png Graphic file (type png)
+<use chapitre2/figuresChap2/admin.png>
+Package pdftex.def Info: chapitre2/figuresChap2/admin.png  used on input line 1
+19.
+(pdftex.def)             Requested size: 338.58632pt x 53.49438pt.
+
+
+LaTeX Warning: Reference `fig:passe_commande' on page 10 undefined on input lin
+e 128.
+
+<chapitre2/figuresChap2/passecommande.png, id=180, 1854.93pt x 698.61pt>
+File: chapitre2/figuresChap2/passecommande.png Graphic file (type png)
+<use chapitre2/figuresChap2/passecommande.png>
+Package pdftex.def Info: chapitre2/figuresChap2/passecommande.png  used on inpu
+t line 132.
+(pdftex.def)             Requested size: 435.32422pt x 163.94951pt.
+[10
+
+
+ <./chapitre2/figuresChap2/Visiteur.png> <./chapitre2/figuresChap2/UtilisateurC
+onnecté.png> <./chapitre2/figuresChap2/admin.png>]
+<chapitre2/figuresChap2/onfigurateurPC.png, id=197, 1442.38875pt x 661.47125pt>
+
+File: chapitre2/figuresChap2/onfigurateurPC.png Graphic file (type png)
+<use chapitre2/figuresChap2/onfigurateurPC.png>
+Package pdftex.def Info: chapitre2/figuresChap2/onfigurateurPC.png  used on inp
+ut line 155.
+(pdftex.def)             Requested size: 411.14528pt x 188.54144pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./chapitre2/figuresChap2/passecommande.png (PNG copy)> <./chapitre2/figur
+esChap2/onfigurateurPC.png (PNG copy)>]
+
+LaTeX Warning: Reference `fig:maquette_homepage' on page 12 undefined on input 
+line 175.
+
+<chapitre2/maquettes/homepage.png, id=206, 1433.355pt x 686.565pt>
+File: chapitre2/maquettes/homepage.png Graphic file (type png)
+<use chapitre2/maquettes/homepage.png>
+Package pdftex.def Info: chapitre2/maquettes/homepage.png  used on input line 1
+79.
+(pdftex.def)             Requested size: 459.51054pt x 220.0929pt.
+
+LaTeX Warning: Reference `fig:maquette_wheel' on page 12 undefined on input lin
+e 185.
+
+<chapitre2/maquettes/wheel_of_fortune.png, id=207, 1401.73688pt x 644.4075pt>
+File: chapitre2/maquettes/wheel_of_fortune.png Graphic file (type png)
+<use chapitre2/maquettes/wheel_of_fortune.png>
+Package pdftex.def Info: chapitre2/maquettes/wheel_of_fortune.png  used on inpu
+t line 189.
+(pdftex.def)             Requested size: 459.51054pt x 211.2392pt.
+
+Underfull \vbox (badness 5302) has occurred while \output is active []
+
+ [12 <./chapitre2/maquettes/homepage.png>]
+
+LaTeX Warning: Reference `fig:maquette_hub_ia' on page 13 undefined on input li
+ne 195.
+
+<chapitre2/maquettes/hub_ia.png, id=218, 1444.64719pt x 689.57625pt>
+File: chapitre2/maquettes/hub_ia.png Graphic file (type png)
+<use chapitre2/maquettes/hub_ia.png>
+Package pdftex.def Info: chapitre2/maquettes/hub_ia.png  used on input line 199
+.
+(pdftex.def)             Requested size: 459.51054pt x 219.3326pt.
+
+LaTeX Warning: Reference `fig:maquette_dashboard_user' on page 13 undefined on 
+input line 205.
+
+<chapitre2/maquettes/dashboard_user.png, id=219, 1444.64719pt x 660.96938pt>
+File: chapitre2/maquettes/dashboard_user.png Graphic file (type png)
+<use chapitre2/maquettes/dashboard_user.png>
+Package pdftex.def Info: chapitre2/maquettes/dashboard_user.png  used on input 
+line 209.
+(pdftex.def)             Requested size: 459.51054pt x 210.23364pt.
+[13 <./chapitre2/maquettes/wheel_of_fortune.png> <./chapitre2/maquettes/hub_ia.
+png>]) [14 <./chapitre2/maquettes/dashboard_user.png>]
+\openout2 = `chapitre3/chapitre3.aux'.
+
+ (chapitre3/chapitre3.tex
+Chapitre 3.
+<chapitre3/figuresChap3/deployment diagram.png, id=237, 1189.44376pt x 707.6437
+5pt>
+File: chapitre3/figuresChap3/deployment diagram.png Graphic file (type png)
+<use chapitre3/figuresChap3/deployment diagram.png>
+Package pdftex.def Info: chapitre3/figuresChap3/deployment diagram.png  used on
+ input line 18.
+(pdftex.def)             Requested size: 411.14528pt x 244.60165pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15
+
+
+
+
+]
+<chapitre3/figuresChap3/diagramme de classe partie 1.png, id=247, 1668.9853pt x
+ 1333.23094pt>
+File: chapitre3/figuresChap3/diagramme de classe partie 1.png Graphic file (typ
+e png)
+<use chapitre3/figuresChap3/diagramme de classe partie 1.png>
+Package pdftex.def Info: chapitre3/figuresChap3/diagramme de classe partie 1.pn
+g  used on input line 29.
+(pdftex.def)             Requested size: 459.51054pt x 367.05669pt.
+<chapitre3/figuresChap3/digramme de classe partie 2 (modele,controller).png, id
+=248, 1407.00656pt x 1333.23094pt>
+File: chapitre3/figuresChap3/digramme de classe partie 2 (modele,controller).pn
+g Graphic file (type png)
+<use chapitre3/figuresChap3/digramme de classe partie 2 (modele,controller).png
+>
+Package pdftex.def Info: chapitre3/figuresChap3/digramme de classe partie 2 (mo
+dele,controller).png  used on input line 35.
+(pdftex.def)             Requested size: 459.51054pt x 435.41064pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16 <./chapitre3/figuresChap3/deployment diagram.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17 <./chapitre3/figuresChap3/diagramme de classe partie 1.png>]
+<chapitre3/figuresChap3/Passer une commande.png, id=262, 755.82375pt x 653.4412
+5pt>
+File: chapitre3/figuresChap3/Passer une commande.png Graphic file (type png)
+<use chapitre3/figuresChap3/Passer une commande.png>
+Package pdftex.def Info: chapitre3/figuresChap3/Passer une commande.png  used o
+n input line 53.
+(pdftex.def)             Requested size: 362.77264pt x 313.6283pt.
+ [18 <./chapitre3/figuresChap3/digramme de classe partie 2 (modele,controller).
+png>]
+<chapitre3/figuresChap3/Passer une commande1.png, id=272, 1244.65pt x 905.3825p
+t>
+File: chapitre3/figuresChap3/Passer une commande1.png Graphic file (type png)
+<use chapitre3/figuresChap3/Passer une commande1.png>
+Package pdftex.def Info: chapitre3/figuresChap3/Passer une commande1.png  used 
+on input line 61.
+(pdftex.def)             Requested size: 362.77264pt x 263.88045pt.
+
+
+LaTeX Warning: Reference `fig:cmd_sys' on page 19 undefined on input line 67.
+
+
+LaTeX Warning: Reference `fig:cmd_detail' on page 19 undefined on input line 67
+.
+
+[19 <./chapitre3/figuresChap3/Passer une commande.png> <./chapitre3/figuresChap
+3/Passer une commande1.png>]
+<chapitre3/figuresChap3/Essayage virtuel.png, id=281, 724.7075pt x 653.44125pt>
+
+File: chapitre3/figuresChap3/Essayage virtuel.png Graphic file (type png)
+<use chapitre3/figuresChap3/Essayage virtuel.png>
+Package pdftex.def Info: chapitre3/figuresChap3/Essayage virtuel.png  used on i
+nput line 75.
+(pdftex.def)             Requested size: 362.77264pt x 327.09871pt.
+<chapitre3/figuresChap3/Essayage virtuel1.png, id=282, 1337.99875pt x 804.00375
+pt>
+File: chapitre3/figuresChap3/Essayage virtuel1.png Graphic file (type png)
+<use chapitre3/figuresChap3/Essayage virtuel1.png>
+Package pdftex.def Info: chapitre3/figuresChap3/Essayage virtuel1.png  used on 
+input line 83.
+(pdftex.def)             Requested size: 362.77264pt x 217.99174pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20 <./chapitre3/figuresChap3/Essayage virtuel.png>]
+
+LaTeX Warning: Reference `fig:tryon_sys' on page 21 undefined on input line 89.
+
+
+
+LaTeX Warning: Reference `fig:tryon_detail' on page 21 undefined on input line 
+89.
+
+<chapitre3/figuresChap3/PCBuilder.png, id=290, 1346.02875pt x 1550.79375pt>
+File: chapitre3/figuresChap3/PCBuilder.png Graphic file (type png)
+<use chapitre3/figuresChap3/PCBuilder.png>
+Package pdftex.def Info: chapitre3/figuresChap3/PCBuilder.png  used on input li
+ne 97.
+(pdftex.def)             Requested size: 362.77264pt x 417.96269pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21 <./chapitre3/figuresChap3/Essayage virtuel1.png>]
+File: chapitre3/figuresChap3/PCBuilder.png Graphic file (type png)
+<use chapitre3/figuresChap3/PCBuilder.png>
+Package pdftex.def Info: chapitre3/figuresChap3/PCBuilder.png  used on input li
+ne 105.
+(pdftex.def)             Requested size: 362.77264pt x 417.96269pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22 <./chapitre3/figuresChap3/PCBuilder.png>] [23]
+<chapitre3/figuresChap3/AlgorithmeGénétique.png, id=311, 833.1125pt x 862.221
+25pt>
+File: chapitre3/figuresChap3/AlgorithmeGénétique.png Graphic file (type png)
+<use chapitre3/figuresChap3/AlgorithmeGénétique.png>
+Package pdftex.def Info: chapitre3/figuresChap3/AlgorithmeGénétique.png  used
+ on input line 127.
+(pdftex.def)             Requested size: 386.95897pt x 400.48141pt.
+
+
+LaTeX Warning: Reference `fig:pc_sys' on page 24 undefined on input line 133.
+
+
+LaTeX Warning: Reference `fig:pc_detail' on page 24 undefined on input line 133
+.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.133 ... `PCBuilderUI`, `PCBuildController`, `PC_
+                                                  CSP_Service`, `PC_GA_Servi...
+
+? 
+
+LaTeX Warning: Command \' invalid in math mode on input line 133.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 133.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 133.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.134 
+      
+? 
+Missing character: There is no � in font cmr12!
+Missing character: There is no � in font cmr12!
+Missing character: There is no � in font cmr12!
+
+Overfull \hbox (559.88962pt too wide) in paragraph at lines 133--134
+\T1/cmr/m/n/12 `PC$[]\OML/cmm/m/it/12 SP[]ervice\OT1/cmr/m/n/12 `\OML/cmm/m/it/
+12 ; \OT1/cmr/m/n/12 `\OML/cmm/m/it/12 PC[]A[]ervice\OT1/cmr/m/n/12 `\OML/cmm/m
+/it/12 ; \OT1/cmr/m/n/12 `\OML/cmm/m/it/12 PCComponentsRepository\OT1/cmr/m/n/1
+2 `\OML/cmm/m/it/12 et\OT1/cmr/m/n/12 `\OML/cmm/m/it/12 Session\OT1/cmr/m/n/12 
+` : \OML/cmm/m/it/12 validationdescompatibilits\OT1/cmr/m/n/12 (\OML/cmm/m/it/1
+2 socket; RAM; format\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; optimisation; gnration
+del[]objet\OT1/cmr/m/n/12 `\OML/cmm/m/it/12 PCBuild\OT1/cmr/m/n/12 `\OML/cmm/m/
+it/12 etenregistrementdelaproposition:$ 
+ []
+
+[24 <./chapitre3/figuresChap3/AlgorithmeGénétique.png>]
+<chapitre3/figuresChap3/etat_commande.png, id=323, 773.89125pt x 968.61874pt>
+File: chapitre3/figuresChap3/etat_commande.png Graphic file (type png)
+<use chapitre3/figuresChap3/etat_commande.png>
+Package pdftex.def Info: chapitre3/figuresChap3/etat_commande.png  used on inpu
+t line 145.
+(pdftex.def)             Requested size: 411.14528pt x 514.60701pt.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25 <./chapitre3/figuresChap3/etat_commande.png>] [26]
+\openout2 = `chapitre4/chapitre4.aux'.
+
+ (chapitre4/chapitre4.tex
+Chapitre 4.
+<cover/figuresChap4/MVC.png, id=336, 2285.53876pt x 1808.7575pt>
+File: cover/figuresChap4/MVC.png Graphic file (type png)
+<use cover/figuresChap4/MVC.png>
+Package pdftex.def Info: cover/figuresChap4/MVC.png  used on input line 24.
+(pdftex.def)             Requested size: 411.37923pt x 325.5623pt.
+[27
+
+
+
+
+]
+<cover/figuresChap4/vscode.png, id=345, 463.7325pt x 110.814pt>
+File: cover/figuresChap4/vscode.png Graphic file (type png)
+<use cover/figuresChap4/vscode.png>
+Package pdftex.def Info: cover/figuresChap4/vscode.png  used on input line 68.
+(pdftex.def)             Requested size: 347.79851pt x 83.11028pt.
+
+
+LaTeX Warning: Reference `fig:vscode' on page 28 undefined on input line 73.
+
+
+LaTeX Warning: Citation `vscode' on page 28 undefined on input line 73.
+
+[28 <./cover/figuresChap4/MVC.png> <./cover/figuresChap4/vscode.png>]
+<cover/figuresChap4/overleaf (1).png, id=355, 57.21375pt x 57.21375pt>
+File: cover/figuresChap4/overleaf (1).png Graphic file (type png)
+<use cover/figuresChap4/overleaf (1).png>
+Package pdftex.def Info: cover/figuresChap4/overleaf (1).png  used on input lin
+e 78.
+(pdftex.def)             Requested size: 68.65613pt x 68.65613pt.
+
+
+LaTeX Warning: Reference `fig:overleaf' on page 29 undefined on input line 83.
+
+
+LaTeX Warning: Citation `overleaf' on page 29 undefined on input line 83.
+
+<cover/figuresChap4/github (1).png, id=356, 115.18031pt x 64.74188pt>
+File: cover/figuresChap4/github (1).png Graphic file (type png)
+<use cover/figuresChap4/github (1).png>
+Package pdftex.def Info: cover/figuresChap4/github (1).png  used on input line 
+88.
+(pdftex.def)             Requested size: 138.21565pt x 77.68985pt.
+
+LaTeX Warning: Reference `fig:github' on page 29 undefined on input line 93.
+
+
+LaTeX Warning: Citation `github' on page 29 undefined on input line 93.
+
+[29 <./cover/figuresChap4/overleaf (1).png> <./cover/figuresChap4/github (1).pn
+g>]
+<cover/figuresChap4/lucidchart-logo.png, id=365, 903.375pt x 501.875pt>
+File: cover/figuresChap4/lucidchart-logo.png Graphic file (type png)
+<use cover/figuresChap4/lucidchart-logo.png>
+Package pdftex.def Info: cover/figuresChap4/lucidchart-logo.png  used on input 
+line 98.
+(pdftex.def)             Requested size: 298.11467pt x 165.61925pt.
+
+
+LaTeX Warning: Reference `fig:lucidchart' on page 30 undefined on input line 10
+2.
+
+
+LaTeX Warning: Citation `lucidchart' on page 30 undefined on input line 102.
+
+<cover/figuresChap4/python.png, id=366, 2569.6pt x 761.84625pt>
+File: cover/figuresChap4/python.png Graphic file (type png)
+<use cover/figuresChap4/python.png>
+Package pdftex.def Info: cover/figuresChap4/python.png  used on input line 122.
+
+(pdftex.def)             Requested size: 256.97505pt x 76.18909pt.
+
+LaTeX Warning: Reference `fig:python' on page 30 undefined on input line 127.
+
+
+LaTeX Warning: Citation `python' on page 30 undefined on input line 127.
+
+[30 <./cover/figuresChap4/lucidchart-logo.png> <./cover/figuresChap4/python.png
+>]
+<cover/figuresChap4/NumPy.png, id=376, 2569.6pt x 1156.32pt>
+File: cover/figuresChap4/NumPy.png Graphic file (type png)
+<use cover/figuresChap4/NumPy.png>
+Package pdftex.def Info: cover/figuresChap4/NumPy.png  used on input line 132.
+(pdftex.def)             Requested size: 256.97505pt x 115.63876pt.
+
+
+LaTeX Warning: Reference `fig:numpy' on page 31 undefined on input line 137.
+
+
+LaTeX Warning: Citation `numpy' on page 31 undefined on input line 137.
+
+<cover/figuresChap4/NLTK.png, id=377, 594.22pt x 646.415pt>
+File: cover/figuresChap4/NLTK.png Graphic file (type png)
+<use cover/figuresChap4/NLTK.png>
+Package pdftex.def Info: cover/figuresChap4/NLTK.png  used on input line 142.
+(pdftex.def)             Requested size: 89.12915pt x 96.95805pt.
+
+LaTeX Warning: Reference `fig:nltk' on page 31 undefined on input line 147.
+
+
+LaTeX Warning: Citation `nltk' on page 31 undefined on input line 147.
+
+<cover/figuresChap4/Scikit_learn.png, id=378, 2569.6pt x 1383.1675pt>
+File: cover/figuresChap4/Scikit_learn.png Graphic file (type png)
+<use cover/figuresChap4/Scikit_learn.png>
+Package pdftex.def Info: cover/figuresChap4/Scikit_learn.png  used on input lin
+e 152.
+(pdftex.def)             Requested size: 205.5722pt x 110.65565pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31 <./cover/figuresChap4/NumPy.png> <./cover/figuresChap4/NLTK.png>]
+
+LaTeX Warning: Reference `fig:sklearn' on page 32 undefined on input line 157.
+
+
+LaTeX Warning: Citation `sklearn' on page 32 undefined on input line 157.
+
+<cover/figuresChap4/react js.png, id=387, 481.8pt x 271.0125pt>
+File: cover/figuresChap4/react js.png Graphic file (type png)
+<use cover/figuresChap4/react js.png>
+Package pdftex.def Info: cover/figuresChap4/react js.png  used on input line 17
+7.
+(pdftex.def)             Requested size: 240.8994pt x 135.5059pt.
+
+LaTeX Warning: Reference `fig:react' on page 32 undefined on input line 181.
+
+
+LaTeX Warning: Citation `react' on page 32 undefined on input line 181.
+
+
+Overfull \hbox (4.67403pt too wide) in paragraph at lines 181--182
+[]\T1/cmr/bx/n/12 React :\T1/cmr/m/n/12 React (voir fi-gure []) est une bi-blio
+-th�que Ja-vaS-cript open-source pour la construc-
+ []
+
+
+Overfull \hbox (4.18057pt too wide) in paragraph at lines 181--182
+\T1/cmr/m/n/12 tion d'in-ter-faces uti-li-sa-teur. Elle four-nit une ap-proche 
+d�-cla-ra-tive et ef-fi-cace pour construire
+ []
+
+[32 <./cover/figuresChap4/Scikit_learn.png> <./cover/figuresChap4/react js.png>
+] [33]
+
+LaTeX Warning: Reference `fig:signin' on page 34 undefined on input line 205.
+
+<chapitre4/interfaces/signinfina.PNG, id=405, 636.57825pt x 334.851pt>
+File: chapitre4/interfaces/signinfina.PNG Graphic file (type png)
+<use chapitre4/interfaces/signinfina.PNG>
+Package pdftex.def Info: chapitre4/interfaces/signinfina.PNG  used on input lin
+e 210.
+(pdftex.def)             Requested size: 509.26329pt x 267.88115pt.
+
+Overfull \hbox (25.56642pt too wide) in paragraph at lines 210--211
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `fig:accueil1' on page 34 undefined on input line 217.
+
+
+
+LaTeX Warning: Reference `fig:accueil2' on page 34 undefined on input line 217.
+
+
+<chapitre4/interfaces/dashboard1.PNG, id=406, 1156.32pt x 555.87675pt>
+File: chapitre4/interfaces/dashboard1.PNG Graphic file (type png)
+<use chapitre4/interfaces/dashboard1.PNG>
+Package pdftex.def Info: chapitre4/interfaces/dashboard1.PNG  used on input lin
+e 221.
+(pdftex.def)             Requested size: 520.3392pt x 250.14223pt.
+
+Overfull \hbox (36.64233pt too wide) in paragraph at lines 221--222
+ [][] 
+ []
+
+<chapitre4/interfaces/dashboard2.PNG, id=407, 1156.32pt x 555.2745pt>
+File: chapitre4/interfaces/dashboard2.PNG Graphic file (type png)
+<use chapitre4/interfaces/dashboard2.PNG>
+Package pdftex.def Info: chapitre4/interfaces/dashboard2.PNG  used on input lin
+e 227.
+(pdftex.def)             Requested size: 520.3392pt x 249.87122pt.
+
+Overfull \hbox (36.64233pt too wide) in paragraph at lines 227--228
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34 <./chapitre4/interfaces/signinfina.PNG>]
+
+LaTeX Warning: Reference `fig:filemanag' on page 35 undefined on input line 235
+.
+
+
+LaTeX Warning: Reference `fig:file' on page 35 undefined on input line 235.
+
+
+LaTeX Warning: Reference `fig:folder' on page 35 undefined on input line 235.
+
+<chapitre4/interfaces/file manager.PNG, id=416, 1155.71774pt x 555.2745pt>
+File: chapitre4/interfaces/file manager.PNG Graphic file (type png)
+<use chapitre4/interfaces/file manager.PNG>
+Package pdftex.def Info: chapitre4/interfaces/file manager.PNG  used on input l
+ine 239.
+(pdftex.def)             Requested size: 520.06819pt x 249.87122pt.
+
+Overfull \hbox (36.37132pt too wide) in paragraph at lines 239--240
+ [][] 
+ []
+
+<chapitre4/interfaces/file.PNG, id=417, 245.718pt x 444.4605pt>
+File: chapitre4/interfaces/file.PNG Graphic file (type png)
+<use chapitre4/interfaces/file.PNG>
+Package pdftex.def Info: chapitre4/interfaces/file.PNG  used on input line 245.
+
+(pdftex.def)             Requested size: 167.08601pt x 302.22914pt.
+[35 <./chapitre4/interfaces/dashboard1.PNG> <./chapitre4/interfaces/dashboard2.
+PNG>]
+<chapitre4/interfaces/folder.PNG, id=427, 201.1515pt x 462.528pt>
+File: chapitre4/interfaces/folder.PNG Graphic file (type png)
+<use chapitre4/interfaces/folder.PNG>
+Package pdftex.def Info: chapitre4/interfaces/folder.PNG  used on input line 25
+1.
+(pdftex.def)             Requested size: 140.80508pt x 323.76738pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36 <./chapitre4/interfaces/file manager.PNG> <./chapitre4/interfaces/file.PNG
+>]
+
+LaTeX Warning: Reference `fig:calendar' on page 37 undefined on input line 259.
+
+
+
+LaTeX Warning: Reference `fig:addevent' on page 37 undefined on input line 259.
+
+
+
+LaTeX Warning: Reference `fig:editlabelcal' on page 37 undefined on input line 
+259.
+
+<chapitre4/interfaces/calendar.PNG, id=436, 1156.32pt x 556.479pt>
+File: chapitre4/interfaces/calendar.PNG Graphic file (type png)
+<use chapitre4/interfaces/calendar.PNG>
+Package pdftex.def Info: chapitre4/interfaces/calendar.PNG  used on input line 
+262.
+(pdftex.def)             Requested size: 520.3392pt x 250.41324pt.
+
+Overfull \hbox (36.64233pt too wide) in paragraph at lines 262--263
+ [][] 
+ []
+
+<chapitre4/interfaces/add event.PNG, id=437, 288.47775pt x 333.04425pt>
+File: chapitre4/interfaces/add event.PNG Graphic file (type png)
+<use chapitre4/interfaces/add event.PNG>
+Package pdftex.def Info: chapitre4/interfaces/add event.PNG  used on input line
+ 268.
+(pdftex.def)             Requested size: 201.93304pt x 233.12938pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37 <./chapitre4/interfaces/folder.PNG>]
+<chapitre4/interfaces/edit label calendar.PNG, id=445, 194.52675pt x 255.354pt>
+
+File: chapitre4/interfaces/edit label calendar.PNG Graphic file (type png)
+<use chapitre4/interfaces/edit label calendar.PNG>
+Package pdftex.def Info: chapitre4/interfaces/edit label calendar.PNG  used on 
+input line 274.
+(pdftex.def)             Requested size: 136.16779pt x 178.74658pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38 <./chapitre4/interfaces/calendar.PNG> <./chapitre4/interfaces/add event.PN
+G>]
+
+LaTeX Warning: Reference `fig:notesinter' on page 39 undefined on input line 28
+2.
+
+
+LaTeX Warning: Reference `fig:addnote' on page 39 undefined on input line 282.
+
+<chapitre4/interfaces/notes.PNG, id=454, 1156.32pt x 555.2745pt>
+File: chapitre4/interfaces/notes.PNG Graphic file (type png)
+<use chapitre4/interfaces/notes.PNG>
+Package pdftex.def Info: chapitre4/interfaces/notes.PNG  used on input line 285
+.
+(pdftex.def)             Requested size: 520.3392pt x 249.87122pt.
+
+Overfull \hbox (36.64233pt too wide) in paragraph at lines 285--286
+ [][] 
+ []
+
+<chapitre4/interfaces/add note.PNG, id=455, 311.36325pt x 140.9265pt>
+File: chapitre4/interfaces/add note.PNG Graphic file (type png)
+<use chapitre4/interfaces/add note.PNG>
+Package pdftex.def Info: chapitre4/interfaces/add note.PNG  used on input line 
+291.
+(pdftex.def)             Requested size: 249.09093pt x 112.74133pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39 <./chapitre4/interfaces/edit label calendar.PNG> <./chapitre4/interfaces/n
+otes.PNG>]
+
+LaTeX Warning: Reference `fig:taches' on page 40 undefined on input line 299.
+
+
+LaTeX Warning: Reference `fig:addtask' on page 40 undefined on input line 299.
+
+
+LaTeX Warning: Reference `fig:addsection' on page 40 undefined on input line 29
+9.
+
+<chapitre4/interfaces/taches.PNG, id=466, 1156.32pt x 555.2745pt>
+File: chapitre4/interfaces/taches.PNG Graphic file (type png)
+<use chapitre4/interfaces/taches.PNG>
+Package pdftex.def Info: chapitre4/interfaces/taches.PNG  used on input line 30
+2.
+(pdftex.def)             Requested size: 520.3392pt x 249.87122pt.
+
+Overfull \hbox (36.64233pt too wide) in paragraph at lines 302--303
+ [][] 
+ []
+
+<chapitre4/interfaces/add task.PNG, id=467, 385.44pt x 516.12825pt>
+File: chapitre4/interfaces/add task.PNG Graphic file (type png)
+<use chapitre4/interfaces/add task.PNG>
+Package pdftex.def Info: chapitre4/interfaces/add task.PNG  used on input line 
+308.
+(pdftex.def)             Requested size: 308.35242pt x 412.90315pt.
+<chapitre4/interfaces/add section.PNG, id=468, 385.44pt x 517.935pt>
+File: chapitre4/interfaces/add section.PNG Graphic file (type png)
+<use chapitre4/interfaces/add section.PNG>
+Package pdftex.def Info: chapitre4/interfaces/add section.PNG  used on input li
+ne 314.
+(pdftex.def)             Requested size: 308.35242pt x 414.34854pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40 <./chapitre4/interfaces/add note.PNG> <./chapitre4/interfaces/taches.PNG>]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [41 <./chapitre4/interfaces/add task.PNG>]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 323.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [42 <./chapitre4/interfaces/add section.PNG>]
+<chapitre4/algorithmqsqsqsq.jpg, id=492, 460.119pt x 443.85825pt>
+File: chapitre4/algorithmqsqsqsq.jpg Graphic file (type jpg)
+<use chapitre4/algorithmqsqsqsq.jpg>
+Package pdftex.def Info: chapitre4/algorithmqsqsqsq.jpg  used on input line 380
+.
+(pdftex.def)             Requested size: 368.0957pt x 355.08707pt.
+
+Underfull \vbox (badness 5726) has occurred while \output is active []
+
+ [43]
+[44 <./chapitre4/algorithmqsqsqsq.jpg>]
+
+LaTeX Warning: Reference `fig:process' on page 45 undefined on input line 385.
+
+<chapitre4/general process.png, id=511, 743.77875pt x 432.61626pt>
+File: chapitre4/general process.png Graphic file (type png)
+<use chapitre4/general process.png>
+Package pdftex.def Info: chapitre4/general process.png  used on input line 389.
+
+(pdftex.def)             Requested size: 520.64157pt x 302.82932pt.
+
+Overfull \hbox (36.9447pt too wide) in paragraph at lines 389--390
+ [][] 
+ []
+
+[45 <./chapitre4/general process.png>] [46]) [47]
+\openout2 = `conclusion/conclusion.aux'.
+
+ (conclusion/conclusion.tex)
+[48
+
+
+
+
+] (main.bbl)
+\openout2 = `resume/resume.aux'.
+
+ (resume/resume.tex
+
+LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <20> not available
+(Font)              size <20.74> substituted on input line 6.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <20> not available
+(Font)              size <20.74> substituted on input line 6.
+
+) [49
+
+
+
+
+] (main.aux (intoduction/introduction.aux) (chapitre1/chapitre1.aux)
+(chapitre2/chapitre2.aux) (chapitre3/chapitre3.aux) (chapitre4/chapitre4.aux)
+(conclusion/conclusion.aux) (resume/resume.aux))
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.74pt have occurred.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  FD395616FD80B973BAF8CFF27632BAEC;13993.
+ ) 
+Here is how much of TeX's memory you used:
+ 21533 strings out of 467871
+ 357665 string characters out of 5418376
+ 804668 words of memory out of 5000000
+ 49837 multiletter control sequences out of 15000+600000
+ 643176 words of font info for 76 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,17n,83p,1006b,796s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\ahmed\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
+2074.pk>
+!pdfTeX error: pdflatex (file FontAwesome--fontawesometwo): Font FontAwesome--f
+ontawesometwo at 720 not found
+ ==> Fatal error occurred, no output PDF file produced!

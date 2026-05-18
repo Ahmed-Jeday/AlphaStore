@@ -1,0 +1,96 @@
+\relax 
+\providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
+\@nameuse{bbl@beforestart}
+\catcode `:\active 
+\catcode `;\active 
+\catcode `!\active 
+\catcode `?\active 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\babel@aux{french}{}
+\gdef \LT@i {\LT@entry 
+    {1}{126.61101pt}\LT@entry 
+    {1}{69.3055pt}\LT@entry 
+    {1}{69.3055pt}\LT@entry 
+    {1}{69.3055pt}\LT@entry 
+    {1}{97.75826pt}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{3}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Méthodologie d'Exécution des Tests}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Environnement de Test}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Outils Utilisés}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Résumé de l'Exécution des Tests}{3}{section.3}\protected@file@percent }
+\gdef \LT@ii {\LT@entry 
+    {1}{46.9432pt}\LT@entry 
+    {1}{111.98463pt}\LT@entry 
+    {1}{111.98463pt}\LT@entry 
+    {1}{111.98463pt}\LT@entry 
+    {1}{83.53188pt}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Résultats Détaillés des Tests de Sécurité}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Tableau Récapitulatif}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Analyse Approfondie par Test}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Test 1 --- Injection SQL (sqlmap)}{4}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Évidence SEC-01 : Résultat de l'analyse automatisée par sqlmap indiquant l'absence d'injections SQL exploitables.}}{5}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:sqlmap}{{1}{5}{Évidence SEC-01 : Résultat de l'analyse automatisée par sqlmap indiquant l'absence d'injections SQL exploitables}{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Test 2 --- Brute Force Login (Hydra)}{5}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Évidence SEC-02a : Lancement de l'attaque par dictionnaire avec Hydra sur le formulaire de connexion.}}{5}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:hydra}{{2}{5}{Évidence SEC-02a : Lancement de l'attaque par dictionnaire avec Hydra sur le formulaire de connexion}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Évidence SEC-02b : Succès de l'attaque par force brute avec extraction d'un mot de passe valide par dictionnaire.}}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:hydra_2}{{3}{5}{Évidence SEC-02b : Succès de l'attaque par force brute avec extraction d'un mot de passe valide par dictionnaire}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Test 3 --- Session Hijacking (EditThisCookie)}{5}{subsubsection.4.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Évidence SEC-03a : Capture du cookie de session utilisateur authentique (sessinonID).}}{6}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:sessinonID}{{4}{6}{Évidence SEC-03a : Capture du cookie de session utilisateur authentique (sessinonID)}{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Évidence SEC-03b : Importation manuelle du cookie de session volé sur un autre navigateur via EditThisCookie.}}{6}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:sessionid2}{{5}{6}{Évidence SEC-03b : Importation manuelle du cookie de session volé sur un autre navigateur via EditThisCookie}{figure.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Évidence SEC-03c : Usurpation d'identité réussie avec accès direct au compte cible sans mot de passe.}}{6}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:sessionid3}{{6}{6}{Évidence SEC-03c : Usurpation d'identité réussie avec accès direct au compte cible sans mot de passe}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Test 4 --- Cross-Site Scripting (XSS)}{6}{subsubsection.4.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{XSStrike (Fuzzing) \& Injection Manuelle}{6}{section*.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Évidence SEC-05 : Blocage d'une tentative classique d'injection de script Cross-Site Scripting manuel.}}{7}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:xss}{{7}{7}{Évidence SEC-05 : Blocage d'une tentative classique d'injection de script Cross-Site Scripting manuel}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Évidence SEC-04a : Détection de vulnérabilités d'injection XSS via fuzzing automatisé.}}{7}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:xss_2}{{8}{7}{Évidence SEC-04a : Détection de vulnérabilités d'injection XSS via fuzzing automatisé}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Évidence SEC-04b : Fuzzing avancé avec XSStrike révélant plusieurs vecteurs d'attaque non filtrés.}}{8}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:xxstrike}{{9}{8}{Évidence SEC-04b : Fuzzing avancé avec XSStrike révélant plusieurs vecteurs d'attaque non filtrés}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {paragraph}{Injection de Métadonnées (ExifTool)}{8}{section*.12}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Évidence SEC-06a : Préparation et injection d'un payload malveillant dans les métadonnées EXIF d'une image.}}{8}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:injection_image}{{10}{8}{Évidence SEC-06a : Préparation et injection d'un payload malveillant dans les métadonnées EXIF d'une image}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Évidence SEC-06b : Upload réussi de l'image de test et validation que le payload de métadonnées EXIF n'est pas exécuté par l'application.}}{8}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:resulta_injecction_image}{{11}{8}{Évidence SEC-06b : Upload réussi de l'image de test et validation que le payload de métadonnées EXIF n'est pas exécuté par l'application}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.5}Test 5 --- Accès au Dashboard Admin}{9}{subsubsection.4.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Tests de Performance}{9}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Plan de Test de Performance}{9}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Plan de test de performance en 5 étapes.}}{9}{figure.caption.15}\protected@file@percent }
+\gdef \LT@iii {\LT@entry 
+    {1}{83.93187pt}\LT@entry 
+    {1}{111.98463pt}\LT@entry 
+    {1}{55.07912pt}\LT@entry 
+    {1}{55.07912pt}\LT@entry 
+    {1}{126.21101pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Résultats des Tests}{10}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Évidences et Captures d'Écran par Étape}{10}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Étape 1 : Test de fumée (Smoke Test) --- Excellent comportement avec temps de réponse moyen stable à 76 ms.}}{10}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:perf_etape1}{{13}{10}{Étape 1 : Test de fumée (Smoke Test) --- Excellent comportement avec temps de réponse moyen stable à 76 ms}{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Étape 2 : Test de charge nominale (Load Test) avec 1 000 utilisateurs --- Courbe de performance linéaire et stable (85 ms).}}{10}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:perf_etape2}{{14}{10}{Étape 2 : Test de charge nominale (Load Test) avec 1 000 utilisateurs --- Courbe de performance linéaire et stable (85 ms)}{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Étape 3 : Pic de charge (Peak Load Test) avec 10 000 requêtes --- Capacité maximale atteinte sans aucune perte de paquets (0\% d'erreur).}}{11}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:perf_etape3}{{15}{11}{Étape 3 : Pic de charge (Peak Load Test) avec 10 000 requêtes --- Capacité maximale atteinte sans aucune perte de paquets (0\% d'erreur)}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Étape 4 : Test de stress à 50 000 requêtes --- Dégradation sévère des temps de réponse (6,5 s) et apparition de 36,96\% d'erreurs.}}{11}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:perf_etape4}{{16}{11}{Étape 4 : Test de stress à 50 000 requêtes --- Dégradation sévère des temps de réponse (6,5 s) et apparition de 36,96\% d'erreurs}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Étape 5a : Lancement du test d'endurance avec 10 000 requêtes continues.}}{11}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:perf_etape5}{{17}{11}{Étape 5a : Lancement du test d'endurance avec 10 000 requêtes continues}{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Étape 5b : Point de rupture et crash de l'infrastructure après saturation complète de la mémoire RAM/CPU.}}{11}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:perf_etape5_2}{{18}{11}{Étape 5b : Point de rupture et crash de l'infrastructure après saturation complète de la mémoire RAM/CPU}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Analyse et Interprétation}{11}{subsection.5.4}\protected@file@percent }
+\gdef \LT@iv {\LT@entry 
+    {1}{55.47911pt}\LT@entry 
+    {1}{154.66377pt}\LT@entry 
+    {1}{69.3055pt}\LT@entry 
+    {1}{111.98463pt}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Métriques de Qualité et Analyse des Défauts}{12}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Défauts Identifiés}{12}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Indicateurs de Performance (KPI)}{12}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Discussion et Interprétation}{12}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Recommandations Techniques}{12}{section.8}\protected@file@percent }
+\gdef \@abspage@last{13}

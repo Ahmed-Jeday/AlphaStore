@@ -1,0 +1,53 @@
+\babel@toc {french}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Logo d'UML}}{8}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Diagramme de cas d'utilisation global}}{9}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Diagramme de cas d'utilisation - Acteur Visiteur}}{10}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagramme de cas d'utilisation - Acteur Client}}{10}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Diagramme de cas d'utilisation - Acteur Administrateur}}{10}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Détail du cas d'utilisation << Passer une commande >>}}{11}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Détail du cas d'utilisation << Configurateur PC IA >>}}{11}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Maquette de la Page d'accueil dynamique}}{12}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Maquette du Système de gamification (Roue des prix)}}{13}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Maquette du Hub d'Intelligence Artificielle}}{13}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Maquette du Tableau de bord utilisateur}}{14}{figure.caption.28}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagramme de déploiement d'Alpha Store}}{16}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagramme de classes global d'Alpha Store}}{17}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagramme de classes pour modele et connroller}}{18}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Diagramme système : Passer une commande}}{19}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagramme détaillé : Passer une commande}}{19}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagramme système : Essayage virtuel}}{20}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagramme détaillé : Essayage virtuel}}{21}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagramme système : build pc}}{22}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagramme détaillé : build pc}}{23}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagramme d'activité de l'Algorithme Génétique}}{24}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Diagramme d'état/transition de l'objet commande}}{25}{figure.caption.42}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Fonctionnement du modèle MVC }}{28}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Logo de Vscode }}{28}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Logo de Overleaf }}{29}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Logo de Github }}{29}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Logo de Lucidchart }}{30}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Logo de Python }}{30}{figure.caption.48}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Logo de NumPy }}{31}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Logo de NLTK }}{31}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Logo de Scikit-learn}}{32}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Logo de React}}{32}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Interface d’authentification}}{34}{figure.caption.54}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Interface d’accueil (1)}}{35}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Interface d’accueil (2)}}{35}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Interface de gestionnaire de fichiers}}{36}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Interface de fichier}}{36}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Interface de dossier}}{37}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Interface de calendrier}}{38}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Interface d'ajout d'un nouveau événement}}{38}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Interface de modification de labels}}{39}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Interface de notes}}{39}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Interface d'ajout d'une nouvelle note}}{40}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Interface de tâches}}{40}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Interface d'ajout d'une nouvelle tâche}}{41}{figure.caption.66}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Interface d'ajout d'une nouvelle section}}{42}{figure.caption.67}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Algorithme d'association de matière }}{44}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Processus général de notre solution proposée}}{45}{figure.caption.72}%
