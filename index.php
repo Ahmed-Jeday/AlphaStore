@@ -169,6 +169,14 @@ if ($action === "verif_code") {
     exit;
 }
 
+if ($action === "resend_otp") {
+    require_once(__DIR__ . "/Controller/AuthController.php");
+    $email = $_POST["email"] ?? '';
+    resendOTP($email);
+    header("Location: View/html/verifie.php?email=" . urlencode($email) . "&resent=1");
+    exit;
+}
+
 if ($action === null) {
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $script_name = $_SERVER['SCRIPT_NAME'];

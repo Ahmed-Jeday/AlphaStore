@@ -36,12 +36,18 @@ function AddUser( $data)
         return $errors;
     }
 
+    $user = new User();
+
+    // Supprimer un éventuel compte existant non vérifié avec cet email
+    $existingUser = $user->getUserByEmail($data['email']);
+    if ($existingUser && $existingUser['is_verified'] == 0) {
+        $user->deleteUnverifiedUser($data['email']);
+    }
+
     $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
       // Générer code
     $code = rand(100000, 999999);
     $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
-
-    $user = new User();
 
     $res = $user->registerUser(
         $data['user_name'],
@@ -79,6 +85,23 @@ function verifOTP($email, $code)
     return true; // Retourne true si tout est OK
 }
 
+function resendOTP($email) {
+    $userModel = new User();
+    $userData = $userModel->getUserByEmail($email);
+    
+    if (!$userData || $userData['is_verified'] == 1) {
+        return false;
+    }
+    
+    $code = rand(100000, 999999);
+    $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
+    
+    $userModel->updateVerificationCode($email, $code, $expiry);
+    
+    $mailer = new MailerService();
+    return $mailer->sendValidationEmail($email, $code);
+}
+
 function loginUser($cnx, $data) {
     $loginLog = new LoginLog();
     
@@ -91,29 +114,44 @@ function loginUser($cnx, $data) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // 2. Si l'utilisateur existe
-    if ($user && $user["is_verified"] == 1) {
+    if ($user) {
         // 3. Vérification du mot de passe haché
-
         if (password_verify($data['password'], $user['password'])) {
-            
-            // Log successful attempt
-            $loginLog->logLoginAttempt($user['id'], $user['email'], 'success');
+            if ($user["is_verified"] == 1) {
+                // Log successful attempt
+                $loginLog->logLoginAttempt($user['id'], $user['email'], 'success');
 
-            // 4. Gestion de la session
-            if (session_status() === PHP_SESSION_NONE) {
-                session_start();
+                // 4. Gestion de la session
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+                
+                session_regenerate_id(true); // Sécurité contre la fixation de session
+                
+                $_SESSION["user_id"] = $user["id"];
+                $_SESSION["user_name"] = $user["name"];
+                $_SESSION["user_email"] = $user["email"];
+               
+                
+                // 5. Redirection
+                header("Location: ../user_Dashboard/index.php");
+                exit;
+            } else {
+                // Compte non vérifié ! On régénère le code OTP
+                $code = rand(100000, 999999);
+                $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
+                
+                $userModel = new User();
+                $userModel->updateVerificationCode($user['email'], $code, $expiry);
+                
+                $mailer = new MailerService();
+                $mailer->sendValidationEmail($user['email'], $code);
+                
+                // Log de tentative échouée car non vérifiée
+                $loginLog->logLoginAttempt($user['id'], $user['email'], 'failed');
+                
+                return ['unverified' => true, 'email' => $user['email']];
             }
-            
-            session_regenerate_id(true); // Sécurité contre la fixation de session
-            
-            $_SESSION["user_id"] = $user["id"];
-            $_SESSION["user_name"] = $user["name"];
-            $_SESSION["user_email"] = $user["email"];
-           
-            
-            // 5. Redirection
-            header("Location: ../user_Dashboard/index.php");
-            exit;
         } else {
             // Log failed attempt (wrong password)
             $loginLog->logLoginAttempt($user['id'], $user['email'], 'failed');

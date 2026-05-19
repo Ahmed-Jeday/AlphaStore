@@ -36,3 +36,414 @@ RTL/LTR mixing
 Exemple :
 ahmed‏@gmail.com
 (peut sembler normal visuellement mais contient caractères invisibles)
+
+# Test 1 — Tests Limites (Boundary Testing)
+
+## Scénario 1 : Nom avec 1 caractère
+
+### Objectif
+
+Vérifier si le système accepte la taille minimale autorisée pour le nom.
+
+### Étapes
+
+1. Ouvrir la page Signup.
+2. Saisir :
+
+   * Nom : `A`
+   * Email : `test1@gmail.com`
+   * Mot de passe : `Password123`
+3. Cliquer sur “Créer un compte”.
+
+### Résultat attendu
+
+* Si la règle autorise 1 caractère :
+
+  * compte créé avec succès.
+* Sinon :
+
+  * message d’erreur clair :
+
+    > “Le nom doit contenir au moins 2 caractères”.
+
+---
+
+## Scénario 2 : Nom avec 500 caractères
+
+### Objectif
+
+Tester la limite maximale du champ nom.
+
+### Étapes
+
+1. Copier une chaîne de 500 caractères.
+2. Saisir :
+
+   * Nom : `"AAAA...."`
+   * Email : `test500@gmail.com`
+   * Mot de passe : `Password123`
+3. Valider le formulaire.
+
+### Résultat attendu
+
+* Le système refuse proprement la saisie si la limite est dépassée.
+* Aucun crash ou ralentissement.
+* Message attendu :
+
+  > “Nom trop long”.
+
+---
+
+## Scénario 3 : Email extrêmement long
+
+### Objectif
+
+Tester la validation de longueur d’email.
+
+### Étapes
+
+1. Saisir un email > 254 caractères :
+
+   ```txt
+   aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@gmail.com
+   ```
+2. Remplir les autres champs normalement.
+3. Soumettre.
+
+### Résultat attendu
+
+* Refus du formulaire.
+* Message :
+
+  > “Adresse email invalide”.
+* Aucun bug d’affichage ou dépassement UI.
+
+---
+
+## Scénario 4 : Mot de passe de 1000 caractères
+
+### Objectif
+
+Tester résistance et validation backend/frontend.
+
+### Étapes
+
+1. Générer un mot de passe de 1000 caractères.
+2. Remplir le formulaire.
+3. Cliquer sur Signup.
+
+### Résultat attendu
+
+* Application reste stable.
+* Soit :
+
+  * mot de passe accepté si aucune limite,
+  * soit erreur :
+
+    > “Mot de passe trop long”.
+* Pas de freeze.
+* Pas d’erreur serveur 500.
+
+---
+
+# Test 2 — Tests “Evil User”
+
+## Scénario 5 : Variantes Gmail (duplication email)
+
+### Objectif
+
+Vérifier si plusieurs variantes Gmail pointent vers le même compte.
+
+### Données testées
+
+```txt
+test@gmail.com
+t.est@gmail.com
+test+1@gmail.com
+```
+
+### Étapes
+
+1. Créer un compte avec :
+   `test@gmail.com`
+2. Essayer de créer :
+
+   * `t.est@gmail.com`
+   * `test+1@gmail.com`
+
+### Résultat attendu
+
+Deux comportements possibles :
+
+### Cas 1 — Système intelligent
+
+* Détection de duplication Gmail.
+* Refus du deuxième compte.
+
+### Cas 2 — Système classique
+
+* Comptes acceptés séparément.
+* Pas considéré comme bug sauf si règle métier impose unicité réelle.
+
+---
+
+## Scénario 6 : Emails “pièges” — espaces et trim
+
+### Objectif
+
+Tester nettoyage des entrées utilisateur.
+
+### Données
+
+```txt
+test@gmail.com
+ test@gmail.com
+test@gmail.com 
+```
+
+### Étapes
+
+1. Créer un compte avec :
+   `test@gmail.com`
+2. Refaire Signup avec :
+
+   * espace avant,
+   * espace après.
+
+### Résultat attendu
+
+* Le système applique `trim()`.
+* Les emails sont considérés identiques.
+* Message :
+
+  > “Email déjà utilisé”.
+
+---
+
+## Scénario 7 : Double point dans email
+
+### Objectif
+
+Tester validation RFC/email parser.
+
+### Données
+
+```txt
+test..123@gmail.com
+```
+
+### Étapes
+
+1. Saisir email avec double point.
+2. Valider le formulaire.
+
+### Résultat attendu
+
+* Email rejeté.
+* Message :
+
+  > “Format email invalide”.
+
+---
+
+## Scénario 8 : Alias Gmail avec +
+
+### Objectif
+
+Tester gestion des aliases.
+
+### Données
+
+```txt
+test+shop@gmail.com
+```
+
+### Étapes
+
+1. Créer compte principal :
+   `test@gmail.com`
+2. Créer compte alias :
+   `test+shop@gmail.com`
+
+### Résultat attendu
+
+* Selon logique métier :
+
+  * accepté,
+  * ou détecté comme doublon.
+* Aucun comportement incohérent.
+
+---
+
+# Test 3 — Caractères Spéciaux / Unicode
+
+## Scénario 9 : Emojis dans le nom
+
+### Objectif
+
+Tester support Unicode.
+
+### Données
+
+```txt
+😎🔥
+```
+
+### Étapes
+
+1. Saisir emojis dans champ nom.
+2. Soumettre formulaire.
+
+### Résultat attendu
+
+* Soit accepté correctement,
+* soit rejeté avec message clair.
+* Pas de corruption base de données.
+
+---
+
+## Scénario 10 : Nom en arabe
+
+### Objectif
+
+Tester caractères RTL et Unicode.
+
+### Données
+
+```txt
+أحمد
+```
+
+### Étapes
+
+1. Saisir nom arabe.
+2. Créer compte.
+
+### Résultat attendu
+
+* Affichage correct.
+* Sauvegarde correcte.
+* Pas de caractères cassés (`???`).
+
+---
+
+## Scénario 11 : Nom chinois
+
+### Objectif
+
+Tester encodage UTF-8.
+
+### Données
+
+```txt
+王
+```
+
+### Étapes
+
+1. Entrer nom chinois.
+2. Soumettre.
+
+### Résultat attendu
+
+* Données stockées correctement.
+* Aucun problème affichage.
+
+---
+
+## Scénario 12 : Accents français
+
+### Objectif
+
+Tester caractères accentués.
+
+### Données
+
+```txt
+éèàç
+```
+
+### Étapes
+
+1. Saisir accents.
+2. Valider formulaire.
+
+### Résultat attendu
+
+* Aucun problème UTF-8.
+* Nom affiché correctement.
+
+---
+
+## Scénario 13 : Espaces invisibles
+
+### Objectif
+
+Tester nettoyage des caractères invisibles.
+
+### Données
+
+```txt
+ahmed​@gmail.com
+```
+
+(contient Zero-Width Space)
+
+### Étapes
+
+1. Copier/coller email contenant caractère invisible.
+2. Soumettre formulaire.
+
+### Résultat attendu
+
+* Soit nettoyage automatique,
+* soit rejet avec :
+
+  > “Email invalide”.
+* Pas de création de doublons invisibles.
+
+---
+
+## Scénario 14 : RTL/LTR Mixing
+
+### Objectif
+
+Tester attaques visuelles Unicode.
+
+### Données
+
+```txt
+ahmed‏@gmail.com
+```
+
+### Étapes
+
+1. Coller email contenant caractère RTL invisible.
+2. Créer compte.
+
+### Résultat attendu
+
+* Détection caractères suspects.
+* Refus ou nettoyage.
+* Pas de bypass validation.
+* Affichage cohérent côté admin/database.
+
+---
+
+# Risques détectés par ces tests
+
+Ces tests permettent de détecter :
+
+* problèmes UTF-8,
+* failles validation email,
+* bypass duplication,
+* problèmes trim(),
+* attaques Unicode invisibles,
+* crash backend,
+* limites buffer/champs,
+* problèmes UX,
+* erreurs SQL/API,
+* vulnérabilités sécurité.
+ 
+
+analyse code est donne la resulta attendu de systeme 

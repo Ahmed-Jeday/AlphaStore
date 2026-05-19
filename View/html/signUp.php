@@ -41,6 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
             if ($result === true) {
                 header("Location:../my-account/my-account.php");
                 exit;
+            } elseif (is_array($result) && isset($result['unverified'])) {
+                header("Location:verifie.php?email=" . urlencode($result['email']) . "&resent=1");
+                exit;
             } else {
                 $errors_login = [$result]; // Stocke le message d'erreur (ex: "Identifiants incorrects")
             }

@@ -45,6 +45,11 @@ class User {
         return $stmt->execute([$email]);
     }
 
+    public function deleteUnverifiedUser($email) {
+        $stmt = $this->pdo->prepare("DELETE FROM users WHERE email = ? AND is_verified = 0");
+        return $stmt->execute([$email]);
+    }
+
     public function updateVerificationCode($email, $token, $expiry) {
         $sql="update users set verification_code=?,code_expiry=? where email=?";
         $stmt=$this->pdo->prepare($sql);

@@ -84,6 +84,28 @@
             background: #444;
             transform: translateY(-2px);
         }
+        .btn-secondary {
+            background: transparent;
+            color: #222;
+            border: 2px solid #222;
+            padding: 15px;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            box-sizing: border-box;
+        }
+        .btn-secondary:hover {
+            background: #eee;
+            transform: translateY(-2px);
+        }
         .error-msg {
             background: #fee2e2;
             color: #dc2626;
@@ -91,6 +113,15 @@
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 13px;
+        }
+        .success-msg {
+            background: #dcfce7;
+            color: #166534;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            border: 1px solid #bbf7d0;
         }
         .back-link {
             display: block;
@@ -111,6 +142,12 @@
         <h1>Verify Your Email</h1>
         <p>We've sent a 6-digit code to <strong><?= htmlspecialchars($_GET['email'] ?? 'your email') ?></strong></p>
         
+        <?php if (isset($_GET['resent'])): ?>
+            <div class="success-msg">
+                <i class='bx bx-check-circle'></i> Un nouveau code OTP a été envoyé à votre adresse email !
+            </div>
+        <?php endif; ?>
+
         <?php if (isset($_GET['error'])): ?>
             <div class="error-msg">
                 <i class='bx bx-error-circle'></i> <?= htmlspecialchars($_GET['error']) ?>
@@ -126,6 +163,13 @@
             </div>
             
             <button type="submit" class="btn">Verify Account</button>
+        </form>
+
+        <form method="POST" action="../../index.php?action=resend_otp">
+            <input type="hidden" name="email" value="<?= htmlspecialchars($_GET['email'] ?? '') ?>">
+            <button type="submit" class="btn-secondary">
+                <i class='bx bx-refresh' style="font-size: 20px;"></i> Renvoyer le code
+            </button>
         </form>
 
         <a href="signUp.php" class="back-link">Back to Registration</a>
