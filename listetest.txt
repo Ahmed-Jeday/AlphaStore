@@ -1,0 +1,38 @@
+test fonctionnel (login & signup)
+test 1:test limite
+Nom avec 1 caractère : A
+Nom avec 500 caractères
+Email extrêmement long
+Mot de passe de 1000 caractères
+test 2 :
+Tests “evil user”
+18. Même email avec variantes
+test@gmail.com
+t.est@gmail.com
+test+1@gmail.com
+Pour Gmail → parfois même boîte mail.
+3. Emails “pièges”
+Tester :
+test@gmail.com
+test+shop@gmail.com
+test..123@gmail.com
+ test@gmail.com
+test@gmail.com 
+Voir si :
+trim fonctionne
+validation correcte
+duplication détectée
+
+test 3 :
+ Caractères spéciaux / Unicode
+Tester :
+Emojis 😎🔥
+Arabe : أحمد
+Chinois : 王
+Accents : éèàç
+Espaces invisibles
+Zero-width characters
+RTL/LTR mixing
+Exemple :
+ahmed‏@gmail.com
+(peut sembler normal visuellement mais contient caractères invisibles)

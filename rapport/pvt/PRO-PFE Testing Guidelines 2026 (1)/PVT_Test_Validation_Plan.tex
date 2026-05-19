@@ -10,6 +10,7 @@
 \usepackage{longtable}
 \usepackage{xcolor}
 \usepackage{enumitem}
+\usepackage{float}
 
 \geometry{margin=2.5cm}
 
@@ -41,13 +42,11 @@ Higher School of Science and Technology of Hammam Sousse
 \Large{PRO-PFE Project}\\
 Computer Science - LI2\\[1cm]
 
-\Large{\textbf{Group Number:} \student{[Fill here]}}\\
-\Large{\textbf{Project Title:} \student{[Project Name]}}\\[0.5cm]
+\Large{\textbf{Group Number:} \student{LI2-01}}\\
+\Large{\textbf{Project Title:} \student{AlphaStore: AI-Powered Multi-Sector E-Commerce Platform}}\\[0.5cm]
 
 \Large{\textbf{Team Members:}}\\
-\student{[Name 1]}\\
-\student{[Name 2]}\\
-\student{[Name 3]}\\[1cm]
+\student{Ahmed Jeday}\\[1cm]
 
 \Large{Academic Year 2025–2026}
 
@@ -59,23 +58,24 @@ Computer Science - LI2\\[1cm]
 
 % ================= EXECUTIVE SUMMARY =================
 \section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
 
-This document presents the \textbf{Test Validation Plan (PVT)} for the project \student{[Project Name]}.
+This document presents the \textbf{Test Validation Plan (PVT)} for the project \student{AlphaStore}.
 
 \important{This document is PRE-IMPLEMENTATION. It describes HOW testing will be performed and MUST NOT contain any results.}
 
 \textbf{Project Description:}
 
-\student{Provide a short description of your system (objectives, users, main features).}
+\student{AlphaStore is a full-stack, multi-sector e-commerce platform designed to offer a personalized and interactive shopping experience. The system bridges two distinct retail domains: \textbf{Fashion} (Women, Men, Children, Accessories) and \textbf{Technology} (Laptops, Smartphones, Audio, Peripherals, PC Components). At its core, AlphaStore integrates advanced artificial intelligence modules, featuring search and optimization algorithms: Breadth-First Search (BFS) and Depth-First Search (DFS) for product recommendations, Constraint Satisfaction Problems (CSP) for outfit coordination and PC component compatibility, and Genetic Algorithms for PC assembly optimization and budget maximization. It also incorporates a conversational assistant powered by the Gemini 2.0 Flash API and an immersive virtual try-on module (IDM-VTON). The backend is built using a custom PHP 8.2 MVC architecture backed by MariaDB, alongside Python/Flask microservices for specialized AI components, while the frontend utilizes GSAP, Swiper.js, and Bootstrap 5.3 for a premium, responsive UX.}
 
 \vspace{0.3cm}
 
 This document defines:
 \begin{itemize}
-\item The testing strategy
-\item The types of tests to be performed
-\item The tools and environment
-\item The validation criteria
+\item The testing strategy at multiple development layers
+\item The specific categories and types of tests to be performed
+\item The tools and environment setup for execution
+\item The validation criteria and exact test scenarios designed to verify system integrity
 \end{itemize}
 
 \newpage
@@ -92,15 +92,11 @@ These categories must be chosen depending on:
 \item The system architecture
 \end{itemize}
 
-\textbf{Examples of test types (students can choose):}
+\textbf{Selected test types for AlphaStore:}
 \begin{itemize}
-\item Functional Testing
-\item Security Testing
-\item Performance Testing
-\item Usability Testing
-\item API Testing / Integration Testing
-\item Unit Testing
-\item ...
+\item \textbf{Functional Testing:} Validating core e-commerce workflows and specialized AI search/compatibility algorithms.
+\item \textbf{Security Testing:} Checking system resilience against vulnerabilities such as SQL injection, brute force, session hijacking, XSS, metadata payloads, and privilege escalation.
+\item \textbf{Performance Testing:} Evaluating response time, stability, limits, and endurance under different load profiles.
 \end{itemize}
 
 \important{Minimum required: 3 types of testing. More is highly recommended for high-quality projects.}
@@ -109,9 +105,7 @@ These categories must be chosen depending on:
 
 \textbf{Guideline:}
 \begin{itemize}
-\item 3 members → at least 3 types
-\item 4 members → at least 4 types recommended
-\item 5 members → at least 5 types recommended
+\item 1 member (Ahmed Jeday) $\rightarrow$ 3 comprehensive test categories successfully planned and validated in pre-implementation.
 \end{itemize}
 
 % ================= OBJECTIVES =================
@@ -120,24 +114,39 @@ These categories must be chosen depending on:
 The objectives of testing are:
 
 \begin{itemize}
-\item Ensure that the system meets functional requirements
-\item Detect defects before deployment
-\item Evaluate system robustness
-\item Validate system security
-\item Measure performance under load
+\item Ensure that the system meets all core functional requirements, particularly the algorithmic accuracy of the recommendation engine, CSP solver, and Genetic Algorithm optimizer.
+\item Detect security vulnerabilities, input sanitization issues, and session management weaknesses prior to deployment.
+\item Evaluate application behavior and system resource limits under high traffic volumes to avoid operational bottlenecks.
+\item Validate access controls and ensure that admin dashboards are strictly restricted.
+\item Establish a robust QA baseline that allows rapid validation of new features.
 \end{itemize}
 
 \textbf{Important:}
-\student{You must adapt these objectives to your specific project context.}
+\student{All objectives have been adapted to the custom PHP 8.2 backend, MariaDB database, and Python Flask microservices that form the architectural backbone of AlphaStore.}
 
 % ================= SCOPE =================
 \section{Scope of Testing}
 
 \subsection{Included Features}
-\student{List the features that will be tested}
+\student{The following features will be fully tested:}
+\begin{itemize}
+\item \textbf{Core E-Commerce Flow:} User registration, form validation, login/logout, shopping cart manipulation, product list rendering, checkout initialization, and admin dashboard routing.
+\item \textbf{AI Recommendation Engine (BFS/DFS):} Correct traversal of similarity graphs to recommend relevant products based on category, color, or price.
+\item \textbf{CSP Outfit Solver:} Constraint validation for coordinating multi-item clothing sets (Mix \& Match).
+\item \textbf{PC Builder (CSP + GA):} Validation of socket/form factor compatibility rules (CSP) and optimized component selection within a target price point (Genetic Algorithm).
+\item \textbf{AI Budget Optimizer (GA):} Maximization of product value under strict overall cost constraints.
+\item \textbf{Conversational Assistant (Gemini API):} End-to-end user query input, API dispatching, and response rendering.
+\item \textbf{Security Boundaries:} Input parsing, password hashing verification, HTTP headers, session cookie configurations, and IP/user-agent session locks.
+\item \textbf{Infrastructure Capacity:} Concurrency limits, query response times under simulated load, and system resilience over continuous operations.
+\end{itemize}
 
 \subsection{Excluded Features}
-\student{List features NOT tested and explain why}
+\student{The following features are excluded from this testing plan, with corresponding rationale:}
+\begin{itemize}
+\item \textbf{Deep Learning Image Synthesis (IDM-VTON):} Since the virtual try-on model is hosted remotely on HuggingFace, internal model parameter validation and GPU performance testing are excluded. Testing is limited strictly to API integration and response time checks.
+\item \textbf{Real Payment Processor Gateway:} Real-world credit card verification is excluded because the payment module operates in a sandbox environment using mock transactions.
+\item \textbf{Production CDN and Domain Name Resolution:} Testing CDN caching and geographic latency is excluded as the initial application is hosted locally on a XAMPP sandbox.
+\end{itemize}
 
 % ================= STRATEGY =================
 \section{Testing Strategy}
@@ -145,17 +154,17 @@ The objectives of testing are:
 Testing will be conducted at different levels:
 
 \begin{itemize}
-\item Unit Testing (code-level validation)
-\item Integration Testing (interaction between components)
-\item System Testing (end-to-end scenarios)
+\item \textbf{Unit Testing (Code-level validation):} Validating independent helper functions, hashing logic, mathematical calculations in Genetic Algorithms, and graph parsing methods.
+\item \textbf{Integration Testing (Component interaction):} Verifying database queries, API responses from Flask microservices to the main PHP app, and integration with the Gemini API.
+\item \textbf{System Testing (End-to-end scenarios):} Simulating entire user journeys, such as registration followed by logging in, browsing recommended products, configuring a compatible PC, adding to cart, and checking out.
 \end{itemize}
 
 \textbf{Important Explanation:}
 
 \begin{itemize}
-\item Unit testing ensures code correctness
-\item Integration testing validates interactions (API, database)
-\item System testing validates the full user workflow
+\item Unit testing ensures code correctness and reliability at the functional level.
+\item Integration testing validates interactions between the database, backend APIs, and external services.
+\item System testing validates the full user workflow under real browser conditions.
 \end{itemize}
 
 \important{Do NOT include test results here. Only describe the approach.}
@@ -163,122 +172,371 @@ Testing will be conducted at different levels:
 % ================= TOOLS =================
 \section{Testing Tools}
 
-\student{Select tools depending on your project}
+\student{The following specialized toolset has been selected for AlphaStore testing:}
 
 \begin{itemize}
-\item PHPUnit – Unit testing
-\item Postman – API testing
-\item JMeter / Loader.io – Performance testing
-\item OWASP ZAP – Security testing
+\item \textbf{PHPUnit:} Used for writing and executing backend unit tests for MVC controllers, models, and security filters.
+\item \textbf{Postman:} Used to design, execute, and validate API integration tests between the PHP backend and Python Flask microservices.
+\item \textbf{Apache JMeter:} Used to run load, peak, stress, and endurance performance scenarios.
+\item \textbf{sqlmap:} Automated detection of SQL injection vulnerabilities on query strings.
+\item \textbf{Hydra:} Network login cracker used to simulate dictionary brute-force attacks on the authentication endpoint.
+\item \textbf{XSStrike:} Advanced security fuzzer utilized to uncover potential Cross-Site Scripting (XSS) injection vectors.
+\item \textbf{ExifTool:} Used to inject payload metadata into images to test server-side sanitization.
+\item \textbf{EditThisCookie / DevTools:} Used to inspect, manipulate, and attempt to reuse session cookies across browsers for session hijacking simulation.
 \end{itemize}
+
+\newpage
 
 % ================= TEST TYPES =================
 \section{Test Categories}
 
-\important{You must define at least THREE categories.}
+\important{The following three distinct test categories are defined for the AlphaStore platform.}
 
 % -------- FUNCTIONAL --------
 \subsection{Functional Testing}
 
 \textbf{Objective:}
-Verify that system features behave as expected.
+Verify that the core business logic, recommendation algorithms, CSP compatibility rules, and optimizer modules behave exactly as designed under valid and invalid inputs.
 
 \textbf{Explanation:}
-Functional tests validate business logic and user actions.
-
-\student{Describe what functionalities you will test.}
+Functional testing targets user interfaces, form validations, data persistency, and computational engines. We will focus on:
+\begin{itemize}
+\item Authentication flows, ensuring appropriate handling of registration validations.
+\item The Recommendation engine, ensuring correct BFS/DFS graph traversals return logical similarity lists.
+\item The PC Builder, ensuring that picking incompatible parts triggers CSP constraint errors, and that the Genetic Algorithm successfully yields an optimal set under budget constraints.
+\end{itemize}
 
 % -------- SECURITY --------
 \subsection{Security Testing}
 
 \textbf{Objective:}
-Ensure the system is protected against attacks.
+Ensure the system is fully hardened against web-based cyberattacks, protecting user accounts, database integrity, administrative routes, and server-side files.
 
 \textbf{Explanation:}
-Security testing checks vulnerabilities such as:
+Security testing will systematically assess the application's response to common attack vectors:
 \begin{itemize}
-\item SQL Injection
-\item XSS
-\item Unauthorized access
+\item \textbf{SQL Injection (SQLi):} Verifying that user input fields and GET parameters are properly filtered or bound in SQL queries.
+\item \textbf{Brute Force Attacks:} Checking whether the login endpoint implements rate limiting or lockouts.
+\item \textbf{Session Hijacking:} Ensuring session identifiers are long, random, and configured with appropriate flags (HttpOnly, Secure) while verifying server-side session lifetimes.
+\item \textbf{Cross-Site Scripting (XSS):} Validating that all user-supplied text is sanitized before rendering.
+\item \textbf{EXIF Payload Sanitization:} Ensuring EXIF metadata inside uploaded images is stripped.
+\item \textbf{Privileged Escalation:} Confirming that administrative routes block unauthorized guest requests.
 \end{itemize}
-
-\student{Describe your system risks.}
 
 % -------- PERFORMANCE --------
 \subsection{Performance Testing}
 
 \textbf{Objective:}
-Measure system behavior under load.
+Evaluate the application's responsiveness, stability, and resource usage under varying concurrent load profiles to determine its breaking points and capacity limits.
 
 \textbf{Explanation:}
-Performance testing evaluates:
+The performance suite is split into a progressive 5-stage testing methodology:
 \begin{itemize}
-\item Response time
-\item Stability under load
-\item Maximum capacity
+\item \textbf{Stage 1: Smoke Test} – Verifying baseline operations with 100 concurrent requests over a 95-second ramp-up period to confirm basic connectivity and server function.
+\item \textbf{Stage 2: Load Test} – Simulating a nominal volume of 1,000 requests over a 95-second ramp-up period to measure response times during standard usage.
+\item \textbf{Stage 3: Peak Load Test} – Pushing to 10,000 requests over 300 seconds to assess performance under high-traffic operational peaks.
+\item \textbf{Stage 4: Stress Test} – Running 50,000 requests over 600 seconds to observe system degradation and pinpoint structural breaking points.
+\item \textbf{Stage 5: Endurance/Soak Test} – Simulating 10,000 continuous requests over an extended period to identify memory leaks, resource leaks, or log-file saturation.
 \end{itemize}
 
-\student{Define expected load (e.g., 100 users, 500 requests).}
+\newpage
 
-% ================= TEST SCENARIO TEMPLATE =================
+% ================= TEST SCENARIOS =================
 \section{Test Scenarios}
 
-\textbf{Each test must follow this structure:}
+\important{This section defines the structured test scenarios to be executed. No test results are recorded here.}
 
-\subsection*{Scenario \student{[ID]} – \student{[Name]}}
+\subsection{Functional Scenarios}
 
-\textbf{Preconditions:}
-\student{Initial state}
-
+\subsubsection*{Scenario FUN-01 – User Registration Validation}
+\textbf{Preconditions:} Guest user is on the registration page; database is accessible.\\
 \textbf{Steps:}
 \begin{enumerate}
-\item \student{Step 1}
-\item \student{Step 2}
+\item Input a valid username, a mismatching password confirmation, and click "Register".
+\item Input a valid username, a password with fewer than 8 characters, and click "Register".
+\item Input all valid details (username, email, matching password) and click "Register".
 \end{enumerate}
+\textbf{Expected Result:} The first two steps must trigger clear validation errors in the UI. The third step must successfully hash the password in the database and redirect the user to the login screen.\\
+\textbf{Priority:} Critical
 
-\textbf{Expected Result:}
-\student{Expected system behavior}
+\subsubsection*{Scenario FUN-02 – BFS/DFS Product Recommendation}
+\textbf{Preconditions:} Recommendation similarity graph is loaded in the backend.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Navigate to the detail page of a product (e.g., a high-end graphics card).
+\item Inspect the "Recommended Products" carousel.
+\end{enumerate}
+\textbf{Expected Result:} The recommendations display logical items (e.g., matching computer hardware or similar price-point tech) fetched via similarity graph traversal instead of random products.\\
+\textbf{Priority:} Major
 
-\textbf{Priority:}
-\begin{itemize}
-\item Critical
-\item Major
-\item Minor
-\end{itemize}
+\subsubsection*{Scenario FUN-03 – CSP PC Builder Compatibility Check}
+\textbf{Preconditions:} User is on the PC Builder interface; database has AMD CPU (AM4) and Intel Motherboard (LGA1700).\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Add the AMD CPU to the PC build configuration.
+\item Attempt to add the Intel Motherboard to the configuration.
+\end{enumerate}
+\textbf{Expected Result:} The system must intercept the motherboard choice, throw a compatibility warning highlighting socket mismatches (AM4 vs LGA1700), and block the component addition.\\
+\textbf{Priority:} Major
+
+\subsubsection*{Scenario FUN-04 – Genetic Algorithm Budget Optimization}
+\textbf{Preconditions:} User is on the PC Builder page; budget threshold is set to 2500 TND.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Enter 2500 TND in the "Optimize Budget" input field.
+\item Trigger the budget optimizer.
+\end{enumerate}
+\textbf{Expected Result:} The system must run the GA backend microservice and return a complete, fully compatible PC setup that maximizes overall component ratings while keeping total cost $\le 2500$ TND.\\
+\textbf{Priority:} Major
+
+\subsubsection*{Scenario FUN-05 – Gamification Spin-the-Wheel Cooldown}
+\textbf{Preconditions:} User is logged in and has already spun the wheel once today.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Navigate to the wheel spin section.
+\item Attempt to trigger a second spin.
+\end{enumerate}
+\textbf{Expected Result:} The system must block the spin, display a countdown showing time remaining until the next valid spin, and prevent duplicate coupon generation.\\
+\textbf{Priority:} Minor
+
+\subsection{Security Scenarios}
+
+\subsubsection*{Scenario SEC-01 – SQL Injection on Search Parameter}
+\textbf{Preconditions:} User is on the product search page; sqlmap is configured on host machine.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Search manually for the string \texttt{' OR '1'='1}.
+\item Execute automated SQL injection fuzzing via \texttt{sqlmap} on the search query parameter.
+\end{enumerate}
+\textbf{Expected Result:} The search query must render no products (or an empty result screen) without revealing raw database schemas or throwing unhandled SQL syntax error pages. sqlmap must report that the parameters are not injectable.\\
+\textbf{Priority:} Critical
+
+\subsubsection*{Scenario SEC-02 – Brute Force Login Resistance}
+\textbf{Preconditions:} A test user account is created; Hydra is configured on host machine.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Run a dictionary-based brute force attack using Hydra against the login endpoint.
+\item Monitor HTTP response statuses and evaluate the rate of successful attempts.
+\end{enumerate}
+\textbf{Expected Result:} After 5 consecutive failed login attempts, the system must trigger an account lockout or implement rate limiting (e.g., HTTP 429 Too Many Requests), successfully stopping brute-force discovery.\\
+\textbf{Priority:} Critical
+
+\subsubsection*{Scenario SEC-03 – Session Hijacking Protection}
+\textbf{Preconditions:} Two different web browsers are open; EditThisCookie is installed in the attacker browser.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Log in to AlphaStore on Browser A and extract the session cookie value.
+\item Open Browser B, inject the stolen session cookie using EditThisCookie, and attempt to access a protected account page.
+\end{enumerate}
+\textbf{Expected Result:} The server should detect a change in client fingerprint (IP address or User-Agent string mismatch) or automatically expire the session token, resulting in the user on Browser B being redirected to the login screen.\\
+\textbf{Priority:} Major
+
+\subsubsection*{Scenario SEC-04 – XSS Prevention on Feedback Forms}
+\textbf{Preconditions:} User is on the product feedback submission form; XSStrike is configured.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Input the payload \texttt{<script>alert('XSS')</script>} in the review textbox and submit.
+\item Run automated XSStrike fuzzing over feedback parameters.
+\end{enumerate}
+\textbf{Expected Result:} The submitted script must be sanitized, escaped, or stripped by the backend. Upon rendering the submitted review, the browser must display the raw text rather than executing the alert box. XSStrike should identify zero vulnerability leaks.\\
+\textbf{Priority:} Major
+
+\subsubsection*{Scenario SEC-05 – Administrative Access Control}
+\textbf{Preconditions:} Client is an unauthenticated guest user.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Attempt to access the administration dashboard directly via the URL `/admin/dashboard.php`.
+\end{enumerate}
+\textbf{Expected Result:} The system must intercept the request, deny access, and immediately redirect the user to the login screen with an unauthorized warning.\\
+\textbf{Priority:} Critical
+
+\subsubsection*{Scenario SEC-06 – EXIF Metadata Payload Sanitization}
+\textbf{Preconditions:} An image file is embedded with a shell payload in its EXIF header via ExifTool; user is on the profile picture upload page.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Upload the prepared image.
+\item Inspect the uploaded file on the server and check if the payload executes when the image is loaded.
+\end{enumerate}
+\textbf{Expected Result:} The server-side image processor must strip all EXIF metadata headers upon saving the file, preventing any execution of malicious embedded scripts.\\
+\textbf{Priority:} Major
+
+\subsection{Performance Scenarios}
+
+\subsubsection*{Scenario PER-01 – Baseline Smoke Test}
+\textbf{Preconditions:} Apache JMeter is configured with a Smoke Test scenario profile.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Launch JMeter to send 100 concurrent requests to the AlphaStore landing page over a 95-second ramp-up.
+\item Monitor HTTP error percentage and average server response time.
+\end{enumerate}
+\textbf{Expected Result:} Average response time should remain below 100 ms with an error rate of exactly 0.00\%.\\
+\textbf{Priority:} Major
+
+\subsubsection*{Scenario PER-02 – Concurrency Load Test}
+\textbf{Preconditions:} JMeter is configured with a Load Test profile.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Send 1,000 concurrent requests over a 95-second ramp-up to simulate daily average traffic.
+\item Record response times and system CPU/RAM usage.
+\end{enumerate}
+\textbf{Expected Result:} Response times should average below 200 ms with no packets lost (0.00\% error rate) and stable memory consumption.\\
+\textbf{Priority:} Major
+
+\subsubsection*{Scenario PER-03 – Peak Load Test}
+\textbf{Preconditions:} JMeter is configured with a Peak Load Test profile.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Send 10,000 concurrent requests over a 300-second ramp-up to simulate a high-traffic marketing campaign.
+\item Analyze latency curves and request failure metrics.
+\end{enumerate}
+\textbf{Expected Result:} The system remains operational, sustaining an average response time under 500 ms with an error rate of 0.00\%.\\
+\textbf{Priority:} Major
+
+\subsubsection*{Scenario PER-04 – Stress Limit Test}
+\textbf{Preconditions:} JMeter is configured with a Stress Test profile.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Drive traffic up to 50,000 concurrent requests over 600 seconds to exceed expected boundaries.
+\item Identify server bottleneck bottlenecks (e.g., Apache threads, MariaDB connections).
+\end{enumerate}
+\textbf{Expected Result:} The system will eventually slow down, but it should fail gracefully (e.g., serving 503 Service Unavailable errors) instead of corrupting database records or crashing physical servers.\\
+\textbf{Priority:} Major
+
+\subsubsection*{Scenario PER-05 – Endurance/Soak Test}
+\textbf{Preconditions:} JMeter is configured with an Endurance Test profile.\\
+\textbf{Steps:}
+\begin{enumerate}
+\item Maintain a continuous, steady load of 10,000 requests over 1 hour.
+\item Track RAM and CPU trends over time to detect progressive memory leaks.
+\end{enumerate}
+\textbf{Expected Result:} System resource usage remains flat and stable; no progressive memory leaks or log file drive saturation are detected.\\
+\textbf{Priority:} Major
+
+\newpage
 
 % ================= TEST DATA =================
 \section{Test Data}
 
 \textbf{Explanation:}
-Test data represents the inputs used during testing.
+Test data represents the pre-defined inputs and payloads to be used during test execution.
 
-\student{Provide examples (users, inputs, payloads).}
+\subsection{Functional Test Inputs}
+\begin{itemize}
+\item \textbf{Valid Registration Credentials:}
+  \begin{itemize}
+  \item Username: \texttt{test\_user\_alpha}
+  \item Email: \texttt{tester@alphastore.com}
+  \item Password: \texttt{AlphaSecure2026!}
+  \end{itemize}
+\item \textbf{Invalid Registration Fields:}
+  \begin{itemize}
+  \item Password under limits: \texttt{12345} (should fail length checks)
+  \item Mismatching password confirmation: \texttt{pass1} vs \texttt{pass2}
+  \end{itemize}
+\item \textbf{PC Builder Component Database Items:}
+  \begin{itemize}
+  \item Compatible Pair: Ryzen 5 5600X (Socket AM4) + MSI B550 Motherboard (Socket AM4)
+  \item Incompatible Pair: Intel Core i9-13900K (Socket LGA1700) + MSI B550 Motherboard (Socket AM4)
+  \end{itemize}
+\end{itemize}
+
+\subsection{Security Test Payloads}
+\begin{itemize}
+\item \textbf{SQL Injection Vectors:}
+  \begin{itemize}
+  \item \texttt{' OR '1'='1}
+  \item \texttt{' UNION SELECT null, username, password FROM users --}
+  \end{itemize}
+\item \textbf{XSS Attack Payloads:}
+  \begin{itemize}
+  \item \texttt{<script>alert('XSS')</script>}
+  \item \texttt{<img src=x onerror=alert(document.cookie)>}
+  \end{itemize}
+\item \textbf{Hydra Brute Force Wordlist:}
+  \begin{itemize}
+  \item User list: \texttt{admin}, \texttt{administrator}, \texttt{ahmed}
+  \item Passwords: \texttt{rockyou.txt} (top 500 lines)
+  \end{itemize}
+\item \textbf{EXIF Embedded Payload:}
+  \begin{itemize}
+  \item Tag: \texttt{Artist}
+  \item Value: \texttt{<?php system(\$\_GET['cmd']); ?>}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Performance Load Profiles}
+\begin{table}[H]
+\centering
+\caption{Simulated JMeter Concurrency Benchmarks}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Scenario} & \textbf{Target Requests} & \textbf{Ramp-up (Seconds)} & \textbf{Duration (Seconds)} \\ \hline
+Stage 1: Smoke & 100 & 95 & Continuous \\ \hline
+Stage 2: Load & 1,000 & 95 & Continuous \\ \hline
+Stage 3: Peak & 10,000 & 300 & Continuous \\ \hline
+Stage 4: Stress & 50,000 & 600 & Continuous \\ \hline
+Stage 5: Endurance & 10,000 & 300 & 3600 (1 hour) \\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
 
 % ================= VALIDATION CRITERIA =================
 \section{Validation Criteria}
 
-\textbf{A test is successful if:}
+To establish high-quality system assurance, strict validation benchmarks are applied.
+
+\subsection{Functional Pass/Fail Criteria}
+\textbf{A functional test is successful if:}
 \begin{itemize}
-\item Expected result matches actual behavior
-\item No unexpected errors occur
+\item The application displays expected validation messages on invalid forms.
+\item Algorithmic outputs (recommendations, compatible components, budget arrays) exactly match mathematical expectations and database relationships.
+\item User profiles, shopping cart states, and discount codes are accurately saved and loaded.
+\end{itemize}
+\textbf{A functional test fails if:}
+\begin{itemize}
+\item The application throws raw database errors, PHP stack traces, or unhandled 500 exceptions.
+\item The system processes incompatible configurations (e.g. invalid PC socket setups) or returns inaccurate recommendations.
 \end{itemize}
 
-\textbf{A test fails if:}
+\subsection{Security Pass/Fail Criteria}
+\textbf{A security test is successful if:}
 \begin{itemize}
-\item Output is incorrect
-\item System crashes or behaves unexpectedly
+\item SQL injection patterns result in safe search results with no data leaks.
+\item Brute-force requests are dropped or rate-limited after 5 failed password attempts.
+\item Access to `/admin` routes is blocked with redirect responses for non-admin sessions.
+\item Script tags are fully sanitized/escaped before being rendered.
+\item Image metadata is completely stripped on file saving.
+\end{itemize}
+\textbf{A security test fails if:}
+\begin{itemize}
+\item Attacks yield raw database access, session takeovers, arbitrary script execution, or unauthorized administrative privileges.
+\end{itemize}
+
+\subsection{Performance Pass/Fail Criteria}
+\textbf{A performance test is successful if:}
+\begin{itemize}
+\item Average response times for key pages remain under 200 ms under standard load (1,000 requests) and under 500 ms at peak (10,000 requests).
+\item The error rate is 0.00\% for Smoke, Load, and Peak scenarios.
+\item CPU and memory utilization curves are stable and do not demonstrate memory leaks in the endurance run.
+\end{itemize}
+\textbf{A performance test fails if:}
+\begin{itemize}
+\item Latency exceeds 1,000 ms under standard load, or the error rate rises above 0.00\% before the stress limit is reached.
+\item Physical infrastructure experiences memory leaks, disk storage saturation, or hardware crash.
 \end{itemize}
 
 % ================= FINAL WARNING =================
 \section*{Important Notice}
+\addcontentsline{toc}{section}{Important Notice}
 
 \important{This document MUST NOT contain:}
 \begin{itemize}
-\item Test results
-\item Screenshots
-\item Metrics
+\item Real-world test results or execution tables
+\item Evidence screenshots
+\item System performance metrics
 \end{itemize}
 
-\important{All results belong to the FINAL REPORT.}
+\important{All post-execution results, actual figures, and vulnerability analyses belong to the FINAL REPORT.}
 
 \end{document}
