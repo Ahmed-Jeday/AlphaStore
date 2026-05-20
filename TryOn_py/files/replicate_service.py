@@ -27,6 +27,7 @@ replicate_token = os.getenv("REPLICATE_API_TOKEN")
 if not replicate_token:
     replicate_token = os.getenv("API_r") # Fallback to API_r
 
+replicate_model = os.getenv("REPLICATE_MODEL", "cuuupid/idm-vton")
 replicate_client = replicate.Client(api_token=replicate_token)
 
 @replicate_bp.route('/api/tryon-replicate', methods=['POST'])
@@ -78,10 +79,9 @@ def tryon_replicate():
             }
 
         # 2. Call the IDM-VTON model on Replicate
-        # Model: cuuupid/idm-vton
-        print(f"[REPLICATE] Calling model with description: {garment_description}")
+        print(f"[REPLICATE] Calling model {replicate_model} with description: {garment_description}")
         output = replicate_client.run(
-            "cuuupid/idm-vton:906425dbed906f3694d5b1da2b57da41764d11403c2ff4d2913059efaa7de407",
+            replicate_model,
             input=input_data
         )
 
