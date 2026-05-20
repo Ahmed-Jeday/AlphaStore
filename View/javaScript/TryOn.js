@@ -61,6 +61,18 @@
       setupPreview('vt-product-upload-btn', 'vt-product-input', 'vt-product-preview');
 
       // ---------- Appel API ----------
+      // ===== DEMO SIMULATION MODE =====
+      const SIMULATION_MODE = true;
+      const SIMULATION_DELAY = 3500; // ms - délai réaliste
+      const DEMO_RESULTS = {
+        'default': '../img/tryon-demo/result_default.svg',
+        'demo_1':  '../img/tryon-demo/result_demo_1.svg',
+        'demo_2':  '../img/tryon-demo/result_demo_2.svg',
+        'demo_3':  '../img/tryon-demo/result_demo_3.svg',
+      };
+      let currentDemoIndex = 0;
+      const DEMO_KEYS = ['demo_1', 'demo_2', 'demo_3'];
+
       const runBtn = document.getElementById('vt-btn-run');
       if (runBtn) {
         runBtn.addEventListener('click', async (e) => {
@@ -87,14 +99,35 @@
           clearStatus();
 
           try {
-            const res = await fetch('http://localhost:5000/tryon', { method: 'POST', body: fd });
-            if (!res.ok) {
-              const errorData = await res.json();
-              throw new Error(errorData.error || 'Erreur lors de la génération');
+            if (SIMULATION_MODE) {
+              await new Promise(resolve => setTimeout(resolve, SIMULATION_DELAY));
+              const productId = new URLSearchParams(window.location.search).get('productId');
+              let key = 'default';
+              if (productId) {
+                const pidNum = parseInt(productId, 10);
+                if (!Number.isNaN(pidNum)) {
+                  key = DEMO_KEYS[pidNum % DEMO_KEYS.length];
+                } else {
+                  key = DEMO_KEYS[currentDemoIndex % DEMO_KEYS.length];
+                  currentDemoIndex++;
+                }
+              } else {
+                key = DEMO_KEYS[currentDemoIndex % DEMO_KEYS.length];
+                currentDemoIndex++;
+              }
+              const resultUrl = DEMO_RESULTS[key] || DEMO_RESULTS['default'];
+              showResult(resultUrl);
+              showStatus('Image (simulation) générée avec succès !', 'success');
+            } else {
+              const res = await fetch('http://localhost:5000/tryon', { method: 'POST', body: fd });
+              if (!res.ok) {
+                const errorData = await res.json();
+                throw new Error(errorData.error || 'Erreur lors de la génération');
+              }
+              const data = await res.json();
+              showResult(data.url);
+              showStatus('Image générée avec succès !', 'success');
             }
-            const data = await res.json();
-            showResult(data.url);
-            showStatus('Image générée avec succès !', 'success');
           } catch (err) {
             showStatus('Erreur : ' + err.message, 'error');
           } finally {
