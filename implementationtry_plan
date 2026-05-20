@@ -1,0 +1,126 @@
+# Plan de Simulation Virtual Try-On pour Vidéo Démo
+
+## Contexte
+
+L'API IDM-VITON (via Replicate/Flask sur `localhost:5000/tryon`) ne fonctionne pas pour des raisons externes. Pour enregistrer une vidéo démo du projet, il faut simuler le fonctionnement du try-on en affichant des images pré-générées au lieu d'appeler l'API.
+
+## Approche
+
+Créer une **nouvelle branche Git** (`demo/viton-simulation`) où `TryOn.js` est modifié pour :
+1. Intercepter le clic sur "Générer le try-on"
+2. Simuler un délai de chargement réaliste (~3-4 secondes avec spinner)
+3. Afficher une image de résultat pré-générée (stockée localement) au lieu d'appeler l'API
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Images pré-générées nécessaires** : Tu dois fournir les images de résultat try-on. Tu peux les générer avec un autre outil AI (par ex. Midjourney, DALL-E, ou directement avec IDM-VITON sur Hugging Face Spaces). Je vais créer le dossier et le système de mapping, mais il te faudra y placer les images.
+
+> [!IMPORTANT]
+> **Scénarios de démo** : Le plan actuel prévoit 3 scénarios de démo (homme, femme, et un produit depuis la page shop). Est-ce suffisant ou tu veux plus de combinaisons ?
+
+## Open Questions
+
+1. **Combien de paires (photo personne + vêtement → résultat) veux-tu préparer pour la démo ?** Je recommande 2-3 paires minimum.
+2. **Veux-tu aussi simuler le try-on depuis les pages produits (Adult.php, Men1.html, Women1.html) ?** Actuellement, ces pages redirigent vers `ai.html` avec l'image produit — la simulation fonctionnera automatiquement.
+3. **Veux-tu que le résultat par défaut (quand aucune paire n'est mappée) affiche aussi une image simulée générique ?**
+
+## Proposed Changes
+
+### Nouvelle branche Git
+
+Création de la branche `demo/viton-simulation` à partir de la branche actuelle.
+
+---
+
+### Dossier d'images simulées
+
+#### [NEW] `View/img/tryon-demo/`
+
+Nouveau dossier contenant les images pré-générées pour la simulation :
+
+```
+View/img/tryon-demo/
+├── result_default.jpg      ← Résultat par défaut (fallback)
+├── result_demo_1.jpg       ← Résultat scénario 1 (ex: homme + veste)
+├── result_demo_2.jpg       ← Résultat scénario 2 (ex: femme + robe)
+└── result_demo_3.jpg       ← Résultat scénario 3 (ex: produit shop)
+```
+
+> [!NOTE]
+> Les images seront fournies par l'utilisateur. Je génèrerai des images placeholder pour tester la mécanique.
+
+---
+
+### Modification du script Try-On
+
+#### [MODIFY] [TryOn.js](file:///c:/xampp/htdocs/AlphaStore/View/javaScript/TryOn.js)
+
+Modifications principales :
+
+1. **Ajouter un flag `SIMULATION_MODE = true`** en haut du fichier
+2. **Remplacer l'appel `fetch('http://localhost:5000/tryon')`** par une fonction de simulation qui :
+   - Affiche le spinner pendant 3-4 secondes (réaliste)
+   - Sélectionne l'image de résultat pré-générée appropriée
+   - Affiche le résultat exactement comme le ferait l'API réelle
+3. **Mapping intelligent** : Si un `productId` est passé en URL, mapper vers l'image correspondante. Sinon, utiliser `result_default.jpg`.
+
+```diff
++ // ===== DEMO SIMULATION MODE =====
++ const SIMULATION_MODE = true;
++ const SIMULATION_DELAY = 3500; // ms - délai réaliste
++ const DEMO_RESULTS = {
++   'default': '../img/tryon-demo/result_default.jpg',
++   'demo_1':  '../img/tryon-demo/result_demo_1.jpg',
++   'demo_2':  '../img/tryon-demo/result_demo_2.jpg',
++   'demo_3':  '../img/tryon-demo/result_demo_3.jpg',
++ };
++ let currentDemoIndex = 0;
++ const DEMO_KEYS = ['demo_1', 'demo_2', 'demo_3'];
+
+  // Dans le handler du bouton "Générer le try-on" :
+- const res = await fetch('http://localhost:5000/tryon', { method: 'POST', body: fd });
+- if (!res.ok) { ... }
+- const data = await res.json();
+- showResult(data.url);
+
++ if (SIMULATION_MODE) {
++   // Simulation réaliste avec délai
++   await new Promise(resolve => setTimeout(resolve, SIMULATION_DELAY));
++   const key = DEMO_KEYS[currentDemoIndex % DEMO_KEYS.length];
++   currentDemoIndex++;
++   const resultUrl = DEMO_RESULTS[key];
++   showResult(resultUrl);
++   showStatus('Image générée avec succès !', 'success');
++ } else {
++   // Appel API réel (code original)
++   const res = await fetch('http://localhost:5000/tryon', ...);
++   ...
++ }
+```
+
+**Comportement pour la démo vidéo :**
+1. L'utilisateur upload sa photo → preview s'affiche ✅
+2. L'utilisateur upload/sélectionne un vêtement → preview s'affiche ✅  
+3. Clic sur "Générer le try-on" → spinner tourne 3.5s → image pré-générée s'affiche ✅
+4. Bouton télécharger fonctionne ✅
+
+---
+
+### Aucune modification sur les pages produit
+
+Les pages **Adult.php**, **Men1.html**, **Women1.html**, **Kid1.html** n'ont **pas besoin de modification**. Leur bouton "VIRTUAL TRY ON" redirige déjà vers `ai.html?productImage=...&productId=...`, et la simulation sera gérée entièrement par le `TryOn.js` modifié.
+
+## Verification Plan
+
+### Automated Tests
+1. Créer la branche et vérifier qu'elle existe : `git branch --list demo/viton-simulation`
+2. Ouvrir `ai.html` dans le navigateur et vérifier :
+   - Upload des deux images fonctionne
+   - Clic sur "Générer" → spinner → résultat affiché
+   - Bouton télécharger fonctionne
+3. Tester depuis une page produit (Adult.php) → clic "VIRTUAL TRY ON" → redirection → simulation fonctionne
+
+### Manual Verification
+- Enregistrer la vidéo démo en parcourant le scénario complet
+- Vérifier que l'expérience utilisateur est fluide et réaliste
