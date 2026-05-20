@@ -11,13 +11,13 @@ CORS(app) # Enable CORS for all routes
 from dotenv import load_dotenv
 import os
 
-env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '.env'))
-load_dotenv(env_path)
+# Load environment variables
+load_dotenv()
 
 # ── Configuration ──────────────────────────────────────────────
 API_ID  = "yisol/IDM-VTON"
-TOKEN_0   = os.getenv("API_key_1")
-TOKEN_1 = os.getenv("API_key_2")
+TOKEN   = os.getenv("API_key_1")
+Token_1 = os.getenv("API_key_2")
 # creation des dossiers
 UPLOAD_FOLDER = os.path.join(os.getcwd(), "uploads")
 OUTPUT_FOLDER = os.path.join(os.getcwd(), "outputs")
@@ -61,7 +61,9 @@ def tryon():
     is_checked_crop = request.form.get("is_checked_crop", "0") == "1"
 
     try:
-        client = Client(API_ID, token=TOKEN_0 or TOKEN_1)
+        print(f"[DEBUG] Initializing Gradio client for API: {API_ID}")
+        client = Client(API_ID, token=TOKEN)
+        print(f"[DEBUG] Client initialized. Calling predict with files: {bg_path}, {garm_path}")
         result = client.predict(
             dict={"background": handle_file(bg_path), "layers": [], "composite": None},
             garm_img=handle_file(garm_path),
@@ -72,23 +74,45 @@ def tryon():
             seed=seed,
             api_name="/tryon"
         )
+        print(f"[DEBUG] Predict call successful. Result: {result}")
+        temp_path, _ = result
+        out_filename  = "output.jpg"
+        out_path      = os.path.join(OUTPUT_FOLDER, out_filename)
+        shutil.move(temp_path, out_path)
+
+        return jsonify({
+            "filename": out_filename,
+            "url": f"http://{request.host}/output/{out_filename}"
+        })
+    
+    except ValueError as e:
+        error_msg = str(e)
+        print(f"[ERROR] Hugging Face space error: {error_msg}")
+        if "CONFIG_ERROR" in error_msg or "invalid state" in error_msg:
+            return jsonify({
+                "error": "Virtual try-on service is temporarily unavailable (CONFIG_ERROR on Hugging Face)",
+                "status": "service_unavailable",
+                "message": "The AI model is being repaired. Please try again in a few minutes.",
+                "type": "HuggingFaceError"
+            }), 503
+        return jsonify({"error": error_msg, "type": type(e).__name__}), 500
+    
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-    temp_path, _ = result
-    out_filename  = "output.jpg"
-    out_path      = os.path.join(OUTPUT_FOLDER, out_filename)
-    shutil.move(temp_path, out_path)
-
-    return jsonify({
-        "filename": out_filename,
-        "url": f"http://{request.host}/output/{out_filename}"
-    })
+        error_msg = str(e)
+        print(f"[ERROR] Unexpected exception: {error_msg}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": error_msg, "type": type(e).__name__}), 500
 
 
 @app.route("/output/<filename>")
 def serve_output(filename):
     return send_from_directory(OUTPUT_FOLDER, filename)
+
+# Register Replicate Blueprint
+from replicate_service import replicate_bp
+app.register_blueprint(replicate_bp)
+
 
 
 if __name__ == "__main__":
