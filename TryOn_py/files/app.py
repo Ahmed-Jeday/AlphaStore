@@ -10,10 +10,14 @@ CORS(app) # Enable CORS for all routes
 
 from dotenv import load_dotenv
 import os
+
+env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '.env'))
+load_dotenv(env_path)
+
 # ── Configuration ──────────────────────────────────────────────
 API_ID  = "yisol/IDM-VTON"
-TOKEN   = os.getenv("API_key_1")
-Token_1 = os.getenv("API_key_2")
+TOKEN_0   = os.getenv("API_key_1")
+TOKEN_1 = os.getenv("API_key_2")
 # creation des dossiers
 UPLOAD_FOLDER = os.path.join(os.getcwd(), "uploads")
 OUTPUT_FOLDER = os.path.join(os.getcwd(), "outputs")
@@ -57,7 +61,7 @@ def tryon():
     is_checked_crop = request.form.get("is_checked_crop", "0") == "1"
 
     try:
-        client = Client(API_ID, token=Token_1)
+        client = Client(API_ID, token=TOKEN_0 or TOKEN_1)
         result = client.predict(
             dict={"background": handle_file(bg_path), "layers": [], "composite": None},
             garm_img=handle_file(garm_path),
